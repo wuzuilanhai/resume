@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.WorkExperienceMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.WorkExperience">
+		<id column="wExperience_id" property="wexperienceId" jdbcType="INTEGER" />
+		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="company_industry_id" property="companyIndustryId"
+			jdbcType="INTEGER" />
+		<result column="position_name" property="positionName"
+			jdbcType="VARCHAR" />
+		<result column="worksite" property="worksite" jdbcType="VARCHAR" />
+		<result column="subordinate_number" property="subordinateNumber"
+			jdbcType="INTEGER" />
+		<result column="start_time" property="startTime" jdbcType="DATE" />
+		<result column="end_time" property="endTime" jdbcType="DATE" />
+		<result column="duty" property="duty" jdbcType="VARCHAR" />
+	</resultMap>
+</mapper>

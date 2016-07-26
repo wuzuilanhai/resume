@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.EducationExperienceMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.EducationExperience">
+		<id column="eExperience_id" property="eexperienceId" jdbcType="INTEGER" />
+		<result column="school_name" property="schoolName" jdbcType="VARCHAR" />
+		<result column="major_name" property="majorName" jdbcType="VARCHAR" />
+		<result column="start_time" property="startTime" jdbcType="DATE" />
+		<result column="end_time" property="endTime" jdbcType="DATE" />
+		<result column="qualification" property="qualification"
+			jdbcType="VARCHAR" />
+		<result column="is_unify" property="isUnify" jdbcType="INTEGER" />
+	</resultMap>
+</mapper>

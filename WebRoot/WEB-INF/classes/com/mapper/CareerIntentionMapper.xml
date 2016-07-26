@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.CareerIntentionMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.CareerIntention">
+		<id column="cIntention_id" property="cintentionId" jdbcType="INTEGER" />
+		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
+		<result column="position_id" property="positionId" jdbcType="INTEGER" />
+		<result column="expect_worksite" property="expectWorksite"
+			jdbcType="VARCHAR" />
+		<result column="expect_salary" property="expectSalary"
+			jdbcType="DOUBLE" />
+		<result column="current_salary" property="currentSalary"
+			jdbcType="DOUBLE" />
+	</resultMap>
+</mapper>

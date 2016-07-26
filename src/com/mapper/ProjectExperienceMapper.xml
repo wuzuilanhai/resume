@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ProjectExperienceMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.ProjectExperience">
+		<id column="pExperience_id" property="pexperienceId" jdbcType="INTEGER" />
+		<result column="project_name" property="projectName" jdbcType="VARCHAR" />
+		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="project_position" property="projectPosition"
+			jdbcType="VARCHAR" />
+		<result column="start_time" property="startTime" jdbcType="DATE" />
+		<result column="end_time" property="endTime" jdbcType="DATE" />
+		<result column="project_description" property="projectDescription"
+			jdbcType="VARCHAR" />
+		<result column="project_responsibility" property="projectResponsibility"
+			jdbcType="VARCHAR" />
+		<result column="project_achievement" property="projectAchievement"
+			jdbcType="VARCHAR" />
+	</resultMap>
+</mapper>

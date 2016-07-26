@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.JobAcquireMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.JobAcquire">
+		<id column="jAcquire_id" property="jacquireId" jdbcType="INTEGER" />
+		<result column="language_acquire" property="languageAcquire"
+			jdbcType="VARCHAR" />
+		<result column="major_acquire" property="majorAcquire"
+			jdbcType="VARCHAR" />
+		<result column="qualification_acquire" property="qualificationAcquire"
+			jdbcType="VARCHAR" />
+		<result column="is_unify" property="isUnify" jdbcType="INTEGER" />
+		<result column="age_min" property="ageMin" jdbcType="INTEGER" />
+		<result column="age_max" property="ageMax" jdbcType="INTEGER" />
+		<result column="sex_acquire" property="sexAcquire" jdbcType="VARCHAR" />
+		<result column="job_id" property="jobId" jdbcType="INTEGER" />
+	</resultMap>
+</mapper>

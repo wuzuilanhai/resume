@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ResumeMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.Resume">
+		<id column="resume_id" property="resumeId" jdbcType="INTEGER" />
+		<result column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
+		<result column="career_intention_id" property="careerIntentionId"
+			jdbcType="INTEGER" />
+		<result column="work_experience_ids" property="workExperienceIds"
+			jdbcType="VARCHAR" />
+		<result column="education_experience_ids" property="educationExperienceIds"
+			jdbcType="VARCHAR" />
+		<result column="project_experience_ids" property="projectExperienceIds"
+			jdbcType="VARCHAR" />
+		<result column="visibility" property="visibility" jdbcType="INTEGER" />
+		<result column="visit_number" property="visitNumber" jdbcType="INTEGER" />
+		<result column="last_edit_time" property="lastEditTime"
+			jdbcType="DATE" />
+	</resultMap>
+</mapper>

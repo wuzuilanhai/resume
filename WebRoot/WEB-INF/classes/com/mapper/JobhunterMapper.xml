@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.JobhunterMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.Jobhunter">
+		<id column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
+		<result column="jobhunter_name" property="jobhunterName"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_password" property="jobhunterPassword"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_sex" property="jobhunterSex"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_birthday" property="jobhunterBirthday"
+			jdbcType="DATE" />
+		<result column="jobhunter_marital_status" property="jobhunterMaritalStatus"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_phone" property="jobhunterPhone"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_email" property="jobhunterEmail"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_native_place" property="jobhunterNativePlace"
+			jdbcType="VARCHAR" />
+		<result column="jobhunt_entrance_status" property="jobhuntEntranceStatus"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_self_appraisal" property="jobhunterSelfAppraisal"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_qualification" property="jobhunterQualification"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_joindate" property="jobhunterJoindate"
+			jdbcType="DATE" />
+		<result column="jobhunter_last_logindate" property="jobhunterLastLogindate"
+			jdbcType="DATE" />
+		<result column="jobhunter_edit_status" property="jobhunterEditStatus"
+			jdbcType="INTEGER" />
+		<result column="jobhunter_extra_message" property="jobhunterExtraMessage"
+			jdbcType="VARCHAR" />
+	</resultMap>
+</mapper>

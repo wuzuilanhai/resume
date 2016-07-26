@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.CompanyMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.Company">
+		<id column="company_id" property="companyId" jdbcType="INTEGER" />
+		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="company_location" property="companyLocation"
+			jdbcType="VARCHAR" />
+		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
+		<result column="chatter_name" property="chatterName" jdbcType="VARCHAR" />
+		<result column="chatter_sex" property="chatterSex" jdbcType="VARCHAR" />
+		<result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+	</resultMap>
+</mapper>

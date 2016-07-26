@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.MailMapper">
+	<resultMap id="BaseResultMap" type="com.pojo.Mail">
+		<id column="mail_id" property="mailId" jdbcType="INTEGER" />
+		<result column="mail_from" property="mailFrom" jdbcType="VARCHAR" />
+		<result column="mail_msg" property="mailMsg" jdbcType="VARCHAR" />
+		<result column="mail_title" property="mailTitle" jdbcType="VARCHAR" />
+		<result column="mail_to" property="mailTo" jdbcType="VARCHAR" />
+		<result column="mail_date" property="mailDate" jdbcType="DATE" />
+	</resultMap>
+</mapper>
