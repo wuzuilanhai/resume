@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Industry;
+
 /**
  * 
  * 类描述：行业持久层映射文件接口类
@@ -9,4 +11,7 @@ package com.mapper;
  * @version 1.0
  */
 public interface IndustryMapper {
+	void addIndustry(Industry industry) throws Exception;
+
+	Integer findIndustryIdByIndustryName(String industryName)  throws Exception;
 }

@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Jobhunter;
+
 /**
  * 
  * 类描述：求职者持久层映射文件接口类
@@ -9,4 +11,9 @@ package com.mapper;
  * @version 1.0
  */
 public interface JobhunterMapper {
+	void addJobHunter(Jobhunter jobhunter) throws Exception;
+
+	void updateJobHunterByDetails(Jobhunter jobhunter) throws Exception;
+
+	Jobhunter findJobHunterByPhone(String phone) throws Exception;
 }

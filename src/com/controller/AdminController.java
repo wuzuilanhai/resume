@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,8 +31,30 @@ public class AdminController extends BasicController {
 	 */
 	@RequestMapping("/findAdmin")
 	public @ResponseBody
-	Admin findAdmin(Admin admin) throws Exception {
+	Admin findAdmin(Admin admin, HttpSession session) throws Exception {
 		Admin admin2 = adminService.findAdminByNameAndPassword(admin);
+		if (admin2 != null) {
+			session.setAttribute("adminName", admin2.getAdminName());
+		}
 		return admin2;
 	}
+
+	/**
+	 * 管理员注销
+	 * 
+	 * @param session
+	 * @return 注销状态
+	 * @throws Exception
+	 */
+	@RequestMapping("/logout")
+	public @ResponseBody
+	String logout(HttpSession session) throws Exception {
+		if (session.getAttribute("adminName") != null) {
+			session.removeAttribute("adminName");
+			return "success";
+		} else {
+			return "failed";
+		}
+	}
+
 }

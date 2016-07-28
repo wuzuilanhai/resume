@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.CareerIntention;
+
 /**
  * 类描述：职业倾向业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface CareerIntentionService {
+
+	/**
+	 * 添加职业意向
+	 * 
+	 * @param careerIntention
+	 *            封装职业意向的信息
+	 */
+	void addCareerIntention(CareerIntention careerIntention) throws Exception;
 
 }

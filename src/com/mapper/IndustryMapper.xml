@@ -7,4 +7,32 @@
 			jdbcType="VARCHAR" />
 		<result column="parentId" property="parentid" jdbcType="INTEGER" />
 	</resultMap>
+	<select id="addIndustry" parameterType="com.pojo.Industry">
+		insert into industry
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="industryId != null">
+				industry_id,
+			</if>
+			<if test="industryName != null">
+				industry_name,
+			</if>
+			<if test="parentid != null">
+				parentId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="industryId != null">
+				#{industryId,jdbcType=INTEGER},
+			</if>
+			<if test="industryName != null">
+				#{industryName,jdbcType=VARCHAR},
+			</if>
+			<if test="parentid != null">
+				#{parentid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</select>
+	<select id="findIndustryIdByIndustryName" parameterType="string" resultType="int">
+		select industry_id from industry where industry_name=#{industry_name}
+	</select>
 </mapper>

@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.EducationExperience;
 import com.service.EducationExperienceService;
 
 /**
@@ -14,5 +15,10 @@ import com.service.EducationExperienceService;
 @Service
 public class EducationExperienceServiceImpl extends BasicServiceImpl implements
 		EducationExperienceService {
+
+	public void addEducationExperience(EducationExperience educationExperience)
+			throws Exception {
+		educationExperienceMapper.addEducationExperience(educationExperience);
+	}
 
 }

@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.WorkExperience;
+
 /**
  * 类描述：工作经历业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface WorkExperienceService {
+
+	/**
+	 * 添加工作经历
+	 * 
+	 * @param workExperience
+	 *            封装工作经历的实体
+	 */
+	void addWorkExperience(WorkExperience workExperience) throws Exception;
 
 }

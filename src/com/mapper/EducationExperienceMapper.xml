@@ -11,4 +11,54 @@
 			jdbcType="VARCHAR" />
 		<result column="is_unify" property="isUnify" jdbcType="INTEGER" />
 	</resultMap>
+	<insert id="addEducationExperience" parameterType="com.pojo.EducationExperience"
+		useGeneratedKeys="true" keyProperty="eexperienceId">
+		insert into education_experience
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="eexperienceId != null">
+				eExperience_id,
+			</if>
+			<if test="schoolName != null">
+				school_name,
+			</if>
+			<if test="majorName != null">
+				major_name,
+			</if>
+			<if test="startTime != null">
+				start_time,
+			</if>
+			<if test="endTime != null">
+				end_time,
+			</if>
+			<if test="qualification != null">
+				qualification,
+			</if>
+			<if test="isUnify != null">
+				is_unify,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="eexperienceId != null">
+				#{eexperienceId,jdbcType=INTEGER},
+			</if>
+			<if test="schoolName != null">
+				#{schoolName,jdbcType=VARCHAR},
+			</if>
+			<if test="majorName != null">
+				#{majorName,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				#{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				#{endTime,jdbcType=DATE},
+			</if>
+			<if test="qualification != null">
+				#{qualification,jdbcType=VARCHAR},
+			</if>
+			<if test="isUnify != null">
+				#{isUnify,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
 </mapper>

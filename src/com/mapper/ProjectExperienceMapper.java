@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.ProjectExperience;
+
 /**
  * 
  * 类描述：项目经验持久层映射文件接口类
@@ -9,4 +11,7 @@ package com.mapper;
  * @version 1.0
  */
 public interface ProjectExperienceMapper {
+
+	void addProjectExperience(ProjectExperience projectExperience)
+			throws Exception;
 }

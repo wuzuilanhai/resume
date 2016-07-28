@@ -7,4 +7,34 @@
 			jdbcType="VARCHAR" />
 		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
 	</resultMap>
+	<insert id="addPosition" parameterType="com.pojo.Position">
+		insert into position
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="positionId != null">
+				position_id,
+			</if>
+			<if test="positionName != null">
+				position_name,
+			</if>
+			<if test="industryId != null">
+				industry_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="positionId != null">
+				#{positionId,jdbcType=INTEGER},
+			</if>
+			<if test="positionName != null">
+				#{positionName,jdbcType=VARCHAR},
+			</if>
+			<if test="industryId != null">
+				#{industryId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<select id="findPositionIdByPositionName" parameterType="string"
+		resultType="int">
+		select position_id from position where
+		position_name=#{positionName}
+	</select>
 </mapper>

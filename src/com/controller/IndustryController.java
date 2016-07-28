@@ -3,6 +3,8 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pojo.Industry;
+
 /**
  * 类描述：行业控制类
  * 
@@ -14,4 +16,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/industry")
 public class IndustryController extends BasicController {
 
+	/**
+	 * 添加行业
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/addIndustry")
+	public String addIndustry(Industry industry, String parentIndustryName)
+			throws Exception {
+		Integer parentId = 0;
+		if (!"".equals(parentIndustryName)) {
+			// 由行业名称查找行业ID
+			parentId = industryService
+					.findIndustryIdByIndustryName(parentIndustryName);
+			if (parentId == null) {
+				return "failed";
+			}
+			industry.setParentid(parentId);
+		}
+		industryService.addIndustry(industry);
+		return "success";
+	}
 }

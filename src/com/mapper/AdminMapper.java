@@ -11,5 +11,5 @@ import com.pojo.Admin;
  * @version 1.0
  */
 public interface AdminMapper {
-	public Admin findAdminByNameAndPassword(Admin admin);
+	public Admin findAdminByNameAndPassword(Admin admin) throws Exception;
 }

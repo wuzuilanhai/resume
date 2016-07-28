@@ -12,4 +12,48 @@
 		<result column="current_salary" property="currentSalary"
 			jdbcType="DOUBLE" />
 	</resultMap>
+	<insert id="addCareerIntention" parameterType="com.pojo.CareerIntention"
+		useGeneratedKeys="true" keyProperty="cintentionId">
+		insert into career_intention
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cintentionId != null">
+				cIntention_id,
+			</if>
+			<if test="industryId != null">
+				industry_id,
+			</if>
+			<if test="positionId != null">
+				position_id,
+			</if>
+			<if test="expectWorksite != null">
+				expect_worksite,
+			</if>
+			<if test="expectSalary != null">
+				expect_salary,
+			</if>
+			<if test="currentSalary != null">
+				current_salary,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cintentionId != null">
+				#{cintentionId,jdbcType=INTEGER},
+			</if>
+			<if test="industryId != null">
+				#{industryId,jdbcType=INTEGER},
+			</if>
+			<if test="positionId != null">
+				#{positionId,jdbcType=INTEGER},
+			</if>
+			<if test="expectWorksite != null">
+				#{expectWorksite,jdbcType=VARCHAR},
+			</if>
+			<if test="expectSalary != null">
+				#{expectSalary,jdbcType=DOUBLE},
+			</if>
+			<if test="currentSalary != null">
+				#{currentSalary,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
 </mapper>

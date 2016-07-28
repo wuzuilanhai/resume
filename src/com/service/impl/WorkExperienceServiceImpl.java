@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.WorkExperience;
 import com.service.WorkExperienceService;
 
 /**
@@ -14,5 +15,10 @@ import com.service.WorkExperienceService;
 @Service
 public class WorkExperienceServiceImpl extends BasicServiceImpl implements
 		WorkExperienceService {
+
+	public void addWorkExperience(WorkExperience workExperience)
+			throws Exception {
+		workExperienceMapper.addWorkExperience(workExperience);
+	}
 
 }

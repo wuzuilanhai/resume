@@ -1,7 +1,10 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.pojo.Notice;
 import com.service.NoticeService;
 
 /**
@@ -14,5 +17,13 @@ import com.service.NoticeService;
 @Service
 public class NoticeServiceImpl extends BasicServiceImpl implements
 		NoticeService {
+
+	public void addNotice(Notice notice) throws Exception {
+		noticeMapper.addNotice(notice);
+	}
+
+	public List<Notice> findNotices() throws Exception {
+		return noticeMapper.findNotices();
+	}
 
 }

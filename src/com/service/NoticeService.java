@@ -1,5 +1,9 @@
 package com.service;
 
+import java.util.List;
+
+import com.pojo.Notice;
+
 /**
  * 类描述：公告业务类接口
  * 
@@ -8,5 +12,20 @@ package com.service;
  * @version 1.0
  */
 public interface NoticeService {
+
+	/**
+	 * 添加公告
+	 * 
+	 * @param notice
+	 *            封装的公告信息
+	 */
+	void addNotice(Notice notice) throws Exception;
+
+	/**
+	 * 查看所有公告
+	 * 
+	 * @return 公告列表
+	 */
+	List<Notice> findNotices() throws Exception;
 
 }

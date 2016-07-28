@@ -34,4 +34,174 @@
 		<result column="jobhunter_extra_message" property="jobhunterExtraMessage"
 			jdbcType="VARCHAR" />
 	</resultMap>
+	<insert id="addJobHunter" parameterType="com.pojo.Jobhunter">
+		insert into jobhunter
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="jobhunterId != null">
+				jobhunter_id,
+			</if>
+			<if test="jobhunterName != null">
+				jobhunter_name,
+			</if>
+			<if test="jobhunterPassword != null">
+				jobhunter_password,
+			</if>
+			<if test="jobhunterSex != null">
+				jobhunter_sex,
+			</if>
+			<if test="jobhunterBirthday != null">
+				jobhunter_birthday,
+			</if>
+			<if test="jobhunterMaritalStatus != null">
+				jobhunter_marital_status,
+			</if>
+			<if test="jobhunterPhone != null">
+				jobhunter_phone,
+			</if>
+			<if test="jobhunterEmail != null">
+				jobhunter_email,
+			</if>
+			<if test="jobhunterNativePlace != null">
+				jobhunter_native_place,
+			</if>
+			<if test="jobhuntEntranceStatus != null">
+				jobhunt_entrance_status,
+			</if>
+			<if test="jobhunterSelfAppraisal != null">
+				jobhunter_self_appraisal,
+			</if>
+			<if test="jobhunterQualification != null">
+				jobhunter_qualification,
+			</if>
+			<if test="jobhunterJoindate != null">
+				jobhunter_joindate,
+			</if>
+			<if test="jobhunterLastLogindate != null">
+				jobhunter_last_logindate,
+			</if>
+			<if test="jobhunterEditStatus != null">
+				jobhunter_edit_status,
+			</if>
+			<if test="jobhunterExtraMessage != null">
+				jobhunter_extra_message,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="jobhunterId != null">
+				#{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterName != null">
+				#{jobhunterName,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterPassword != null">
+				#{jobhunterPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterSex != null">
+				#{jobhunterSex,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterBirthday != null">
+				#{jobhunterBirthday,jdbcType=DATE},
+			</if>
+			<if test="jobhunterMaritalStatus != null">
+				#{jobhunterMaritalStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterPhone != null">
+				#{jobhunterPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterEmail != null">
+				#{jobhunterEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterNativePlace != null">
+				#{jobhunterNativePlace,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhuntEntranceStatus != null">
+				#{jobhuntEntranceStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterSelfAppraisal != null">
+				#{jobhunterSelfAppraisal,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterQualification != null">
+				#{jobhunterQualification,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterJoindate != null">
+				#{jobhunterJoindate,jdbcType=DATE},
+			</if>
+			<if test="jobhunterLastLogindate != null">
+				#{jobhunterLastLogindate,jdbcType=DATE},
+			</if>
+			<if test="jobhunterEditStatus != null">
+				#{jobhunterEditStatus,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterExtraMessage != null">
+				#{jobhunterExtraMessage,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateJobHunterByDetails" parameterType="com.pojo.Jobhunter">
+		update jobhunter
+		<set>
+			<if test="jobhunterId != null">
+				jobhunter_id = #{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterName != null">
+				jobhunter_name = #{jobhunterName,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterPassword != null">
+				jobhunter_password =
+				#{jobhunterPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterSex != null">
+				jobhunter_sex = #{jobhunterSex,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterBirthday != null">
+				jobhunter_birthday = #{jobhunterBirthday,jdbcType=DATE},
+			</if>
+			<if test="jobhunterMaritalStatus != null">
+				jobhunter_marital_status =
+				#{jobhunterMaritalStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterPhone != null">
+				jobhunter_phone = #{jobhunterPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterEmail != null">
+				jobhunter_email = #{jobhunterEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterNativePlace != null">
+				jobhunter_native_place =
+				#{jobhunterNativePlace,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhuntEntranceStatus != null">
+				jobhunt_entrance_status =
+				#{jobhuntEntranceStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterSelfAppraisal != null">
+				jobhunter_self_appraisal =
+				#{jobhunterSelfAppraisal,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterQualification != null">
+				jobhunter_qualification =
+				#{jobhunterQualification,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterJoindate != null">
+				jobhunter_joindate = #{jobhunterJoindate,jdbcType=DATE},
+			</if>
+			<if test="jobhunterLastLogindate != null">
+				jobhunter_last_logindate =
+				#{jobhunterLastLogindate,jdbcType=DATE},
+			</if>
+			<if test="jobhunterEditStatus != null">
+				jobhunter_edit_status =
+				#{jobhunterEditStatus,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterExtraMessage != null">
+				jobhunter_extra_message =
+				#{jobhunterExtraMessage,jdbcType=VARCHAR},
+			</if>
+		</set>
+	</update>
+	<select id="findJobHunterByPhone" parameterType="string"
+		resultMap="BaseResultMap">
+		select * from jobhunter where
+		jobhunter_phone=#{jobhunterPhone}
+	</select>
 </mapper>

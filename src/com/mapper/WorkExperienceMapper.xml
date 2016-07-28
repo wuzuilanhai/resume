@@ -15,4 +15,66 @@
 		<result column="end_time" property="endTime" jdbcType="DATE" />
 		<result column="duty" property="duty" jdbcType="VARCHAR" />
 	</resultMap>
+	<insert id="addWorkExperience" parameterType="com.pojo.WorkExperience"
+		useGeneratedKeys="true" keyProperty="wexperienceId">
+		insert into work_experience
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="wexperienceId != null">
+				wExperience_id,
+			</if>
+			<if test="companyName != null">
+				company_name,
+			</if>
+			<if test="companyIndustryId != null">
+				company_industry_id,
+			</if>
+			<if test="positionName != null">
+				position_name,
+			</if>
+			<if test="worksite != null">
+				worksite,
+			</if>
+			<if test="subordinateNumber != null">
+				subordinate_number,
+			</if>
+			<if test="startTime != null">
+				start_time,
+			</if>
+			<if test="endTime != null">
+				end_time,
+			</if>
+			<if test="duty != null">
+				duty,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="wexperienceId != null">
+				#{wexperienceId,jdbcType=INTEGER},
+			</if>
+			<if test="companyName != null">
+				#{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyIndustryId != null">
+				#{companyIndustryId,jdbcType=INTEGER},
+			</if>
+			<if test="positionName != null">
+				#{positionName,jdbcType=VARCHAR},
+			</if>
+			<if test="worksite != null">
+				#{worksite,jdbcType=VARCHAR},
+			</if>
+			<if test="subordinateNumber != null">
+				#{subordinateNumber,jdbcType=INTEGER},
+			</if>
+			<if test="startTime != null">
+				#{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				#{endTime,jdbcType=DATE},
+			</if>
+			<if test="duty != null">
+				#{duty,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
 </mapper>

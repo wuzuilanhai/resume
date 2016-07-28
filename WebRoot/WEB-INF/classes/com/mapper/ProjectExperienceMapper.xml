@@ -16,4 +16,66 @@
 		<result column="project_achievement" property="projectAchievement"
 			jdbcType="VARCHAR" />
 	</resultMap>
+	<insert id="addProjectExperience" parameterType="com.pojo.ProjectExperience"
+		useGeneratedKeys="true" keyProperty="pexperienceId">
+		insert into project_experience
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pexperienceId != null">
+				pExperience_id,
+			</if>
+			<if test="projectName != null">
+				project_name,
+			</if>
+			<if test="companyName != null">
+				company_name,
+			</if>
+			<if test="projectPosition != null">
+				project_position,
+			</if>
+			<if test="startTime != null">
+				start_time,
+			</if>
+			<if test="endTime != null">
+				end_time,
+			</if>
+			<if test="projectDescription != null">
+				project_description,
+			</if>
+			<if test="projectResponsibility != null">
+				project_responsibility,
+			</if>
+			<if test="projectAchievement != null">
+				project_achievement,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pexperienceId != null">
+				#{pexperienceId,jdbcType=INTEGER},
+			</if>
+			<if test="projectName != null">
+				#{projectName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null">
+				#{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="projectPosition != null">
+				#{projectPosition,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				#{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				#{endTime,jdbcType=DATE},
+			</if>
+			<if test="projectDescription != null">
+				#{projectDescription,jdbcType=VARCHAR},
+			</if>
+			<if test="projectResponsibility != null">
+				#{projectResponsibility,jdbcType=VARCHAR},
+			</if>
+			<if test="projectAchievement != null">
+				#{projectAchievement,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
 </mapper>

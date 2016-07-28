@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.CareerIntention;
 import com.service.CareerIntentionService;
 
 /**
@@ -14,5 +15,10 @@ import com.service.CareerIntentionService;
 @Service
 public class CareerIntentionServiceImpl extends BasicServiceImpl implements
 		CareerIntentionService {
+
+	public void addCareerIntention(CareerIntention careerIntention)
+			throws Exception {
+		careerIntentionMapper.addCareerIntention(careerIntention);
+	}
 
 }

@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.Position;
 import com.service.PositionService;
 
 /**
@@ -14,5 +15,14 @@ import com.service.PositionService;
 @Service
 public class PositionServiceImpl extends BasicServiceImpl implements
 		PositionService {
+
+	public void addPosition(Position position) throws Exception {
+		positionMapper.addPosition(position);
+	}
+
+	public Integer findPositionIdByPositionName(String positionName)
+			throws Exception {
+		return positionMapper.findPositionIdByPositionName(positionName);
+	}
 
 }

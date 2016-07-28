@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.EducationExperience;
+
 /**
  * 
  * 类描述：教育经历持久层映射文件接口类
@@ -9,4 +11,7 @@ package com.mapper;
  * @version 1.0
  */
 public interface EducationExperienceMapper {
+
+	void addEducationExperience(EducationExperience educationExperience)
+			throws Exception;
 }

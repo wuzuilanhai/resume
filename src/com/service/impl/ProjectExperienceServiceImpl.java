@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.ProjectExperience;
 import com.service.ProjectExperienceService;
 
 /**
@@ -14,5 +15,10 @@ import com.service.ProjectExperienceService;
 @Service
 public class ProjectExperienceServiceImpl extends BasicServiceImpl implements
 		ProjectExperienceService {
+
+	public void addProjectExperience(ProjectExperience projectExperience)
+			throws Exception {
+		projectExperienceMapper.addProjectExperience(projectExperience);
+	}
 
 }

@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.Jobhunter;
 import com.service.JobHunterService;
 
 /**
@@ -14,5 +15,17 @@ import com.service.JobHunterService;
 @Service
 public class JobHunterServiceImpl extends BasicServiceImpl implements
 		JobHunterService {
+
+	public void addJobHunter(Jobhunter jobhunter) throws Exception {
+		jobhunterMapper.addJobHunter(jobhunter);
+	}
+
+	public void updateJobHunterByDetails(Jobhunter jobhunter) throws Exception {
+		jobhunterMapper.updateJobHunterByDetails(jobhunter);
+	}
+
+	public Jobhunter findJobHunterByPhone(String phone) throws Exception {
+		return jobhunterMapper.findJobHunterByPhone(phone);
+	}
 
 }

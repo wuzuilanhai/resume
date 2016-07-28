@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.Industry;
 import com.service.IndustryService;
 
 /**
@@ -14,5 +15,12 @@ import com.service.IndustryService;
 @Service
 public class IndustryServiceImpl extends BasicServiceImpl implements
 		IndustryService {
+	public void addIndustry(Industry industry) throws Exception {
+		industryMapper.addIndustry(industry);
+	}
+
+	public Integer findIndustryIdByIndustryName(String industryName) throws Exception{
+		return industryMapper.findIndustryIdByIndustryName(industryName);
+	}
 
 }

@@ -1,5 +1,9 @@
 package com.mapper;
 
+import java.util.List;
+
+import com.pojo.Notice;
+
 /**
  * 
  * 类描述：公告持久层映射文件接口类
@@ -9,4 +13,7 @@ package com.mapper;
  * @version 1.0
  */
 public interface NoticeMapper {
+	void addNotice(Notice notice) throws Exception;
+
+	List<Notice> findNotices() throws Exception;
 }

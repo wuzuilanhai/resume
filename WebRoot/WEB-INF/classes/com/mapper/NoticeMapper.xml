@@ -10,4 +10,44 @@
 			jdbcType="VARCHAR" />
 		<result column="notice_date" property="noticeDate" jdbcType="DATE" />
 	</resultMap>
+	<insert id="addNotice" parameterType="com.pojo.Notice">
+		insert into notice
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="noticeId != null">
+				notice_id,
+			</if>
+			<if test="noticeTitle != null">
+				notice_title,
+			</if>
+			<if test="noticeContent != null">
+				notice_content,
+			</if>
+			<if test="noticeAuthor != null">
+				notice_author,
+			</if>
+			<if test="noticeDate != null">
+				notice_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="noticeId != null">
+				#{noticeId,jdbcType=INTEGER},
+			</if>
+			<if test="noticeTitle != null">
+				#{noticeTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="noticeContent != null">
+				#{noticeContent,jdbcType=VARCHAR},
+			</if>
+			<if test="noticeAuthor != null">
+				#{noticeAuthor,jdbcType=VARCHAR},
+			</if>
+			<if test="noticeDate != null">
+				#{noticeDate,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+	<select id="findNotices" resultMap="BaseResultMap">
+		select * from notice
+	</select>
 </mapper>
