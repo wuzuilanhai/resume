@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.Resume;
+
 /**
  * 类描述：简历业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface ResumeService {
+
+	/**
+	 * 添加简历
+	 * 
+	 * @param resume
+	 *            封装简历信息的实体类
+	 */
+	void addResume(Resume resume) throws Exception;
 
 }

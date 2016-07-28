@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Resume;
+
 /**
  * 
  * 类描述：简历持久层映射文件接口类
@@ -9,4 +11,6 @@ package com.mapper;
  * @version 1.0
  */
 public interface ResumeMapper {
+
+	void addResume(Resume resume);
 }

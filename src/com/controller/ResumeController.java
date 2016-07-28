@@ -1,8 +1,11 @@
 package com.controller;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pojo.Jobhunter;
 import com.pojo.Resume;
 
 /**
@@ -22,7 +25,16 @@ public class ResumeController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addResume")
-	public String addResume(Resume resume) throws Exception {
+	public String addResume(Resume resume, String jobhunterPhone)
+			throws Exception {
+		Jobhunter jobhunter = jobHunterService
+				.findJobHunterByPhone(jobhunterPhone);
+		if(jobhunter==null){
+			return "failed";
+		}
+		resume.setJobhunterId(jobhunter.getJobhunterId());
+		resume.setLastEditTime(new Date());
+		resumeService.addResume(resume);
 		return "success";
 	}
 }

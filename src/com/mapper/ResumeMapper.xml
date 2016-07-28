@@ -17,4 +17,65 @@
 		<result column="last_edit_time" property="lastEditTime"
 			jdbcType="DATE" />
 	</resultMap>
+	<select id="addResume" parameterType="com.pojo.Resume">
+		insert into resume
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="resumeId != null">
+				resume_id,
+			</if>
+			<if test="jobhunterId != null">
+				jobhunter_id,
+			</if>
+			<if test="careerIntentionId != null">
+				career_intention_id,
+			</if>
+			<if test="workExperienceIds != null">
+				work_experience_ids,
+			</if>
+			<if test="educationExperienceIds != null">
+				education_experience_ids,
+			</if>
+			<if test="projectExperienceIds != null">
+				project_experience_ids,
+			</if>
+			<if test="visibility != null">
+				visibility,
+			</if>
+			<if test="visitNumber != null">
+				visit_number,
+			</if>
+			<if test="lastEditTime != null">
+				last_edit_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="resumeId != null">
+				#{resumeId,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterId != null">
+				#{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="careerIntentionId != null">
+				#{careerIntentionId,jdbcType=INTEGER},
+			</if>
+			<if test="workExperienceIds != null">
+				#{workExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="educationExperienceIds != null">
+				#{educationExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="projectExperienceIds != null">
+				#{projectExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="visibility != null">
+				#{visibility,jdbcType=INTEGER},
+			</if>
+			<if test="visitNumber != null">
+				#{visitNumber,jdbcType=INTEGER},
+			</if>
+			<if test="lastEditTime != null">
+				#{lastEditTime,jdbcType=DATE},
+			</if>
+		</trim>
+	</select>
 </mapper>

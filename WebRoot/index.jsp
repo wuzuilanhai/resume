@@ -100,5 +100,12 @@
 		<input name="projectAchievement" type="text"/><br/>
 		<input value="添加项目经验" type="button" id="addProjectExperienceBtn" />
 	</form>
+	<form id="form9" method="post"
+		action="${pageContext.request.contextPath }/resume/addResume.action">
+		<input name="jobhunterPhone" type="text" /><br /> 
+		<input name="visibility" type="text"/><br/>
+		<input name="visitNumber" type="text"/><br/>
+		<input value="添加简历" type="button" id="addResumeBtn" />
+	</form>
 </body>
 </html>

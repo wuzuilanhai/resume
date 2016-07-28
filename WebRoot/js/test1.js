@@ -85,4 +85,11 @@ $(document).ready(
 					alert(data);
 				});
 			});
+			$('#addResumeBtn').click(function() {
+				var action=$('#form9').attr('action');
+				var formData=$('#form9').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
 		});
