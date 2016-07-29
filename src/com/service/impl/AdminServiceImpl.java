@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.exception.MyException;
 import com.pojo.Admin;
 import com.service.AdminService;
 
@@ -17,7 +18,11 @@ import com.service.AdminService;
 public class AdminServiceImpl extends BasicServiceImpl implements AdminService {
 
 	public Admin findAdminByNameAndPassword(Admin admin) throws Exception {
-		return adminMapper.findAdminByNameAndPassword(admin);
+		Admin admin2 = adminMapper.findAdminByNameAndPassword(admin);
+		if (admin2 == null) {
+			throw new MyException("管理员账户和密码不符合！");
+		}
+		return admin2;
 	}
 
 }

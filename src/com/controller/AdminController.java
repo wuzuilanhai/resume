@@ -29,7 +29,7 @@ public class AdminController extends BasicController {
 	 * @return json数据的admin对象
 	 * @throws Exception
 	 */
-	@RequestMapping("/findAdmin")
+	@RequestMapping("/adminLogin")
 	public @ResponseBody
 	Admin findAdmin(Admin admin, HttpSession session) throws Exception {
 		Admin admin2 = adminService.findAdminByNameAndPassword(admin);

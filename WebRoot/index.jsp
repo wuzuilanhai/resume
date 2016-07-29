@@ -25,10 +25,10 @@
 </head>
 <body>
 	<form id="form" method="post"
-		action="${pageContext.request.contextPath }/admin/findAdmin.action">
+		action="${pageContext.request.contextPath }/admin/adminLogin.action">
 		<input name="adminName" type="text" /><br /> 
 		<input name="adminPassword" type="text" /><br /> 
-		<input value="管理员登陆" type="button" id="logInBtn" />
+		<input value="管理员登陆" type="submit" />
 	</form>
 	<input type="text" id="showAdminName" /><br />
 	<input value="注销" type="button" id="logoutBtn" />
