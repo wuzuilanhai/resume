@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.JobAcquire;
 import com.service.JobAcquireService;
 
 /**
@@ -14,5 +15,9 @@ import com.service.JobAcquireService;
 @Service
 public class JobAcquireServiceImpl extends BasicServiceImpl implements
 		JobAcquireService {
+
+	public void addJobAcquire(JobAcquire jobAcquire) throws Exception {
+		jobAcquireMapper.addJobAcquire(jobAcquire);
+	}
 
 }

@@ -7,7 +7,7 @@
 			jdbcType="VARCHAR" />
 		<result column="parentId" property="parentid" jdbcType="INTEGER" />
 	</resultMap>
-	<select id="addIndustry" parameterType="com.pojo.Industry">
+	<insert id="addIndustry" parameterType="com.pojo.Industry">
 		insert into industry
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="industryId != null">
@@ -31,7 +31,7 @@
 				#{parentid,jdbcType=INTEGER},
 			</if>
 		</trim>
-	</select>
+	</insert>
 	<select id="findIndustryIdByIndustryName" parameterType="string" resultType="int">
 		select industry_id from industry where industry_name=#{industry_name}
 	</select>

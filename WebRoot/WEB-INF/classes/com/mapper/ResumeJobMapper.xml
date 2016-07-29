@@ -5,4 +5,23 @@
 		<result column="resume_id" property="resumeId" jdbcType="INTEGER" />
 		<result column="job_id" property="jobId" jdbcType="INTEGER" />
 	</resultMap>
+	<insert id="addResumeJob" parameterType="com.pojo.ResumeJob">
+		insert into resume_job
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="resumeId != null">
+				resume_id,
+			</if>
+			<if test="jobId != null">
+				job_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="resumeId != null">
+				#{resumeId,jdbcType=INTEGER},
+			</if>
+			<if test="jobId != null">
+				#{jobId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
 </mapper>

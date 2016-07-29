@@ -9,4 +9,47 @@
 		<result column="mail_to" property="mailTo" jdbcType="VARCHAR" />
 		<result column="mail_date" property="mailDate" jdbcType="DATE" />
 	</resultMap>
+	<insert id="addMail" parameterType="com.pojo.Mail">
+		insert into mail
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="mailId != null">
+				mail_id,
+			</if>
+			<if test="mailFrom != null">
+				mail_from,
+			</if>
+			<if test="mailMsg != null">
+				mail_msg,
+			</if>
+			<if test="mailTitle != null">
+				mail_title,
+			</if>
+			<if test="mailTo != null">
+				mail_to,
+			</if>
+			<if test="mailDate != null">
+				mail_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="mailId != null">
+				#{mailId,jdbcType=INTEGER},
+			</if>
+			<if test="mailFrom != null">
+				#{mailFrom,jdbcType=VARCHAR},
+			</if>
+			<if test="mailMsg != null">
+				#{mailMsg,jdbcType=VARCHAR},
+			</if>
+			<if test="mailTitle != null">
+				#{mailTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="mailTo != null">
+				#{mailTo,jdbcType=VARCHAR},
+			</if>
+			<if test="mailDate != null">
+				#{mailDate,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
 </mapper>

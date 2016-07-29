@@ -15,4 +15,65 @@
 		<result column="sex_acquire" property="sexAcquire" jdbcType="VARCHAR" />
 		<result column="job_id" property="jobId" jdbcType="INTEGER" />
 	</resultMap>
+	<insert id="addJobAcquire" parameterType="com.pojo.JobAcquire">
+		insert into job_acquire
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="jacquireId != null">
+				jAcquire_id,
+			</if>
+			<if test="languageAcquire != null">
+				language_acquire,
+			</if>
+			<if test="majorAcquire != null">
+				major_acquire,
+			</if>
+			<if test="qualificationAcquire != null">
+				qualification_acquire,
+			</if>
+			<if test="isUnify != null">
+				is_unify,
+			</if>
+			<if test="ageMin != null">
+				age_min,
+			</if>
+			<if test="ageMax != null">
+				age_max,
+			</if>
+			<if test="sexAcquire != null">
+				sex_acquire,
+			</if>
+			<if test="jobId != null">
+				job_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="jacquireId != null">
+				#{jacquireId,jdbcType=INTEGER},
+			</if>
+			<if test="languageAcquire != null">
+				#{languageAcquire,jdbcType=VARCHAR},
+			</if>
+			<if test="majorAcquire != null">
+				#{majorAcquire,jdbcType=VARCHAR},
+			</if>
+			<if test="qualificationAcquire != null">
+				#{qualificationAcquire,jdbcType=VARCHAR},
+			</if>
+			<if test="isUnify != null">
+				#{isUnify,jdbcType=INTEGER},
+			</if>
+			<if test="ageMin != null">
+				#{ageMin,jdbcType=INTEGER},
+			</if>
+			<if test="ageMax != null">
+				#{ageMax,jdbcType=INTEGER},
+			</if>
+			<if test="sexAcquire != null">
+				#{sexAcquire,jdbcType=VARCHAR},
+			</if>
+			<if test="jobId != null">
+				#{jobId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
 </mapper>

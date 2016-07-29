@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.Mail;
 import com.service.MailService;
 
 /**
@@ -13,5 +14,9 @@ import com.service.MailService;
  */
 @Service
 public class MailServiceImpl extends BasicServiceImpl implements MailService {
+
+	public void addMail(Mail mail) throws Exception {
+		mailMapper.addMail(mail);
+	}
 
 }

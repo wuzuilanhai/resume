@@ -17,7 +17,7 @@
 		<result column="last_edit_time" property="lastEditTime"
 			jdbcType="DATE" />
 	</resultMap>
-	<select id="addResume" parameterType="com.pojo.Resume">
+	<insert id="addResume" parameterType="com.pojo.Resume">
 		insert into resume
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="resumeId != null">
@@ -77,5 +77,5 @@
 				#{lastEditTime,jdbcType=DATE},
 			</if>
 		</trim>
-	</select>
+	</insert>
 </mapper>

@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Company;
+
 /**
  * 
  * 类描述：企业公司持久层映射文件接口类
@@ -9,4 +11,7 @@ package com.mapper;
  * @version 1.0
  */
 public interface CompanyMapper {
+	void addCompany(Company company) throws Exception;
+
+	Integer findCompanyIdByCompanyName(String companyName) throws Exception;
 }

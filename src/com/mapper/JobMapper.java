@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Job;
+
 /**
  * 
  * 类描述：职位持久层映射文件接口类
@@ -9,4 +11,6 @@ package com.mapper;
  * @version 1.0
  */
 public interface JobMapper {
+
+	void addJob(Job job) throws Exception;
 }

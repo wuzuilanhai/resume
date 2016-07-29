@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.JobhunterUpload;
 import com.service.JobHunterUploadService;
 
 /**
@@ -14,5 +15,10 @@ import com.service.JobHunterUploadService;
 @Service
 public class JobHunterUploadServiceImpl extends BasicServiceImpl implements
 		JobHunterUploadService {
+
+	public void addJobHunterUpload(JobhunterUpload jobhunterUpload)
+			throws Exception {
+		jobhunterUploadMapper.addJobHunterUpload(jobhunterUpload);
+	}
 
 }

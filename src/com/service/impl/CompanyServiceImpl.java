@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.Company;
 import com.service.CompanyService;
 
 /**
@@ -14,5 +15,14 @@ import com.service.CompanyService;
 @Service
 public class CompanyServiceImpl extends BasicServiceImpl implements
 		CompanyService {
+
+	public void addCompany(Company company) throws Exception {
+		companyMapper.addCompany(company);
+	}
+
+	public Integer findCompanyIdByCompanyName(String companyName)
+			throws Exception {
+		return companyMapper.findCompanyIdByCompanyName(companyName);
+	}
 
 }

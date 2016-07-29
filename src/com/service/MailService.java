@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.Mail;
+
 /**
  * 类描述：邮件业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface MailService {
+
+	/**
+	 * 发送邮件
+	 * 
+	 * @param mail
+	 *            封装邮件信息的实体
+	 */
+	void addMail(Mail mail) throws Exception;
 
 }

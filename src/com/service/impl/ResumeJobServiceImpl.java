@@ -2,6 +2,7 @@ package com.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.pojo.ResumeJob;
 import com.service.ResumeJobService;
 
 /**
@@ -14,5 +15,9 @@ import com.service.ResumeJobService;
 @Service
 public class ResumeJobServiceImpl extends BasicServiceImpl implements
 		ResumeJobService {
+
+	public void addResumeJob(ResumeJob resumeJob) throws Exception {
+		resumeJobMapper.addResumeJob(resumeJob);
+	}
 
 }

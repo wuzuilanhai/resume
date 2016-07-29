@@ -107,5 +107,59 @@
 		<input name="visitNumber" type="text"/><br/>
 		<input value="添加简历" type="button" id="addResumeBtn" />
 	</form>
+	<form id="form10" method="post"
+		action="${pageContext.request.contextPath }/company/addCompany.action">
+		<input name="companyName" type="text" /><br /> 
+		<input name="companyPassword" type="text" /><br /> 
+		<input name="companyLocation" type="text"/><br/>
+		<input name="industryName" type="text"/><br/>
+		<input name="chatterName" type="text"/><br/>
+		<input name="chatterSex" type="text"/><br/>
+		<input name="phoneNumber" type="text"/><br/>
+		<input value="添加企业" type="button" id="addCompanyBtn" />
+	</form>
+	<form id="form11" method="post"
+		action="${pageContext.request.contextPath }/job/addJob.action">
+		<input name="jobName" type="text" /><br /> 
+		<input name="worksite" type="text"/><br/>
+		<input name="positionName" type="text"/><br/>
+		<input name="jobSalary" type="text"/><br/>
+		<input name="jobDescription" type="text"/><br/>
+		<input name="jobEmail" type="text"/><br/>
+		<input name="companyName" type="text"/><br/>
+		<input value="发布职位" type="button" id="addJobBtn" />
+	</form>
+	<form id="form12" method="post"
+		action="${pageContext.request.contextPath }/jobAcquire/addJobAcquire.action">
+		<input name="languageAcquire" type="text" /><br /> 
+		<input name="majorAcquire" type="text"/><br/>
+		<input name="qualificationAcquire" type="text"/><br/>
+		<input name="isUnify" type="text"/><br/>
+		<input name="ageMin" type="text"/><br/>
+		<input name="ageMax" type="text"/><br/>
+		<input name="sexAcquire" type="text"/><br/>
+		<input name="jobId" type="text"/><br/>
+		<input value="添加职位要求" type="button" id="addJobAcquireBtn" />
+	</form>
+	<form id="form13" method="post"
+		action="${pageContext.request.contextPath }/resumeJob/addResumeJob.action">
+		<input name="resumeId" type="text" /><br /> 
+		<input name="jobId" type="text"/><br/>
+		<input value="添加简历-职位关系" type="button" id="addResumeJobBtn" />
+	</form>
+	<form id="form14" method="post"  enctype="multipart/form-data"
+		action="${pageContext.request.contextPath }/jobHunterUpload/addJobHunterUpload.action">
+		<input name=uploadPic type="file" /><br /> 
+		<input name=jobhunterId type="text" /><br /> 
+		<input value="上传求职者头像" type="submit" />
+	</form>
+	<form id="form15" method="post"
+		action="${pageContext.request.contextPath }/mail/addMail.action">
+		<input name="mailFrom" type="text" /><br /> 
+		<input name="mailTitle" type="text"/><br/>
+		<input name="mailMsg" type="text"/><br/>
+		<input name="mailTo" type="text"/><br/>
+		<input value="发送邮件" type="button" id="addMailBtn" />
+	</form>
 </body>
 </html>

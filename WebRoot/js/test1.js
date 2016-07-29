@@ -92,4 +92,39 @@ $(document).ready(
 					alert(data);
 				});
 			});
+			$('#addCompanyBtn').click(function() {
+				var action=$('#form10').attr('action');
+				var formData=$('#form10').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
+			$('#addJobBtn').click(function() {
+				var action=$('#form11').attr('action');
+				var formData=$('#form11').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
+			$('#addJobAcquireBtn').click(function() {
+				var action=$('#form12').attr('action');
+				var formData=$('#form12').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
+			$('#addResumeJobBtn').click(function() {
+				var action=$('#form13').attr('action');
+				var formData=$('#form13').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
+			$('#addMailBtn').click(function() {
+				var action=$('#form15').attr('action');
+				var formData=$('#form15').serialize();
+				$.post(action,formData,function(data){
+					alert(data);
+				});
+			});
 		});

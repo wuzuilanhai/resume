@@ -3,6 +3,8 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pojo.JobAcquire;
+
 /**
  * 类描述：职位要求控制类
  * 
@@ -13,5 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/jobAcquire")
 public class JobAcquireController extends BasicController {
-
+	/**
+	 * 添加职位要求
+	 * 
+	 * @param jobAcquire
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/addJobAcquire")
+	public String addJobAcquire(JobAcquire jobAcquire) throws Exception {
+		jobAcquireService.addJobAcquire(jobAcquire);
+		return "success";
+	}
 }

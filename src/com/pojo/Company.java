@@ -13,6 +13,8 @@ public class Company {
 
 	private String companyName;
 
+	private String companyPassword;
+
 	private String companyLocation;
 
 	private Integer industryId;
@@ -37,6 +39,15 @@ public class Company {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName == null ? null : companyName.trim();
+	}
+
+	public String getCompanyPassword() {
+		return companyPassword;
+	}
+
+	public void setCompanyPassword(String companyPassword) {
+		this.companyPassword = companyPassword == null ? null : companyPassword
+				.trim();
 	}
 
 	public String getCompanyLocation() {

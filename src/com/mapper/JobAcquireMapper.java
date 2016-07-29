@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.JobAcquire;
+
 /**
  * 
  * 类描述：职位要求持久层映射文件接口类
@@ -9,4 +11,6 @@ package com.mapper;
  * @version 1.0
  */
 public interface JobAcquireMapper {
+
+	void addJobAcquire(JobAcquire jobAcquire);
 }

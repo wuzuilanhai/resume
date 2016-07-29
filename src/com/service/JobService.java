@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.Job;
+
 /**
  * 类描述：职位业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface JobService {
+
+	/**
+	 * 添加简历
+	 * 
+	 * @param job
+	 *            封装简历信息的实体
+	 */
+	void addJob(Job job) throws Exception;
 
 }

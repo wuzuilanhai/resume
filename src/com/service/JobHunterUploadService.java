@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.JobhunterUpload;
+
 /**
  * 类描述：求职者上传图片类的业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface JobHunterUploadService {
+
+	/**
+	 * 添加求职者上传图片
+	 * 
+	 * @param jobhunterUpload
+	 *            封装求职者上传图片信息的实体
+	 */
+	void addJobHunterUpload(JobhunterUpload jobhunterUpload) throws Exception;
 
 }

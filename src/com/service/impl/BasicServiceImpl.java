@@ -43,7 +43,7 @@ public class BasicServiceImpl {
 	@Resource
 	protected JobMapper jobMapper;
 	@Resource
-	protected JobAcquireMapper acquireMapper;
+	protected JobAcquireMapper jobAcquireMapper;
 	@Resource
 	protected JobhunterMapper jobhunterMapper;
 	@Resource

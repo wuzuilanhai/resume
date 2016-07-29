@@ -14,4 +14,71 @@
 		<result column="job_email" property="jobEmail" jdbcType="VARCHAR" />
 		<result column="company_id" property="companyId" jdbcType="INTEGER" />
 	</resultMap>
+	<insert id="addJob" parameterType="com.pojo.Job">
+		insert into job
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="jobId != null">
+				job_id,
+			</if>
+			<if test="jobName != null">
+				job_name,
+			</if>
+			<if test="worksite != null">
+				worksite,
+			</if>
+			<if test="jobSubtime != null">
+				job_subtime,
+			</if>
+			<if test="positionId != null">
+				position_id,
+			</if>
+			<if test="jobSalary != null">
+				job_salary,
+			</if>
+			<if test="jobStatus != null">
+				job_status,
+			</if>
+			<if test="jobDescription != null">
+				job_description,
+			</if>
+			<if test="jobEmail != null">
+				job_email,
+			</if>
+			<if test="companyId != null">
+				company_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="jobId != null">
+				#{jobId,jdbcType=INTEGER},
+			</if>
+			<if test="jobName != null">
+				#{jobName,jdbcType=VARCHAR},
+			</if>
+			<if test="worksite != null">
+				#{worksite,jdbcType=VARCHAR},
+			</if>
+			<if test="jobSubtime != null">
+				#{jobSubtime,jdbcType=DATE},
+			</if>
+			<if test="positionId != null">
+				#{positionId,jdbcType=INTEGER},
+			</if>
+			<if test="jobSalary != null">
+				#{jobSalary,jdbcType=DOUBLE},
+			</if>
+			<if test="jobStatus != null">
+				#{jobStatus,jdbcType=INTEGER},
+			</if>
+			<if test="jobDescription != null">
+				#{jobDescription,jdbcType=VARCHAR},
+			</if>
+			<if test="jobEmail != null">
+				#{jobEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				#{companyId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
 </mapper>

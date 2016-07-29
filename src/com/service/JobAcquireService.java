@@ -1,5 +1,7 @@
 package com.service;
 
+import com.pojo.JobAcquire;
+
 /**
  * 类描述：职位要求业务类接口
  * 
@@ -8,5 +10,13 @@ package com.service;
  * @version 1.0
  */
 public interface JobAcquireService {
+
+	/**
+	 * 添加职位要求
+	 * 
+	 * @param jobAcquire
+	 *            封装简历要求的实体
+	 */
+	void addJobAcquire(JobAcquire jobAcquire) throws Exception;
 
 }

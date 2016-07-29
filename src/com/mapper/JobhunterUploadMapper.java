@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.JobhunterUpload;
+
 /**
  * 
  * 类描述：求职者上传图片持久层映射文件接口类
@@ -9,4 +11,6 @@ package com.mapper;
  * @version 1.0
  */
 public interface JobhunterUploadMapper {
+
+	void addJobHunterUpload(JobhunterUpload jobhunterUpload) throws Exception;
 }

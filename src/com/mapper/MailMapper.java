@@ -1,5 +1,7 @@
 package com.mapper;
 
+import com.pojo.Mail;
+
 /**
  * 
  * 类描述：邮件持久层映射文件接口类
@@ -9,4 +11,6 @@ package com.mapper;
  * @version 1.0
  */
 public interface MailMapper {
+
+	void addMail(Mail mail) throws Exception;
 }
