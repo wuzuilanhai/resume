@@ -1,0 +1,179 @@
+body,td,th {
+	font-size: 12px;
+	color: #989898;
+	font-family: "微软雅黑";
+}
+
+a:link {
+	color: #989898;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #989898;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+a {
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+
+.framehead {style =" width:100%;
+	height: 50px;
+	box-shadow: 1px 0px 50px #E1E1E1;
+	"
+}
+
+.frameheadmid {
+	text-align: center;
+	margin: 0 auto;
+	width: 950px;
+	height: 50px;
+	"
+}
+
+.framemid {
+	text-align: center;
+	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 450px;
+}
+
+.framebottom {
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	width: 950px;
+	height: 250px;
+}
+
+.frametail {
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 100px;
+}
+
+.textstyle {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+
+.texttitle {
+	text-align: center;
+	font-size: 14px;
+	color: #3d7d52;
+	font-weight: normal;
+}
+
+.textnormal {
+	text-align: center;
+	font-size: 12px;
+	color: #989898;
+	font-weight: normal;
+}
+
+select {
+	border: solid 1px #c2cc87;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	padding-right: 16px;
+	background: url("images/下拉箭头.png") no-repeat scroll right center
+		transparent;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+.banner {
+	top: 0;
+	left: 0;
+	width: 950;
+	overflow: hidden;
+	height: 450px;
+	position: relative;
+	float: left
+}
+
+.banList {
+	top: 0;
+	left: 0;
+	loat: left
+}
+
+.banList li {
+	opacity: 0;
+	transform: scale(0);
+	transition: transform 0.5s ease 0s, opacity 1.5s ease 0s;
+	z-index: 1;
+}
+
+.banList li.active {
+	opacity: 1;
+	transform: scale(1);
+	z-index: 2;
+}
+
+<!
+opacity:透明度、transform:scale(1):缩放 !>.fomW {
+	height: 20px
+}
+
+.jsNav {
+	text-align: center;
+}
+
+.jsNav a {
+	display: inline-block;
+	background: #ffffff;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin: 0 5px;
+}
+
+.jsNav a.current {
+	background: #3d7d52;
+	cursor: pointer;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus {
+	border-color: #c2cc87;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, 0.6);
+}
