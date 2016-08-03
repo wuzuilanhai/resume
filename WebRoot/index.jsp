@@ -11,7 +11,8 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'index.jsp' starting page</title>
+<title>简历首站</title>
+
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -20,146 +21,359 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/test1.js"></script>
+<link rel="stylesheet" href="css/index/index.css" type="text/css"></link>
 </head>
-<body>
-	<form id="form" method="post"
-		action="${pageContext.request.contextPath }/admin/adminLogin.action">
-		<input name="adminName" type="text" /><br /> 
-		<input name="adminPassword" type="text" /><br /> 
-		<input value="管理员登陆" type="submit" />
-	</form>
-	<input type="text" id="showAdminName" /><br />
-	<input value="注销" type="button" id="logoutBtn" />
-	<form id="form" method="post"
-		action="${pageContext.request.contextPath }/notice/addNotice.action">
-		<input name="noticeTitle" type="text" /><br /> 
-		<input name="noticeContent" type="text" /><br /> 
-		<input name="noticeAuthor" type="text" /><br /> 
-		<input value="添加公告"	type="submit" />
-	</form>
-	<input value="查看所有公告" type="button" id="findNotices" />
-	<form id="form1" method="post"
-		action="${pageContext.request.contextPath }/jobHunter/addJobHunter.action">
-		<input name="jobhunterPhone" type="text" /><br /> 
-		<input name="jobhunterPassword" type="text" /><br /> 
-		<input value="求职者注册" type="button" id="registerJobhunterBtn" />
-	</form>
-	<form id="form2" method="post"
-		action="${pageContext.request.contextPath }/jobHunter/updateJobHunterByDetails.action">
-		<input name="jobhunterName" type="text" /><br /> 
-		<input value="完善求职者资料" type="button" id="updateJobHunterByDetailsBtn" />
-	</form>
-	<form id="form3" method="post"
-		action="${pageContext.request.contextPath }/industry/addIndustry.action">
-		<input name="industryName" type="text" /><br /> 
-		<input name="parentIndustryName" type="text" />父行业名称<br /> 
-		<input value="添加行业" type="button" id="addIndustryBtn" />
-	</form>
-	<form id="form4" method="post"
-		action="${pageContext.request.contextPath }/position/addPosition.action">
-		<input name="positionName" type="text" /><br /> 
-		<input name="industryName" type="text" />行业名称<br /> 
-		<input value="添加职能" type="button" id="addPositionBtn" />
-	</form>
-	<form id="form5" method="post"
-		action="${pageContext.request.contextPath }/careerIntention/addCareerIntention.action">
-		<input name="industryName" type="text" />行业名称<br /> 
-		<input name="positionName" type="text" />职能名称<br /> 
-		<input name="expectWorksite" type="text"/><br/>
-		<input name="expectSalary" type="text"/><br/>
-		<input name="currentSalary" type="text"/><br/>
-		<input value="添加职业意向" type="button" id="addCareerIntentionBtn" />
-	</form>
-	<form id="form6" method="post"
-		action="${pageContext.request.contextPath }/workExperience/addWorkExperience.action">
-		<input name="companyName" type="text" />公司名称<br /> 
-		<input name="companyIndustryName" type="text" />公司行业名称<br /> 
-		<input name="positionName" type="text"/><br/>
-		<input name="worksite" type="text"/><br/>
-		<input name="subordinateNumber" type="text"/><br/>
-		<input name="duty" type="text"/><br/>
-		<input value="添加工作经历" type="button" id="addWorkExperienceBtn" />
-	</form>
-	<form id="form7" method="post"
-		action="${pageContext.request.contextPath }/educationExperience/addEducationExperience.action">
-		<input name="schoolName" type="text" /><br /> 
-		<input name="majorName" type="text"/><br/>
-		<input name="qualification" type="text"/><br/>
-		<input name="isUnify" type="text"/><br/>
-		<input value="添加教育经历" type="button" id="addEducationExperienceBtn" />
-	</form>
-	<form id="form8" method="post"
-		action="${pageContext.request.contextPath }/projectExperience/addProjectExperience.action">
-		<input name="projectName" type="text" /><br /> 
-		<input name="companyName" type="text"/><br/>
-		<input name="projectPosition" type="text"/><br/>
-		<input name="projectDescription" type="text"/><br/>
-		<input name="projectResponsibility" type="text"/><br/>
-		<input name="projectAchievement" type="text"/><br/>
-		<input value="添加项目经验" type="button" id="addProjectExperienceBtn" />
-	</form>
-	<form id="form9" method="post"
-		action="${pageContext.request.contextPath }/resume/addResume.action">
-		<input name="jobhunterPhone" type="text" /><br /> 
-		<input name="visibility" type="text"/><br/>
-		<input name="visitNumber" type="text"/><br/>
-		<input value="添加简历" type="button" id="addResumeBtn" />
-	</form>
-	<form id="form10" method="post"
-		action="${pageContext.request.contextPath }/company/addCompany.action">
-		<input name="companyName" type="text" /><br /> 
-		<input name="companyPassword" type="text" /><br /> 
-		<input name="companyLocation" type="text"/><br/>
-		<input name="industryName" type="text"/><br/>
-		<input name="chatterName" type="text"/><br/>
-		<input name="chatterSex" type="text"/><br/>
-		<input name="phoneNumber" type="text"/><br/>
-		<input value="添加企业" type="button" id="addCompanyBtn" />
-	</form>
-	<form id="form11" method="post"
-		action="${pageContext.request.contextPath }/job/addJob.action">
-		<input name="jobName" type="text" /><br /> 
-		<input name="worksite" type="text"/><br/>
-		<input name="positionName" type="text"/><br/>
-		<input name="jobSalary" type="text"/><br/>
-		<input name="jobDescription" type="text"/><br/>
-		<input name="jobEmail" type="text"/><br/>
-		<input name="companyName" type="text"/><br/>
-		<input value="发布职位" type="button" id="addJobBtn" />
-	</form>
-	<form id="form12" method="post"
-		action="${pageContext.request.contextPath }/jobAcquire/addJobAcquire.action">
-		<input name="languageAcquire" type="text" /><br /> 
-		<input name="majorAcquire" type="text"/><br/>
-		<input name="qualificationAcquire" type="text"/><br/>
-		<input name="isUnify" type="text"/><br/>
-		<input name="ageMin" type="text"/><br/>
-		<input name="ageMax" type="text"/><br/>
-		<input name="sexAcquire" type="text"/><br/>
-		<input name="jobId" type="text"/><br/>
-		<input value="添加职位要求" type="button" id="addJobAcquireBtn" />
-	</form>
-	<form id="form13" method="post"
-		action="${pageContext.request.contextPath }/resumeJob/addResumeJob.action">
-		<input name="resumeId" type="text" /><br /> 
-		<input name="jobId" type="text"/><br/>
-		<input value="添加简历-职位关系" type="button" id="addResumeJobBtn" />
-	</form>
-	<form id="form14" method="post"  enctype="multipart/form-data"
-		action="${pageContext.request.contextPath }/jobHunterUpload/addJobHunterUpload.action">
-		<input name=uploadPic type="file" /><br /> 
-		<input name=jobhunterId type="text" /><br /> 
-		<input value="上传求职者头像" type="submit" />
-	</form>
-	<form id="form15" method="post"
-		action="${pageContext.request.contextPath }/mail/addMail.action">
-		<input name="mailFrom" type="text" /><br /> 
-		<input name="mailTitle" type="text"/><br/>
-		<input name="mailMsg" type="text"/><br/>
-		<input name="mailTo" type="text"/><br/>
-		<input value="发送邮件" type="button" id="addMailBtn" />
-	</form>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0"
+	marginheight="0"
+	onLoad="MM_preloadImages('${pageContext.request.contextPath}/images/index/job2.png','${pageContext.request.contextPath}/images/index/resume2.png','${pageContext.request.contextPath}/images/index/hunter_login2.png','${pageContext.request.contextPath}/images/index/business_login2.png','${pageContext.request.contextPath}/images/index/login2.png','${pageContext.request.contextPath}/images/index/business2.png','${pageContext.request.contextPath}/images/index/QQ2.png','${pageContext.request.contextPath}/images/index/sina2.png','${pageContext.request.contextPath}/images/index/facebook2.png','${pageContext.request.contextPath}/images/index/weixin2.png','${pageContext.request.contextPath}/images/index/renren2.png')">
+
+	<div class="framehead">
+		<div class="frameheadmid" style="position:relative;">
+			<div style="position:absolute;float:left;width:132;height:50;">
+				<a href="a"><img
+					src="${pageContext.request.contextPath}/images/index/logo.png"
+					width="132" height="50" alt="" /> </a>
+			</div>
+			<div
+				style="position:absolute;float:left;width:100;height:50;left:182;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('首页','','${pageContext.request.contextPath}/images/index/mainpage2.png',0)"><img
+					src="${pageContext.request.contextPath}/images/index/mainpage.png"
+					alt="" width="100" height="50" id="首页"> </a>
+			</div>
+			<div
+				style="position:absolute;float:left;width:100;height:50;left:282;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('职位','','${pageContext.request.contextPath}/images/index/job2.png',1)"><img
+					src="${pageContext.request.contextPath}/images/index/job.png"
+					alt="" width="100" height="50" id="职位"> </a>
+			</div>
+			<div
+				style="position:absolute;float:left;width:100;height:50;left:382;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('简历','','${pageContext.request.contextPath}/images/index/resume2.png',1)"><img
+					src="${pageContext.request.contextPath}/images/index/resume.png"
+					alt="" width="100" height="50" id="简历"> </a>
+			</div>
+			<!--<div style="position:absolute;float:left;width:150;height:20;right:180;top:16">
+                <select>
+                  <option value="全国">全国（切换城市）</option>
+                  <option value="广东省">广东省</option>
+				</select>
+                </div>-->
+			<div
+				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
+				<a href="">登录</a>/<a href="">注册</a>
+			</div>
+			<div
+				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/business2.png',1)"><img
+					src="${pageContext.request.contextPath}/images/index/business.png"
+					alt="" width="80" height="30" id="business"> </a>
+			</div>
+		</div>
+	</div>
+
+	<div class="framemid " style="position:relative;display: true"
+		id="framemid_hunter">
+		<div class="banner" style="position:relative;padding:0;">
+			<ul class="banList" style="position: absolute;margin:0px">
+				<li class="active"
+					style="position: absolute; left: 0; top: 0;padding:0px"><img
+					src="${pageContext.request.contextPath}/images/index/banner1.png" />
+				</li>
+				<li style="position: absolute; left: 0; top: 0;"><img
+					src="${pageContext.request.contextPath}/images/index/banner2.png" />
+				</li>
+				<li style="position: absolute; left: 0; top: 0;"><img
+					src="${pageContext.request.contextPath}/images/index/banner3.png" />
+				</li>
+			</ul>
+
+			<div class="fomW"
+				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
+				<div class="jsNav">
+					<a href="javascript:;" class="trigger current"></a> <a
+						href="javascript:;" class="trigger"></a> <a href="javascript:;"
+						class="trigger"></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="div_login_hunter"
+			style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:175px;">
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('hunter_login','','${pageContext.request.contextPath}/images/index/hunter_login2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/index/hunter_login.png"
+				alt="" width="150" height="50" id="hunter_login"> </a>
+		</div>
+		<div id="div_login_business"
+			style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:25px;">
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('business_login','','${pageContext.request.contextPath}/images/index/business_login2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/index/business_login.png"
+				alt="" width="150" height="50" id="business_login"> </a>
+		</div>
+		<div
+			style="z-index:10;position:absolute;float:left;width:300px;height:350px;bottom:25px;right:25px;">
+			<img style="filter:alpha(Opacity=60);opacity:0.6;float:left;"
+				src="${pageContext.request.contextPath}/images/index/loginframe.png"
+				width="300" height="350" alt="" />
+			<div class="textstyle"
+				style="position: absolute; float: left; width: 80px; height: 20px; top:40px; left: 50px; ">
+				登录个人账号</div>
+			<form id="form1"
+				action="${pageContext.request.contextPath}/jobHunter/findJobHunterLogin.action"
+				method="post">
+				<div
+					style="position: absolute; float: left; width: 80px; height: 20px; top:70px; left: 50px;">
+					<input class="form-control" name="jobhunterName" type="text"
+						id="textfield" onmouseover="this.style.borderColor='#3d7d52'"
+						onmouseout="this.style.borderColor=''" placeHolder="用户名"
+						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+					<div id="jobhunterNameTip"></div>
+				</div>
+
+				<div
+					style="position: absolute; float: left; width: 80px; height: 20px; top:110px; left: 50px;">
+					<input class="form-control" name="jobhunterPassword" type="text"
+						id="textfield" onmouseover="this.style.borderColor='#3d7d52'"
+						onmouseout="this.style.borderColor=''" placeHolder="密码"
+						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+					<div id="jobhunterPasswordTip"></div>
+				</div>
+
+				<div id="findJobHunterBtn"
+					style="position: absolute; float: left; width: 200px; height: 30px; top:170px; left: 50px;">
+					<a href="#" onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('login','','${pageContext.request.contextPath}/images/index/login2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/login.png"
+						alt="" width="200" height="30" id="login"> </a>
+				</div>
+			</form>
+			<div class="textstyle"
+				style="position: absolute; float: left; width: 100px; height: 20px; top:220px; left: 50px;">
+				其他登录方式：</div>
+			<div
+				style="position: absolute; float: left; width: 165px; height: 20px; top:250px; left: 67.5px;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('qq','','${pageContext.request.contextPath}/images/index/QQ2.png',1)"><img
+					style="position:absolute;left:0px;"
+					src="${pageContext.request.contextPath}/images/index/QQ.png" alt=""
+					width="25" height="25" id="qq"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('sina','','${pageContext.request.contextPath}/images/index/sina2.png',1)"><img
+					style="position:absolute;left:35px;"
+					src="${pageContext.request.contextPath}/images/index/sina.png"
+					alt="" width="25" height="25" id="sina"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('facebook','','${pageContext.request.contextPath}/images/index/facebook2.png',1)"><img
+					style="position:absolute;left:70px;"
+					src="${pageContext.request.contextPath}/images/index/facebook.png"
+					alt="" width="25" height="25" id="facebook"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('weixin','','${pageContext.request.contextPath}/images/index/weixin2.png',1)"><img
+					style="position:absolute;left:105px;"
+					src="${pageContext.request.contextPath}/images/index/weixin.png"
+					alt="" width="25" height="25" id="weixin"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('renren','','${pageContext.request.contextPath}/images/index/renren2.png',1)"><img
+					style="position:absolute;left:140px;"
+					src="${pageContext.request.contextPath}/images/index/renren.png"
+					alt="" width="25" height="25" id="renren"> </a>
+			</div>
+		</div>
+	</div>
+
+	<div class="framemid " style="position:relative;display: none"
+		id="framemid_business">
+		<div class="banner" style="position:relative;padding:0;">
+			<ul class="banList" style="position: absolute;margin:0px">
+				<li class="active"
+					style="position: absolute; left: 0; top: 0;padding:0px"><img
+					src="${pageContext.request.contextPath}/images/index/banner4.png" />
+				</li>
+				<li style="position: absolute; left: 0; top: 0;"><img
+					src="${pageContext.request.contextPath}/images/index/banner5.png" />
+				</li>
+				<li style="position: absolute; left: 0; top: 0;"><img
+					src="${pageContext.request.contextPath}/images/index/banner6.png" />
+				</li>
+				<li style="position: absolute; left: 0; top: 0;"><img
+					src="${pageContext.request.contextPath}/images/index/banner7.png" />
+				</li>
+			</ul>
+
+			<div class="fomW"
+				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
+				<div class="jsNav">
+					<a href="javascript:;" class="trigger current"></a> <a
+						href="javascript:;" class="trigger"></a> <a href="javascript:;"
+						class="trigger"></a> <a href="javascript:;" class="trigger"></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="div_login_hunter"
+			style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:175px;">
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('hunter_login','','${pageContext.request.contextPath}/images/index/dhh/hunter_login2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/index/dhh/hunter_login.png"
+				alt="" width="150" height="50" id="hunter_login"> </a>
+		</div>
+		<div id="div_login_business"
+			style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:25px;">
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('business_login','','${pageContext.request.contextPath}/images/index/dhh/business_login2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/index/dhh/business_login.png"
+				alt="" width="150" height="50" id="business_login"> </a>
+		</div>
+
+		<div
+			style="z-index:10;position:absolute;float:left;width:300px;height:350px;bottom:25px;right:25px;">
+			<img style="filter:alpha(Opacity=60);opacity:0.6;float:left;"
+				src="${pageContext.request.contextPath}/images/index/dhh/loginframe.png"
+				width="300" height="350" alt="" />
+			<div class="textstyle"
+				style="position: absolute; float: left; width: 80px; height: 20px; top:40px; left: 50px; ">
+				登录企业账号</div>
+			<form action="" method="post">
+				<div
+					style="position: absolute; float: left; width: 80px; height: 20px; top:70px; left: 50px;">
+					<input class="form-control" name="textfield" type="text"
+						id="username" onmouseover="this.style.borderColor='#316392'"
+						onmouseout="this.style.borderColor=''" placeHolder="企业名称"
+						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				</div>
+				<div
+					style="position: absolute; float: left; width: 80px; height: 20px; top:110px; left: 50px;">
+					<input class="form-control" name="textfield" type="text"
+						id="password" onmouseover="this.style.borderColor='#316392'"
+						onmouseout="this.style.borderColor=''" placeHolder="密码"
+						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				</div>
+				<div
+					style="position: absolute; float: left; width: 200px; height: 30px; top:170px; left: 50px;">
+					<a href="#" onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('login','','${pageContext.request.contextPath}/images/index/dhh/login2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/dhh/login.png"
+						alt="" width="200" height="30" id="login"> </a>
+				</div>
+			</form>
+			<div class="textstyle"
+				style="position: absolute; float: left; width: 100px; height: 20px; top:220px; left: 50px;">
+				其他登录方式：</div>
+			<div
+				style="position: absolute; float: left; width: 165px; height: 20px; top:250px; left: 67.5px;">
+				<a href="#" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('qq','','${pageContext.request.contextPath}/images/index/dhh/QQ2.png',1)"><img
+					style="position:absolute;left:0px;"
+					src="${pageContext.request.contextPath}/images/index/dhh/QQ.png"
+					alt="" width="25" height="25" id="qq"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('sina','','${pageContext.request.contextPath}/images/index/dhh/sina2.png',1)"><img
+					style="position:absolute;left:35px;"
+					src="${pageContext.request.contextPath}/images/index/dhh/sina.png"
+					alt="" width="25" height="25" id="sina"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('facebook','','${pageContext.request.contextPath}/images/index/dhh/facebook2.png',1)"><img
+					style="position:absolute;left:70px;"
+					src="${pageContext.request.contextPath}/images/index/dhh/facebook.png"
+					alt="" width="25" height="25" id="facebook"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('weixin','','${pageContext.request.contextPath}/images/index/dhh/weixin2.png',1)"><img
+					style="position:absolute;left:105px;"
+					src="${pageContext.request.contextPath}/images/index/dhh/weixin.png"
+					alt="" width="25" height="25" id="weixin"> </a> <a href="#"
+					onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('renren','','${pageContext.request.contextPath}/images/index/dhh/renren2.png',1)"><img
+					style="position:absolute;left:140px;"
+					src="${pageContext.request.contextPath}/images/index/dhh/renren.png"
+					alt="" width="25" height="25" id="renren"> </a>
+			</div>
+		</div>
+	</div>
+
+	<div class="framebottom" style="position:relative;">
+		<div
+			style="position:absolute;top:62.5;left:54;width:125px;height:125px;float:left;">
+			<div
+				style="position:absolute;top:15.5;left:36;width:50px;height:50px;float:left;">
+				<img src="${pageContext.request.contextPath}/images/index/phone.png"
+					width="50" height="50" alt="" />
+			</div>
+			<div class="texttitle"
+				style="position:absolute;top:68;left:0;width:130px;height:20px;float:left;">
+				服务热线 (免长话费)<br />
+				<div class="textnormal"
+					style="position:absolute;top:25;width:130px;height:40px;float:left;">
+					400-6838-789<br /> 工作日 9:00-19:00<br />
+				</div>
+			</div>
+		</div>
+
+		<div
+			style="position:absolute;top:62.5;left:241px;width:125px;height:125px;float:left;">
+			<div class="texttitle"
+				style="position:absolute;top:15.5;text-align:left;width:125px;height:20px;float:left;font-weight:normal;">
+				简介
+				<div class="textnormal"
+					style="position:absolute;top:22;text-align:left;width:130px;height:80px;float:left;line-height:25px;font-weight:normal;">
+					<a href="a">猎聘网简介</a><br /> <a href="b">产品服务</a><br /> <a
+						href="c">创新优势</a><br /> <a href="d">联系我们</a><br />
+				</div>
+			</div>
+		</div>
+
+		<div
+			style="position:absolute;top:62.5;left:427;width:125px;height:125px;float:left;">
+			<div class="texttitle"
+				style="position:absolute;top:15.5;text-align: left;width:125px;height:20px;float:left;font-weight:normal;">
+				帮助
+				<div class="textnormal"
+					style="position:absolute;top:22;text-align:left;width:130px;height:80px;float:left;line-height:25px;font-weight:normal;">
+					<a href="a">经理人帮助</a><br /> <a href="b">用户注册</a><br /> <a
+						href="c">关于您的简历</a><br /> <a href="d">关于职位</a><br />
+				</div>
+			</div>
+		</div>
+
+		<div
+			style="position:absolute;top:62.5;left:614;width:125px;height:125px;float:left;">
+			<div class="texttitle"
+				style="position:absolute;top:15.5;text-align: left;width:125px;height:20px;float:left;font-weight:normal;">
+				共赢
+				<div class="textnormal"
+					style="position:absolute;top:22;text-align: left;width:130px;height:80px;float:left;line-height:25px;font-weight:normal;">
+					<a href="a">网站合作</a><br /> <a href="b">用户协议</a><br /> <a href="c">网站地图</a><br />
+					<a href="d">意见反馈</a><br />
+				</div>
+			</div>
+		</div>
+
+		<div
+			style="position:absolute;top:62.5;left:800;width:125px;height:125px;float:left;">
+			<div class="texttitle"
+				style="position:absolute;top:15.5;left:0;text-align: left;width:125px;height:20px;float:left;font-weight:normal;">
+				导航
+				<div class="textnormal"
+					style="position:absolute;top:22;left:0;text-align: left;width:130px;height:80px;float:left;line-height:25px;font-weight:normal;">
+					<a href="a">职位大全</a><br /> <a href="b">招聘职位</a><br /> <a href="c">企业名录</a><br />
+					<a href="d">城市列表</a><br />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="frametail"
+		style="position:relative;text-align: center; font-size: 10px; line-height:25px;font-weight:normal;;">
+		京ICP备09083200号 京ICP证070419号 人才服务许可证:RC0710280 京公网安备:11010502026763<br />
+		Copyright©2000-2016 liepin.com All Rights Reserved<br />
+	</div>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.banner.js"></script>
+	<script type="text/javascript" src="js/index/index.js"></script>
 </body>
 </html>

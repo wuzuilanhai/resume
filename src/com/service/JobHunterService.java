@@ -36,4 +36,13 @@ public interface JobHunterService {
 	 */
 	Jobhunter findJobHunterByPhone(String phone) throws Exception;
 
+	/**
+	 * 求职者登陆验证
+	 * 
+	 * @param jobhunter
+	 *            封装求职者信息的实体
+	 * @return
+	 */
+	Jobhunter findJobHunterLogin(Jobhunter jobhunter) throws Exception;
+
 }

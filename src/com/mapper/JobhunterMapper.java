@@ -16,4 +16,6 @@ public interface JobhunterMapper {
 	void updateJobHunterByDetails(Jobhunter jobhunter) throws Exception;
 
 	Jobhunter findJobHunterByPhone(String phone) throws Exception;
+
+	Jobhunter findJobHunterLogin(Jobhunter jobhunter);
 }

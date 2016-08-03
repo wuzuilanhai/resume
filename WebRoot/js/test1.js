@@ -127,4 +127,5 @@ $(document).ready(
 					alert(data);
 				});
 			});
+			$('#form').validate();
 		});

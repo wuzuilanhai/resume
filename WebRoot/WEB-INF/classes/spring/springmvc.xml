@@ -52,13 +52,13 @@
 	<bean class="com.exception.MyExceptionResolver"></bean>
 
 	<!-- 拦截器 -->
-	<mvc:interceptors>
-		<!-- 如果有多个拦截器就顺序执行 -->
+	<!-- <mvc:interceptors>
+		如果有多个拦截器就顺序执行
 		<mvc:interceptor>
-			<!-- /**表示所有url包括子url路径 -->
+			/**表示所有url包括子url路径
 			<mvc:mapping path="/**" />
 			<bean class="com.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 
 </beans>

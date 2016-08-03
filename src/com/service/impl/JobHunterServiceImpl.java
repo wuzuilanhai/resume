@@ -28,4 +28,8 @@ public class JobHunterServiceImpl extends BasicServiceImpl implements
 		return jobhunterMapper.findJobHunterByPhone(phone);
 	}
 
+	public Jobhunter findJobHunterLogin(Jobhunter jobhunter) throws Exception {
+		return jobhunterMapper.findJobHunterLogin(jobhunter);
+	}
+
 }

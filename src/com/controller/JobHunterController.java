@@ -39,6 +39,22 @@ public class JobHunterController extends BasicController {
 	}
 
 	/**
+	 * 求职者登陆验证
+	 * 
+	 * @param jobhunter
+	 *            封装求职者信息的实体
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findJobHunterLogin")
+	public @ResponseBody
+	Jobhunter findJobHunterLogin(Jobhunter jobhunter) throws Exception {
+		jobhunter.setJobhunterPassword(MD5Utils.md5(jobhunter
+				.getJobhunterPassword()));
+		return jobHunterService.findJobHunterLogin(jobhunter);
+	}
+
+	/**
 	 * 完善求职者资料
 	 * 
 	 * @param jobhunter

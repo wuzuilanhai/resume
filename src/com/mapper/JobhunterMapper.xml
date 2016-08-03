@@ -204,4 +204,9 @@
 		select * from jobhunter where
 		jobhunter_phone=#{jobhunterPhone}
 	</select>
+	<select id="findJobHunterLogin" parameterType="com.pojo.Jobhunter"
+		resultMap="BaseResultMap">
+		select * from jobhunter where
+		jobhunter_name=#{jobhunterName} and jobhunter_password=#{jobhunterPassword}
+	</select>
 </mapper>
