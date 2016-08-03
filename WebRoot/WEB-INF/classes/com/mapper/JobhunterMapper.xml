@@ -5,6 +5,8 @@
 		<id column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
 		<result column="jobhunter_name" property="jobhunterName"
 			jdbcType="VARCHAR" />
+		<result column="jobhunter_real_name" property="jobhunterRealName"
+			jdbcType="VARCHAR" />
 		<result column="jobhunter_password" property="jobhunterPassword"
 			jdbcType="VARCHAR" />
 		<result column="jobhunter_sex" property="jobhunterSex"
@@ -22,6 +24,8 @@
 		<result column="jobhunt_entrance_status" property="jobhuntEntranceStatus"
 			jdbcType="VARCHAR" />
 		<result column="jobhunter_self_appraisal" property="jobhunterSelfAppraisal"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_graduate_school" property="jobhunterGraduateSchool"
 			jdbcType="VARCHAR" />
 		<result column="jobhunter_qualification" property="jobhunterQualification"
 			jdbcType="VARCHAR" />
@@ -42,6 +46,9 @@
 			</if>
 			<if test="jobhunterName != null">
 				jobhunter_name,
+			</if>
+			<if test="jobhunterRealName != null">
+				jobhunter_real_name,
 			</if>
 			<if test="jobhunterPassword != null">
 				jobhunter_password,
@@ -70,6 +77,9 @@
 			<if test="jobhunterSelfAppraisal != null">
 				jobhunter_self_appraisal,
 			</if>
+			<if test="jobhunterGraduateSchool != null">
+				jobhunter_graduate_school,
+			</if>
 			<if test="jobhunterQualification != null">
 				jobhunter_qualification,
 			</if>
@@ -92,6 +102,9 @@
 			</if>
 			<if test="jobhunterName != null">
 				#{jobhunterName,jdbcType=VARCHAR},
+			</if>
+			<if test="jobhunterRealName != null">
+				#{jobhunterRealName,jdbcType=VARCHAR},
 			</if>
 			<if test="jobhunterPassword != null">
 				#{jobhunterPassword,jdbcType=VARCHAR},
@@ -120,6 +133,9 @@
 			<if test="jobhunterSelfAppraisal != null">
 				#{jobhunterSelfAppraisal,jdbcType=VARCHAR},
 			</if>
+			<if test="jobhunterGraduateSchool != null">
+				#{jobhunterGraduateSchool,jdbcType=VARCHAR},
+			</if>
 			<if test="jobhunterQualification != null">
 				#{jobhunterQualification,jdbcType=VARCHAR},
 			</if>
@@ -140,62 +156,68 @@
 	<update id="updateJobHunterByDetails" parameterType="com.pojo.Jobhunter">
 		update jobhunter
 		<set>
-			<if test="jobhunterId != null">
-				jobhunter_id = #{jobhunterId,jdbcType=INTEGER},
+			<if test="record.jobhunterId != null">
+				jobhunter_id = #{record.jobhunterId,jdbcType=INTEGER},
 			</if>
-			<if test="jobhunterName != null">
-				jobhunter_name = #{jobhunterName,jdbcType=VARCHAR},
+			<if test="record.jobhunterName != null">
+				jobhunter_name = #{record.jobhunterName,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterPassword != null">
-				jobhunter_password =
-				#{jobhunterPassword,jdbcType=VARCHAR},
+			<if test="record.jobhunterRealName != null">
+				jobhunter_real_name = #{record.jobhunterRealName,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterSex != null">
-				jobhunter_sex = #{jobhunterSex,jdbcType=VARCHAR},
+			<if test="record.jobhunterPassword != null">
+				jobhunter_password = #{record.jobhunterPassword,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterBirthday != null">
-				jobhunter_birthday = #{jobhunterBirthday,jdbcType=DATE},
+			<if test="record.jobhunterSex != null">
+				jobhunter_sex = #{record.jobhunterSex,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterMaritalStatus != null">
+			<if test="record.jobhunterBirthday != null">
+				jobhunter_birthday = #{record.jobhunterBirthday,jdbcType=DATE},
+			</if>
+			<if test="record.jobhunterMaritalStatus != null">
 				jobhunter_marital_status =
-				#{jobhunterMaritalStatus,jdbcType=VARCHAR},
+				#{record.jobhunterMaritalStatus,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterPhone != null">
-				jobhunter_phone = #{jobhunterPhone,jdbcType=VARCHAR},
+			<if test="record.jobhunterPhone != null">
+				jobhunter_phone = #{record.jobhunterPhone,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterEmail != null">
-				jobhunter_email = #{jobhunterEmail,jdbcType=VARCHAR},
+			<if test="record.jobhunterEmail != null">
+				jobhunter_email = #{record.jobhunterEmail,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterNativePlace != null">
+			<if test="record.jobhunterNativePlace != null">
 				jobhunter_native_place =
-				#{jobhunterNativePlace,jdbcType=VARCHAR},
+				#{record.jobhunterNativePlace,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhuntEntranceStatus != null">
+			<if test="record.jobhuntEntranceStatus != null">
 				jobhunt_entrance_status =
-				#{jobhuntEntranceStatus,jdbcType=VARCHAR},
+				#{record.jobhuntEntranceStatus,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterSelfAppraisal != null">
+			<if test="record.jobhunterSelfAppraisal != null">
 				jobhunter_self_appraisal =
-				#{jobhunterSelfAppraisal,jdbcType=VARCHAR},
+				#{record.jobhunterSelfAppraisal,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterQualification != null">
+			<if test="record.jobhunterGraduateSchool != null">
+				jobhunter_graduate_school =
+				#{record.jobhunterGraduateSchool,jdbcType=VARCHAR},
+			</if>
+			<if test="record.jobhunterQualification != null">
 				jobhunter_qualification =
-				#{jobhunterQualification,jdbcType=VARCHAR},
+				#{record.jobhunterQualification,jdbcType=VARCHAR},
 			</if>
-			<if test="jobhunterJoindate != null">
-				jobhunter_joindate = #{jobhunterJoindate,jdbcType=DATE},
+			<if test="record.jobhunterJoindate != null">
+				jobhunter_joindate = #{record.jobhunterJoindate,jdbcType=DATE},
 			</if>
-			<if test="jobhunterLastLogindate != null">
+			<if test="record.jobhunterLastLogindate != null">
 				jobhunter_last_logindate =
-				#{jobhunterLastLogindate,jdbcType=DATE},
+				#{record.jobhunterLastLogindate,jdbcType=DATE},
 			</if>
-			<if test="jobhunterEditStatus != null">
+			<if test="record.jobhunterEditStatus != null">
 				jobhunter_edit_status =
-				#{jobhunterEditStatus,jdbcType=INTEGER},
+				#{record.jobhunterEditStatus,jdbcType=INTEGER},
 			</if>
-			<if test="jobhunterExtraMessage != null">
+			<if test="record.jobhunterExtraMessage != null">
 				jobhunter_extra_message =
-				#{jobhunterExtraMessage,jdbcType=VARCHAR},
+				#{record.jobhunterExtraMessage,jdbcType=VARCHAR},
 			</if>
 		</set>
 	</update>
@@ -207,6 +229,7 @@
 	<select id="findJobHunterLogin" parameterType="com.pojo.Jobhunter"
 		resultMap="BaseResultMap">
 		select * from jobhunter where
-		jobhunter_name=#{jobhunterName} and jobhunter_password=#{jobhunterPassword}
+		jobhunter_name=#{jobhunterName} and
+		jobhunter_password=#{jobhunterPassword}
 	</select>
 </mapper>

@@ -47,16 +47,49 @@ function MM_swapImage() { // v3.0
 			x.src = a[i + 2];
 		}
 }
-function tipDisappear() {
-	alert("123");
-	alert($(this).name);
+function getRootPath() {
+	// 获取当前网址，如： http://localhost:8083/proj/meun.jsp
+	var curWwwPath = window.document.location.href;
+	// 获取主机地址之后的目录，如： proj/meun.jsp
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	// 获取主机地址，如： http://localhost:8083
+	var localhostPath = curWwwPath.substring(0, pos);
+	// 获取带"/"的项目名，如：/proj
+	var projectName = pathName
+			.substring(0, pathName.substr(1).indexOf('/') + 1);
+	return (localhostPath + projectName);
 }
 $(".banner").swBanner();
-$("div[id^='div_login']").click(function(event) {
-	$("div[id^='framemid_']").hide();
-	var showDivId = "#framemid_" + $(this).attr("id").substring(10);
-	$(showDivId).show();
-});
+$("div[id^='div_login']")
+		.click(
+				function(event) {
+					$("div[id^='framemid_']").hide();
+					var str = $(this).attr("id").substring(10);
+					var showDivId = "#framemid_" + str;
+					$(showDivId).show();
+					if (str == "business") {
+						$('#jobhunterRegister').attr("href",getRootPath()+"/compangRegister.jsp");
+						$('#changeImgDiv a').remove();
+						$('#changeImgDiv')
+								.append(
+										'<a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage(\'business\',\'\',\''
+												+ getRootPath()
+												+ '/images/index/dhh/person2.png\',1)"><img src="'
+												+ getRootPath()
+												+ '/images/index/dhh/person.jpg" alt="" width="80" height="30" id="business"> </a>');
+					} else {
+						$('#jobhunterRegister').attr("href",getRootPath()+"/jobhunterRegister.jsp");
+						$('#changeImgDiv a').remove();
+						$('#changeImgDiv')
+								.append(
+										'<a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage(\'business\',\'\',\''
+												+ getRootPath()
+												+ '/images/index/business2.png\',1)"><img src="'
+												+ getRootPath()
+												+ '/images/index/business.png" alt="" width="80" height="30" id="business"> </a>');
+					}
+				});
 $("#form1 input").focus(function() {
 	var tipId = "#" + $(this).attr("name") + "Tip";
 	$(tipId).html("");

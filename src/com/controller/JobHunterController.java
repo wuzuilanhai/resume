@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,10 +50,16 @@ public class JobHunterController extends BasicController {
 	 */
 	@RequestMapping("/findJobHunterLogin")
 	public @ResponseBody
-	Jobhunter findJobHunterLogin(Jobhunter jobhunter) throws Exception {
+	Jobhunter findJobHunterLogin(Jobhunter jobhunter, HttpServletRequest request)
+			throws Exception {
 		jobhunter.setJobhunterPassword(MD5Utils.md5(jobhunter
 				.getJobhunterPassword()));
-		return jobHunterService.findJobHunterLogin(jobhunter);
+		Jobhunter jobhunter2 = jobHunterService.findJobHunterLogin(jobhunter);
+		if (jobhunter2 != null) {
+			request.getSession().setAttribute("jobhunterName",
+					jobhunter2.getJobhunterName());
+		}
+		return jobhunter2;
 	}
 
 	/**

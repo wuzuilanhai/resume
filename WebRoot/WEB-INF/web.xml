@@ -24,6 +24,7 @@
 			<param-value>classpath:spring/springmvc.xml</param-value>
 		</init-param>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<!-- 第一种：*.action，访问以.action结尾 由DispatcherServlet进行解析 第二种：/，所以访问的地址都由DispatcherServlet进行解析，对于静态文件的解析需要配置不让DispatcherServlet进行解析 
@@ -31,7 +32,17 @@
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
 
-	<!-- 编码过虑器 -->
+	<!-- 验证码生成servlet -->
+	<servlet>
+		<servlet-name>ValiImgUtils</servlet-name>
+		<servlet-class>com.util.ValiImgUtils</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ValiImgUtils</servlet-name>
+		<url-pattern>/valiImgUtils</url-pattern>
+	</servlet-mapping>
+
+	<!-- 编码过滤器 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
