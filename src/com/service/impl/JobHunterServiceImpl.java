@@ -32,4 +32,8 @@ public class JobHunterServiceImpl extends BasicServiceImpl implements
 		return jobhunterMapper.findJobHunterLogin(jobhunter);
 	}
 
+	public Jobhunter findJobHunterByName(String jobhunterName) throws Exception {
+		return jobhunterMapper.findJobHunterByName(jobhunterName);
+	}
+
 }

@@ -1,9 +1,14 @@
 package com.controller;
 
+import java.net.URLDecoder;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -82,6 +87,39 @@ public class JobHunterController extends BasicController {
 		jobhunter2.setJobhunterEditStatus(1);
 		jobHunterService.updateJobHunterByDetails(jobhunter2);
 		return "success";
+	}
+
+	/**
+	 * 验证验证码正确性和登陆名称唯一性
+	 * 
+	 * @param validationImg
+	 *            用户输入的验证码
+	 * @param jobhunterName
+	 *            用户输入的登陆名称
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("checkValiImgAndName")
+	public @ResponseBody
+	String checkValiImgAndName(String validationImg, String jobhunterName,
+			HttpSession session) throws Exception {
+		validationImg = URLDecoder.decode(validationImg, "utf-8");
+		jobhunterName=URLDecoder.decode(jobhunterName, "utf-8");
+		Jobhunter jobhunter=jobHunterService.findJobHunterByName(jobhunterName);
+		Map<String, String> map = new HashMap<String, String>();
+		if(jobhunter!=null){
+			map.put("nameInfo", "exist");
+		}else{
+			map.put("nameInfo", "notExist");
+		}
+		if (validationImg.equals(session.getAttribute("valiStr"))) {
+			map.put("valiInfo", "success");
+		} else {
+			map.put("valiInfo", "failed");
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(map);
 	}
 
 }

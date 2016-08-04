@@ -66,7 +66,7 @@
 		</div>
 	</div>
 
-	<form action="" method="post">
+	<form id="registerForm" action="" method="post">
 
 		<div class="framemid" style="position:relative;" id="div1">
 			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
@@ -78,65 +78,73 @@
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">用户名：</p>
 				<input class="form-control" name="jobhunterName" type="text"
-					id="username" placeholder="填写登录名/用户名"
+					id="jobhunterName" placeholder="填写登录名/用户名"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<div id="jobhunterNameTip"></div>
+				<div id="jobhunterNameTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:160;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密码：</p>
 
 				<input class="form-control" name="jobhunterPassword" type="password"
-					id="password" placeholder="填写密码"
+					id="jobhunterPassword" placeholder="填写密码"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<div id="jobhunterPasswordTip"></div>
+				<div id="jobhunterPasswordTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:210;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">重复密码：</p>
 				<input class="form-control" name="jobhunterPasswordRepeat"
-					type="password" id="passwords" placeholder="再次填写密码"
+					type="password" id="jobhunterPasswordRepeat" placeholder="再次填写密码"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<div id="jobhunterPasswordRepeatTip"></div>
+				<div id="jobhunterPasswordRepeatTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:260;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密保手机：</p>
 				<input class="form-control" name="jobhunterPhone" type="text"
-					id="phone" placeholder="填写密保手机号"
+					id="jobhunterPhone" placeholder="填写密保手机号"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<div id="jobhunterPhoneTip"></div>
+				<div id="jobhunterPhoneTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:310;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密保邮箱：</p>
 				<input class="form-control" name="jobhunterEmail" type="text"
-					id="email" placeholder="填写密保邮箱地址"
+					id="jobhunterEmail" placeholder="填写密保邮箱地址"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<div id="jobhunterEmailTip"></div>
+				<div id="jobhunterEmailTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
-			<div style="position:absolute;top:360;left:136;width:370;height:50;">
+			<div style="position:absolute;top:360;left:136;width:370;height:50;"
+				id="imgDiv">
 				<p style="float:left;" class="textstyle">验证码：</p>
 				<input class="form-control" name="validationImg" type="text"
-					id="messageVC" placeholder="请输入验证码"
+					id="validationImg" placeholder="请输入验证码"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<dir id="validationImgTip"
+					style="position:absolute;left:230;top:2;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></dir>
 				<img alt="" src="${pageContext.request.contextPath}/valiImgUtils"
-					title="看不清，点击刷新" onclick="this.src=this.src+'?'+Math.random()"
+					id="valiImg" title="看不清，点击刷新"
+					onclick="this.src=this.src+'?'+Math.random()"
 					style="position:absolute;left:480;top:2;float:left;width:140px; height:50px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-				<dir id="validationImgTip"></dir>
 			</div>
 
 			<div id="next_btn_div1"
@@ -476,6 +484,7 @@
 	</div>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.banner.js"></script>
+	<script type="text/javascript" src="js/JQuerySession.js"></script>
 	<script type="text/javascript"
 		src="js/jobhunterRegister/jobhunterRegister.js"></script>
 </body>
