@@ -69,7 +69,7 @@ $("div[id^='div_login']")
 					var showDivId = "#framemid_" + str;
 					$(showDivId).show();
 					if (str == "business") {
-						$('#jobhunterRegister').attr("href",getRootPath()+"/compangRegister.jsp");
+						$('#jobhunterRegister').attr("href",getRootPath()+"/companyRegister.jsp");
 						$('#changeImgDiv a').remove();
 						$('#changeImgDiv')
 								.append(

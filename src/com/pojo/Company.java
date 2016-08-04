@@ -1,93 +1,93 @@
 package com.pojo;
 
-/**
- * 
- * 类描述：企业公司实体类
- * 
- * @author: 张海彪
- * @date： 日期：2016-7-26 时间：下午2:38:15
- * @version 1.0
- */
 public class Company {
-	private Integer companyId;
+    private Integer companyId;
 
-	private String companyName;
+    private String companyName;
 
-	private String companyPassword;
+    private String companyLoginName;
 
-	private String companyLocation;
+    private String companyPassword;
 
-	private Integer industryId;
+    private String companyLocation;
 
-	private String chatterName;
+    private Integer industryId;
 
-	private String chatterSex;
+    private String chatterName;
 
-	private String phoneNumber;
+    private String chatterSex;
 
-	public Integer getCompanyId() {
-		return companyId;
-	}
+    private String phoneNumber;
 
-	public void setCompanyId(Integer companyId) {
-		this.companyId = companyId;
-	}
+    public Integer getCompanyId() {
+        return companyId;
+    }
 
-	public String getCompanyName() {
-		return companyName;
-	}
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName == null ? null : companyName.trim();
-	}
+    public String getCompanyName() {
+        return companyName;
+    }
 
-	public String getCompanyPassword() {
-		return companyPassword;
-	}
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName == null ? null : companyName.trim();
+    }
 
-	public void setCompanyPassword(String companyPassword) {
-		this.companyPassword = companyPassword == null ? null : companyPassword
-				.trim();
-	}
+    public String getCompanyLoginName() {
+        return companyLoginName;
+    }
 
-	public String getCompanyLocation() {
-		return companyLocation;
-	}
+    public void setCompanyLoginName(String companyLoginName) {
+        this.companyLoginName = companyLoginName == null ? null : companyLoginName.trim();
+    }
 
-	public void setCompanyLocation(String companyLocation) {
-		this.companyLocation = companyLocation == null ? null : companyLocation
-				.trim();
-	}
+    public String getCompanyPassword() {
+        return companyPassword;
+    }
 
-	public Integer getIndustryId() {
-		return industryId;
-	}
+    public void setCompanyPassword(String companyPassword) {
+        this.companyPassword = companyPassword == null ? null : companyPassword.trim();
+    }
 
-	public void setIndustryId(Integer industryId) {
-		this.industryId = industryId;
-	}
+    public String getCompanyLocation() {
+        return companyLocation;
+    }
 
-	public String getChatterName() {
-		return chatterName;
-	}
+    public void setCompanyLocation(String companyLocation) {
+        this.companyLocation = companyLocation == null ? null : companyLocation.trim();
+    }
 
-	public void setChatterName(String chatterName) {
-		this.chatterName = chatterName == null ? null : chatterName.trim();
-	}
+    public Integer getIndustryId() {
+        return industryId;
+    }
 
-	public String getChatterSex() {
-		return chatterSex;
-	}
+    public void setIndustryId(Integer industryId) {
+        this.industryId = industryId;
+    }
 
-	public void setChatterSex(String chatterSex) {
-		this.chatterSex = chatterSex == null ? null : chatterSex.trim();
-	}
+    public String getChatterName() {
+        return chatterName;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setChatterName(String chatterName) {
+        this.chatterName = chatterName == null ? null : chatterName.trim();
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
-	}
+    public String getChatterSex() {
+        return chatterSex;
+    }
+
+    public void setChatterSex(String chatterSex) {
+        this.chatterSex = chatterSex == null ? null : chatterSex.trim();
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+    }
 }

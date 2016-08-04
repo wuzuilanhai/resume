@@ -4,6 +4,8 @@
 	<resultMap id="BaseResultMap" type="com.pojo.Company">
 		<id column="company_id" property="companyId" jdbcType="INTEGER" />
 		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="company_login_name" property="companyLoginName"
+			jdbcType="VARCHAR" />
 		<result column="company_password" property="companyPassword"
 			jdbcType="VARCHAR" />
 		<result column="company_location" property="companyLocation"
@@ -21,6 +23,9 @@
 			</if>
 			<if test="companyName != null">
 				company_name,
+			</if>
+			<if test="companyLoginName != null">
+				company_login_name,
 			</if>
 			<if test="companyPassword != null">
 				company_password,
@@ -48,7 +53,10 @@
 			<if test="companyName != null">
 				#{companyName,jdbcType=VARCHAR},
 			</if>
-			<if test="companyPassword!= null">
+			<if test="companyLoginName != null">
+				#{companyLoginName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyPassword != null">
 				#{companyPassword,jdbcType=VARCHAR},
 			</if>
 			<if test="companyLocation != null">
