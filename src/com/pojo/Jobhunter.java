@@ -31,6 +31,8 @@ public class Jobhunter {
 
     private String jobhunterQualification;
 
+    private String jobhunterAddress;
+
     private Date jobhunterJoindate;
 
     private Date jobhunterLastLogindate;
@@ -149,6 +151,14 @@ public class Jobhunter {
 
     public void setJobhunterQualification(String jobhunterQualification) {
         this.jobhunterQualification = jobhunterQualification == null ? null : jobhunterQualification.trim();
+    }
+
+    public String getJobhunterAddress() {
+        return jobhunterAddress;
+    }
+
+    public void setJobhunterAddress(String jobhunterAddress) {
+        this.jobhunterAddress = jobhunterAddress == null ? null : jobhunterAddress.trim();
     }
 
     public Date getJobhunterJoindate() {

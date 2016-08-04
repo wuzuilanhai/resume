@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,15 +35,22 @@ public class JobHunterController extends BasicController {
 	 */
 	@RequestMapping("/addJobHunter")
 	public @ResponseBody
-	String addJobHunter(Jobhunter jobhunter) throws Exception {
+	String addJobHunter(Jobhunter jobhunter, String year, String month,
+			String province, String city) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		jobhunter.setJobhunterBirthday(format.parse(year + "-" + month));
+		jobhunter.setJobhunterNativePlace(province + city);
 		// 求职者资料完善状态，0：未完善，1：已完善
-		jobhunter.setJobhunterEditStatus(0);
+		jobhunter.setJobhunterEditStatus(1);
 		jobhunter.setJobhunterJoindate(new Date());
 		// 加密密码
 		jobhunter.setJobhunterPassword(MD5Utils.md5(jobhunter
 				.getJobhunterPassword()));
 		jobHunterService.addJobHunter(jobhunter);
-		return "success";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("registerInfo", "success");
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(map);
 	}
 
 	/**
@@ -105,12 +113,13 @@ public class JobHunterController extends BasicController {
 	String checkValiImgAndName(String validationImg, String jobhunterName,
 			HttpSession session) throws Exception {
 		validationImg = URLDecoder.decode(validationImg, "utf-8");
-		jobhunterName=URLDecoder.decode(jobhunterName, "utf-8");
-		Jobhunter jobhunter=jobHunterService.findJobHunterByName(jobhunterName);
+		jobhunterName = URLDecoder.decode(jobhunterName, "utf-8");
+		Jobhunter jobhunter = jobHunterService
+				.findJobHunterByName(jobhunterName);
 		Map<String, String> map = new HashMap<String, String>();
-		if(jobhunter!=null){
+		if (jobhunter != null) {
 			map.put("nameInfo", "exist");
-		}else{
+		} else {
 			map.put("nameInfo", "notExist");
 		}
 		if (validationImg.equals(session.getAttribute("valiStr"))) {

@@ -66,7 +66,9 @@
 		</div>
 	</div>
 
-	<form id="registerForm" action="" method="post">
+	<form id="registerForm"
+		action="${pageContext.request.contextPath}/jobHunter/addJobHunter.action"
+		method="post">
 
 		<div class="framemid" style="position:relative;" id="div1">
 			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
@@ -182,88 +184,115 @@
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">真实姓名：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="realname" placeholder="填写真实姓名"
+				<input class="form-control" name="jobhunterRealName" type="text"
+					id="jobhunterRealName" placeholder="填写真实姓名"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="jobhunterRealNameTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:160;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">性别：</p>
-				<table id="sex"
+				<table id="jobhunterSex"
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_0"> 男</label>
-						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_1"> 女</label>
-						</td>
+						<td><label> <input type="radio" name="jobhunterSex"
+								value="1" id="RadioGroup1_0"> 男</label></td>
+						<td><label> <input type="radio" name="jobhunterSex"
+								value="2" id="RadioGroup1_1"> 女</label></td>
 					</tr>
 				</table>
+				<div id="jobhunterSexTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:210;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">出生年月：</p>
-				<select id="year" type="text" class="form-control"
+				<select id="year" type="text" class="form-control" name="year"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>年份</option>
-					<option>北京市</option>
-					<option>上海市</option>
-				</select> <select id="month" type="text" class="form-control"
+					<option value=1990>1990</option>
+					<option value=1991>1991</option>
+					<option value=1992>1992</option>
+					<option value=1993>1993</option>
+					<option value=1994>1994</option>
+					<option value=1995>1995</option>
+					<option value=1996>1996</option>
+					<option value=1997>1997</option>
+					<option value=1998>1998</option>
+					<option value=1999>1999</option>
+				</select> <select id="month" type="text" class="form-control" name="month"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:230;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>月份</option>
-					<option>北京市</option>
-					<option>上海市</option>
+					<option value=1>1</option>
+					<option value=2>2</option>
+					<option value=3>3</option>
+					<option value=4>4</option>
+					<option value=5>5</option>
+					<option value=6>6</option>
+					<option value=7>7</option>
+					<option value=8>8</option>
+					<option value=9>9</option>
+					<option value=10>10</option>
+					<option value=11>11</option>
+					<option value=12>12</option>
 				</select>
+				<div id="jobhunterBirthdayTip"
+					style="position:absolute;left:295;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:260;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">婚姻状况：</p>
-				<table id="marriage"
+				<table id="jobhunterMaritalStatus"
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_0"> 已婚</label>
-						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_1"> 未婚</label>
-						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_1"> 不显示</label>
-						</td>
+						<td><label> <input type="radio"
+								name="jobhunterMaritalStatus" value="已婚" id="RadioGroup1_0">
+								已婚</label></td>
+						<td><label> <input type="radio"
+								name="jobhunterMaritalStatus" value="未婚" id="RadioGroup1_1">
+								未婚</label></td>
+						<td><label> <input type="radio"
+								name="jobhunterMaritalStatus" value="不显示" id="RadioGroup1_1">
+								不显示</label></td>
 					</tr>
 				</table>
+				<div id="jobhunterMaritalStatusTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:310;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">籍贯：</p>
 				<select id="province" type="text" class="form-control"
-					onmouseover="this.style.borderColor='#3d7d52'"
+					name="province" onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>省份</option>
-					<option>北京市</option>
-					<option>上海市</option>
-				</select> <select id="city" type="text" class="form-control"
+					<option value=广东省>广东省</option>
+					<option value=河北省>河北省</option>
+				</select> <select id="city" type="text" class="form-control" name="city"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:230;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>城市</option>
-					<option>北京市</option>
-					<option>上海市</option>
+					<option value=北京市>北京市</option>
+					<option value=上海市>上海市</option>
+					<option value=广州市>广州市</option>
 				</select>
+				<div id="jobhunterNativePlaceTip"
+					style="position:absolute;left:295;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:360;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">详细地址：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="address" placeholder="请输入详细地址信息（可不填）"
+				<input class="form-control" name="jobhunterAddress" type="text"
+					id="jobhunterAddress" placeholder="请输入详细地址信息（可不填）"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
@@ -312,61 +341,65 @@
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">学历：</p>
-				<select id="record" type="text" class="form-control"
+				<select id="jobhunterQualification" type="text" class="form-control"
+					name="jobhunterQualification"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>学历程度</option>
-					<option>北京市</option>
-					<option>上海市</option>
+					<option>高中以下</option>
+					<option>高中</option>
+					<option>本科</option>
+					<option>硕士</option>
+					<option>博士</option>
 				</select>
+				<div id="jobhunterQualificationTip"
+					style="position:absolute;left:295;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:160;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">毕业于：</p>
-				<select id="graduate" type="text" class="form-control"
+				<input class="form-control" name="jobhunterGraduateSchool"
+					type="text" id="jobhunterGraduateSchool" placeholder="学校"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
-					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
-					<option>学校</option>
-					<option>北京市</option>
-					<option>上海市</option>
-				</select>
+					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="jobhunterGraduateSchoolTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:210;left:136;width:370;height:100;">
 				<p style="float:left;" class="textstyle">就职状态：</p>
-				<table id="workstate"
+				<table id="jobhuntEntranceStatus"
 					style="position:absolute;left:92;top:4;float:left; " width="280">
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
-								name="RadioGroup1" value="单选" id="RadioGroup1_0">
-								在职，看看新机会</label>
-						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_1"> 在职，暂无跳槽打算</label>
-						</td>
+								name="jobhuntEntranceStatus" value="在职，看看新机会" id="RadioGroup1_0">
+								在职，看看新机会</label></td>
+						<td><label> <input type="radio"
+								name="jobhuntEntranceStatus" value="在职，暂无跳槽打算"
+								id="RadioGroup1_1"> 在职，暂无跳槽打算</label></td>
 					</tr>
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
-								name="RadioGroup1" value="单选" id="RadioGroup2_0">
-								在职，急寻新工作</label>
-						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup2_1"> 离职，正在找工作</label>
-						</td>
+								name="jobhuntEntranceStatus" value="在职，急寻新工作" id="RadioGroup2_0">
+								在职，急寻新工作</label></td>
+						<td><label> <input type="radio"
+								name="jobhuntEntranceStatus" value="离职，正在找工作" id="RadioGroup2_1">
+								离职，正在找工作</label></td>
 					</tr>
 				</table>
+				<div id="jobhuntEntranceStatusTip"
+					style="position:absolute;left:290;top:35;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:310;left:136;width:370;height:100;">
 				<p style="float:left;" class="textstyle">自我评价：</p>
-				<textarea class="form-control" name="textfield" type="text"
-					id="evaluation" value="建议您对自己做一个简短评价，简明扼要的描述您的职业优势（可不填）"
+				<textarea class="form-control" name="jobhunterSelfAppraisal"
+					type="text" id="evaluation"
+					placeHolder="建议您对自己做一个简短评价，简明扼要的描述您的职业优势（可不填）"
 					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
-					onFocus="if (value =='建议您对自己做一个简短评价，简明扼要的描述您的职业优势（可不填）'){value =''}"
-					onBlur="if (value ==''){value='建议您对自己做一个简短评价，简明扼要的描述您的职业优势（可不填）'}"
 					style="position:absolute;left:100;top:10;float:left;width:280px; height:100px; font-family:微软雅黑;font-size: 12px; color: #989898;resize:none;"></textarea>
 			</div>
 
@@ -378,7 +411,7 @@
 					alt="" width="202" height="82" id="previous"> </a>
 			</div>
 
-			<div id="jobhunter_register_btn"
+			<div id="next_btn_div3"
 				style="position:absolute;bottom:25;left:510;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
@@ -404,6 +437,42 @@
 		</div>
 
 	</form>
+
+	<div class="framemid" style="position:relative;display:none" id="div4">
+		<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+			<img
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/progress4.png"
+				width="821" height="50" alt="" />
+		</div>
+		<div style="position:absolute;top:206;left:315;width:320;height:138;">
+			<img
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/register.png"
+				width="320" height="138" alt="" />
+		</div>
+
+		<div style="position:absolute;top:360;left:315;width:320;height:50;">
+			<p
+				style="text-align: center;font-size: 14px; color: #316392;font-weight:normal;">恭喜你注册成功，你可以：</p>
+		</div>
+
+
+		<div
+			style="position:absolute;bottom:75;left:374;width:202;height:82;float:left;">
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('browse','','${pageContext.request.contextPath}/images/jobhunterRegister/browse2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/browse.png"
+				alt="" width="202" height="82" id="browse"> </a>
+		</div>
+
+		<div
+			style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
+
+			<a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('create','','${pageContext.request.contextPath}/images/jobhunterRegister/create2.png',1)"><img
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/create.png"
+				alt="" width="202" height="82" id="create"> </a>
+		</div>
+	</div>
 
 	<div class="framebottom" style="position:relative;">
 		<div
@@ -484,7 +553,6 @@
 	</div>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.banner.js"></script>
-	<script type="text/javascript" src="js/JQuerySession.js"></script>
 	<script type="text/javascript"
 		src="js/jobhunterRegister/jobhunterRegister.js"></script>
 </body>

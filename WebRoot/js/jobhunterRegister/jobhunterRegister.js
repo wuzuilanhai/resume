@@ -64,6 +64,21 @@ $("#registerForm input").focus(function() {
 	var tipId = "#" + $(this).attr("name") + "Tip";
 	$(tipId).html("");
 });
+$('#year').click(function() {
+	$('#jobhunterBirthdayTip').html("");
+});
+$('#month').click(function() {
+	$('#jobhunterBirthdayTip').html("");
+});
+$('#province').click(function() {
+	$('#jobhunterNativePlaceTip').html("");
+});
+$('#city').click(function() {
+	$('#jobhunterNativePlaceTip').html("");
+});
+$('#jobhunterQualification').click(function() {
+	$('#jobhunterQualificationTip').html("");
+});
 $("div[id^='next_btn']")
 		.click(
 				function() {
@@ -119,7 +134,7 @@ $("div[id^='next_btn']")
 							return;
 						} else if (!/^(\+\d{2,3}\-)?\d{11}$/.test($(
 								"#jobhunterPhone").val().trim())) {
-							$('#jobhunterPhone').html("");
+							$('#jobhunterPhone').val("");
 							$('#jobhunterPhoneTip').html("");
 							$('#jobhunterPhoneTip').html(
 									"<font color='red'>号码格式有误!</font>");
@@ -132,7 +147,7 @@ $("div[id^='next_btn']")
 							return;
 						} else if (!/^\w{3,}@\w+(\.\w+)+$/.test($(
 								"#jobhunterEmail").val().trim())) {
-							$('#jobhunterEmail').html("");
+							$('#jobhunterEmail').val("");
 							$('#jobhunterEmailTip').html("");
 							$('#jobhunterEmailTip').html(
 									"<font color='red'>邮箱格式有误!</font>");
@@ -192,8 +207,83 @@ $("div[id^='next_btn']")
 								});
 						break;
 					case 2:
+						if (($("#jobhunterRealName").val().trim()).length == 0) {
+							$('#jobhunterRealNameTip').html("");
+							$('#jobhunterRealNameTip').html(
+									"<font color='red'>输入不能为空!</font>");
+							return;
+						}
+						if ($("#jobhunterSex input[type='radio']:checked").length <= 0) {
+							$('#jobhunterSexTip').html("");
+							$('#jobhunterSexTip').html(
+									"<font color='red'>请选择性别!</font>");
+							return;
+						}
+						if ($('#year').val() == "年份"
+								|| $('#month').val() == "月份") {
+							$('#jobhunterBirthdayTip').html("");
+							$('#jobhunterBirthdayTip').html(
+									"<font color='red'>请选择出生年月!</font>");
+							return;
+						}
+						if ($("#jobhunterMaritalStatus input[type='radio']:checked").length <= 0) {
+							$('#jobhunterMaritalStatusTip').html("");
+							$('#jobhunterMaritalStatusTip').html(
+									"<font color='red'>请选择婚姻状况!</font>");
+							return;
+						}
+						if ($('#province').val() == "省份"
+								|| $('#city').val() == "城市") {
+							$('#jobhunterNativePlaceTip').html("");
+							$('#jobhunterNativePlaceTip').html(
+									"<font color='red'>请选择籍贯!</font>");
+							return;
+						}
+						if (number < 3) {
+							number += 1;
+						}
+						var divId = "#div" + number;
+						$("div[id^='div']").hide();
+						$(divId).show();
 						break;
 					case 3:
+						if ($('#jobhunterQualification').val() == "学历程度") {
+							$('#jobhunterQualificationTip').html("");
+							$('#jobhunterQualificationTip').html(
+									"<font color='red'>请选择学历!</font>");
+							return;
+						}
+						if (($("#jobhunterGraduateSchool").val().trim()).length == 0) {
+							$('#jobhunterGraduateSchoolTip').html("");
+							$('#jobhunterGraduateSchoolTip').html(
+									"<font color='red'>输入不能为空!</font>");
+							return;
+						}
+						if ($("#jobhuntEntranceStatus input[type='radio']:checked").length <= 0) {
+							$('#jobhuntEntranceStatusTip').html("");
+							$('#jobhuntEntranceStatusTip').html(
+									"<font color='red'>请选择就职状态!</font>");
+							return;
+						}
+						$.ajax({
+							type : 'post',
+							url : $('#registerForm').attr("action"),
+							data : $('#registerForm').serialize(),
+							dataType : "json",
+							success : function(data) {
+								if (number <= 3) {
+									number += 1;
+								}
+								var divId = "#div" + number;
+								$("div[id^='div']").hide();
+								$(divId).show();
+							},
+							error : function() {
+								alert("注册失败!");
+								// 重新加载页面
+								window.location.reload();
+							}
+						});
 						break;
 					default:
 						break;
@@ -202,17 +292,6 @@ $("div[id^='next_btn']")
 $("div[id^='previous_btn']").click(function() {
 	var divName = $(this).attr("id").substring(13);
 	var number = parseInt($(this).attr("id").substring(16));
-	// 字段验证
-	switch (number) {
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	default:
-		break;
-	}
 	if (number > 1) {
 		number -= 1;
 	}
