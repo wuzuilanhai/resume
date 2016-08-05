@@ -69,7 +69,8 @@ $("div[id^='div_login']")
 					var showDivId = "#framemid_" + str;
 					$(showDivId).show();
 					if (str == "business") {
-						$('#jobhunterRegister').attr("href",getRootPath()+"/companyRegister.jsp");
+						$('#jobhunterRegister').attr("href",
+								getRootPath() + "/company/registerUI.action");
 						$('#changeImgDiv a').remove();
 						$('#changeImgDiv')
 								.append(
@@ -79,7 +80,8 @@ $("div[id^='div_login']")
 												+ getRootPath()
 												+ '/images/index/dhh/person.jpg" alt="" width="80" height="30" id="business"> </a>');
 					} else {
-						$('#jobhunterRegister').attr("href",getRootPath()+"/jobhunterRegister.jsp");
+						$('#jobhunterRegister').attr("href",
+								getRootPath() + "/jobHunter/registerUI.action");
 						$('#changeImgDiv a').remove();
 						$('#changeImgDiv')
 								.append(

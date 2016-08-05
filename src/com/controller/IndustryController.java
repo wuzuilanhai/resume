@@ -1,7 +1,10 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pojo.Industry;
 
@@ -38,4 +41,19 @@ public class IndustryController extends BasicController {
 		industryService.addIndustry(industry);
 		return "success";
 	}
+
+	/**
+	 * 通过父行业id寻找子行业
+	 * 
+	 * @param parentid
+	 *            父行业id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findChildrenIndustry")
+	public @ResponseBody
+	List<Industry> findChildrenIndustry(Integer parentid) throws Exception {
+		return industryService.findChildrenIndustry(parentid);
+	}
+
 }

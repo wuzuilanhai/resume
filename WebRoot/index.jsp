@@ -64,7 +64,9 @@
                 </div>-->
 			<div
 				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="" id="jobhunterLogin">登录</a>/<a href="${pageContext.request.contextPath}/jobhunterRegister.jsp" id="jobhunterRegister">注册</a>
+				<a href="" id="jobhunterLogin">登录</a>/<a
+					href="${pageContext.request.contextPath}/jobHunter/registerUI.action"
+					id="jobhunterRegister">注册</a>
 			</div>
 			<div id="changeImgDiv"
 				style="position:absolute;float:left;width:80;height:30;right:10;top:10px">

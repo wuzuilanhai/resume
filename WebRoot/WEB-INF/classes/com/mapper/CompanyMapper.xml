@@ -13,6 +13,10 @@
 		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
 		<result column="chatter_name" property="chatterName" jdbcType="VARCHAR" />
 		<result column="chatter_sex" property="chatterSex" jdbcType="VARCHAR" />
+		<result column="company_email" property="companyEmail"
+			jdbcType="VARCHAR" />
+		<result column="chatter_phone" property="chatterPhone"
+			jdbcType="VARCHAR" />
 		<result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
 	</resultMap>
 	<insert id="addCompany" parameterType="com.pojo.Company">
@@ -41,6 +45,12 @@
 			</if>
 			<if test="chatterSex != null">
 				chatter_sex,
+			</if>
+			<if test="companyEmail != null">
+				company_email,
+			</if>
+			<if test="chatterPhone != null">
+				chatter_phone,
 			</if>
 			<if test="phoneNumber != null">
 				phone_number,
@@ -71,6 +81,12 @@
 			<if test="chatterSex != null">
 				#{chatterSex,jdbcType=VARCHAR},
 			</if>
+			<if test="companyEmail != null">
+				#{companyEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="chatterPhone != null">
+				#{chatterPhone,jdbcType=VARCHAR},
+			</if>
 			<if test="phoneNumber != null">
 				#{phoneNumber,jdbcType=VARCHAR},
 			</if>
@@ -80,5 +96,10 @@
 		resultType="int">
 		select company_id from company where
 		company_name=#{companyName}
+	</select>
+	<select id="findCompanyByCompanyLoginName" parameterType="string"
+		resultMap="BaseResultMap">
+		select * from company where
+		company_login_name=#{companyLoginName}
 	</select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.pojo.Industry;
@@ -19,8 +21,18 @@ public class IndustryServiceImpl extends BasicServiceImpl implements
 		industryMapper.addIndustry(industry);
 	}
 
-	public Integer findIndustryIdByIndustryName(String industryName) throws Exception{
+	public Integer findIndustryIdByIndustryName(String industryName)
+			throws Exception {
 		return industryMapper.findIndustryIdByIndustryName(industryName);
+	}
+
+	public List<Industry> findParentIndustry() throws Exception {
+		return industryMapper.findParentIndustry();
+	}
+
+	public List<Industry> findChildrenIndustry(Integer parentid)
+			throws Exception {
+		return industryMapper.findChildrenIndustry(parentid);
 	}
 
 }

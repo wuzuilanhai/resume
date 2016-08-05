@@ -199,9 +199,11 @@
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
 						<td><label> <input type="radio" name="jobhunterSex"
-								value="1" id="RadioGroup1_0"> 男</label></td>
+								value="男" id="RadioGroup1_0"> 男</label>
+						</td>
 						<td><label> <input type="radio" name="jobhunterSex"
-								value="2" id="RadioGroup1_1"> 女</label></td>
+								value="女" id="RadioGroup1_1"> 女</label>
+						</td>
 					</tr>
 				</table>
 				<div id="jobhunterSexTip"
@@ -254,13 +256,16 @@
 					<tr>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="已婚" id="RadioGroup1_0">
-								已婚</label></td>
+								已婚</label>
+						</td>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="未婚" id="RadioGroup1_1">
-								未婚</label></td>
+								未婚</label>
+						</td>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="不显示" id="RadioGroup1_1">
-								不显示</label></td>
+								不显示</label>
+						</td>
 					</tr>
 				</table>
 				<div id="jobhunterMaritalStatusTip"
@@ -375,18 +380,22 @@
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，看看新机会" id="RadioGroup1_0">
-								在职，看看新机会</label></td>
+								在职，看看新机会</label>
+						</td>
 						<td><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，暂无跳槽打算"
-								id="RadioGroup1_1"> 在职，暂无跳槽打算</label></td>
+								id="RadioGroup1_1"> 在职，暂无跳槽打算</label>
+						</td>
 					</tr>
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，急寻新工作" id="RadioGroup2_0">
-								在职，急寻新工作</label></td>
+								在职，急寻新工作</label>
+						</td>
 						<td><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="离职，正在找工作" id="RadioGroup2_1">
-								离职，正在找工作</label></td>
+								离职，正在找工作</label>
+						</td>
 					</tr>
 				</table>
 				<div id="jobhuntEntranceStatusTip"

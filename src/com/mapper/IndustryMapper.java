@@ -1,5 +1,7 @@
 package com.mapper;
 
+import java.util.List;
+
 import com.pojo.Industry;
 
 /**
@@ -13,5 +15,9 @@ import com.pojo.Industry;
 public interface IndustryMapper {
 	void addIndustry(Industry industry) throws Exception;
 
-	Integer findIndustryIdByIndustryName(String industryName)  throws Exception;
+	Integer findIndustryIdByIndustryName(String industryName) throws Exception;
+
+	List<Industry> findParentIndustry() throws Exception;
+
+	List<Industry> findChildrenIndustry(Integer parentid) throws Exception;
 }

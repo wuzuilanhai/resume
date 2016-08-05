@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -81,63 +82,76 @@
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">用户名：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="username" placeHolder="填写登录名/用户名"
+				<input class="form-control" name="companyLoginName" type="text"
+					id="companyLoginName" placeHolder="填写登录名/用户名"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="companyLoginNameTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:160;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密码：</p>
-				<input type="text" class="form-control"
-					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;"
-					value="填写登录密码" /> <input class="form-control" name="textfield"
-					type="text" id="password" placeHolder="填写密码"
+				<input class="form-control" name="companyPassword" type="password"
+					id="companyPassword" placeHolder="填写密码"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="companyPasswordTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:210;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">重复密码：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="password2" placeHolder="再次填写密码"
+				<input class="form-control" name="companyPasswordRepeat"
+					type="password" id="companyPasswordRepeat" placeHolder="再次填写密码"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="companyPasswordRepeatTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:260;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密保手机：</p>
-				<input class="form-control" name="textfield" type="text" id="phone"
-					placeHolder="填写密保手机号"
+				<input class="form-control" name="phoneNumber" type="text"
+					id="phoneNumber" placeHolder="填写密保手机号"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="phoneNumberTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:310;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">密保邮箱：</p>
-				<input class="form-control" name="textfield" type="text" id="email"
-					placeHolder="填写密保邮箱地址"
+				<input class="form-control" name="companyEmail" type="text"
+					id="companyEmail" placeHolder="填写密保邮箱地址"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="companyEmailTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
-			<div style="position:absolute;top:360;left:136;width:370;height:50;">
+			<div style="position:absolute;top:360;left:136;width:370;height:50;"
+				id="imgDiv">
 				<p style="float:left;" class="textstyle">验证码：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="messageVC" placeHolder="请输入验证码"
-					onmouseover="this.style.borderColor='#316392'"
+				<input class="form-control" name="validationImg" type="text"
+					id="validationImg" placeholder="请输入验证码"
+					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
-					onFocus="if (value =='请输入短信提示的验证码'){value =''}"
-					onBlur="if (value ==''){value='请输入短信提示的验证码'}"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<dir id="validationImgTip"
+					style="position:absolute;left:230;top:2;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></dir>
+				<img alt="" src="${pageContext.request.contextPath}/valiImgUtils"
+					id="valiImg" title="看不清，点击刷新"
+					onclick="this.src=this.src+'?'+Math.random()"
+					style="position:absolute;left:480;top:2;float:left;width:140px; height:50px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
 			</div>
 
-			<div
+			<div id="next_btn_div1"
 				style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('下一步','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
@@ -162,7 +176,7 @@
 			</div>
 		</div>
 
-		<div class="framemid" style="position:relative;" id="div2">
+		<div class="framemid" style="position:relative;display:none" id="div2">
 			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
 				<img
 					src="${pageContext.request.contextPath}/images/companyRegister/progress2.png"
@@ -171,87 +185,98 @@
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">公司名称：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="company" placeHolder="填写营业执照上的公司全称"
+				<input class="form-control" name="companyName" type="text"
+					id="companyName" placeHolder="填写营业执照上的公司全称"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="companyNameTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:160;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">所在地：</p>
 				<select id="province" type="text" class="form-control"
-					onmouseover="this.style.borderColor='#316392'"
+					name="province" onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>省份</option>
-					<option>北京市</option>
-					<option>上海市</option>
-				</select> <select id="city" type="text" class="form-control"
-					onmouseover="this.style.borderColor='#316392'"
+					<option value=广东省>广东省</option>
+					<option value=河北省>河北省</option>
+				</select> <select id="city" type="text" class="form-control" name="city"
+					onmouseover="this.style.borderColor='#3d7d52'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:230;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>城市</option>
-					<option>北京市</option>
-					<option>上海市</option>
+					<option value=北京市>北京市</option>
+					<option value=上海市>上海市</option>
+					<option value=广州市>广州市</option>
 				</select>
-
+				<div id="companyLocationTip"
+					style="position:absolute;left:295;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:210;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">所属行业：</p>
-				<select id='profession' type="text" class="form-control"
-					onmouseover="this.style.borderColor='#316392'"
+				<select id='industry' type="text" class="form-control"
+					name="'industry'" onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>行业</option>
-					<option>北京市</option>
-					<option>上海市</option>
-				</select> <select id='type' type="text" class="form-control"
+					<c:forEach items="${sessionScope.industries }" var="industry">
+						<option value="${industry.industryId }">${industry.industryName
+							}</option>
+					</c:forEach>
+				</select> <select id='type' type="text" class="form-control" name="type"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:230;top:10;float:left;width:110px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option>分类</option>
-					<option>北京市</option>
-					<option>上海市</option>
 				</select>
+				<div id="industryIdTip"
+					style="position:absolute;left:295;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:260;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">联系人：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="contact" placeHolder="填写联系人姓名"
+				<input class="form-control" name="chatterName" type="text"
+					id="chatterName" placeHolder="填写联系人姓名"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="chatterNameTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:310;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">性别：</p>
-				<!--<input type="text" class="form-control" style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" value=" 请输入短信提示的验证码"//>-->
-				<table id="sexual"
-					style="position:absolute;left:100;top:12;float:left;" width="200">
+				<table id="chatterSex"
+					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_0"> 男</label>
+						<td><label> <input type="radio" name="chatterSex"
+								value="男" id="RadioGroup1_0"> 男</label>
 						</td>
-						<td><label> <input type="radio" name="RadioGroup1"
-								value="单选" id="RadioGroup1_1"> 女</label>
+						<td><label> <input type="radio" name="chatterSex"
+								value="女" id="RadioGroup1_1"> 女</label>
 						</td>
 					</tr>
 				</table>
+				<div id="chatterSexTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
 			<div style="position:absolute;top:360;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">手机号：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="c_phone" placeHolder="填写联系人手机号"
+				<input class="form-control" name="chatterPhone" type="text"
+					id="chatterPhone" placeHolder="填写联系人手机号"
 					onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:100;top:10;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+				<div id="chatterPhoneTip"
+					style="position:absolute;left:270;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 			</div>
 
-			<div
+			<div id="previous_btn_div2"
 				style="position:absolute;bottom:25;left:250;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('previous','','${pageContext.request.contextPath}/images/companyRegister/previous2.png',1)"><img
@@ -259,9 +284,9 @@
 					alt="" width="202" height="82" id="previous"> </a>
 			</div>
 
-			<div
+			<div id="next_btn_div2"
 				style="position:absolute;bottom:25;left:510;width:202;height:82;float:left;">
-				<a href="Untitled-3.html" onMouseOut="MM_swapImgRestore()"
+				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/next.png"
 					alt="" width="202" height="82" id="next"> </a>
@@ -285,7 +310,7 @@
 		</div>
 	</form>
 
-	<div class="framemid" style="position:relative;" id="div3">
+	<div class="framemid" style="position:relative;display:none" id="div3">
 		<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
 			<img
 				src="${pageContext.request.contextPath}/images/companyRegister/progress3.png"

@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.pojo.Industry;
 
 /**
@@ -27,5 +29,21 @@ public interface IndustryService {
 	 * @return 行业ID
 	 */
 	Integer findIndustryIdByIndustryName(String industryName) throws Exception;
+
+	/**
+	 * 查找所有的父行业
+	 * 
+	 * @return 所有的父行业
+	 */
+	List<Industry> findParentIndustry() throws Exception;
+
+	/**
+	 * 通过父行业id寻找子行业
+	 * 
+	 * @param parentid
+	 *            父行业id
+	 * @return
+	 */
+	List<Industry> findChildrenIndustry(Integer parentid) throws Exception;
 
 }

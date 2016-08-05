@@ -28,4 +28,14 @@ public interface CompanyService {
 	 * @return 企业ID
 	 */
 	Integer findCompanyIdByCompanyName(String companyName) throws Exception;
+
+	/**
+	 * 根据企业登陆名称获取企业信息
+	 * 
+	 * @param companyLoginName
+	 *            企业登陆名称
+	 * @return
+	 */
+	Company findCompanyByCompanyLoginName(String companyLoginName)
+			throws Exception;
 }

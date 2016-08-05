@@ -25,4 +25,9 @@ public class CompanyServiceImpl extends BasicServiceImpl implements
 		return companyMapper.findCompanyIdByCompanyName(companyName);
 	}
 
+	public Company findCompanyByCompanyLoginName(String companyLoginName)
+			throws Exception {
+		return companyMapper.findCompanyByCompanyLoginName(companyLoginName);
+	}
+
 }

@@ -17,6 +17,10 @@ public class Company {
 
     private String chatterSex;
 
+    private String companyEmail;
+
+    private String chatterPhone;
+
     private String phoneNumber;
 
     public Integer getCompanyId() {
@@ -81,6 +85,22 @@ public class Company {
 
     public void setChatterSex(String chatterSex) {
         this.chatterSex = chatterSex == null ? null : chatterSex.trim();
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail == null ? null : companyEmail.trim();
+    }
+
+    public String getChatterPhone() {
+        return chatterPhone;
+    }
+
+    public void setChatterPhone(String chatterPhone) {
+        this.chatterPhone = chatterPhone == null ? null : chatterPhone.trim();
     }
 
     public String getPhoneNumber() {

@@ -131,4 +131,15 @@ public class JobHunterController extends BasicController {
 		return mapper.writeValueAsString(map);
 	}
 
+	/**
+	 * 跳转到个人注册页面
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/registerUI")
+	public String registerUI() throws Exception {
+		return "jobhunter/jobhunterRegister";
+	}
+
 }

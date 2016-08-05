@@ -32,7 +32,19 @@
 			</if>
 		</trim>
 	</insert>
-	<select id="findIndustryIdByIndustryName" parameterType="string" resultType="int">
-		select industry_id from industry where industry_name=#{industry_name}
+	<select id="findIndustryIdByIndustryName" parameterType="string"
+		resultType="int">
+		select industry_id from industry where
+		industry_name=#{industry_name}
+	</select>
+	<select id="findParentIndustry" resultMap="BaseResultMap">
+		select * from industry
+		where
+		parentId is null
+	</select>
+	<select id="findChildrenIndustry" parameterType="int" resultMap="BaseResultMap">
+		select * from industry
+		where
+		parentId=#{parentid}
 	</select>
 </mapper>
