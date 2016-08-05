@@ -71,10 +71,10 @@
 		method="post">
 
 		<div class="framemid" style="position:relative;" id="div1">
-			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+			<div style="position:absolute;top:45;left:72;width:804;height:31;">
 				<img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/progress.png"
-					width="820" height="50" alt="" />
+					width="804" height="31" alt="" />
 			</div>
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
@@ -152,9 +152,9 @@
 			<div id="next_btn_div1"
 				style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
 				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
+					onMouseOver="MM_swapImage('next1','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/next.png"
-					alt="" width="202" height="82" id="next"> </a>
+					alt="" width="202" height="82" id="next1"> </a>
 			</div>
 
 			<div
@@ -176,10 +176,10 @@
 
 		<div class="framemid" style="position:relative;display: none"
 			id="div2">
-			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+			<div style="position:absolute;top:45;left:72;width:804;height:31;">
 				<img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/progress2.png"
-					width="820" height="50" alt="" />
+					width="804" height="31" alt="" />
 			</div>
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
@@ -314,9 +314,9 @@
 			<div id="next_btn_div2"
 				style="position:absolute;bottom:25;left:510;width:202;height:82;float:left;">
 				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
+					onMouseOver="MM_swapImage('next2','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/next.png"
-					alt="" width="202" height="82" id="next"> </a>
+					alt="" width="202" height="82" id="next2"> </a>
 			</div>
 
 			<div
@@ -336,12 +336,11 @@
 			</div>
 		</div>
 
-		<div class="framemid" style="position:relative;display: none"
-			id="div3">
-			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+		<div class="framemid" style="position:relative;display:none" id="div3">
+			<div style="position:absolute;top:45;left:72;width:804;height:31;">
 				<img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/progress3.png"
-					width="820" height="50" alt="" />
+					width="804" height="31" alt="" />
 			</div>
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
@@ -423,9 +422,9 @@
 			<div id="next_btn_div3"
 				style="position:absolute;bottom:25;left:510;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
+					onMouseOver="MM_swapImage('next3','','${pageContext.request.contextPath}/images/jobhunterRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/next.png"
-					alt="" width="202" height="82" id="next"> </a>
+					alt="" width="202" height="82" id="next3"> </a>
 			</div>
 
 			<div
@@ -448,10 +447,10 @@
 	</form>
 
 	<div class="framemid" style="position:relative;display:none" id="div4">
-		<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+		<div style="position:absolute;top:45;left:72;width:804;height:31;">
 			<img
 				src="${pageContext.request.contextPath}/images/jobhunterRegister/progress4.png"
-				width="821" height="50" alt="" />
+				width="804" height="31" alt="" />
 		</div>
 		<div style="position:absolute;top:206;left:315;width:320;height:138;">
 			<img
@@ -459,28 +458,26 @@
 				width="320" height="138" alt="" />
 		</div>
 
-		<div style="position:absolute;top:360;left:315;width:320;height:50;">
+		<div style="position:absolute;top:410;left:315;width:320;height:50;">
 			<p
-				style="text-align: center;font-size: 14px; color: #316392;font-weight:normal;">恭喜你注册成功，你可以：</p>
+				style="text-align: center;font-size: 14px; color: #3d7d52;font-weight:normal;">恭喜你注册成功，你可以：</p>
 		</div>
 
 
 		<div
-			style="position:absolute;bottom:75;left:374;width:202;height:82;float:left;">
-			<a href="#" onMouseOut="MM_swapImgRestore()"
-				onMouseOver="MM_swapImage('browse','','${pageContext.request.contextPath}/images/jobhunterRegister/browse2.png',1)"><img
-				src="${pageContext.request.contextPath}/images/jobhunterRegister/browse.png"
-				alt="" width="202" height="82" id="browse"> </a>
+			style="position:absolute;bottom:-10;left:175;width:600;height:82;float:left;">
+			<img style="position:absolute;left:50;"
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/succeed.png"
+				width="84" height="57" alt="" /> <img
+				style="position:absolute;bottom:26;left:268;"
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/succeed2.png"
+				width="70" height="56" alt="" /> <img
+				style="position:absolute;right:50;"
+				src="${pageContext.request.contextPath}/images/jobhunterRegister/succeed3.png"
+				width="84" height="56" alt="" />
 		</div>
 
-		<div
-			style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
 
-			<a href="#" onMouseOut="MM_swapImgRestore()"
-				onMouseOver="MM_swapImage('create','','${pageContext.request.contextPath}/images/jobhunterRegister/create2.png',1)"><img
-				src="${pageContext.request.contextPath}/images/jobhunterRegister/create.png"
-				alt="" width="202" height="82" id="create"> </a>
-		</div>
 	</div>
 
 	<div class="framebottom" style="position:relative;">

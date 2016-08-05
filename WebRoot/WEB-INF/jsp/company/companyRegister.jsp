@@ -74,11 +74,13 @@
 		action="${pageContext.request.contextPath}/company/addCompany.action"
 		method="post">
 		<div class="framemid" style="position:relative;" id="div1">
-			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+
+			<div style="position:absolute;top:45;left:131;width:688;height:31;">
 				<img
 					src="${pageContext.request.contextPath}/images/companyRegister/progress1.png"
-					width="821" height="50" alt="" />
+					width="688" height="31" alt="" />
 			</div>
+
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">用户名：</p>
@@ -154,9 +156,9 @@
 			<div id="next_btn_div1"
 				style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('下一步','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
+					onMouseOver="MM_swapImage('next1','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/next.png"
-					alt="" width="202" height="82" id="下一步"> </a>
+					alt="" width="202" height="82" id="next1"> </a>
 			</div>
 
 			<div
@@ -177,11 +179,13 @@
 		</div>
 
 		<div class="framemid" style="position:relative;display:none" id="div2">
-			<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+
+			<div style="position:absolute;top:45;left:131;width:688;height:31;">
 				<img
 					src="${pageContext.request.contextPath}/images/companyRegister/progress2.png"
-					width="821" height="50" alt="" />
+					width="688" height="31" alt="" />
 			</div>
+
 
 			<div style="position:absolute;top:110;left:136;width:370;height:50;">
 				<p style="float:left;" class="textstyle">公司名称：</p>
@@ -254,11 +258,9 @@
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
 						<td><label> <input type="radio" name="chatterSex"
-								value="男" id="RadioGroup1_0"> 男</label>
-						</td>
+								value="男" id="RadioGroup1_0"> 男</label></td>
 						<td><label> <input type="radio" name="chatterSex"
-								value="女" id="RadioGroup1_1"> 女</label>
-						</td>
+								value="女" id="RadioGroup1_1"> 女</label></td>
 					</tr>
 				</table>
 				<div id="chatterSexTip"
@@ -287,9 +289,9 @@
 			<div id="next_btn_div2"
 				style="position:absolute;bottom:25;left:510;width:202;height:82;float:left;">
 				<a href="" onclick="return false" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('next','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
+					onMouseOver="MM_swapImage('next2','','${pageContext.request.contextPath}/images/companyRegister/next2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/next.png"
-					alt="" width="202" height="82" id="next"> </a>
+					alt="" width="202" height="82" id="next2"> </a>
 			</div>
 
 			<div
@@ -310,17 +312,20 @@
 		</div>
 	</form>
 
-	<div class="framemid" style="position:relative;display:none" id="div3">
-		<div style="position:absolute;top:25;left:64.5;width:821;height:50;">
+	<div class="framemid" style="position:relative;display:true" id="div3">
+
+		<div style="position:absolute;top:45;left:131;width:688;height:31;">
 			<img
 				src="${pageContext.request.contextPath}/images/companyRegister/progress3.png"
-				width="821" height="50" alt="" />
+				width="688" height="31" alt="" />
 		</div>
+
 		<div style="position:absolute;top:206;left:315;width:320;height:138;">
 			<img
 				src="${pageContext.request.contextPath}/images/companyRegister/register.png"
 				width="320" height="138" alt="" />
 		</div>
+
 
 		<div style="position:absolute;top:410;left:315;width:320;height:50;">
 			<p
@@ -328,12 +333,18 @@
 		</div>
 
 		<div
-			style="position:absolute;bottom:25;left:374;width:202;height:82;float:left;">
-			<a href="#" onMouseOut="MM_swapImgRestore()"
-				onMouseOver="MM_swapImage('publish','','${pageContext.request.contextPath}/images/companyRegister/publish2.png',1)"><img
-				src="${pageContext.request.contextPath}/images/companyRegister/publish.png"
-				alt="" width="202" height="82" id="publish"> </a>
+			style="position:absolute;bottom:-10;left:175;width:600;height:82;float:left;">
+			<img style="position:absolute;left:50;"
+				src="${pageContext.request.contextPath}/images/companyRegister/succeed1.png"
+				width="84" height="57" alt="" /> <img
+				style="position:absolute;bottom:25;left:260;"
+				src="${pageContext.request.contextPath}/images/companyRegister/succeed2.png"
+				width="84" height="56" alt="" /> <img
+				style="position:absolute;right:50;"
+				src="${pageContext.request.contextPath}/images/companyRegister/succeed3.png"
+				width="84" height="56" alt="" />
 		</div>
+
 	</div>
 
 	<div class="framebottom" style="position:relative;">
