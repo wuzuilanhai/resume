@@ -1,113 +1,123 @@
 package com.pojo;
 
-public class Company {
-    private Integer companyId;
+import java.io.Serializable;
 
-    private String companyName;
+public class Company implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7861131732022105777L;
 
-    private String companyLoginName;
+	private Integer companyId;
 
-    private String companyPassword;
+	private String companyName;
 
-    private String companyLocation;
+	private String companyLoginName;
 
-    private Integer industryId;
+	private String companyPassword;
 
-    private String chatterName;
+	private String companyLocation;
 
-    private String chatterSex;
+	private Integer industryId;
 
-    private String companyEmail;
+	private String chatterName;
 
-    private String chatterPhone;
+	private String chatterSex;
 
-    private String phoneNumber;
+	private String companyEmail;
 
-    public Integer getCompanyId() {
-        return companyId;
-    }
+	private String chatterPhone;
 
-    public void setCompanyId(Integer companyId) {
-        this.companyId = companyId;
-    }
+	private String phoneNumber;
 
-    public String getCompanyName() {
-        return companyName;
-    }
+	public Integer getCompanyId() {
+		return companyId;
+	}
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName == null ? null : companyName.trim();
-    }
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
+	}
 
-    public String getCompanyLoginName() {
-        return companyLoginName;
-    }
+	public String getCompanyName() {
+		return companyName;
+	}
 
-    public void setCompanyLoginName(String companyLoginName) {
-        this.companyLoginName = companyLoginName == null ? null : companyLoginName.trim();
-    }
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName == null ? null : companyName.trim();
+	}
 
-    public String getCompanyPassword() {
-        return companyPassword;
-    }
+	public String getCompanyLoginName() {
+		return companyLoginName;
+	}
 
-    public void setCompanyPassword(String companyPassword) {
-        this.companyPassword = companyPassword == null ? null : companyPassword.trim();
-    }
+	public void setCompanyLoginName(String companyLoginName) {
+		this.companyLoginName = companyLoginName == null ? null
+				: companyLoginName.trim();
+	}
 
-    public String getCompanyLocation() {
-        return companyLocation;
-    }
+	public String getCompanyPassword() {
+		return companyPassword;
+	}
 
-    public void setCompanyLocation(String companyLocation) {
-        this.companyLocation = companyLocation == null ? null : companyLocation.trim();
-    }
+	public void setCompanyPassword(String companyPassword) {
+		this.companyPassword = companyPassword == null ? null : companyPassword
+				.trim();
+	}
 
-    public Integer getIndustryId() {
-        return industryId;
-    }
+	public String getCompanyLocation() {
+		return companyLocation;
+	}
 
-    public void setIndustryId(Integer industryId) {
-        this.industryId = industryId;
-    }
+	public void setCompanyLocation(String companyLocation) {
+		this.companyLocation = companyLocation == null ? null : companyLocation
+				.trim();
+	}
 
-    public String getChatterName() {
-        return chatterName;
-    }
+	public Integer getIndustryId() {
+		return industryId;
+	}
 
-    public void setChatterName(String chatterName) {
-        this.chatterName = chatterName == null ? null : chatterName.trim();
-    }
+	public void setIndustryId(Integer industryId) {
+		this.industryId = industryId;
+	}
 
-    public String getChatterSex() {
-        return chatterSex;
-    }
+	public String getChatterName() {
+		return chatterName;
+	}
 
-    public void setChatterSex(String chatterSex) {
-        this.chatterSex = chatterSex == null ? null : chatterSex.trim();
-    }
+	public void setChatterName(String chatterName) {
+		this.chatterName = chatterName == null ? null : chatterName.trim();
+	}
 
-    public String getCompanyEmail() {
-        return companyEmail;
-    }
+	public String getChatterSex() {
+		return chatterSex;
+	}
 
-    public void setCompanyEmail(String companyEmail) {
-        this.companyEmail = companyEmail == null ? null : companyEmail.trim();
-    }
+	public void setChatterSex(String chatterSex) {
+		this.chatterSex = chatterSex == null ? null : chatterSex.trim();
+	}
 
-    public String getChatterPhone() {
-        return chatterPhone;
-    }
+	public String getCompanyEmail() {
+		return companyEmail;
+	}
 
-    public void setChatterPhone(String chatterPhone) {
-        this.chatterPhone = chatterPhone == null ? null : chatterPhone.trim();
-    }
+	public void setCompanyEmail(String companyEmail) {
+		this.companyEmail = companyEmail == null ? null : companyEmail.trim();
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getChatterPhone() {
+		return chatterPhone;
+	}
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
-    }
+	public void setChatterPhone(String chatterPhone) {
+		this.chatterPhone = chatterPhone == null ? null : chatterPhone.trim();
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+	}
 }

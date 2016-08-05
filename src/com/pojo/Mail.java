@@ -1,5 +1,6 @@
 package com.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,12 @@ import java.util.Date;
  * @date： 日期：2016-7-26 时间：下午2:38:15
  * @version 1.0
  */
-public class Mail {
+public class Mail implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1495221486663280002L;
+
 	private Integer mailId;
 
 	private String mailFrom;

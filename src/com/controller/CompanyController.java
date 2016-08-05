@@ -35,14 +35,18 @@ public class CompanyController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addCompany")
-	public String addCompany(Company company, String province, String city,
+	public @ResponseBody
+	String addCompany(Company company, String province, String city,
 			Integer type) throws Exception {
 		// MD5加密密码
 		company.setCompanyPassword(MD5Utils.md5(company.getCompanyPassword()));
 		company.setIndustryId(type);
 		company.setCompanyLocation(province + city);
 		companyService.addCompany(company);
-		return "success";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("addInfo", "success");
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(map);
 	}
 
 	/**

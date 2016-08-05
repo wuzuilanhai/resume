@@ -1,195 +1,214 @@
 package com.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Jobhunter {
-    private Integer jobhunterId;
+public class Jobhunter implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -530887702769078027L;
 
-    private String jobhunterName;
+	private Integer jobhunterId;
 
-    private String jobhunterRealName;
+	private String jobhunterName;
 
-    private String jobhunterPassword;
+	private String jobhunterRealName;
 
-    private String jobhunterSex;
+	private String jobhunterPassword;
 
-    private Date jobhunterBirthday;
+	private String jobhunterSex;
 
-    private String jobhunterMaritalStatus;
+	private Date jobhunterBirthday;
 
-    private String jobhunterPhone;
+	private String jobhunterMaritalStatus;
 
-    private String jobhunterEmail;
+	private String jobhunterPhone;
 
-    private String jobhunterNativePlace;
+	private String jobhunterEmail;
 
-    private String jobhuntEntranceStatus;
+	private String jobhunterNativePlace;
 
-    private String jobhunterSelfAppraisal;
+	private String jobhuntEntranceStatus;
 
-    private String jobhunterGraduateSchool;
+	private String jobhunterSelfAppraisal;
 
-    private String jobhunterQualification;
+	private String jobhunterGraduateSchool;
 
-    private String jobhunterAddress;
+	private String jobhunterQualification;
 
-    private Date jobhunterJoindate;
+	private String jobhunterAddress;
 
-    private Date jobhunterLastLogindate;
+	private Date jobhunterJoindate;
 
-    private Integer jobhunterEditStatus;
+	private Date jobhunterLastLogindate;
 
-    private String jobhunterExtraMessage;
+	private Integer jobhunterEditStatus;
 
-    public Integer getJobhunterId() {
-        return jobhunterId;
-    }
+	private String jobhunterExtraMessage;
 
-    public void setJobhunterId(Integer jobhunterId) {
-        this.jobhunterId = jobhunterId;
-    }
+	public Integer getJobhunterId() {
+		return jobhunterId;
+	}
 
-    public String getJobhunterName() {
-        return jobhunterName;
-    }
+	public void setJobhunterId(Integer jobhunterId) {
+		this.jobhunterId = jobhunterId;
+	}
 
-    public void setJobhunterName(String jobhunterName) {
-        this.jobhunterName = jobhunterName == null ? null : jobhunterName.trim();
-    }
+	public String getJobhunterName() {
+		return jobhunterName;
+	}
 
-    public String getJobhunterRealName() {
-        return jobhunterRealName;
-    }
+	public void setJobhunterName(String jobhunterName) {
+		this.jobhunterName = jobhunterName == null ? null : jobhunterName
+				.trim();
+	}
 
-    public void setJobhunterRealName(String jobhunterRealName) {
-        this.jobhunterRealName = jobhunterRealName == null ? null : jobhunterRealName.trim();
-    }
+	public String getJobhunterRealName() {
+		return jobhunterRealName;
+	}
 
-    public String getJobhunterPassword() {
-        return jobhunterPassword;
-    }
+	public void setJobhunterRealName(String jobhunterRealName) {
+		this.jobhunterRealName = jobhunterRealName == null ? null
+				: jobhunterRealName.trim();
+	}
 
-    public void setJobhunterPassword(String jobhunterPassword) {
-        this.jobhunterPassword = jobhunterPassword == null ? null : jobhunterPassword.trim();
-    }
+	public String getJobhunterPassword() {
+		return jobhunterPassword;
+	}
 
-    public String getJobhunterSex() {
-        return jobhunterSex;
-    }
+	public void setJobhunterPassword(String jobhunterPassword) {
+		this.jobhunterPassword = jobhunterPassword == null ? null
+				: jobhunterPassword.trim();
+	}
 
-    public void setJobhunterSex(String jobhunterSex) {
-        this.jobhunterSex = jobhunterSex == null ? null : jobhunterSex.trim();
-    }
+	public String getJobhunterSex() {
+		return jobhunterSex;
+	}
 
-    public Date getJobhunterBirthday() {
-        return jobhunterBirthday;
-    }
+	public void setJobhunterSex(String jobhunterSex) {
+		this.jobhunterSex = jobhunterSex == null ? null : jobhunterSex.trim();
+	}
 
-    public void setJobhunterBirthday(Date jobhunterBirthday) {
-        this.jobhunterBirthday = jobhunterBirthday;
-    }
+	public Date getJobhunterBirthday() {
+		return jobhunterBirthday;
+	}
 
-    public String getJobhunterMaritalStatus() {
-        return jobhunterMaritalStatus;
-    }
+	public void setJobhunterBirthday(Date jobhunterBirthday) {
+		this.jobhunterBirthday = jobhunterBirthday;
+	}
 
-    public void setJobhunterMaritalStatus(String jobhunterMaritalStatus) {
-        this.jobhunterMaritalStatus = jobhunterMaritalStatus == null ? null : jobhunterMaritalStatus.trim();
-    }
+	public String getJobhunterMaritalStatus() {
+		return jobhunterMaritalStatus;
+	}
 
-    public String getJobhunterPhone() {
-        return jobhunterPhone;
-    }
+	public void setJobhunterMaritalStatus(String jobhunterMaritalStatus) {
+		this.jobhunterMaritalStatus = jobhunterMaritalStatus == null ? null
+				: jobhunterMaritalStatus.trim();
+	}
 
-    public void setJobhunterPhone(String jobhunterPhone) {
-        this.jobhunterPhone = jobhunterPhone == null ? null : jobhunterPhone.trim();
-    }
+	public String getJobhunterPhone() {
+		return jobhunterPhone;
+	}
 
-    public String getJobhunterEmail() {
-        return jobhunterEmail;
-    }
+	public void setJobhunterPhone(String jobhunterPhone) {
+		this.jobhunterPhone = jobhunterPhone == null ? null : jobhunterPhone
+				.trim();
+	}
 
-    public void setJobhunterEmail(String jobhunterEmail) {
-        this.jobhunterEmail = jobhunterEmail == null ? null : jobhunterEmail.trim();
-    }
+	public String getJobhunterEmail() {
+		return jobhunterEmail;
+	}
 
-    public String getJobhunterNativePlace() {
-        return jobhunterNativePlace;
-    }
+	public void setJobhunterEmail(String jobhunterEmail) {
+		this.jobhunterEmail = jobhunterEmail == null ? null : jobhunterEmail
+				.trim();
+	}
 
-    public void setJobhunterNativePlace(String jobhunterNativePlace) {
-        this.jobhunterNativePlace = jobhunterNativePlace == null ? null : jobhunterNativePlace.trim();
-    }
+	public String getJobhunterNativePlace() {
+		return jobhunterNativePlace;
+	}
 
-    public String getJobhuntEntranceStatus() {
-        return jobhuntEntranceStatus;
-    }
+	public void setJobhunterNativePlace(String jobhunterNativePlace) {
+		this.jobhunterNativePlace = jobhunterNativePlace == null ? null
+				: jobhunterNativePlace.trim();
+	}
 
-    public void setJobhuntEntranceStatus(String jobhuntEntranceStatus) {
-        this.jobhuntEntranceStatus = jobhuntEntranceStatus == null ? null : jobhuntEntranceStatus.trim();
-    }
+	public String getJobhuntEntranceStatus() {
+		return jobhuntEntranceStatus;
+	}
 
-    public String getJobhunterSelfAppraisal() {
-        return jobhunterSelfAppraisal;
-    }
+	public void setJobhuntEntranceStatus(String jobhuntEntranceStatus) {
+		this.jobhuntEntranceStatus = jobhuntEntranceStatus == null ? null
+				: jobhuntEntranceStatus.trim();
+	}
 
-    public void setJobhunterSelfAppraisal(String jobhunterSelfAppraisal) {
-        this.jobhunterSelfAppraisal = jobhunterSelfAppraisal == null ? null : jobhunterSelfAppraisal.trim();
-    }
+	public String getJobhunterSelfAppraisal() {
+		return jobhunterSelfAppraisal;
+	}
 
-    public String getJobhunterGraduateSchool() {
-        return jobhunterGraduateSchool;
-    }
+	public void setJobhunterSelfAppraisal(String jobhunterSelfAppraisal) {
+		this.jobhunterSelfAppraisal = jobhunterSelfAppraisal == null ? null
+				: jobhunterSelfAppraisal.trim();
+	}
 
-    public void setJobhunterGraduateSchool(String jobhunterGraduateSchool) {
-        this.jobhunterGraduateSchool = jobhunterGraduateSchool == null ? null : jobhunterGraduateSchool.trim();
-    }
+	public String getJobhunterGraduateSchool() {
+		return jobhunterGraduateSchool;
+	}
 
-    public String getJobhunterQualification() {
-        return jobhunterQualification;
-    }
+	public void setJobhunterGraduateSchool(String jobhunterGraduateSchool) {
+		this.jobhunterGraduateSchool = jobhunterGraduateSchool == null ? null
+				: jobhunterGraduateSchool.trim();
+	}
 
-    public void setJobhunterQualification(String jobhunterQualification) {
-        this.jobhunterQualification = jobhunterQualification == null ? null : jobhunterQualification.trim();
-    }
+	public String getJobhunterQualification() {
+		return jobhunterQualification;
+	}
 
-    public String getJobhunterAddress() {
-        return jobhunterAddress;
-    }
+	public void setJobhunterQualification(String jobhunterQualification) {
+		this.jobhunterQualification = jobhunterQualification == null ? null
+				: jobhunterQualification.trim();
+	}
 
-    public void setJobhunterAddress(String jobhunterAddress) {
-        this.jobhunterAddress = jobhunterAddress == null ? null : jobhunterAddress.trim();
-    }
+	public String getJobhunterAddress() {
+		return jobhunterAddress;
+	}
 
-    public Date getJobhunterJoindate() {
-        return jobhunterJoindate;
-    }
+	public void setJobhunterAddress(String jobhunterAddress) {
+		this.jobhunterAddress = jobhunterAddress == null ? null
+				: jobhunterAddress.trim();
+	}
 
-    public void setJobhunterJoindate(Date jobhunterJoindate) {
-        this.jobhunterJoindate = jobhunterJoindate;
-    }
+	public Date getJobhunterJoindate() {
+		return jobhunterJoindate;
+	}
 
-    public Date getJobhunterLastLogindate() {
-        return jobhunterLastLogindate;
-    }
+	public void setJobhunterJoindate(Date jobhunterJoindate) {
+		this.jobhunterJoindate = jobhunterJoindate;
+	}
 
-    public void setJobhunterLastLogindate(Date jobhunterLastLogindate) {
-        this.jobhunterLastLogindate = jobhunterLastLogindate;
-    }
+	public Date getJobhunterLastLogindate() {
+		return jobhunterLastLogindate;
+	}
 
-    public Integer getJobhunterEditStatus() {
-        return jobhunterEditStatus;
-    }
+	public void setJobhunterLastLogindate(Date jobhunterLastLogindate) {
+		this.jobhunterLastLogindate = jobhunterLastLogindate;
+	}
 
-    public void setJobhunterEditStatus(Integer jobhunterEditStatus) {
-        this.jobhunterEditStatus = jobhunterEditStatus;
-    }
+	public Integer getJobhunterEditStatus() {
+		return jobhunterEditStatus;
+	}
 
-    public String getJobhunterExtraMessage() {
-        return jobhunterExtraMessage;
-    }
+	public void setJobhunterEditStatus(Integer jobhunterEditStatus) {
+		this.jobhunterEditStatus = jobhunterEditStatus;
+	}
 
-    public void setJobhunterExtraMessage(String jobhunterExtraMessage) {
-        this.jobhunterExtraMessage = jobhunterExtraMessage == null ? null : jobhunterExtraMessage.trim();
-    }
+	public String getJobhunterExtraMessage() {
+		return jobhunterExtraMessage;
+	}
+
+	public void setJobhunterExtraMessage(String jobhunterExtraMessage) {
+		this.jobhunterExtraMessage = jobhunterExtraMessage == null ? null
+				: jobhunterExtraMessage.trim();
+	}
 }

@@ -1,5 +1,7 @@
 package com.pojo;
 
+import java.io.Serializable;
+
 /**
  * 
  * 类描述：职业倾向实体类
@@ -8,7 +10,12 @@ package com.pojo;
  * @date： 日期：2016-7-26 时间：下午2:38:15
  * @version 1.0
  */
-public class CareerIntention {
+public class CareerIntention implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6929827969755213603L;
+
 	private Integer cintentionId;
 
 	private Integer industryId;
