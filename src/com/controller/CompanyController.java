@@ -96,4 +96,25 @@ public class CompanyController extends BasicController {
 		return "company/companyRegister";
 	}
 
+	/**
+	 * 企业用户登陆验证
+	 * 
+	 * @param company
+	 *            封装企业用户信息的实体
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findCompanyLogin")
+	public @ResponseBody
+	Company findCompanyLogin(Company company, HttpSession session)
+			throws Exception {
+		company.setCompanyPassword(MD5Utils.md5(company.getCompanyPassword()));
+		Company company2 = companyService.findCompanyLogin(company);
+		if (company2 != null) {
+			session.setAttribute("companyLoginName",
+					company2.getCompanyLoginName());
+		}
+		return company2;
+	}
 }

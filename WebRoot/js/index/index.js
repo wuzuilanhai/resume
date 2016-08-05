@@ -96,6 +96,10 @@ $("#form1 input").focus(function() {
 	var tipId = "#" + $(this).attr("name") + "Tip";
 	$(tipId).html("");
 });
+$("#form2 input").focus(function() {
+	var tipId = "#" + $(this).attr("name") + "Tip";
+	$(tipId).html("");
+});
 $('#findJobHunterBtn').click(function() {
 	if (($("#form1 input:eq(0)").val().trim()).length == 0) {
 		$('#jobhunterNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -111,6 +115,24 @@ $('#findJobHunterBtn').click(function() {
 		if (jQuery.isEmptyObject(data)) {
 			alert("用户名与密码不相符!");
 			$("#form1 input:eq(1)").val("");
+		}
+	});
+});
+$('#findCompanyBtn').click(function() {
+	if (($("#form2 input:eq(0)").val().trim()).length == 0) {
+		$('#companyLoginNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if (($("#form2 input:eq(1)").val().trim()).length == 0) {
+		$('#companyPasswordTip').html("<font color='red'>密码不能为空!</font>");
+		return;
+	}
+	var action = $('#form2').attr('action');
+	var formAttr = $('#form2').serialize();
+	$.post(action, formAttr, function(data) {
+		if (jQuery.isEmptyObject(data)) {
+			alert("用户名与密码不相符!");
+			$("#form2 input:eq(1)").val("");
 		}
 	});
 });

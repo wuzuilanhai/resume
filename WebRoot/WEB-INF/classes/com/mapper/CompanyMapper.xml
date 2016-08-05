@@ -102,4 +102,10 @@
 		select * from company where
 		company_login_name=#{companyLoginName}
 	</select>
+	<select id="findCompanyLogin" parameterType="com.pojo.Company"
+		resultMap="BaseResultMap">
+		select * from company where
+		company_login_name=#{companyLoginName} and
+		company_password=#{companyPassword}
+	</select>
 </mapper>

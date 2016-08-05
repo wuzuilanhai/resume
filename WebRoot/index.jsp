@@ -140,8 +140,9 @@
 
 				<div
 					style="position: absolute; float: left; width: 80px; height: 20px; top:110px; left: 50px;">
-					<input class="form-control" name="jobhunterPassword" type="text"
-						id="textfield" onmouseover="this.style.borderColor='#3d7d52'"
+					<input class="form-control" name="jobhunterPassword"
+						type="password" id="textfield"
+						onmouseover="this.style.borderColor='#3d7d52'"
 						onmouseout="this.style.borderColor=''" placeHolder="密码"
 						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
 					<div id="jobhunterPasswordTip"></div>
@@ -241,22 +242,28 @@
 			<div class="textstyle"
 				style="position: absolute; float: left; width: 80px; height: 20px; top:40px; left: 50px; ">
 				登录企业账号</div>
-			<form action="" method="post">
+			<form id="form2"
+				action="${pageContext.request.contextPath}/company/findCompanyLogin.action"
+				method="post">
 				<div
 					style="position: absolute; float: left; width: 80px; height: 20px; top:70px; left: 50px;">
-					<input class="form-control" name="textfield" type="text"
-						id="username" onmouseover="this.style.borderColor='#316392'"
+					<input class="form-control" name="companyLoginName" type="text"
+						id="companyLoginName"
+						onmouseover="this.style.borderColor='#316392'"
 						onmouseout="this.style.borderColor=''" placeHolder="企业名称"
 						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+					<div id="companyLoginNameTip"></div>
 				</div>
 				<div
 					style="position: absolute; float: left; width: 80px; height: 20px; top:110px; left: 50px;">
-					<input class="form-control" name="textfield" type="text"
-						id="password" onmouseover="this.style.borderColor='#316392'"
+					<input class="form-control" name="companyPassword" type="password"
+						id="companyPassword"
+						onmouseover="this.style.borderColor='#316392'"
 						onmouseout="this.style.borderColor=''" placeHolder="密码"
 						style="width:200px; height:25px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+					<div id="companyPasswordTip"></div>
 				</div>
-				<div
+				<div id="findCompanyBtn"
 					style="position: absolute; float: left; width: 200px; height: 30px; top:170px; left: 50px;">
 					<a href="#" onMouseOut="MM_swapImgRestore()"
 						onMouseOver="MM_swapImage('login','','${pageContext.request.contextPath}/images/index/dhh/login2.png',1)"><img

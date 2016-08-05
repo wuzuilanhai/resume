@@ -38,4 +38,13 @@ public interface CompanyService {
 	 */
 	Company findCompanyByCompanyLoginName(String companyLoginName)
 			throws Exception;
+
+	/**
+	 * 企业用户登陆验证
+	 * 
+	 * @param company
+	 *            封装企业用户信息的实体
+	 * @return
+	 */
+	Company findCompanyLogin(Company company) throws Exception;
 }

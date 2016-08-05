@@ -17,4 +17,6 @@ public interface CompanyMapper {
 
 	Company findCompanyByCompanyLoginName(String companyLoginName)
 			throws Exception;
+
+	Company findCompanyLogin(Company company) throws Exception;
 }
