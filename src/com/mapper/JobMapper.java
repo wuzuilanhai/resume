@@ -1,6 +1,9 @@
 package com.mapper;
 
+import java.util.List;
+
 import com.pojo.Job;
+import com.pojo.JobCustom;
 
 /**
  * 
@@ -13,4 +16,6 @@ import com.pojo.Job;
 public interface JobMapper {
 
 	void addJob(Job job) throws Exception;
+
+	List<JobCustom> findHotJobLimitTenAndNew() throws Exception;
 }

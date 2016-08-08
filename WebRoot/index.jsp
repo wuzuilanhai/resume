@@ -37,7 +37,7 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:182;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/jobHunter/indexUI.action" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('首页','','${pageContext.request.contextPath}/images/index/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/index/mainpage.png"
 					alt="" width="100" height="50" id="首页"> </a>

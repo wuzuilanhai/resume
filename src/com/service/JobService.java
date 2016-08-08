@@ -1,6 +1,9 @@
 package com.service;
 
+import java.util.List;
+
 import com.pojo.Job;
+import com.pojo.JobCustom;
 
 /**
  * 类描述：职位业务类接口
@@ -18,5 +21,12 @@ public interface JobService {
 	 *            封装简历信息的实体
 	 */
 	void addJob(Job job) throws Exception;
+
+	/**
+	 * 准备10个最新的（地区）热门职位数据信息
+	 * 
+	 * @return
+	 */
+	List<JobCustom> findHotJobLimitTenAndNew() throws Exception;
 
 }

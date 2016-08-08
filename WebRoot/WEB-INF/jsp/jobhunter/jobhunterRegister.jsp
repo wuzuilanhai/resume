@@ -18,7 +18,8 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet"
-	href="css/jobhunterRegister/jobhunterRegister.css" type="text/css"></link>
+	href="${pageContext.request.contextPath}/css/jobhunterRegister/jobhunterRegister.css"
+	type="text/css"></link>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0"
 	marginheight="0"
@@ -199,11 +200,9 @@
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
 						<td><label> <input type="radio" name="jobhunterSex"
-								value="男" id="RadioGroup1_0"> 男</label>
-						</td>
+								value="男" id="RadioGroup1_0"> 男</label></td>
 						<td><label> <input type="radio" name="jobhunterSex"
-								value="女" id="RadioGroup1_1"> 女</label>
-						</td>
+								value="女" id="RadioGroup1_1"> 女</label></td>
 					</tr>
 				</table>
 				<div id="jobhunterSexTip"
@@ -256,16 +255,13 @@
 					<tr>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="已婚" id="RadioGroup1_0">
-								已婚</label>
-						</td>
+								已婚</label></td>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="未婚" id="RadioGroup1_1">
-								未婚</label>
-						</td>
+								未婚</label></td>
 						<td><label> <input type="radio"
 								name="jobhunterMaritalStatus" value="不显示" id="RadioGroup1_1">
-								不显示</label>
-						</td>
+								不显示</label></td>
 					</tr>
 				</table>
 				<div id="jobhunterMaritalStatusTip"
@@ -379,22 +375,18 @@
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，看看新机会" id="RadioGroup1_0">
-								在职，看看新机会</label>
-						</td>
+								在职，看看新机会</label></td>
 						<td><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，暂无跳槽打算"
-								id="RadioGroup1_1"> 在职，暂无跳槽打算</label>
-						</td>
+								id="RadioGroup1_1"> 在职，暂无跳槽打算</label></td>
 					</tr>
 					<tr>
 						<td style="height:40px;"><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="在职，急寻新工作" id="RadioGroup2_0">
-								在职，急寻新工作</label>
-						</td>
+								在职，急寻新工作</label></td>
 						<td><label> <input type="radio"
 								name="jobhuntEntranceStatus" value="离职，正在找工作" id="RadioGroup2_1">
-								离职，正在找工作</label>
-						</td>
+								离职，正在找工作</label></td>
 					</tr>
 				</table>
 				<div id="jobhuntEntranceStatusTip"
@@ -557,9 +549,11 @@
 		京ICP备09083200号 京ICP证070419号 人才服务许可证:RC0710280 京公网安备:11010502026763<br />
 		Copyright©2000-2016 liepin.com All Rights Reserved<br />
 	</div>
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.banner.js"></script>
 	<script type="text/javascript"
-		src="js/jobhunterRegister/jobhunterRegister.js"></script>
+		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jquery.banner.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jobhunterRegister/jobhunterRegister.js"></script>
 </body>
 </html>

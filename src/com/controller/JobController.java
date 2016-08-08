@@ -30,7 +30,6 @@ public class JobController extends BasicController {
 				.findPositionIdByPositionName(positionName);
 		Integer companyId = companyService
 				.findCompanyIdByCompanyName(companyName);
-		job.setPositionId(positionId);
 		job.setCompanyId(companyId);
 		job.setJobSubtime(new Date());
 		// 设置发布的职位状态，0：已失效，1：有效

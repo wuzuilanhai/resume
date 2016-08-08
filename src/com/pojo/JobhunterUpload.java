@@ -1,80 +1,75 @@
 package com.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 
- * 类描述：求职者上传图片实体类
- * 
- * @author: 张海彪
- * @date： 日期：2016-7-26 时间：下午2:38:15
- * @version 1.0
- */
-public class JobhunterUpload implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 418478837566875315L;
+public class JobhunterUpload {
+    private Integer uploadId;
 
-	private Integer uploadId;
+    private Integer jobhunterId;
 
-	private Integer jobhunterId;
+    private Integer companyId;
 
-	private String uploadLocation;
+    private String uploadLocation;
 
-	private String uploadName;
+    private String uploadName;
 
-	private Date uploadTime;
+    private Date uploadTime;
 
-	private String uploadType;
+    private String uploadType;
 
-	public Integer getUploadId() {
-		return uploadId;
-	}
+    public Integer getUploadId() {
+        return uploadId;
+    }
 
-	public void setUploadId(Integer uploadId) {
-		this.uploadId = uploadId;
-	}
+    public void setUploadId(Integer uploadId) {
+        this.uploadId = uploadId;
+    }
 
-	public Integer getJobhunterId() {
-		return jobhunterId;
-	}
+    public Integer getJobhunterId() {
+        return jobhunterId;
+    }
 
-	public void setJobhunterId(Integer jobhunterId) {
-		this.jobhunterId = jobhunterId;
-	}
+    public void setJobhunterId(Integer jobhunterId) {
+        this.jobhunterId = jobhunterId;
+    }
 
-	public String getUploadLocation() {
-		return uploadLocation;
-	}
+    public Integer getCompanyId() {
+        return companyId;
+    }
 
-	public void setUploadLocation(String uploadLocation) {
-		this.uploadLocation = uploadLocation == null ? null : uploadLocation
-				.trim();
-	}
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
 
-	public String getUploadName() {
-		return uploadName;
-	}
+    public String getUploadLocation() {
+        return uploadLocation;
+    }
 
-	public void setUploadName(String uploadName) {
-		this.uploadName = uploadName == null ? null : uploadName.trim();
-	}
+    public void setUploadLocation(String uploadLocation) {
+        this.uploadLocation = uploadLocation == null ? null : uploadLocation.trim();
+    }
 
-	public Date getUploadTime() {
-		return uploadTime;
-	}
+    public String getUploadName() {
+        return uploadName;
+    }
 
-	public void setUploadTime(Date uploadTime) {
-		this.uploadTime = uploadTime;
-	}
+    public void setUploadName(String uploadName) {
+        this.uploadName = uploadName == null ? null : uploadName.trim();
+    }
 
-	public String getUploadType() {
-		return uploadType;
-	}
+    public Date getUploadTime() {
+        return uploadTime;
+    }
 
-	public void setUploadType(String uploadType) {
-		this.uploadType = uploadType == null ? null : uploadType.trim();
-	}
+    public void setUploadTime(Date uploadTime) {
+        this.uploadTime = uploadTime;
+    }
+
+    public String getUploadType() {
+        return uploadType;
+    }
+
+    public void setUploadType(String uploadType) {
+        this.uploadType = uploadType == null ? null : uploadType.trim();
+    }
 }

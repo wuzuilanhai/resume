@@ -6,13 +6,20 @@
 		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
 		<result column="worksite" property="worksite" jdbcType="VARCHAR" />
 		<result column="job_subtime" property="jobSubtime" jdbcType="DATE" />
-		<result column="position_id" property="positionId" jdbcType="INTEGER" />
+		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
 		<result column="job_salary" property="jobSalary" jdbcType="DOUBLE" />
 		<result column="job_status" property="jobStatus" jdbcType="INTEGER" />
 		<result column="job_description" property="jobDescription"
 			jdbcType="VARCHAR" />
 		<result column="job_email" property="jobEmail" jdbcType="VARCHAR" />
 		<result column="company_id" property="companyId" jdbcType="INTEGER" />
+		<result column="is_hot" property="isHot" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap type="com.pojo.JobCustom" id="hotJobLimitTenAndNewResultMap"
+		extends="BaseResultMap">
+		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="industry_name" property="industryName"
+			jdbcType="VARCHAR" />
 	</resultMap>
 	<insert id="addJob" parameterType="com.pojo.Job">
 		insert into job
@@ -29,8 +36,8 @@
 			<if test="jobSubtime != null">
 				job_subtime,
 			</if>
-			<if test="positionId != null">
-				position_id,
+			<if test="industryId != null">
+				industry_id,
 			</if>
 			<if test="jobSalary != null">
 				job_salary,
@@ -47,6 +54,9 @@
 			<if test="companyId != null">
 				company_id,
 			</if>
+			<if test="isHot != null">
+				is_hot,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="jobId != null">
@@ -61,8 +71,8 @@
 			<if test="jobSubtime != null">
 				#{jobSubtime,jdbcType=DATE},
 			</if>
-			<if test="positionId != null">
-				#{positionId,jdbcType=INTEGER},
+			<if test="industryId != null">
+				#{industryId,jdbcType=INTEGER},
 			</if>
 			<if test="jobSalary != null">
 				#{jobSalary,jdbcType=DOUBLE},
@@ -79,6 +89,17 @@
 			<if test="companyId != null">
 				#{companyId,jdbcType=INTEGER},
 			</if>
+			<if test="isHot != null">
+				#{isHot,jdbcType=INTEGER},
+			</if>
 		</trim>
 	</insert>
+	<select id="findHotJobLimitTenAndNew" resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,industry.industry_name from
+		job,company,industry where
+		job.company_id=company.company_id and
+		job.is_hot=1 and job.industry_id=industry.industry_id order by
+		job.job_subtime desc limit 10
+	</select>
 </mapper>

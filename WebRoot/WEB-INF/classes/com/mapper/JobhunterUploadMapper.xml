@@ -4,6 +4,7 @@
 	<resultMap id="BaseResultMap" type="com.pojo.JobhunterUpload">
 		<id column="upload_id" property="uploadId" jdbcType="INTEGER" />
 		<result column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
+		<result column="company_id" property="companyId" jdbcType="INTEGER" />
 		<result column="upload_location" property="uploadLocation"
 			jdbcType="VARCHAR" />
 		<result column="upload_name" property="uploadName" jdbcType="VARCHAR" />
@@ -18,6 +19,9 @@
 			</if>
 			<if test="jobhunterId != null">
 				jobhunter_id,
+			</if>
+			<if test="companyId != null">
+				company_id,
 			</if>
 			<if test="uploadLocation != null">
 				upload_location,
@@ -38,6 +42,9 @@
 			</if>
 			<if test="jobhunterId != null">
 				#{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="companyId != null">
+				#{companyId,jdbcType=INTEGER},
 			</if>
 			<if test="uploadLocation != null">
 				#{uploadLocation,jdbcType=VARCHAR},

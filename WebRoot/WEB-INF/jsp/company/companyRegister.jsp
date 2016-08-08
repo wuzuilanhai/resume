@@ -21,7 +21,8 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link rel="stylesheet" href="css/companyRegister/companyRegister.css"
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/companyRegister/companyRegister.css"
 	type="text/css"></link>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0"
@@ -258,9 +259,11 @@
 					style="position:absolute;left:100;top:12;float:left; " width="200">
 					<tr>
 						<td><label> <input type="radio" name="chatterSex"
-								value="男" id="RadioGroup1_0"> 男</label></td>
+								value="男" id="RadioGroup1_0"> 男</label>
+						</td>
 						<td><label> <input type="radio" name="chatterSex"
-								value="女" id="RadioGroup1_1"> 女</label></td>
+								value="女" id="RadioGroup1_1"> 女</label>
+						</td>
 					</tr>
 				</table>
 				<div id="chatterSexTip"
@@ -424,9 +427,11 @@
 		京ICP备09083200号 京ICP证070419号 人才服务许可证:RC0710280 京公网安备:11010502026763<br />
 		Copyright©2000-2016 liepin.com All Rights Reserved<br />
 	</div>
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.banner.js"></script>
 	<script type="text/javascript"
-		src="js/companyRegister/companyRegister.js"></script>
+		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jquery.banner.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/companyRegister/companyRegister.js"></script>
 </body>
 </html>

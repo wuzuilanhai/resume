@@ -1,8 +1,11 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.pojo.Job;
+import com.pojo.JobCustom;
 import com.service.JobService;
 
 /**
@@ -17,6 +20,10 @@ public class JobServiceImpl extends BasicServiceImpl implements JobService {
 
 	public void addJob(Job job) throws Exception {
 		jobMapper.addJob(job);
+	}
+
+	public List<JobCustom> findHotJobLimitTenAndNew() throws Exception {
+		return jobMapper.findHotJobLimitTenAndNew();
 	}
 
 }

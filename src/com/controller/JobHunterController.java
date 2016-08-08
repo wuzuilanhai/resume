@@ -2,8 +2,10 @@ package com.controller;
 
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pojo.JobCustom;
 import com.pojo.Jobhunter;
 import com.util.MD5Utils;
 
@@ -140,6 +143,33 @@ public class JobHunterController extends BasicController {
 	@RequestMapping("/registerUI")
 	public String registerUI() throws Exception {
 		return "jobhunter/jobhunterRegister";
+	}
+
+	/**
+	 * 跳转到求职者主页，并准备数据
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/indexUI")
+	public String indexUI(HttpSession session) throws Exception {
+		// 准备10个最新的（地区）热门职位数据信息
+		List<JobCustom> jobCustoms = jobService.findHotJobLimitTenAndNew();
+		List<JobCustom> jobCustoms1 = new ArrayList<JobCustom>();
+		List<JobCustom> jobCustoms2 = new ArrayList<JobCustom>();
+		int i = 1;
+		for (JobCustom jobCustom : jobCustoms) {
+			if (i <= 4) {
+				jobCustoms1.add(jobCustom);
+			} else {
+				jobCustoms2.add(jobCustom);
+			}
+			i++;
+		}
+		session.setAttribute("jobCustoms1", jobCustoms1);
+		session.setAttribute("jobCustoms2", jobCustoms2);
+		// 读取每个行业最新的4个职位数据信息
+		return "jobhunter/index";
 	}
 
 }
