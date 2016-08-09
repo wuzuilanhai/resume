@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.Page;
 
 /**
  * 
@@ -21,4 +22,8 @@ public interface JobMapper {
 
 	List<JobCustom> findHotJobLimitFourAndNewByIndustryId(Integer industryId)
 			throws Exception;
+
+	Integer findAllJobs() throws Exception;
+
+	List<JobCustom> findAllJobsByPage(Page page) throws Exception;
 }

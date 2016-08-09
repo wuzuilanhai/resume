@@ -41,27 +41,28 @@
 	<div class="framehead">
 		<div class="frameheadmid" style="position:relative;">
 			<div style="position:absolute;float:left;width:132;height:50;">
-				<a href="Untitled-1.html"><img
+				<a href="#" onclick="return false"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/logo.png"
 					width="132" height="50" alt="" /> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:182;">
-				<a href="Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('mainpage','','${pageContext.request.contextPath}/images/jobhunterRegister/index/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/mainpage3.png"
 					alt="" width="100" height="50" id="mainpage"> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/job/findAllJobs.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/jobhunterRegister/index/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/job.png"
 					alt="" width="100" height="50" id="job"> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:382;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/jobhunterRegister/index/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>
@@ -74,12 +75,12 @@
                 </div>-->
 			<div
 				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="../求职者登录/Untitled-1.html">登录</a>/<a
-					href="../求职者注册/Untitled-1.html">注册</a>
+				<a href="#" onclick="return false">登录</a>/<a href="#"
+					onclick="return false">注册</a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
-				<a href="../企业首页/Untitled-3.html" onMouseOut="MM_swapImgRestore()"
+				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/jobhunterRegister/index/business2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/business.png"
 					alt="" width="80" height="30" id="business"> </a>
@@ -92,10 +93,12 @@
 				<li class="active"
 					style="position: absolute; left: 0; top: 0;padding:0px"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner1.png"
-					alt="" /></li>
+					alt="" />
+				</li>
 				<li style="position: absolute; left: 0; top: 0;"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner2.png"
-					alt="" /></li>
+					alt="" />
+				</li>
 			</ul>
 			<div class="fomW"
 				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
@@ -180,7 +183,7 @@
 				onFocus="if (value =='输入职业关键字：如 销售总监'){value =''}"
 				onBlur="if (value ==''){value='输入职业关键字：如 销售总监'}"
 				style="position:absolute;left:0;top:0;float:left;width:400px; height:50px; font-family:微软雅黑;font-size: 16px; color: #989898;" />
-			<a href="#" onMouseOut="MM_swapImgRestore()"
+			<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
 				onMouseOver="MM_swapImage('search1','','${pageContext.request.contextPath}/images/jobhunterRegister/index/search2.png',1)"><img
 				style="position:absolute;top:0;left:425;width:100px;height:50px;float:left;"
 				src="${pageContext.request.contextPath}/images/jobhunterRegister/index/search.png"

@@ -1,11 +1,16 @@
 package com.controller;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pojo.Job;
+import com.pojo.JobCustom;
+import com.pojo.Page;
 
 /**
  * 类描述：职位控制类
@@ -17,6 +22,9 @@ import com.pojo.Job;
 @Controller
 @RequestMapping("/job")
 public class JobController extends BasicController {
+
+	public Integer pageSize = 4;
+
 	/**
 	 * 添加简历
 	 * 
@@ -26,8 +34,6 @@ public class JobController extends BasicController {
 	@RequestMapping("/addJob")
 	public String addJob(Job job, String positionName, String companyName)
 			throws Exception {
-		Integer positionId = positionService
-				.findPositionIdByPositionName(positionName);
 		Integer companyId = companyService
 				.findCompanyIdByCompanyName(companyName);
 		job.setCompanyId(companyId);
@@ -38,4 +44,27 @@ public class JobController extends BasicController {
 		System.out.println("==========>" + job.getJobId());
 		return "success";
 	}
+
+	/**
+	 * 查找所有职位，分页显示
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findAllJobs")
+	public String findAllJobs(Integer currentPage, HttpSession session)
+			throws Exception {
+		if (currentPage == null) {
+			currentPage = 1;
+		}
+		Integer recordCount = jobService.findAllJobs();
+		Page page = new Page(currentPage, pageSize, recordCount,
+				null, session.getServletContext().getContextPath());
+		List<JobCustom> pageJobCustoms = jobService.findAllJobsByPage(
+				page);
+		page.setRecordList(pageJobCustoms);
+		session.setAttribute("page", page);
+		return "job/searchJob";
+	}
+
 }

@@ -1,0 +1,162 @@
+body, td, th {
+	font-size: 12px;
+	color: #989898;
+	font-family: "微软雅黑";
+}
+a:link {
+	text-decoration: none;
+	color: #989898;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+a {
+	font-family: "微软雅黑";
+}
+#scroll {
+	position: fixed;
+	bottom: 100px;
+	right: 100px;
+}
+.scrollItem {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	text-align: center;
+	padding-top: 10px;
+}
+.framehead {
+width:100%;
+	height: 50px;
+	box-shadow: 1px 0px 50px #E1E1E1;
+
+}
+.frameheadmid {
+	text-align: center;
+	margin: 0 auto;
+	width: 950px;
+	height: 50px;
+
+}
+.framesearch {
+	text-align: center;
+	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 292px;
+}
+.framebottom1 {
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	width: 950px;
+	height: 150px;
+}
+.framebottom2 {
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	width: 950px;
+	height: 250px;
+}
+.framemain {
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	width: 950px;
+	height: 2042px;
+}
+.frametail {
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 100px;
+}
+.textstyle {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.texttitle {
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 14px;
+	color: #3d7d52;
+}
+.textnormal {
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 12px;
+	color: #989898;
+}
+select {
+	border: solid 1px #c2cc87;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	padding-right: 16px;
+	background: url("../../images/job/triangle.png") no-repeat scroll right center transparent;
+}
+select::-ms-expand {
+display:none;
+}
+.text_a a {
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #6b6b6b;
+}
+.link_a a {
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #3d7d52;
+}
+
+.text_a a {
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #6b6b6b;
+}
+p {
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #989898;
+}
+.link_b a {
+	font-family: "微软雅黑";
+	color: #989898;
+	font-size: 12px;
+}
+.link_c a {
+	font-family: "微软雅黑";
+	color: #989898;
+	font-size: 14px;
+}
+.form-control {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+	border-color: #c2cc87;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}

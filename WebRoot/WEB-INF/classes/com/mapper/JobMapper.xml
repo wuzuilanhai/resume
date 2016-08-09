@@ -117,4 +117,18 @@
 		job.job_subtime desc
 		limit 4
 	</select>
+	<select id="findAllJobs" resultType="int">
+		select count(*) from job
+	</select>
+	<select id="findAllJobsByPage" parameterType="com.pojo.Page"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry where job.industry_id=industry.industry_id and
+		job.company_id=company.company_id and
+		job.is_hot=1 and
+		job.industry_id=industry.industry_id
+		limit #{pageNums},#{pageSize}
+	</select>
 </mapper>

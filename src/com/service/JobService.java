@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.Page;
 
 /**
  * 类描述：职位业务类接口
@@ -38,5 +39,21 @@ public interface JobService {
 	 */
 	List<JobCustom> findHotJobLimitFourAndNewByIndustryId(Integer industryId)
 			throws Exception;
+
+	/**
+	 * 查找职位总记录数
+	 * 
+	 * @return 职位总记录数
+	 */
+	Integer findAllJobs() throws Exception;
+
+	/**
+	 * 分页查找职位记录
+	 * 
+	 * @param page
+	 *            封装分页信息的实体类
+	 * @return 职位记录列表
+	 */
+	List<JobCustom> findAllJobsByPage(Page page) throws Exception;
 
 }
