@@ -26,4 +26,9 @@ public class JobServiceImpl extends BasicServiceImpl implements JobService {
 		return jobMapper.findHotJobLimitTenAndNew();
 	}
 
+	public List<JobCustom> findHotJobLimitFourAndNewByIndustryId(
+			Integer industryId) throws Exception {
+		return jobMapper.findHotJobLimitFourAndNewByIndustryId(industryId);
+	}
+
 }

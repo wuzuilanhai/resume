@@ -166,9 +166,27 @@ public class JobHunterController extends BasicController {
 			}
 			i++;
 		}
+		// 读取每个行业最新的4个职位数据信息
+		List<JobCustom> jobCustoms3 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(1);
+		List<JobCustom> jobCustoms4 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(2);
+		List<JobCustom> jobCustoms5 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(3);
+		List<JobCustom> jobCustoms6 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(4);
+		List<JobCustom> jobCustoms7 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(5);
+		List<JobCustom> jobCustoms8 = jobService
+				.findHotJobLimitFourAndNewByIndustryId(6);
 		session.setAttribute("jobCustoms1", jobCustoms1);
 		session.setAttribute("jobCustoms2", jobCustoms2);
-		// 读取每个行业最新的4个职位数据信息
+		session.setAttribute("jobCustoms3", jobCustoms3);
+		session.setAttribute("jobCustoms4", jobCustoms4);
+		session.setAttribute("jobCustoms5", jobCustoms5);
+		session.setAttribute("jobCustoms6", jobCustoms6);
+		session.setAttribute("jobCustoms7", jobCustoms7);
+		session.setAttribute("jobCustoms8", jobCustoms8);
 		return "jobhunter/index";
 	}
 

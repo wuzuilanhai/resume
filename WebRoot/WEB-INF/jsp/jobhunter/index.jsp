@@ -92,12 +92,10 @@
 				<li class="active"
 					style="position: absolute; left: 0; top: 0;padding:0px"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner1.png"
-					alt="" />
-				</li>
+					alt="" /></li>
 				<li style="position: absolute; left: 0; top: 0;"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner2.png"
-					alt="" />
-				</li>
+					alt="" /></li>
 			</ul>
 			<div class="fomW"
 				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
@@ -262,7 +260,7 @@
 								style="margin:0;position:absolute;top:47;left:20;">月薪：${jobCustom.jobSalary}元</p>
 							<p class="text_a"
 								style="margin:0;position:absolute;top:72;left:20;">
-								<a href="#">${jobCustom.worksite}</a> - <a href="#">${jobCustom.industryName}</a>
+								<a href="#">${jobCustom.companyLocation}</a> - <a href="#">${jobCustom.industryName}</a>
 							</p>
 						</div>
 					</div>
@@ -286,8 +284,8 @@
 							</p>
 							<p class="text_a"
 								style="margin:0;position:absolute;bottom:15;left:35;">
-								20-30万&nbsp;&nbsp;&nbsp;<a href="#">${jobCustom2.worksite}</a> -
-								<a href="#">${jobCustom2.industryName}</a>
+								20-30万&nbsp;&nbsp;&nbsp;<a href="#">${jobCustom2.companyLocation}</a>
+								- <a href="#">${jobCustom2.industryName}</a>
 							</p>
 						</div>
 					</c:forEach>
@@ -334,98 +332,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms3 }" var="jobCustom3"
+					varStatus="num3">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num3.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom3.companyName}</a> · <a href="#">${jobCustom3.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom3.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom3.companyLocation}</a> - <a href="#">${jobCustom3.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom3.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
@@ -468,98 +400,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms4 }" var="jobCustom4"
+					varStatus="num4">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num4.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom4.companyName}</a> · <a href="#">${jobCustom4.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom4.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom4.companyLocation}</a> - <a href="#">${jobCustom4.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom4.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
@@ -602,98 +468,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms5 }" var="jobCustom5"
+					varStatus="num5">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num5.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom5.companyName}</a> · <a href="#">${jobCustom5.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom5.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom5.companyLocation}</a> - <a href="#">${jobCustom5.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom5.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
@@ -736,98 +536,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms6 }" var="jobCustom6"
+					varStatus="num6">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num6.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom6.companyName}</a> · <a href="#">${jobCustom6.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom6.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom6.companyLocation}</a> - <a href="#">${jobCustom6.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom6.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
@@ -870,98 +604,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms7 }" var="jobCustom7"
+					varStatus="num7">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num7.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom7.companyName}</a> · <a href="#">${jobCustom7.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom7.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom7.companyLocation}</a> - <a href="#">${jobCustom7.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom7.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
@@ -1004,98 +672,32 @@
 			</div>
 			<div
 				style="position:absolute;top:81;left:21;width:950px;height:489px;float:left;">
-				<div
-					style="position:absolute;top:10;left:0;width:950px;height:115px;float:left;">
+				<c:forEach items="${sessionScope.jobCustoms8 }" var="jobCustom8"
+					varStatus="num8">
 					<div
-						style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
-							alt="" /> </a>
+						style="position:absolute;top:${(num8.count-1)*115+10};left:0;width:950px;height:115px;float:left;">
+						<div
+							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+							<a href="#"><img style="width:160;height:80;"
+								src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+								alt="" /> </a>
+						</div>
+						<div
+							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+							<p class="link_a"
+								style="margin: 0; position: absolute; top: 17; left: 20; ">
+								<a href="#">${jobCustom8.companyName}</a> · <a href="#">${jobCustom8.jobName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:47;left:20;">
+								月薪：${jobCustom8.jobSalary}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+									href="#">${jobCustom8.companyLocation}</a> - <a href="#">${jobCustom8.industryName}</a>
+							</p>
+							<p class="text_a"
+								style="margin:0;position:absolute;top:72;left:20;">地址：${jobCustom8.worksite}</p>
+						</div>
 					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20; ">
-							<a href="#">科易光电</a> · <a href="#">PHP工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：12-18万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市天河区科韵路科创大厦8楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:125;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">百度</a> · <a href="#">JAVA工程师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：20-35万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市萝岗区光谱大道万科云大楼A栋12层-15层开发部</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:240;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand7.jpg"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">阿里巴巴</a> · <a href="#">前端设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20; ">
-							年薪：20-25万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市白云区开创大道阿里巴巴园区D栋3楼</p>
-					</div>
-				</div>
-				<div
-					style="position:absolute;top:355;left:0;width:950px;height:115px;float:left;">
-					<div
-						style="position:absolute;text-align:center;top:7.5;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;">
-						<a href="#"><img style="width:160;height:80;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand8.png"
-							alt="" /> </a>
-					</div>
-					<div
-						style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-						<p class="link_a"
-							style="margin: 0; position: absolute; top: 17; left: 20;">
-							<a href="#">腾讯</a> · <a href="#">交互设计师</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:47;left:20;">
-							年薪：14-20万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">广东·广州</a>
-							- <a href="#">互联网·IT</a>
-						</p>
-						<p class="text_a"
-							style="margin:0;position:absolute;top:72;left:20;">地址：广东省广州市海珠区江南大道新云大厦23楼</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>

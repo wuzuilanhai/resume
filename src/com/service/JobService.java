@@ -29,4 +29,14 @@ public interface JobService {
 	 */
 	List<JobCustom> findHotJobLimitTenAndNew() throws Exception;
 
+	/**
+	 * 根据行业id获取相应行业最新的4个职位数据信息
+	 * 
+	 * @param industryId
+	 *            行业id
+	 * @return 职位数据信息列表
+	 */
+	List<JobCustom> findHotJobLimitFourAndNewByIndustryId(Integer industryId)
+			throws Exception;
+
 }

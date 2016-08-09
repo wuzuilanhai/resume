@@ -19,15 +19,9 @@ public class JobCustom extends Job implements Serializable {
 
 	private String companyName;
 
+	private String companyLocation;
+
 	private String industryName;
-
-	public String getIndustryName() {
-		return industryName;
-	}
-
-	public void setIndustryName(String industryName) {
-		this.industryName = industryName;
-	}
 
 	public String getCompanyName() {
 		return companyName;
@@ -35,6 +29,22 @@ public class JobCustom extends Job implements Serializable {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public String getCompanyLocation() {
+		return companyLocation;
+	}
+
+	public void setCompanyLocation(String companyLocation) {
+		this.companyLocation = companyLocation;
+	}
+
+	public String getIndustryName() {
+		return industryName;
+	}
+
+	public void setIndustryName(String industryName) {
+		this.industryName = industryName;
 	}
 
 }

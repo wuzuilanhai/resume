@@ -18,6 +18,8 @@
 	<resultMap type="com.pojo.JobCustom" id="hotJobLimitTenAndNewResultMap"
 		extends="BaseResultMap">
 		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+		<result column="company_location" property="companyLocation"
+			jdbcType="VARCHAR" />
 		<result column="industry_name" property="industryName"
 			jdbcType="VARCHAR" />
 	</resultMap>
@@ -96,10 +98,23 @@
 	</insert>
 	<select id="findHotJobLimitTenAndNew" resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,industry.industry_name from
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
 		job,company,industry where
 		job.company_id=company.company_id and
 		job.is_hot=1 and job.industry_id=industry.industry_id order by
 		job.job_subtime desc limit 10
+	</select>
+	<select id="findHotJobLimitFourAndNewByIndustryId"
+		parameterType="int" resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry where job.industry_id=#{industryId} and
+		job.company_id=company.company_id and
+		job.is_hot=1 and
+		job.industry_id=industry.industry_id order by
+		job.job_subtime desc
+		limit 4
 	</select>
 </mapper>

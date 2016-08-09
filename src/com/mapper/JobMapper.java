@@ -18,4 +18,7 @@ public interface JobMapper {
 	void addJob(Job job) throws Exception;
 
 	List<JobCustom> findHotJobLimitTenAndNew() throws Exception;
+
+	List<JobCustom> findHotJobLimitFourAndNewByIndustryId(Integer industryId)
+			throws Exception;
 }
