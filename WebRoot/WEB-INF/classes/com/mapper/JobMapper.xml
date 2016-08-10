@@ -125,10 +125,47 @@
 		select
 		job.*,company.company_name,company.company_location,industry.industry_name
 		from
-		job,company,industry where job.industry_id=industry.industry_id and
+		job,company,industry where job.industry_id=industry.industry_id
+		and
 		job.company_id=company.company_id and
 		job.is_hot=1 and
 		job.industry_id=industry.industry_id
 		limit #{pageNums},#{pageSize}
+	</select>
+	<sql id="query_job_where">
+		<if test="job.jobName!=null">
+			and job_name like "%${job.jobName}%"
+		</if>
+		<if test="job.industryId!=null">
+			and job.industry_id=#{job.industryId}
+		</if>
+		<if test="location!=null">
+			and company.company_location like "%${location}%"
+		</if>
+	</sql>
+	<select id="findAllJobsByCondition" parameterType="com.pojo.JobQueryVo"
+		resultType="int">
+		select count(*) from job,company
+		<where>
+			<include refid="query_job_where"></include>
+		</where>
+		and
+		job.company_id=company.company_id
+	</select>
+	<select id="findJobsByCondition" parameterType="com.pojo.JobQueryVo"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry
+		<where>
+			<include refid="query_job_where"></include>
+		</where>
+		and job.industry_id=industry.industry_id
+		and
+		job.company_id=company.company_id
+		<if test="page!=null">
+			limit #{page.pageNums},#{page.pageSize}
+		</if>
 	</select>
 </mapper>

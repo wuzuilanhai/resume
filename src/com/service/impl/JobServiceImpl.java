@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.JobQueryVo;
 import com.pojo.Page;
 import com.service.JobService;
 
@@ -36,9 +37,18 @@ public class JobServiceImpl extends BasicServiceImpl implements JobService {
 		return jobMapper.findAllJobs();
 	}
 
-	public List<JobCustom> findAllJobsByPage(Page page)
-			throws Exception {
+	public List<JobCustom> findAllJobsByPage(Page page) throws Exception {
 		return jobMapper.findAllJobsByPage(page);
+	}
+
+	public Integer findAllJobsByCondition(JobQueryVo jobQueryVo)
+			throws Exception {
+		return jobMapper.findAllJobsByCondition(jobQueryVo);
+	}
+
+	public List<JobCustom> findJobsByCondition(JobQueryVo jobQueryVo)
+			throws Exception {
+		return jobMapper.findJobsByCondition(jobQueryVo);
 	}
 
 }

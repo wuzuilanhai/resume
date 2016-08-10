@@ -37,14 +37,17 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:182;">
-				<a href="${pageContext.request.contextPath}/jobHunter/indexUI.action" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('首页','','${pageContext.request.contextPath}/images/index/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/index/mainpage.png"
 					alt="" width="100" height="50" id="首页"> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/job/findAllJobs.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('职位','','${pageContext.request.contextPath}/images/index/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/job.png"
 					alt="" width="100" height="50" id="职位"> </a>

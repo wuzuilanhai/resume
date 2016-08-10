@@ -67,18 +67,57 @@ $("#toTop").click(function() {
 		"scrollTop" : 0
 	}, speed);
 });
-$('#forwordByPagenum').click(
+$('#forwordByPagenum').click(function() {
+	var currentPage = $('#pageNum').val();
+	if (!currentPage) {
+		alert("请输入非空数字！");
+		$('#pageNum').val("");
+		return;
+	} else if (!/^[0-9]*$/.test(currentPage)) {
+		alert("请输入数字！");
+		$('#pageNum').val("");
+		return;
+	}
+	var href = $('#links a:eq(1)').attr("href");
+	var head = href.split('&')[0];
+	var tail = href.substring(head.length);
+	var head1 = head.substring(0, head.length - 1) + currentPage;
+	window.location.href = head1 + tail;
+});
+$('#industry').change(
 		function() {
-			var currentPage = $('#pageNum').val();
-			if (!currentPage) {
-				alert("请输入非空数字！");
-				$('#pageNum').val("");
+			var parentid = $('#industry').val();
+			if (parentid == "行业")
 				return;
-			} else if (!/^[0-9]*$/.test(currentPage)) {
-				alert("请输入数字！");
-				$('#pageNum').val("");
-				return;
-			}
-			window.location.href = getRootPath()
-					+ "/job/findAllJobs.action?currentPage=" + currentPage;
+			$.ajax({
+				type : 'post',
+				url : getRootPath()
+						+ "/industry/findChildrenIndustry.action?parentid="
+						+ parentid,
+				data : {},
+				dataType : "json",
+				success : function(data) {
+					$("#type  option").remove();
+					$("#type").append("<option value=0>分类</option>");
+					$.each(data, function(name, value) {
+						$("#type").append(
+								"<option value=" + value.industryId + ">"
+										+ value.industryName + "</option>");
+					});
+				},
+				error : function() {
+					alert("异常");
+				}
+			});
 		});
+$('#jobName').click(function() {
+	$('#jobNameTip').html("");
+});
+$('#searchButton').click(function() {
+	if (!$('#jobName').val()) {
+		$('#jobNameTip').html("");
+		$('#jobNameTip').html("<font color='red'>请输入关键词！</font>");
+		return;
+	}
+	$('#searchForm').submit();
+});

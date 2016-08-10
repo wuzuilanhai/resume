@@ -12,7 +12,6 @@ import com.exception.MyException;
  * @date： 日期：2016-8-9 时间：上午10:25:00
  * @version 1.0
  */
-@SuppressWarnings("unchecked")
 public class Page implements Serializable {
 
 	/**
@@ -42,7 +41,7 @@ public class Page implements Serializable {
 	 * @param pageSize
 	 * @param recordCount
 	 * @param recordList
-	 * @throws MyException 
+	 * @throws MyException
 	 */
 	public Page(int currentPage, int pageSize, int recordCount,
 			List recordList, String url) throws Exception {
@@ -54,7 +53,10 @@ public class Page implements Serializable {
 
 		// 计算 pageCount
 		this.pageCount = (recordCount + pageSize - 1) / pageSize;
-		if(currentPage>pageCount){
+		if (pageCount == 0) {
+			throw new MyException("查无结果！");
+		}
+		if (currentPage > pageCount) {
 			throw new MyException("输入页数过大！");
 		}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.JobQueryVo;
 import com.pojo.Page;
 
 /**
@@ -55,5 +56,23 @@ public interface JobService {
 	 * @return 职位记录列表
 	 */
 	List<JobCustom> findAllJobsByPage(Page page) throws Exception;
+
+	/**
+	 * 根据条件查询职位数量
+	 * 
+	 * @param jobQueryVo
+	 *            封装表单数据的实体
+	 * @return 职位总记录数
+	 */
+	Integer findAllJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
+
+	/**
+	 * 根据提交的表单数据来分页查找职位
+	 * 
+	 * @param jobQueryVo
+	 *            封装表单数据的实体
+	 * @return
+	 */
+	List<JobCustom> findJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
 
 }

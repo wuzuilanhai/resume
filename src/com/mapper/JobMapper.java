@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.JobQueryVo;
 import com.pojo.Page;
 
 /**
@@ -26,4 +27,9 @@ public interface JobMapper {
 	Integer findAllJobs() throws Exception;
 
 	List<JobCustom> findAllJobsByPage(Page page) throws Exception;
+
+	Integer findAllJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
+
+	List<JobCustom> findJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
+
 }
