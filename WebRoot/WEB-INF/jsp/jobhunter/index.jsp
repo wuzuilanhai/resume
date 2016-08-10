@@ -41,7 +41,7 @@
 	<div class="framehead">
 		<div class="frameheadmid" style="position:relative;">
 			<div style="position:absolute;float:left;width:132;height:50;">
-				<a href="#" onclick="return false"><img
+				<a href="${pageContext.request.contextPath}/index.jsp" ><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/logo.png"
 					width="132" height="50" alt="" /> </a>
 			</div>

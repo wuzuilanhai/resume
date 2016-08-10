@@ -121,3 +121,21 @@ $('#searchButton').click(function() {
 	}
 	$('#searchForm').submit();
 });
+$('#cleanCondition').click(function() {
+	$('#jobName').val("");
+	$('#industry').val(0);
+	$("#type  option").remove();
+	$("#type").append("<option value=0>分类</option>");
+	$('#province').val('省份');
+	$('#city').val('城市');
+});
+$('#time').change(function() {
+	if ($(this).val() != 0) {
+		$('#searchForm').submit();
+	}
+});
+$('#salary').change(function() {
+	if ($(this).val() != 0) {
+		$('#searchForm').submit();
+	}
+});

@@ -142,6 +142,15 @@
 		<if test="location!=null">
 			and company.company_location like "%${location}%"
 		</if>
+		<if test="queryTime!=null">
+			and job.job_subtime>#{queryTime}
+		</if>
+		<if test="minSalary!=null">
+			<![CDATA[and job.job_salary >= #{minSalary}]]>
+		</if>
+		<if test="maxSalary!=null">
+			<![CDATA[and job.job_salary <=#{maxSalary}]]>
+		</if>
 	</sql>
 	<select id="findAllJobsByCondition" parameterType="com.pojo.JobQueryVo"
 		resultType="int">

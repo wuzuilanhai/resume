@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 类描述：职位查询条件封装类
@@ -24,9 +25,35 @@ public class JobQueryVo implements Serializable {
 
 	private String city;
 
+	private Integer time;
+
+	private Integer salary;
+
 	private String location;
 
 	private Page page;
+
+	private Date queryTime;
+
+	private Double minSalary;
+
+	private Double maxSalary;
+
+	public Double getMinSalary() {
+		return minSalary;
+	}
+
+	public void setMinSalary(Double minSalary) {
+		this.minSalary = minSalary;
+	}
+
+	public Double getMaxSalary() {
+		return maxSalary;
+	}
+
+	public void setMaxSalary(Double maxSalary) {
+		this.maxSalary = maxSalary;
+	}
 
 	public Job getJob() {
 		return job;
@@ -60,6 +87,22 @@ public class JobQueryVo implements Serializable {
 		this.city = city;
 	}
 
+	public Integer getTime() {
+		return time;
+	}
+
+	public void setTime(Integer time) {
+		this.time = time;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
 	public String getLocation() {
 		return location;
 	}
@@ -74,6 +117,14 @@ public class JobQueryVo implements Serializable {
 
 	public void setPage(Page page) {
 		this.page = page;
+	}
+
+	public Date getQueryTime() {
+		return queryTime;
+	}
+
+	public void setQueryTime(Date queryTime) {
+		this.queryTime = queryTime;
 	}
 
 }

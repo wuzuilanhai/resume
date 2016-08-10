@@ -83,6 +83,7 @@ public class JobController extends BasicController {
 	public String findJobsByCondition(JobQueryVo jobQueryVo,
 			Integer currentPage, HttpSession session, HttpServletRequest request)
 			throws Exception {
+		Integer iId = jobQueryVo.getJob().getIndustryId();
 		if (currentPage == null) {
 			currentPage = 1;
 		}
@@ -95,6 +96,61 @@ public class JobController extends BasicController {
 					"utf-8"));
 			jobQueryVo
 					.setCity(URLDecoder.decode(jobQueryVo.getCity(), "utf-8"));
+		}
+		switch (jobQueryVo.getTime()) {
+		case 1:
+			// 计算一天前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 1
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 2:
+			// 计算一周前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 7
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 3:
+			// 计算一月前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 30
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 4:
+			jobQueryVo.setQueryTime(null);
+			break;
+		default:
+			break;
+		}
+		switch (jobQueryVo.getSalary()) {
+		case 1:
+			// 工资在2000以下
+			jobQueryVo.setMinSalary(0d);
+			jobQueryVo.setMaxSalary(2000d);
+			break;
+		case 2:
+			// 工资在2000-4000
+			jobQueryVo.setMinSalary(2000d);
+			jobQueryVo.setMaxSalary(4000d);
+			break;
+		case 3:
+			// 工资在4000-6000
+			jobQueryVo.setMinSalary(2000d);
+			jobQueryVo.setMaxSalary(4000d);
+			break;
+		case 4:
+			// 工资在6000-8000
+			jobQueryVo.setMinSalary(6000d);
+			jobQueryVo.setMaxSalary(8000d);
+			break;
+		case 5:
+			// 工资在8000-10000
+			jobQueryVo.setMinSalary(8000d);
+			jobQueryVo.setMaxSalary(10000d);
+			break;
+		case 6:
+			// 工资在10000以上
+			jobQueryVo.setMinSalary(10000d);
+			break;
+		default:
+			break;
 		}
 		if (jobQueryVo.getJob().getIndustryId() == 0) {
 			jobQueryVo.getJob().setIndustryId(null);
@@ -138,6 +194,7 @@ public class JobController extends BasicController {
 		if (jobQueryVo.getCity() == null) {
 			jobQueryVo.setCity("城市");
 		}
+		jobQueryVo.getJob().setIndustryId(iId);
 		// get方式传递查询条件，url的拼凑
 		StringBuffer buffer = new StringBuffer();
 		if (currentPage == 1) {
@@ -160,7 +217,9 @@ public class JobController extends BasicController {
 					+ "&city="
 					+ URLEncoder.encode(
 							URLEncoder.encode(jobQueryVo.getCity(), "utf-8"),
-							"utf-8") + "'>&lt;&lt;</a>&nbsp;&nbsp;");
+							"utf-8") + "&time=" + jobQueryVo.getTime()
+					+ "&salary=" + jobQueryVo.getSalary()
+					+ "'>&lt;&lt;</a>&nbsp;&nbsp;");
 		}
 		for (int i = page.getBeginPageIndex(); i <= page.getEndPageIndex(); i++) {
 			buffer.append("<a href='"
@@ -180,7 +239,8 @@ public class JobController extends BasicController {
 					+ "&city="
 					+ URLEncoder.encode(
 							URLEncoder.encode(jobQueryVo.getCity(), "utf-8"),
-							"utf-8") + "'>" + i + "</a>");
+							"utf-8") + "&time=" + jobQueryVo.getTime()
+					+ "&salary=" + jobQueryVo.getSalary() + "'>" + i + "</a>");
 		}
 		if (currentPage == page.getPageCount()) {
 			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");
@@ -202,14 +262,17 @@ public class JobController extends BasicController {
 					+ "&city="
 					+ URLEncoder.encode(
 							URLEncoder.encode(jobQueryVo.getCity(), "utf-8"),
-							"utf-8") + "'>&gt;&gt;</a>");
+							"utf-8") + "&time=" + jobQueryVo.getTime()
+					+ "&salary=" + jobQueryVo.getSalary() + "'>&gt;&gt;</a>");
 		}
 		page.setLinks(buffer.toString());
 		session.setAttribute("page", page);
 		session.setAttribute("jobQueryVo", jobQueryVo);
 		List<Industry> industries = industryService.findParentIndustry();
+		List<Industry> childrenIndustries = industryService
+				.findChildrenIndustry(iId);
 		session.setAttribute("industries", industries);
+		session.setAttribute("childrenIndustries", childrenIndustries);
 		return "job/searchJob";
 	}
-
 }

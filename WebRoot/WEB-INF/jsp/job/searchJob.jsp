@@ -42,20 +42,22 @@
 	<div class="framehead">
 		<div class="frameheadmid" style="position:relative;">
 			<div style="position:absolute;float:left;width:132;height:50;">
-				<a href="Untitled-1.html"><img
+				<a href="${pageContext.request.contextPath}/index.jsp"><img
 					src="${pageContext.request.contextPath}/images/job/logo.png"
 					width="132" height="50" alt="" /> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:182;">
-				<a href="../求职者首页/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('mainpage','','${pageContext.request.contextPath}/images/job/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/job/mainpage.png"
 					alt="" width="100" height="50" id="mainpage"> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="javascrpt:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/job/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/job/job3.png" alt=""
 					width="100" height="50" id="job"> </a>
@@ -87,16 +89,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="framesearch " style="position:relative;">
-		<div
-			style="position:absolute;top:0;left:-21;width:992px;height:292px;float:left;">
-			<img
-				src="${pageContext.request.contextPath}/images/job/framesearch.png"
-				width="992" height="292" alt="" />
-		</div>
-		<form id="searchForm"
-			action="${pageContext.request.contextPath}/job/findJobsByCondition.action"
-			method="post">
+	<form id="searchForm"
+		action="${pageContext.request.contextPath}/job/findJobsByCondition.action"
+		method="post">
+		<div class="framesearch " style="position:relative;">
+			<div
+				style="position:absolute;top:0;left:-21;width:992px;height:292px;float:left;">
+				<img
+					src="${pageContext.request.contextPath}/images/job/framesearch.png"
+					width="992" height="292" alt="" />
+			</div>
 			<div
 				style="position:absolute;top:71;l;width:950px;height:50px;float:left;">
 				<p
@@ -114,7 +116,7 @@
 					alt="" width="100" height="50" id="searchButton">
 				<p class="link_c"
 					style="position:absolute;top:40;right:30;width:100px;height:20px;float:left">
-					<a href="#">清空搜索条件</a>
+					<a href="javascript:void(0)" id="cleanCondition">清空搜索条件</a>
 				</p>
 			</div>
 			<div
@@ -136,6 +138,14 @@
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;left:290;top:0;float:left;width:150px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
 					<option value=0>分类</option>
+					<c:if test="${sessionScope.childrenIndustries!=null }">
+						<c:forEach items="${sessionScope.childrenIndustries }"
+							var="industry">
+							<option value="${industry.industryId }"
+								<c:if test="${sessionScope.jobQueryVo.typeId==industry.industryId}">selected</c:if>>${industry.industryName
+								}</option>
+						</c:forEach>
+					</c:if>
 				</select>
 				<p
 					style="position:absolute;top:32;left:30;width:70px;height:20px;float:left;font-family:微软雅黑;font-size: 14px; color: #6b6b6b;text-align:left">地区：</p>
@@ -176,117 +186,129 @@
 						href="#">海尔</a>
 				</p>
 			</div>
-		</form>
-	</div>
-	<div class="framemain" style="position:relative;">
-		<div
-			style="position:absolute;top:0;left:-21;width:992px;height:2042px;float:left;">
-			<img
-				src="${pageContext.request.contextPath}/images/job/framemain.png"
-				width="992" height="2042" alt="" />
 		</div>
-		<div
-			style="position:absolute;top:21;left:0;width:950px;height:2000px;float:left;">
+		<div class="framemain" style="position:relative;">
 			<div
-				style="position:absolute;top:10;left:0;width:950;height:50;float:left">
-				<div
-					style="position:absolute;top:10;left:30;width:8;height:30;float:left">
-					<img
-						src="${pageContext.request.contextPath}/images/job/titlehead.png"
-						width="8" height="30" alt="" />
-				</div>
-				<div
-					style="position:absolute;top:10;left:40;width:192;height:30;float:left">
-					<p
-						style="margin:0;position:absolute;top:2;left:15;font-family:微软雅黑;font-size: 18px; color: #3d7d52;font-weight:bold">搜索结果</p>
-				</div>
-				<div
-					style="position:absolute;left:200;top:10;width:450px;height:30px;float:left;">
-					<p
-						style="margin:0;position:absolute;top:5;left:10;font-family:微软雅黑;font-size: 14px; color: #6b6b6b;">条件筛选：</p>
-					<select id="year3" type="text" class="form-control"
-						onmouseover="this.style.borderColor='#3d7d52'"
-						onmouseout="this.style.borderColor=''"
-						style="position:absolute;left:100;top:0;float:left;width:150px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
-						<option>发布时间</option>
-						<option value=1>递增</option>
-						<option value=2>递减</option>
-					</select> <select id="month3" type="text" class="form-control"
-						onmouseover="this.style.borderColor='#3d7d52'"
-						onmouseout="this.style.borderColor=''"
-						style="position:absolute;left:260;top:0;float:left;width:150px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
-						<option>年薪范围</option>
-						<option value=1>2000以下</option>
-						<option value=2>2000-4000</option>
-						<option value=3>4000-6000</option>
-						<option value=4>6000-8000</option>
-						<option value=5>8000-10000</option>
-						<option value=6>10000以上</option>
-					</select>
-				</div>
-				<div
-					style="position:absolute;top:10;right:30;width:110;height:30;float:left">
-					<p
-						style="margin:0;position:absolute;top:5;left:10;font-family:微软雅黑;font-size: 14px; color: #6b6b6b;">共
-						${sessionScope.page.recordCount }条结果</p>
-				</div>
+				style="position:absolute;top:0;left:-21;width:992px;height:2042px;float:left;">
+				<img
+					src="${pageContext.request.contextPath}/images/job/framemain.png"
+					width="992" height="2042" alt="" />
 			</div>
 			<div
-				style="position:absolute;top:60;left:25;width:900;height:1;float:left">
-				<img src="${pageContext.request.contextPath}/images/job/line.png"
-					width="900" height="1" alt="" />
-			</div>
-			<div id="div1"
-				style="position:absolute;top:61;left:0;width:950;height:1939;float:left">
-				<c:forEach items="${sessionScope.page.recordList }" var="job"
-					varStatus="num">
+				style="position:absolute;top:21;left:0;width:950px;height:2000px;float:left;">
+				<div
+					style="position:absolute;top:10;left:0;width:950;height:50;float:left">
 					<div
-						style="position:absolute;top:${(num.count-1)*115};left:0;width:950px;height:115px;float:left;">
-						<div
-							style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
-							<a href="#"><img style="width:160;height:80;"
-								src="${pageContext.request.contextPath}/images/job/brand5.png"
-								alt="" /> </a>
-						</div>
-						<div
-							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
-							<p class="link_a"
-								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${job.companyName }</a> · <a href="#">${job.jobName
-									}</a>
-							</p>
-							<p class="text_a"
-								style="margin:0;position:absolute;top:47;left:20;">
-								月薪：${job.jobSalary }元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-									href="#">${job.companyLocation }</a> - <a href="#">${job.industryName
-									}</a>
-							</p>
-							<p class="text_a"
-								style="margin:0;position:absolute;top:72;left:20;">地址：${job.worksite
-								}</p>
-						</div>
+						style="position:absolute;top:10;left:30;width:8;height:30;float:left">
+						<img
+							src="${pageContext.request.contextPath}/images/job/titlehead.png"
+							width="8" height="30" alt="" />
 					</div>
-				</c:forEach>
-
+					<div
+						style="position:absolute;top:10;left:40;width:192;height:30;float:left">
+						<p
+							style="margin:0;position:absolute;top:2;left:15;font-family:微软雅黑;font-size: 18px; color: #3d7d52;font-weight:bold">搜索结果</p>
+					</div>
+					<div
+						style="position:absolute;left:200;top:10;width:450px;height:30px;float:left;">
+						<p
+							style="margin:0;position:absolute;top:5;left:10;font-family:微软雅黑;font-size: 14px; color: #6b6b6b;">条件筛选：</p>
+						<select id="time" name="time" class="form-control"
+							onmouseover="this.style.borderColor='#3d7d52'"
+							onmouseout="this.style.borderColor=''"
+							style="position:absolute;left:100;top:0;float:left;width:150px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
+							<option value=0>发布时间</option>
+							<option value=1
+								<c:if test="${sessionScope.jobQueryVo.time eq 1 }">selected</c:if>>一天内</option>
+							<option value=2
+								<c:if test="${sessionScope.jobQueryVo.time eq 2 }">selected</c:if>>一周内</option>
+							<option value=3
+								<c:if test="${sessionScope.jobQueryVo.time eq 3 }">selected</c:if>>一月内</option>
+							<option value=4
+								<c:if test="${sessionScope.jobQueryVo.time eq 4 }">selected</c:if>>不限</option>
+						</select> <select id="salary" name="salary" class="form-control"
+							onmouseover="this.style.borderColor='#3d7d52'"
+							onmouseout="this.style.borderColor=''"
+							style="position:absolute;left:260;top:0;float:left;width:150px; height:30px;font-family:微软雅黑;font-size: 12px; color: #989898;">
+							<option value=0>月薪范围</option>
+							<option value=1
+								<c:if test="${sessionScope.jobQueryVo.salary eq 1 }">selected</c:if>>2000以下</option>
+							<option value=2
+								<c:if test="${sessionScope.jobQueryVo.salary eq 2 }">selected</c:if>>2000-4000</option>
+							<option value=3
+								<c:if test="${sessionScope.jobQueryVo.salary eq 3 }">selected</c:if>>4000-6000</option>
+							<option value=4
+								<c:if test="${sessionScope.jobQueryVo.salary eq 4 }">selected</c:if>>6000-8000</option>
+							<option value=5
+								<c:if test="${sessionScope.jobQueryVo.salary eq 5 }">selected</c:if>>8000-10000</option>
+							<option value=6
+								<c:if test="${sessionScope.jobQueryVo.salary eq 6 }">selected</c:if>>10000以上</option>
+						</select>
+					</div>
+					<div
+						style="position:absolute;top:10;right:30;width:110;height:30;float:left">
+						<p
+							style="margin:0;position:absolute;top:5;left:10;font-family:微软雅黑;font-size: 14px; color: #6b6b6b;">共
+							${sessionScope.page.recordCount }条结果</p>
+					</div>
+				</div>
 				<div
-					style="position:absolute;bottom:10;left:250;width:500px;height:50px;float:left;">
-					<p class="link_a" id="links"
-						style="position:absolute;left:80;top:-3;width:200;float:left;">
-						${page.links }</p>
-					<p style="position:absolute;left:280;top:-3;width:50;">跳转到</p>
-					<input class="form-control" name="pageNum" type="text" id="pageNum"
-						placeHolder="页数" onmouseover="this.style.borderColor='#3d7d52'"
-						onmouseout="this.style.borderColor=''"
-						style="position:absolute;left:330;top:3;float:left;width:50px; height:35px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-					<p class="link_a"
-						style="position:absolute;right:80;top:-3;width:30;float:left;">
-						<a href="javascript:void(0)" id="forwordByPagenum">GO</a>
-					</p>
+					style="position:absolute;top:60;left:25;width:900;height:1;float:left">
+					<img src="${pageContext.request.contextPath}/images/job/line.png"
+						width="900" height="1" alt="" />
+				</div>
+				<div id="div1"
+					style="position:absolute;top:61;left:0;width:950;height:1939;float:left">
+					<c:forEach items="${sessionScope.page.recordList }" var="job"
+						varStatus="num">
+						<div
+							style="position:absolute;top:${(num.count-1)*115};left:0;width:950px;height:115px;float:left;">
+							<div
+								style="position:absolute;top:7;right:20;width:200px;height:100px;float:left;overflow:hidden;padding-top:10;text-align:center;">
+								<a href="#"><img style="width:160;height:80;"
+									src="${pageContext.request.contextPath}/images/job/brand5.png"
+									alt="" /> </a>
+							</div>
+							<div
+								style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
+								<p class="link_a"
+									style="margin: 0; position: absolute; top: 17; left: 20; ">
+									<a href="#">${job.companyName }</a> · <a href="#">${job.jobName
+										}</a>
+								</p>
+								<p class="text_a"
+									style="margin:0;position:absolute;top:47;left:20;">
+									月薪：${job.jobSalary }元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+										href="#">${job.companyLocation }</a> - <a href="#">${job.industryName
+										}</a>
+								</p>
+								<p class="text_a"
+									style="margin:0;position:absolute;top:72;left:20;">地址：${job.worksite
+									}</p>
+							</div>
+						</div>
+					</c:forEach>
+
+					<div
+						style="position:absolute;bottom:10;left:250;width:500px;height:50px;float:left;">
+						<p class="link_a" id="links"
+							style="position:absolute;left:80;top:-3;width:200;float:left;">
+							${page.links }</p>
+						<p style="position:absolute;left:280;top:-3;width:50;">跳转到</p>
+						<input class="form-control" name="pageNum" type="text"
+							id="pageNum" placeHolder="页数"
+							onmouseover="this.style.borderColor='#3d7d52'"
+							onmouseout="this.style.borderColor=''"
+							style="position:absolute;left:330;top:3;float:left;width:50px; height:35px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+						<p class="link_a"
+							style="position:absolute;right:80;top:-3;width:30;float:left;">
+							<a href="javascript:void(0)" id="forwordByPagenum">GO</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</form>
 	<div class="framebottom1" style="position:relative;">
 		<div
 			style="position:absolute;top:20;left:25;width:900;height:1;float:left">

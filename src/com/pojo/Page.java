@@ -55,8 +55,7 @@ public class Page implements Serializable {
 		this.pageCount = (recordCount + pageSize - 1) / pageSize;
 		if (pageCount == 0) {
 			throw new MyException("查无结果！");
-		}
-		if (currentPage > pageCount) {
+		} else if (currentPage > pageCount) {
 			throw new MyException("输入页数过大！");
 		}
 

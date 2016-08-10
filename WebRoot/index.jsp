@@ -31,7 +31,7 @@
 	<div class="framehead">
 		<div class="frameheadmid" style="position:relative;">
 			<div style="position:absolute;float:left;width:132;height:50;">
-				<a href="a"><img
+				<a href="javascrpt:void(0)"><img
 					src="${pageContext.request.contextPath}/images/index/logo.png"
 					width="132" height="50" alt="" /> </a>
 			</div>
