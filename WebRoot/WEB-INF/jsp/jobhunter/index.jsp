@@ -41,7 +41,7 @@
 	<div class="framehead">
 		<div class="frameheadmid" style="position:relative;">
 			<div style="position:absolute;float:left;width:132;height:50;">
-				<a href="${pageContext.request.contextPath}/index.jsp" ><img
+				<a href="${pageContext.request.contextPath}/index.jsp"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/logo.png"
 					width="132" height="50" alt="" /> </a>
 			</div>
@@ -62,7 +62,9 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:382;">
-				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/resume/showResume.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/jobhunterRegister/index/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>

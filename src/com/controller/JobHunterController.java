@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -66,14 +65,13 @@ public class JobHunterController extends BasicController {
 	 */
 	@RequestMapping("/findJobHunterLogin")
 	public @ResponseBody
-	Jobhunter findJobHunterLogin(Jobhunter jobhunter, HttpServletRequest request)
+	Jobhunter findJobHunterLogin(Jobhunter jobhunter, HttpSession session)
 			throws Exception {
 		jobhunter.setJobhunterPassword(MD5Utils.md5(jobhunter
 				.getJobhunterPassword()));
 		Jobhunter jobhunter2 = jobHunterService.findJobHunterLogin(jobhunter);
 		if (jobhunter2 != null) {
-			request.getSession().setAttribute("jobhunterName",
-					jobhunter2.getJobhunterName());
+			session.setAttribute("jobhunter", jobhunter2);
 		}
 		return jobhunter2;
 	}

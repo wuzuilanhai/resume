@@ -54,7 +54,7 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:382;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/resume/showResume.action" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('简历','','${pageContext.request.contextPath}/images/index/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/resume.png"
 					alt="" width="100" height="50" id="简历"> </a>

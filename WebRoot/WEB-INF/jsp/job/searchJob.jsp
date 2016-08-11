@@ -57,14 +57,18 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
-				<a href="javascrpt:void(0)" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="javscript:void(0)"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/job/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/job/job3.png" alt=""
 					width="100" height="50" id="job"> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:382;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/resume/showResume.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/job/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/job/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>

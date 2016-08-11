@@ -1,0 +1,43 @@
+@charset "utf-8";
+    /* Bootstrap Styles */
+    ul.nav-tabs{
+	width: 90px;
+	margin-top: 20px;
+	margin-right: 0;
+	border-radius: 0px;
+	border: 0px solid #ddd;
+	
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size:10px;
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 0px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+		color: #6b6b6b;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #3d7d52;
+        border: 1px solid #3d7d52;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 0px 0px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 0px 0px;
+    }
+    ul.nav-tabs.affix{
+        top: 100px; /* Set the top position of pinned element */
+    }
+/* CSS Document */
+

@@ -1,79 +1,83 @@
 package com.pojo;
 
-import java.io.Serializable;
+public class CareerIntention {
+    private Integer cintentionId;
 
-/**
- * 
- * 类描述：职业倾向实体类
- * 
- * @author: 张海彪
- * @date： 日期：2016-7-26 时间：下午2:38:15
- * @version 1.0
- */
-public class CareerIntention implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6929827969755213603L;
+    private Integer industryId;
 
-	private Integer cintentionId;
+    private Integer positionId;
 
-	private Integer industryId;
+    private String expectWorksite;
 
-	private Integer positionId;
+    private Double expectSalary;
 
-	private String expectWorksite;
+    private Double currentSalary;
 
-	private Double expectSalary;
+    private Integer isDiscuss;
 
-	private Double currentSalary;
+    private Integer isShow;
 
-	public Integer getCintentionId() {
-		return cintentionId;
-	}
+    public Integer getCintentionId() {
+        return cintentionId;
+    }
 
-	public void setCintentionId(Integer cintentionId) {
-		this.cintentionId = cintentionId;
-	}
+    public void setCintentionId(Integer cintentionId) {
+        this.cintentionId = cintentionId;
+    }
 
-	public Integer getIndustryId() {
-		return industryId;
-	}
+    public Integer getIndustryId() {
+        return industryId;
+    }
 
-	public void setIndustryId(Integer industryId) {
-		this.industryId = industryId;
-	}
+    public void setIndustryId(Integer industryId) {
+        this.industryId = industryId;
+    }
 
-	public Integer getPositionId() {
-		return positionId;
-	}
+    public Integer getPositionId() {
+        return positionId;
+    }
 
-	public void setPositionId(Integer positionId) {
-		this.positionId = positionId;
-	}
+    public void setPositionId(Integer positionId) {
+        this.positionId = positionId;
+    }
 
-	public String getExpectWorksite() {
-		return expectWorksite;
-	}
+    public String getExpectWorksite() {
+        return expectWorksite;
+    }
 
-	public void setExpectWorksite(String expectWorksite) {
-		this.expectWorksite = expectWorksite == null ? null : expectWorksite
-				.trim();
-	}
+    public void setExpectWorksite(String expectWorksite) {
+        this.expectWorksite = expectWorksite == null ? null : expectWorksite.trim();
+    }
 
-	public Double getExpectSalary() {
-		return expectSalary;
-	}
+    public Double getExpectSalary() {
+        return expectSalary;
+    }
 
-	public void setExpectSalary(Double expectSalary) {
-		this.expectSalary = expectSalary;
-	}
+    public void setExpectSalary(Double expectSalary) {
+        this.expectSalary = expectSalary;
+    }
 
-	public Double getCurrentSalary() {
-		return currentSalary;
-	}
+    public Double getCurrentSalary() {
+        return currentSalary;
+    }
 
-	public void setCurrentSalary(Double currentSalary) {
-		this.currentSalary = currentSalary;
-	}
+    public void setCurrentSalary(Double currentSalary) {
+        this.currentSalary = currentSalary;
+    }
+
+    public Integer getIsDiscuss() {
+        return isDiscuss;
+    }
+
+    public void setIsDiscuss(Integer isDiscuss) {
+        this.isDiscuss = isDiscuss;
+    }
+
+    public Integer getIsShow() {
+        return isShow;
+    }
+
+    public void setIsShow(Integer isShow) {
+        this.isShow = isShow;
+    }
 }

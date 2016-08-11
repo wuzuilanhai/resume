@@ -2,9 +2,12 @@ package com.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.exception.MyException;
 import com.pojo.Jobhunter;
 import com.pojo.Resume;
 
@@ -29,7 +32,7 @@ public class ResumeController extends BasicController {
 			throws Exception {
 		Jobhunter jobhunter = jobHunterService
 				.findJobHunterByPhone(jobhunterPhone);
-		if(jobhunter==null){
+		if (jobhunter == null) {
 			return "failed";
 		}
 		resume.setJobhunterId(jobhunter.getJobhunterId());
@@ -37,4 +40,21 @@ public class ResumeController extends BasicController {
 		resumeService.addResume(resume);
 		return "success";
 	}
+
+	/**
+	 * 显示简历详细信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/showResume")
+	public String showResume(HttpSession session) throws Exception {
+		// 判断求职者是否已经登录
+		if (session.getAttribute("jobhunter") != null) {
+			return "resume/myResume";
+		} else {
+			throw new MyException("用户还未登录！");
+		}
+	}
+
 }
