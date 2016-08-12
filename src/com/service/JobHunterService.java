@@ -54,4 +54,13 @@ public interface JobHunterService {
 	 */
 	Jobhunter findJobHunterByName(String jobhunterName) throws Exception;
 
+	/**
+	 * 通过Id取出求职者信息
+	 * 
+	 * @param jobhunterId
+	 *            求职者Id
+	 * @return 求职者信息
+	 */
+	Jobhunter findJobHunterById(Integer jobhunterId) throws Exception;
+
 }

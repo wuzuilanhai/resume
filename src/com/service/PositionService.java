@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.pojo.Position;
 
 /**
@@ -27,5 +29,24 @@ public interface PositionService {
 	 * @return 职能ID
 	 */
 	Integer findPositionIdByPositionName(String positionName) throws Exception;
+
+	/**
+	 * 根据行业Id查找职能数据信息列表
+	 * 
+	 * @param industryId
+	 *            行业Id
+	 * @return 职能数据信息列表
+	 */
+	List<Position> findPositionsByIndustryId(Integer industryId)
+			throws Exception;
+
+	/**
+	 * 通过父行业id寻找职能信息列表
+	 * 
+	 * @param parentid
+	 *            父行业id
+	 * @return 职能信息列表
+	 */
+	List<Position> findPositionByParentId(Integer parentid) throws Exception;
 
 }

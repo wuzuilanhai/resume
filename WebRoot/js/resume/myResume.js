@@ -57,8 +57,89 @@ function ShowFLT(i) {
 	}
 }
 
+function getRootPath() {
+	// 获取当前网址，如： http://localhost:8083/proj/meun.jsp
+	var curWwwPath = window.document.location.href;
+	// 获取主机地址之后的目录，如： proj/meun.jsp
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	// 获取主机地址，如： http://localhost:8083
+	var localhostPath = curWwwPath.substring(0, pos);
+	// 获取带"/"的项目名，如：/proj
+	var projectName = pathName
+			.substring(0, pathName.substr(1).indexOf('/') + 1);
+	return (localhostPath + projectName);
+}
+
 $('#addWorkExperience').click(function() {
-	var addDiv = $('#hiddenDivForAdd').clone(true);
-	$('#createWorkExperienceDiv').after(addDiv);
-	$(addDiv).show();
+	if ($('#hiddenDivForAdd').is(':hidden')) {
+		$('#hiddenDivForAdd').show();
+		$('#addWorkExperience').html("取消");
+	} else {
+		$('#hiddenDivForAdd').hide();
+		$('#addWorkExperience').html("新建");
+	}
 });
+$('#form1 input:eq(0)').click(function() {
+	$('#jobhunterRealName').html("");
+});
+$('#form2 input:eq(0)').click(function() {
+	$('#jobhunterPhoneTip').html("");
+});
+$('#form2 input:eq(1)').click(function() {
+	$('#jobhunterEmailTip').html("");
+});
+$('#updateJobhunter1').click(function() {
+	if ($('#form1 input:eq(0)').val().trim().length == 0) {
+		$('#jobhunterRealName').html("");
+		$('#jobhunterRealName').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	$('#form1').submit();
+});
+$('#updateJobhunter2').click(function() {
+	if ($('#form2 input:eq(0)').val().trim().length == 0) {
+		$('#jobhunterPhoneTip').html("");
+		$('#jobhunterPhoneTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^(\+\d{2,3}\-)?\d{11}$/.test($("#phone").val().trim())) {
+		$('#phone').val("");
+		$('#jobhunterPhoneTip').html("");
+		$('#jobhunterPhoneTip').html("<font color='red'>号码格式有误!</font>");
+		return;
+	}
+	if ($('#form2 input:eq(1)').val().trim().length == 0) {
+		$('#jobhunterEmailTip').html("");
+		$('#jobhunterEmailTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^\w{3,}@\w+(\.\w+)+$/.test($("#email").val().trim())) {
+		$('#email').val("");
+		$('#jobhunterEmailTip').html("");
+		$('#jobhunterEmailTip').html("<font color='red'>邮箱格式有误!</font>");
+		return;
+	}
+	$('#form2').submit();
+});
+$('#industryId').change(
+		function() {
+			var parentid = $('#industryId').val();
+			$.ajax({
+				type : 'post',
+				url : getRootPath()
+						+ "/position/findPositionByParentId.action?parentid="
+						+ parentid,
+				data : {},
+				dataType : "json",
+				success : function(data) {
+					$("#positionId  option").remove();
+					$.each(data, function(name, value) {
+						$("#positionId").append(
+								"<option value=" + value.positionId + ">"
+										+ value.positionName + "</option>");
+					});
+				},
+				error : function() {
+					alert("异常");
+				}
+			});
+		});

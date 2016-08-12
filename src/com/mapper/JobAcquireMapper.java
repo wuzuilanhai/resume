@@ -12,5 +12,6 @@ import com.pojo.JobAcquire;
  */
 public interface JobAcquireMapper {
 
-	void addJobAcquire(JobAcquire jobAcquire);
+	void addJobAcquire(JobAcquire jobAcquire) throws Exception;
+
 }

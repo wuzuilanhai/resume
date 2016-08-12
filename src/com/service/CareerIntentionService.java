@@ -19,4 +19,14 @@ public interface CareerIntentionService {
 	 */
 	void addCareerIntention(CareerIntention careerIntention) throws Exception;
 
+	/**
+	 * 根据简历Id查找职业意向数据信息
+	 * 
+	 * @param resumeId
+	 *            职业意向Id
+	 * @return 封装职业意向的信息
+	 */
+	CareerIntention findCareerIntentionById(Integer cintentionId)
+			throws Exception;
+
 }

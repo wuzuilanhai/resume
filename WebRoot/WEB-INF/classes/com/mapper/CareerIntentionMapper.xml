@@ -67,4 +67,7 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findCareerIntentionById" parameterType="int" resultMap="BaseResultMap">
+		select * from career_intention where cIntention_id=#{cintentionId}
+	</select>
 </mapper>

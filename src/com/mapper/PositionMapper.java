@@ -1,5 +1,7 @@
 package com.mapper;
 
+import java.util.List;
+
 import com.pojo.Position;
 
 /**
@@ -13,5 +15,11 @@ import com.pojo.Position;
 public interface PositionMapper {
 	void addPosition(Position position) throws Exception;
 
-	Integer findPositionIdByPositionName(String positionName);
+	Integer findPositionIdByPositionName(String positionName) throws Exception;
+
+	List<Position> findPositionsByIndustryId(Integer industryId)
+			throws Exception;
+
+	List<Position> findPositionByParentId(Integer parentid) throws Exception;
+
 }

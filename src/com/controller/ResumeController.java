@@ -1,6 +1,8 @@
 package com.controller;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.exception.MyException;
+import com.pojo.CareerIntention;
 import com.pojo.Jobhunter;
+import com.pojo.Position;
 import com.pojo.Resume;
 
 /**
@@ -50,7 +54,28 @@ public class ResumeController extends BasicController {
 	@RequestMapping("/showResume")
 	public String showResume(HttpSession session) throws Exception {
 		// 判断求职者是否已经登录
-		if (session.getAttribute("jobhunter") != null) {
+		Jobhunter jobhunter = null;
+		if ((jobhunter = (Jobhunter) session.getAttribute("jobhunter")) != null) {
+			// 查找求职者简历数据信息
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(jobhunter.getJobhunterBirthday());
+			int year = cal.get(Calendar.YEAR);
+			int month = cal.get(Calendar.MONTH) + 1;
+			Resume resume = resumeService.findResumeByJobhunterId(jobhunter
+					.getJobhunterId());
+			// 准备职业意向数据信息
+			CareerIntention careerIntention = careerIntentionService
+					.findCareerIntentionById(resume.getResumeId());
+			List<Position> positions = positionService
+					.findPositionsByIndustryId(careerIntention.getIndustryId());
+			// 准备工作经历数据信息
+			// 准备教育经历数据信息
+			// 准备求职者头像信息
+			session.setAttribute("year", year);
+			session.setAttribute("month", month);
+			session.setAttribute("resume", resume);
+			session.setAttribute("careerIntention", careerIntention);
+			session.setAttribute("positions", positions);
 			return "resume/myResume";
 		} else {
 			throw new MyException("用户还未登录！");

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pojo.JobCustom;
 import com.pojo.Jobhunter;
+import com.pojo.JobhunterQueryVo;
+import com.sun.org.apache.commons.beanutils.BeanUtils;
 import com.util.MD5Utils;
 
 /**
@@ -186,6 +188,46 @@ public class JobHunterController extends BasicController {
 		session.setAttribute("jobCustoms7", jobCustoms7);
 		session.setAttribute("jobCustoms8", jobCustoms8);
 		return "jobhunter/index";
+	}
+
+	/**
+	 * 更新求职者信息
+	 * 
+	 * @param jobhunterQueryVo
+	 *            封装求职者信息的实体
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("updateJobhunter")
+	public String updateJobhunter(JobhunterQueryVo jobhunterQueryVo,
+			HttpSession session) throws Exception {
+		if (jobhunterQueryVo.getJobhunterProvince() != null) {
+			jobhunterQueryVo.getJobhunter().setJobhunterNativePlace(
+					jobhunterQueryVo.getJobhunterProvince()
+							+ jobhunterQueryVo.getJobhunterCity());
+			String time = jobhunterQueryVo.getJobhunterYear() + "-"
+					+ jobhunterQueryVo.getJobhunterMonth();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+			Date date = format.parse(time);
+			jobhunterQueryVo.getJobhunter().setJobhunterBirthday(date);
+		}
+		// 取得更新前的求职者信息
+		Jobhunter preJobhunter = (Jobhunter) session.getAttribute("jobhunter");
+		Jobhunter newJobhunter = new Jobhunter();
+		// 复制实体bean信息
+		BeanUtils.copyProperties(newJobhunter, jobhunterQueryVo.getJobhunter());
+		newJobhunter.setJobhunterId(preJobhunter.getJobhunterId());
+		jobHunterService.updateJobHunterByDetails(newJobhunter);
+		// 重新查询最新数据
+		newJobhunter = jobHunterService.findJobHunterById(preJobhunter
+				.getJobhunterId());
+		session.setAttribute("jobhunter", newJobhunter);
+		// Map<String, Jobhunter> map = new HashMap<String, Jobhunter>();
+		// map.put("jobhunter", newJobhunter);
+		// ObjectMapper mapper = new ObjectMapper();
+		// return mapper.writeValueAsString(map);
+		return "resume/myResume";
 	}
 
 }

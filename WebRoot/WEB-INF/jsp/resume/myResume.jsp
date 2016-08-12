@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -49,7 +50,7 @@
 					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('mainpage','','${pageContext.request.contextPath}/images/resume/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/resume/mainpage.png"
-					alt="" width="100" height="50" id="mainpage"> </a>
+					alt="" width="100" height="50" id="mainpage" /> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
@@ -57,14 +58,14 @@
 					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/resume/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/job.png"
-					alt="" width="100" height="50" id="job"> </a>
+					alt="" width="100" height="50" id="job" /> </a>
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:382;">
 				<a href="javscript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/resume/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/resume3.png"
-					alt="" width="100" height="50" id="resume"> </a>
+					alt="" width="100" height="50" id="resume" /> </a>
 			</div>
 			<div
 				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
@@ -76,7 +77,7 @@
 				<a href="../企业首页/Untitled-3.html" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/resume/business2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/business.png"
-					alt="" width="80" height="30" id="business"> </a>
+					alt="" width="80" height="30" id="business" /> </a>
 			</div>
 		</div>
 	</div>
@@ -187,7 +188,7 @@
 					<div style="position:relative;width:450;height:50;">
 						<p
 							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
-							<a id="updateJobhunter" href="javascript:void(0)"
+							<a id="updateJobhunter1" href="javascript:void(0)"
 								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">个人信息</a>
 						</p>
 						<div
@@ -207,104 +208,111 @@
 								</div> </a>
 						</div>
 					</div>
-					<div id="LM1" class="personalinfo" style="DISPLAY:block;">
-						<div class="fill" style="top:10">
-							<p>姓名：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="jobhunterName"
-								value="${sessionScope.jobhunter.jobhunterName}"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+					<form id="form1"
+						action="${pageContext.request.contextPath}/jobHunter/updateJobhunter.action"
+						method="post">
+						<div id="LM1" class="personalinfo" style="DISPLAY:block;">
+							<div class="fill" style="top:10">
+								<p>姓名：</p>
+								<input class="form-control" name="jobhunter.jobhunterRealName"
+									type="text" id=""
+									value="${sessionScope.jobhunter.jobhunterRealName}"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+								<div id="jobhunterRealName"
+									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:60">
+								<p>性别：</p>
+								<table id="sex"
+									style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
+									<tr>
+										<td><input type="radio" name="jobhunter.jobhunterSex"
+											id="jobhunterSex1" value="男"
+											<c:if test="${sessionScope.jobhunter.jobhunterSex=='男'}">checked</c:if>>
+											男</td>
+										<td><input type="radio" name="jobhunter.jobhunterSex"
+											id="jobhunterSex2" value="女"
+											<c:if test="${sessionScope.jobhunter.jobhunterSex=='女'}">checked</c:if>>
+											女</td>
+									</tr>
+								</table>
+							</div>
+							<div class="fill" style="top:110">
+								<p>就职公司：</p>
+								<input class="form-control" name="textfield" type="text"
+									disabled="disabled" id=" company" value="东软科技有限公司"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''" style="" />
+							</div>
+							<div class="fill" style="top:160">
+								<p>行业分类：</p>
+								<select id="profession" type="text" class="form-control"
+									disabled="disabled" style="left:100;width:90px;">
+									<option>互联网/IT</option>
+									<option>北京市</option>
+									<option>上海市</option>
+								</select> <select id="type" type="text" class="form-control"
+									disabled="disabled" style="left:210;width:90px;">
+									<option>前端开发</option>
+									<option>北京市</option>
+									<option>上海市</option>
+								</select>
+							</div>
+							<div class="fill" style="top:210">
+								<p>就职岗位：</p>
+								<input class="form-control" name="textfield" type="text"
+									disabled="disabled" id="jobname" value="Web前端开发工程师"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+							</div>
+							<div class="fill" style="top:260">
+								<p>就职时间：</p>
+								<select id="year" type="text" class="form-control"
+									disabled="disabled" style="left:100;width:90px;">
+									<option value=2016>2016年</option>
+									<option value=2015>2015年</option>
+									<option value=2014>2014年</option>
+									<option value=2013>2013年</option>
+									<option value=2012>2012年</option>
+									<option value=2011>2011年</option>
+									<option value=2010>2010年</option>
+								</select> <select id="month" type="text" class="form-control"
+									disabled="disabled" style="left:210;width:90px;">
+									<option value=1>1月</option>
+									<option value=2>2月</option>
+									<option value=3>3月</option>
+									<option value=4>4月</option>
+									<option value=5>5月</option>
+									<option value=6>6月</option>
+									<option value=7>7月</option>
+									<option value=8>8月</option>
+									<option value=9>9月</option>
+									<option value=10>10月</option>
+									<option value=11>11月</option>
+									<option value=12>12月</option>
+								</select>
+							</div>
+							<div class="fill" style="top:310">
+								<p>详细地址：</p>
+								<input class="form-control" name="jobhunter.jobhunterAddress"
+									type="text" id="jobhunterAddress"
+									value="${sessionScope.jobhunter.jobhunterAddress }"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
+							</div>
 						</div>
-						<div class="fill" style="top:60">
-							<p>性别：</p>
-							<table id="sex"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><input type="radio" name="jobhunterSex"
-										id="jobhunterSex"
-										<c:if test="${sessionScope.jobhunter.jobhunterSex=='男'}">checked</c:if>>
-										男</td>
-									<td><input type="radio" name="jobhunterSex"
-										id="jobhunterSex"
-										<c:if test="${sessionScope.jobhunter.jobhunterSex=='女'}">checked</c:if>>
-										女</td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:110">
-							<p>就职公司：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="company" value="东软科技有限公司"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写就职公司名称'){value =''}"
-								onBlur="if (value ==''){value='填写就职公司名称'}" style="" />
-						</div>
-						<div class="fill" style="top:160">
-							<p>行业分类：</p>
-							<select id="profession" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>互联网/IT</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>前端开发</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:210">
-							<p>就职岗位：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="jobname" value="Web前端开发工程师"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-						</div>
-						<div class="fill" style="top:260">
-							<p>就职时间：</p>
-							<select id="year" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option value=2016>2016年</option>
-								<option value=2015>2015年</option>
-								<option value=2014>2014年</option>
-								<option value=2013>2013年</option>
-								<option value=2012>2012年</option>
-								<option value=2011>2011年</option>
-								<option value=2010>2010年</option>
-							</select> <select id="month" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option value=1>1月</option>
-								<option value=2>2月</option>
-								<option value=3>3月</option>
-								<option value=4>4月</option>
-								<option value=5>5月</option>
-								<option value=6>6月</option>
-								<option value=7>7月</option>
-								<option value=8>8月</option>
-								<option value=9>9月</option>
-								<option value=10>10月</option>
-								<option value=11>11月</option>
-								<option value=12>12月</option>
-							</select>
-						</div>
-						<div class="fill" style="top:310">
-							<p>详细地址：</p>
-							<input class="form-control" name="jobhunterAddress" type="text"
-								id="jobhunterAddress"
-								value="${sessionScope.jobhunter.jobhunterAddress }"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
-						</div>
-					</div>
+					</form>
 					<div id="section-2" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
-							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">基本资料</p>
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
+							<a id="updateJobhunter2" href="javascript:void(0)"
+								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">基本资料</a>
+						</p>
 						<div
 							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
 							<img
@@ -322,125 +330,171 @@
 								</div> </a>
 						</div>
 					</div>
-					<div id="LM2" class="basicinfo" style="DISPLAY:block">
-						<div class="fill" style="top:10">
-							<p>联系电话：</p>
-							<input class="form-control" name="jobhunterPhone" type="text"
-								id="phone" value="${sessionScope.jobhunter.jobhunterPhone }"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+					<form id="form2"
+						action="${pageContext.request.contextPath}/jobHunter/updateJobhunter.action"
+						method="post">
+						<div id="LM2" class="basicinfo" style="DISPLAY:block">
+							<div class="fill" style="top:10">
+								<p>联系电话：</p>
+								<input class="form-control" name="jobhunter.jobhunterPhone"
+									type="text" id="phone"
+									value="${sessionScope.jobhunter.jobhunterPhone }"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+								<div id="jobhunterPhoneTip"
+									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:60">
+								<p>邮箱：</p>
+								<input class="form-control" name="jobhunter.jobhunterEmail"
+									type="text" id="email"
+									value="${sessionScope.jobhunter.jobhunterEmail }"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+								<div id="jobhunterEmailTip"
+									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:110">
+								<p>籍贯：</p>
+								<select id="province2" type="text" class="form-control"
+									name="jobhunterProvince" style="left:100;width:90px;">
+									<option value=广东省
+										<c:if test="${fn:substring(sessionScope.jobhunter.jobhunterNativePlace,0,3)=='广东省'}">selected</c:if>>广东省</option>
+									<option value=河北省
+										<c:if test="${fn:substring(sessionScope.jobhunter.jobhunterNativePlace,0,3)=='河北省'}">selected</c:if>>河北省</option>
+								</select> <select id="city2" type="text" class="form-control"
+									name="jobhunterCity" style="left:210;width:90px;">
+									<option value=北京市
+										<c:if test="${fn:substring(sessionScope.jobhunter.jobhunterNativePlace,3,6)=='北京市'}">selected</c:if>>北京市</option>
+									<option value=上海市
+										<c:if test="${fn:substring(sessionScope.jobhunter.jobhunterNativePlace,3,6)=='上海市'}">selected</c:if>>上海市</option>
+									<option value=广州市
+										<c:if test="${fn:substring(sessionScope.jobhunter.jobhunterNativePlace,3,6)=='广州市'}">selected</c:if>>广州市</option>
+								</select>
+							</div>
+							<div class="fill" style="top:160">
+								<p>婚姻状况：</p>
+								<table id="marriage"
+									style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
+									<tr>
+										<td><label> <input type="radio"
+												name="jobhunter.jobhunterMaritalStatus" value="已婚"
+												id="RadioGroup1_0"
+												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
+												已婚</label>
+										</td>
+										<td><label> <input type="radio"
+												name="jobhunter.jobhunterMaritalStatus" value="未婚"
+												id="RadioGroup1_1"
+												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
+												未婚</label>
+										</td>
+										<td><label> <input type="radio"
+												name="jobhunter.jobhunterMaritalStatus" value="不显示"
+												id="RadioGroup1_2"
+												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
+												保密</label>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="fill" style="top:210">
+								<p>出生年月：</p>
+								<select id="year1" type="text" class="form-control"
+									name="jobhunterYear" style="left:100;width:90px;">
+									<option value=1990
+										<c:if test="${sessionScope.year eq 1990 }">selected</c:if>>1990</option>
+									<option value=1991
+										<c:if test="${sessionScope.year eq 1991 }">selected</c:if>>1991</option>
+									<option value=1992
+										<c:if test="${sessionScope.year eq 1992 }">selected</c:if>>1992</option>
+									<option value=1993
+										<c:if test="${sessionScope.year eq 1993 }">selected</c:if>>1993</option>
+									<option value=1994
+										<c:if test="${sessionScope.year eq 1994 }">selected</c:if>>1994</option>
+									<option value=1995
+										<c:if test="${sessionScope.year eq 1995 }">selected</c:if>>1995</option>
+									<option value=1996
+										<c:if test="${sessionScope.year eq 1996 }">selected</c:if>>1996</option>
+									<option value=1997
+										<c:if test="${sessionScope.year eq 1997 }">selected</c:if>>1997</option>
+									<option value=1998
+										<c:if test="${sessionScope.year eq 1998 }">selected</c:if>>1998</option>
+									<option value=1999
+										<c:if test="${sessionScope.year eq 1999 }">selected</c:if>>1999</option>
+								</select> <select id="month1" type="text" class="form-control"
+									name="jobhunterMonth" style="left:210;width:90px;">
+									<option value=1
+										<c:if test="${sessionScope.month eq 1 }">selected</c:if>>1月</option>
+									<option value=2
+										<c:if test="${sessionScope.month eq 2 }">selected</c:if>>2月</option>
+									<option value=3
+										<c:if test="${sessionScope.month eq 3 }">selected</c:if>>3月</option>
+									<option value=4
+										<c:if test="${sessionScope.month eq 4 }">selected</c:if>>4月</option>
+									<option value=5
+										<c:if test="${sessionScope.month eq 5 }">selected</c:if>>5月</option>
+									<option value=6
+										<c:if test="${sessionScope.month eq 6 }">selected</c:if>>6月</option>
+									<option value=7
+										<c:if test="${sessionScope.month eq 7 }">selected</c:if>>7月</option>
+									<option value=8
+										<c:if test="${sessionScope.month eq 8 }">selected</c:if>>8月</option>
+									<option value=9
+										<c:if test="${sessionScope.month eq 9 }">selected</c:if>>9月</option>
+									<option value=10
+										<c:if test="${sessionScope.month eq 10 }">selected</c:if>>10月</option>
+									<option value=11
+										<c:if test="${sessionScope.month eq 11 }">selected</c:if>>11月</option>
+									<option value=12
+										<c:if test="${sessionScope.month eq 12 }">selected</c:if>>12月</option>
+								</select>
+							</div>
+							<div class="fill" style="top:260">
+								<p>就职状态：</p>
+								<table id="workstate"
+									style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
+									<tr>
+										<td style="height:30px;"><input type="radio"
+											name="jobhunter.jobhuntEntranceStatus" value="在职，看看新机会"
+											id="RadioGroup3_0"
+											<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，看看新机会' }">checked</c:if>>
+											在职，看看新机会</td>
+									</tr>
+									<tr>
+										<td style="height:30px;"><input type="radio"
+											name="jobhunter.jobhuntEntranceStatus" value="在职，暂无跳槽打算"
+											id="RadioGroup3_1"
+											<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，暂无跳槽打算' }">checked</c:if>>
+											在职，暂无跳槽打算</td>
+									</tr>
+									<tr>
+										<td style="height:30px;"><input type="radio"
+											name="jobhunter.jobhuntEntranceStatus" value="在职，急寻新工作"
+											id="RadioGroup3_2"
+											<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，急寻新工作' }">checked</c:if>>
+											在职，急寻新工作</td>
+									</tr>
+									<tr>
+										<td style="height:30px;"><input type="radio"
+											name="jobhunter.jobhuntEntranceStatus" value="离职，正在找工作"
+											<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='离职，正在找工作' }">checked</c:if>
+											id="RadioGroup3_3"> 离职，正在找工作</td>
+									</tr>
+								</table>
+							</div>
 						</div>
-						<div class="fill" style="top:60">
-							<p>邮箱：</p>
-							<input class="form-control" name="jobhunterEmail" type="text"
-								id="email" value="${sessionScope.jobhunter.jobhunterEmail }"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:110">
-							<p>籍贯：</p>
-							<select id="province2" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option value=广东省>广东省</option>
-								<option value=河北省>河北省</option>
-							</select> <select id="city2" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option value=北京市>北京市</option>
-								<option value=上海市>上海市</option>
-								<option value=广州市>广州市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:160">
-							<p>婚姻状况：</p>
-							<table id="marriage"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><label> <input type="radio"
-											name="jobhunterMaritalStatus" value="已婚" id="RadioGroup1_0"
-											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-											已婚</label></td>
-									<td><label> <input type="radio"
-											name="jobhunterMaritalStatus" value="未婚" id="RadioGroup1_1"
-											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-											未婚</label></td>
-									<td><label> <input type="radio"
-											name="jobhunterMaritalStatus" value="不显示" id="RadioGroup1_1"
-											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-											保密</label></td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:210">
-							<p>出生年月：</p>
-							<select id="year1" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option value=1990>1990</option>
-								<option value=1991>1991</option>
-								<option value=1992>1992</option>
-								<option value=1993>1993</option>
-								<option value=1994>1994</option>
-								<option value=1995>1995</option>
-								<option value=1996>1996</option>
-								<option value=1997>1997</option>
-								<option value=1998>1998</option>
-								<option value=1999>1999</option>
-							</select> <select id="month1" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>7月</option>
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-								<option value=6>6</option>
-								<option value=7>7</option>
-								<option value=8>8</option>
-								<option value=9>9</option>
-								<option value=10>10</option>
-								<option value=11>11</option>
-								<option value=12>12</option>
-							</select>
-						</div>
-						<div class="fill" style="top:260">
-							<p>就职状态：</p>
-							<table id="workstate"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td style="height:30px;"><input type="radio"
-										name="jobhuntEntranceStatus" value="在职，看看新机会"
-										id="RadioGroup3_0"
-										<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，看看新机会' }">checked</c:if>>
-										在职，看看新机会</td>
-								</tr>
-								<tr>
-									<td style="height:30px;"><input type="radio"
-										name="jobhuntEntranceStatus" value="在职，暂无跳槽打算"
-										id="RadioGroup3_1"
-										<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，暂无跳槽打算' }">checked</c:if>>
-										在职，暂无跳槽打算</td>
-								</tr>
-								<tr>
-									<td style="height:30px;"><input type="radio"
-										name="jobhuntEntranceStatus" value="在职，急寻新工作"
-										id="RadioGroup3_2"
-										<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='在职，急寻新工作' }">checked</c:if>>
-										在职，急寻新工作</td>
-								</tr>
-								<tr>
-									<td style="height:30px;"><input type="radio"
-										name="jobhuntEntranceStatus" value="离职，正在找工作"
-										<c:if test="${sessionScope.jobhunter.jobhuntEntranceStatus=='离职，正在找工作' }">checked</c:if>
-										id="RadioGroup3_3"> 离职，正在找工作</td>
-								</tr>
-							</table>
-						</div>
-					</div>
+					</form>
 					<div id="section-3" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
-							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">职业意向</p>
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
+							<a id="updateCareerIntention" href="javascript:void(0)"
+								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">职业意向
+							</a>
+						</p>
 						<div
 							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
 							<img
@@ -458,63 +512,73 @@
 								</div> </a>
 						</div>
 					</div>
-					<div id="LM3" class="careerintention" style="DISPLAY:block">
-						<div class="fill" style="top:10">
-							<p>期望职业：</p>
-							<select id="profession2" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>互联网/IT</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type2" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>前端工程师</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
+					<form id="form3"
+						action="${pageContext.request.contextPath}/careerIntention/updateCareerIntention.action"
+						method="post">
+						<div id="LM3" class="careerintention" style="DISPLAY:block">
+							<div class="fill" style="top:10">
+								<p>期望职业：</p>
+								<select id="industryId" name="text" class="form-control"
+									style="left:100;width:90px;">
+									<option value=1
+										<c:if test="${sessionScope.careerIntention.industryId eq 1 }">selected</c:if>>互联网·IT</option>
+									<option value=2
+										<c:if test="${sessionScope.careerIntention.industryId eq 2 }">selected</c:if>>金融业</option>
+									<option value=3
+										<c:if test="${sessionScope.careerIntention.industryId eq 3 }">selected</c:if>>快销行业</option>
+									<option value=4
+										<c:if test="${sessionScope.careerIntention.industryId eq 4 }">selected</c:if>>建筑业</option>
+									<option value=5
+										<c:if test="${sessionScope.careerIntention.industryId eq 5 }">selected</c:if>>汽车·制造</option>
+									<option value=6
+										<c:if test="${sessionScope.careerIntention.industryId eq 6 }">selected</c:if>>医疗·化工</option>
+								</select> <select id="positionId" name="positionId" class="form-control"
+									style="left:210;width:90px;">
+									<c:forEach items="${sessionScope.positions }" var="position">
+										<option
+											<c:if test="${sessionScope.careerIntention.positionId==position.positionId}">selected</c:if>>${position.positionName
+											}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="fill" style="top:60">
+								<p>期望地点：</p>
+								<input class="form-control" name="expectWorksite" type="text"
+									value="${sessionScope.careerIntention.expectWorksite }"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
+							</div>
+							<div class="fill" style="top:110">
+								<p>期望月薪：</p>
+								<input class="form-control" name="expectSalary" type="text"
+									id="expectSalary"
+									value="${sessionScope.careerIntention.expectSalary }"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
+								<input type="checkbox"
+									style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;"
+									<c:if test="${sessionScope.careerIntention.isDiscuss eq 1 }">checked</c:if> />
+								<p
+									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
+							</div>
+							<div class="fill" style="top:160">
+								<p>目前月薪：</p>
+								<input class="form-control" name="currentSalary" type="text"
+									id="currentSalary"
+									value="${sessionScope.careerIntention.currentSalary}"
+									onmouseover="this.style.borderColor='#3d7d52'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
+								<input type="checkbox"
+									style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;"
+									<c:if test="${sessionScope.careerIntention.isShow eq 1 }">checked</c:if> />
+								<p
+									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为保密</p>
+							</div>
 						</div>
-						<div class="fill" style="top:60">
-							<p>期望地点：</p>
-							<select id="province3" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option value=广东省>广东省</option>
-								<option value=河北省>河北省</option>
-							</select> <select id="city3" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>广州市</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:110">
-							<p>期望年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salaryintention" value="20万"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写期望年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写期望年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-						</div>
-						<div class="fill" style="top:160">
-							<p>目前年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salarynow" value="15万"
-								onmouseover="this.style.borderColor='#3d7d52'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写当前年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写当前年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为保密</p>
-						</div>
-					</div>
+					</form>
 					<div id="section-4" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
@@ -755,6 +819,15 @@
 									style="position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 8px;">主要负责Apple官网的网页交互设计。</textarea>
 							</div>
 						</div>
+						<div class="fill2" id="createWorkExperienceDiv">
+							<p>创建新工作经历</p>
+							<div style="position:absolute;top:0;right:30;width:30;height:30;">
+								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">
+									<a id="addWorkExperience" href="javascript:void(0)"
+										style="color:#3d7d52;font-size:14;text-decoration: none;">新建</a>
+								</p>
+							</div>
+						</div>
 						<div id="hiddenDivForAdd"
 							style="DISPLAY:none;position:relative;left:-25;width:400;height:500;">
 							<div class="fill" style="top:10">
@@ -843,15 +916,6 @@
 									id="evaluation2" onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"
 									style="position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 8px;">主要负责Apple官网的网页交互设计。</textarea>
-							</div>
-						</div>
-						<div class="fill2" id="createWorkExperienceDiv">
-							<p>创建新工作经历</p>
-							<div style="position:absolute;top:0;right:30;width:30;height:30;">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">
-									<a id="addWorkExperience" href="javascript:void(0)"
-										style="color:#3d7d52;font-size:14;text-decoration: none;">新建</a>
-								</p>
 							</div>
 						</div>
 					</div>

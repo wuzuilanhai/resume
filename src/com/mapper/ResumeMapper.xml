@@ -78,4 +78,8 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findResumeByJobhunterId" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from resume where jobhunter_id=#{jobhunterId}
+	</select>
 </mapper>

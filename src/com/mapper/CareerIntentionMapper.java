@@ -11,5 +11,9 @@ import com.pojo.CareerIntention;
  * @version 1.0
  */
 public interface CareerIntentionMapper {
+
 	void addCareerIntention(CareerIntention careerIntention) throws Exception;
+
+	CareerIntention findCareerIntentionById(Integer cintentionId) throws Exception;
+
 }

@@ -1,7 +1,10 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pojo.Position;
 
@@ -37,4 +40,19 @@ public class PositionController extends BasicController {
 		positionService.addPosition(position);
 		return "success";
 	}
+	
+	/**
+	 * 通过父行业id寻找职能信息列表
+	 * 
+	 * @param parentid
+	 *            父行业id
+	 * @return 职能信息列表
+	 * @throws Exception
+	 */
+	@RequestMapping("/findPositionByParentId")
+	public @ResponseBody
+	List<Position> findPositionByParentId(Integer parentid) throws Exception {
+		return positionService.findPositionByParentId(parentid);
+	}
+	
 }

@@ -19,4 +19,13 @@ public interface ResumeService {
 	 */
 	void addResume(Resume resume) throws Exception;
 
+	/**
+	 * 查找求职者简历数据信息
+	 * 
+	 * @param jobhunterId
+	 *            求职者Id
+	 * @return 封装简历的数据信息
+	 */
+	Resume findResumeByJobhunterId(Integer jobhunterId) throws Exception;
+
 }

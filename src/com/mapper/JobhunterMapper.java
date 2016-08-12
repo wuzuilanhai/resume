@@ -20,4 +20,6 @@ public interface JobhunterMapper {
 	Jobhunter findJobHunterLogin(Jobhunter jobhunter) throws Exception;
 
 	Jobhunter findJobHunterByName(String jobhunterName) throws Exception;
+
+	Jobhunter findJobHunterById(Integer jobhunterId) throws Exception;
 }

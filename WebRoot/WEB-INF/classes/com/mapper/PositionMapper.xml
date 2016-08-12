@@ -37,4 +37,12 @@
 		select position_id from position where
 		position_name=#{positionName}
 	</select>
+	<select id="findPositionsByIndustryId" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from position where industry_id=#{industryId}
+	</select>
+	<select id="findPositionByParentId" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from position,industry where position.industry_id=industry.industry_id
+	</select>
 </mapper>

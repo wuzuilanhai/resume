@@ -12,5 +12,7 @@ import com.pojo.Resume;
  */
 public interface ResumeMapper {
 
-	void addResume(Resume resume);
+	void addResume(Resume resume) throws Exception;
+
+	Resume findResumeByJobhunterId(Integer jobhunterId) throws Exception;
 }

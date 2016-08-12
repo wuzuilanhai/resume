@@ -1,5 +1,7 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.pojo.Position;
@@ -23,6 +25,16 @@ public class PositionServiceImpl extends BasicServiceImpl implements
 	public Integer findPositionIdByPositionName(String positionName)
 			throws Exception {
 		return positionMapper.findPositionIdByPositionName(positionName);
+	}
+
+	public List<Position> findPositionsByIndustryId(Integer industryId)
+			throws Exception {
+		return positionMapper.findPositionsByIndustryId(industryId);
+	}
+
+	public List<Position> findPositionByParentId(Integer parentid)
+			throws Exception {
+		return positionMapper.findPositionByParentId(parentid);
 	}
 
 }
