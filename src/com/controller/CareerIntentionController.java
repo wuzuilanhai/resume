@@ -1,9 +1,12 @@
 package com.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pojo.CareerIntention;
+import com.pojo.Resume;
 
 /**
  * 类描述：职业倾向控制类
@@ -21,16 +24,28 @@ public class CareerIntentionController extends BasicController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/addCareerIntention")
+	@RequestMapping("/operateCareerIntention")
 	public String addCareerIntention(CareerIntention careerIntention,
-			String industryName, String positionName) throws Exception {
-		Integer industryId = industryService
-				.findIndustryIdByIndustryName(industryName);
-		Integer positionId = positionService
-				.findPositionIdByPositionName(positionName);
-		careerIntention.setIndustryId(industryId);
-		careerIntention.setPositionId(positionId);
-		careerIntentionService.addCareerIntention(careerIntention);
-		return "success";
+			HttpSession session) throws Exception {
+		Resume resume = (Resume) session.getAttribute("resume");
+		if (careerIntention.getIsDiscuss() == null) {
+			careerIntention.setIsDiscuss(0);
+		}
+		if (careerIntention.getIsShow() == null) {
+			careerIntention.setIsShow(0);
+		}
+		// 判断是添加职业意向还是更新职业意向
+		if (resume.getCareerIntentionId() == null) {
+			careerIntentionService.addCareerIntention(careerIntention);
+			resume.setCareerIntentionId(careerIntention.getCintentionId());
+		} else {
+			careerIntention.setCintentionId(resume.getCareerIntentionId());
+			careerIntentionService.updateCareerIntention(careerIntention);
+		}
+		// 更新简历信息
+		resumeService.updateResume(resume);
+		session.setAttribute("resume", resume);
+		session.setAttribute("careerIntention", careerIntention);
+		return "resume/myResume";
 	}
 }

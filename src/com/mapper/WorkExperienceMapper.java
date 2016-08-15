@@ -12,5 +12,7 @@ import com.pojo.WorkExperience;
  */
 public interface WorkExperienceMapper {
 
-	void addWorkExperience(WorkExperience workExperience);
+	void addWorkExperience(WorkExperience workExperience) throws Exception;
+
+	WorkExperience findWorkExperienceById(Integer id) throws Exception;
 }

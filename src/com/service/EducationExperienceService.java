@@ -20,4 +20,14 @@ public interface EducationExperienceService {
 	void addEducationExperience(EducationExperience educationExperience)
 			throws Exception;
 
+	/**
+	 * 根据id查找教育经历
+	 * 
+	 * @param id
+	 *            教育经历id
+	 * @return 封装教育经历信息的实体
+	 */
+	EducationExperience findEducationExperiencesById(Integer id)
+			throws Exception;
+
 }

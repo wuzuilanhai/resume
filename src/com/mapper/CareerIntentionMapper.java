@@ -14,6 +14,10 @@ public interface CareerIntentionMapper {
 
 	void addCareerIntention(CareerIntention careerIntention) throws Exception;
 
-	CareerIntention findCareerIntentionById(Integer cintentionId) throws Exception;
+	CareerIntention findCareerIntentionById(Integer cintentionId)
+			throws Exception;
+
+	void updateCareerIntention(CareerIntention careerIntention)
+			throws Exception;
 
 }

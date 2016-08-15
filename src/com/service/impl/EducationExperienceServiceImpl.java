@@ -21,4 +21,9 @@ public class EducationExperienceServiceImpl extends BasicServiceImpl implements
 		educationExperienceMapper.addEducationExperience(educationExperience);
 	}
 
+	public EducationExperience findEducationExperiencesById(Integer id)
+			throws Exception {
+		return educationExperienceMapper.findEducationExperiencesById(id);
+	}
+
 }

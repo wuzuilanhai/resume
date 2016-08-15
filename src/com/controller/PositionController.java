@@ -40,7 +40,7 @@ public class PositionController extends BasicController {
 		positionService.addPosition(position);
 		return "success";
 	}
-	
+
 	/**
 	 * 通过父行业id寻找职能信息列表
 	 * 
@@ -52,7 +52,7 @@ public class PositionController extends BasicController {
 	@RequestMapping("/findPositionByParentId")
 	public @ResponseBody
 	List<Position> findPositionByParentId(Integer parentid) throws Exception {
-		return positionService.findPositionByParentId(parentid);
+		return positionService.findPositionsByIndustryId(parentid);
 	}
-	
+
 }

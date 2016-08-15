@@ -15,4 +15,6 @@ public interface ResumeMapper {
 	void addResume(Resume resume) throws Exception;
 
 	Resume findResumeByJobhunterId(Integer jobhunterId) throws Exception;
+
+	void updateResume(Resume resume) throws Exception;
 }

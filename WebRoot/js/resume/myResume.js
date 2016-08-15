@@ -89,6 +89,15 @@ $('#form2 input:eq(0)').click(function() {
 $('#form2 input:eq(1)').click(function() {
 	$('#jobhunterEmailTip').html("");
 });
+$('#form3 input:eq(0)').click(function() {
+	$('#expectWorksiteTip').html("");
+});
+$('#form3 input:eq(1)').click(function() {
+	$('#expectSalaryTip').html("");
+});
+$('#form3 input:eq(3)').click(function() {
+	$('#currentSalaryTip').html("");
+});
 $('#updateJobhunter1').click(function() {
 	if ($('#form1 input:eq(0)').val().trim().length == 0) {
 		$('#jobhunterRealName').html("");
@@ -143,3 +152,94 @@ $('#industryId').change(
 				}
 			});
 		});
+$('#updateCareerIntention')
+		.click(
+				function() {
+					if ($('#form3 input:eq(0)').val().trim().length == 0) {
+						$('#expectWorksiteTip').html("");
+						$('#expectWorksiteTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if ($('#form3 input:eq(1)').val().trim().length == 0) {
+						$('#expectSalaryTip').html("");
+						$('#expectSalaryTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					} else if (!/^[0-9]+(\.[0-9]+){0,1}$/.test($(
+							"#expectSalary").val().trim())) {
+						$('#expectSalary').val("");
+						$('#expectSalaryTip').html("");
+						$('#expectSalaryTip').html(
+								"<font color='red'>请输入数字!</font>");
+						return;
+					}
+					if ($('#form3 input:eq(3)').val().trim().length == 0) {
+						$('#currentSalaryTip').html("");
+						$('#currentSalaryTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					} else if (!/^[0-9]+(\.[0-9]+){0,1}$/.test($(
+							"#currentSalary").val().trim())) {
+						$('#currentSalary').val("");
+						$('#currentSalaryTip').html("");
+						$('#currentSalaryTip').html(
+								"<font color='red'>请输入数字!</font>");
+						return;
+					}
+					$('#form3').submit();
+				});
+$('#isDiscuss').click(function() {
+	if ($("#isDiscuss").is(':checked')) {
+		$("#isDiscuss").attr("value", 1);
+	} else {
+		$("#isDiscuss").attr("value", 0);
+	}
+});
+$('#isShow').click(function() {
+	if ($("#isShow").is(':checked')) {
+		$("#isShow").attr("value", 1);
+	} else {
+		$("#isShow").attr("value", 0);
+	}
+});
+$('#companyName').click(function() {
+	$('#companyNameTip').html("");
+});
+$('#worksite').click(function() {
+	$('#worksiteTip').html("");
+});
+$('#positionName').click(function() {
+	$('#positionNameTip').html("");
+});
+$('#subordinateNumber').click(function() {
+	$('#subordinateNumberTip').html("");
+});
+$('#addWorkExperienceBtn').click(function() {
+	if ($('#companyName').val().trim().length == 0) {
+		$('#companyNameTip').html("");
+		$('#companyNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($('#worksite').val().trim().length == 0) {
+		$('#worksiteTip').html("");
+		$('#worksiteTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($('#positionName').val().trim().length == 0) {
+		$('#positionNameTip').html("");
+		$('#positionNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($('#subordinateNumber').val().trim().length == 0) {
+		$('#subordinateNumberTip').html("");
+		$('#subordinateNumberTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^[0-9]*$/.test($("#subordinateNumber").val().trim())) {
+		$('#subordinateNumber').val("");
+		$('#subordinateNumberTip').html("");
+		$('#subordinateNumberTip').html("<font color='red'>请输入数字!</font>");
+		return;
+	}
+	$('#addWorkExperienceForm').submit();
+});

@@ -61,4 +61,9 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findEducationExperiencesById" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from education_experience where
+		eExperience_id=#{eexperienceId}
+	</select>
 </mapper>

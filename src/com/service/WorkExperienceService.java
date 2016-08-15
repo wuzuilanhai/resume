@@ -19,4 +19,13 @@ public interface WorkExperienceService {
 	 */
 	void addWorkExperience(WorkExperience workExperience) throws Exception;
 
+	/**
+	 * 根据id查找工作经历
+	 * 
+	 * @param id
+	 *            工作经历id
+	 * @return 封装工作经历信息的实体
+	 */
+	WorkExperience findWorkExperienceById(Integer id) throws Exception;
+
 }

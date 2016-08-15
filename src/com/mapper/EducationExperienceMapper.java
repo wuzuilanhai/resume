@@ -14,4 +14,7 @@ public interface EducationExperienceMapper {
 
 	void addEducationExperience(EducationExperience educationExperience)
 			throws Exception;
+
+	EducationExperience findEducationExperiencesById(Integer id)
+			throws Exception;
 }

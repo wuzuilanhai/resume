@@ -29,4 +29,13 @@ public interface CareerIntentionService {
 	CareerIntention findCareerIntentionById(Integer cintentionId)
 			throws Exception;
 
+	/**
+	 * 更新职业意向
+	 * 
+	 * @param careerIntention
+	 *            封装职业意向的实体
+	 */
+	void updateCareerIntention(CareerIntention careerIntention)
+			throws Exception;
+
 }

@@ -26,4 +26,9 @@ public class CareerIntentionServiceImpl extends BasicServiceImpl implements
 		return careerIntentionMapper.findCareerIntentionById(cintentionId);
 	}
 
+	public void updateCareerIntention(CareerIntention careerIntention)
+			throws Exception {
+		careerIntentionMapper.updateCareerIntention(careerIntention);
+	}
+
 }

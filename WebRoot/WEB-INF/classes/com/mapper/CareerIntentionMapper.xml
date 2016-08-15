@@ -67,7 +67,36 @@
 			</if>
 		</trim>
 	</insert>
-	<select id="findCareerIntentionById" parameterType="int" resultMap="BaseResultMap">
-		select * from career_intention where cIntention_id=#{cintentionId}
+	<select id="findCareerIntentionById" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from career_intention where
+		cIntention_id=#{cintentionId}
 	</select>
+	<update id="updateCareerIntention" parameterType="com.pojo.CareerIntention">
+		update career_intention
+		<set>
+			<if test="industryId != null">
+				industry_id = #{industryId,jdbcType=INTEGER},
+			</if>
+			<if test="positionId != null">
+				position_id = #{positionId,jdbcType=INTEGER},
+			</if>
+			<if test="expectWorksite != null">
+				expect_worksite = #{expectWorksite,jdbcType=VARCHAR},
+			</if>
+			<if test="expectSalary != null">
+				expect_salary = #{expectSalary,jdbcType=DOUBLE},
+			</if>
+			<if test="currentSalary != null">
+				current_salary = #{currentSalary,jdbcType=DOUBLE},
+			</if>
+			<if test="isDiscuss != null">
+				is_discuss = #{isDiscuss,jdbcType=INTEGER},
+			</if>
+			<if test="isShow != null">
+				is_show = #{isShow,jdbcType=INTEGER},
+			</if>
+		</set>
+		where cIntention_id=#{cintentionId}
+	</update>
 </mapper>

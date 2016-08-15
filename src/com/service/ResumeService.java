@@ -28,4 +28,12 @@ public interface ResumeService {
 	 */
 	Resume findResumeByJobhunterId(Integer jobhunterId) throws Exception;
 
+	/**
+	 * 更新简历信息
+	 * 
+	 * @param resume
+	 *            封装简历信息的实体
+	 */
+	void updateResume(Resume resume) throws Exception;
+
 }

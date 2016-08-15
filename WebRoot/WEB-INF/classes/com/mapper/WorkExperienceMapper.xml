@@ -77,4 +77,7 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findWorkExperienceById" parameterType="int" resultMap="BaseResultMap">
+		select * from work_experience where wExperience_id=#{wexperienceId}
+	</select>
 </mapper>

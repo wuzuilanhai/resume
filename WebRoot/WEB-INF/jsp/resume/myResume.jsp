@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -98,11 +99,14 @@
 						style="position:absolute;right:30;top:30;width:232;height:20;float:left">${sessionScope.jobhunter.jobhunterNativePlace
 						}</p>
 					<p class="text_c"
-						style="position:absolute;right:30;top:55;width:232;height:20;float:left">Web前端开发工程师</p>
+						style="position:absolute;right:30;top:55;width:232;height:20;float:left">${sessionScope.latestWorkExperience.positionName
+						}</p>
 					<p class="text_c"
-						style="position:absolute;right:30;top:80;width:232;height:20;float:left">东软科技有限公司</p>
+						style="position:absolute;right:30;top:80;width:232;height:20;float:left">${sessionScope.latestWorkExperience.companyName
+						}</p>
 					<p class="text_c"
-						style="position:absolute;right:30;top:105;width:232;height:20;float:left">工作3年</p>
+						style="position:absolute;right:30;top:105;width:232;height:20;float:left">
+						工作${sessionScope.workTime }天</p>
 				</div>
 			</div>
 			<div
@@ -242,28 +246,34 @@
 							<div class="fill" style="top:110">
 								<p>就职公司：</p>
 								<input class="form-control" name="textfield" type="text"
+									value="${sessionScope.latestWorkExperience.companyName }"
 									disabled="disabled" id=" company" value="东软科技有限公司"
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''" style="" />
 							</div>
 							<div class="fill" style="top:160">
 								<p>行业分类：</p>
-								<select id="profession" type="text" class="form-control"
+								<select id="industryId" name="industryId" class="form-control"
 									disabled="disabled" style="left:100;width:90px;">
-									<option>互联网/IT</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="type" type="text" class="form-control"
-									disabled="disabled" style="left:210;width:90px;">
-									<option>前端开发</option>
-									<option>北京市</option>
-									<option>上海市</option>
+									<option value=1
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 1 }">selected</c:if>>互联网·IT</option>
+									<option value=2
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 2 }">selected</c:if>>金融业</option>
+									<option value=3
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 3 }">selected</c:if>>快销行业</option>
+									<option value=4
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 4 }">selected</c:if>>建筑业</option>
+									<option value=5
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 5 }">selected</c:if>>汽车·制造</option>
+									<option value=6
+										<c:if test="${sessionScope.latestWorkExperience.companyIndustryId eq 6 }">selected</c:if>>医疗·化工</option>
 								</select>
 							</div>
 							<div class="fill" style="top:210">
 								<p>就职岗位：</p>
 								<input class="form-control" name="textfield" type="text"
-									disabled="disabled" id="jobname" value="Web前端开发工程师"
+									disabled="disabled" id="jobname"
+									value="${sessionScope.latestWorkExperience.positionName }"
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"
 									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px; font-family:微软雅黑;font-size: 12px; color: #989898;" />
@@ -272,27 +282,46 @@
 								<p>就职时间：</p>
 								<select id="year" type="text" class="form-control"
 									disabled="disabled" style="left:100;width:90px;">
-									<option value=2016>2016年</option>
-									<option value=2015>2015年</option>
-									<option value=2014>2014年</option>
-									<option value=2013>2013年</option>
-									<option value=2012>2012年</option>
-									<option value=2011>2011年</option>
-									<option value=2010>2010年</option>
+									<option value=2016
+										<c:if test="${startYear eq 2016 }">selected</c:if>>2016年</option>
+									<option value=2015
+										<c:if test="${startYear eq 2015 }">selected</c:if>>2015年</option>
+									<option value=2014
+										<c:if test="${startYear eq 2014 }">selected</c:if>>2014年</option>
+									<option value=2013
+										<c:if test="${startYear eq 2013 }">selected</c:if>>2013年</option>
+									<option value=2012
+										<c:if test="${startYear eq 2012 }">selected</c:if>>2012年</option>
+									<option value=2011
+										<c:if test="${startYear eq 2011 }">selected</c:if>>2011年</option>
+									<option value=2010
+										<c:if test="${startYear eq 2010 }">selected</c:if>>2010年</option>
 								</select> <select id="month" type="text" class="form-control"
 									disabled="disabled" style="left:210;width:90px;">
-									<option value=1>1月</option>
-									<option value=2>2月</option>
-									<option value=3>3月</option>
-									<option value=4>4月</option>
-									<option value=5>5月</option>
-									<option value=6>6月</option>
-									<option value=7>7月</option>
-									<option value=8>8月</option>
-									<option value=9>9月</option>
-									<option value=10>10月</option>
-									<option value=11>11月</option>
-									<option value=12>12月</option>
+									<option value=1
+										<c:if test="${startMonth=='01' }">selected</c:if>>1月</option>
+									<option value=2
+										<c:if test="${startMonth=='02' }">selected</c:if>>2月</option>
+									<option value=3
+										<c:if test="${startMonth=='03' }">selected</c:if>>3月</option>
+									<option value=4
+										<c:if test="${startMonth=='04' }">selected</c:if>>4月</option>
+									<option value=5
+										<c:if test="${startMonth=='05' }">selected</c:if>>5月</option>
+									<option value=6
+										<c:if test="${startMonth=='06' }">selected</c:if>>6月</option>
+									<option value=7
+										<c:if test="${startMonth=='07' }">selected</c:if>>7月</option>
+									<option value=8
+										<c:if test="${startMonth=='08' }">selected</c:if>>8月</option>
+									<option value=9
+										<c:if test="${startMonth=='09' }">selected</c:if>>9月</option>
+									<option value=10
+										<c:if test="${startMonth=='10' }">selected</c:if>>10月</option>
+									<option value=11
+										<c:if test="${startMonth=='11' }">selected</c:if>>11月</option>
+									<option value=12
+										<c:if test="${startMonth=='12' }">selected</c:if>>12月</option>
 								</select>
 							</div>
 							<div class="fill" style="top:310">
@@ -383,20 +412,17 @@
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label>
-										</td>
+												已婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label>
-										</td>
+												未婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label>
-										</td>
+												保密</label></td>
 									</tr>
 								</table>
 							</div>
@@ -513,12 +539,12 @@
 						</div>
 					</div>
 					<form id="form3"
-						action="${pageContext.request.contextPath}/careerIntention/updateCareerIntention.action"
+						action="${pageContext.request.contextPath}/careerIntention/operateCareerIntention.action"
 						method="post">
 						<div id="LM3" class="careerintention" style="DISPLAY:block">
 							<div class="fill" style="top:10">
 								<p>期望职业：</p>
-								<select id="industryId" name="text" class="form-control"
+								<select id="industryId" name="industryId" class="form-control"
 									style="left:100;width:90px;">
 									<option value=1
 										<c:if test="${sessionScope.careerIntention.industryId eq 1 }">selected</c:if>>互联网·IT</option>
@@ -535,8 +561,9 @@
 								</select> <select id="positionId" name="positionId" class="form-control"
 									style="left:210;width:90px;">
 									<c:forEach items="${sessionScope.positions }" var="position">
-										<option
-											<c:if test="${sessionScope.careerIntention.positionId==position.positionId}">selected</c:if>>${position.positionName
+										<option value="${position.positionId}"
+											<c:if
+												test="${sessionScope.careerIntention.positionId==position.positionId}">selected</c:if>>${position.positionName
 											}</option>
 									</c:forEach>
 								</select>
@@ -548,6 +575,8 @@
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"
 									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
+								<div id="expectWorksiteTip"
+									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 							</div>
 							<div class="fill" style="top:110">
 								<p>期望月薪：</p>
@@ -557,11 +586,14 @@
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"
 									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
-								<input type="checkbox"
+								<input type="checkbox" name="isDiscuss" id="isDiscuss"
+									value="${sessionScope.careerIntention.isDiscuss}"
 									style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;"
 									<c:if test="${sessionScope.careerIntention.isDiscuss eq 1 }">checked</c:if> />
 								<p
 									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
+								<div id="expectSalaryTip"
+									style="position:absolute;left:360;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 							</div>
 							<div class="fill" style="top:160">
 								<p>目前月薪：</p>
@@ -571,18 +603,25 @@
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"
 									style="position:absolute;left:100;top:10;float:left;width:150px; height:30px;" />
-								<input type="checkbox"
+								<input type="checkbox" name="isShow" id="isShow"
+									value="${sessionScope.careerIntention.isShow}"
 									style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;"
 									<c:if test="${sessionScope.careerIntention.isShow eq 1 }">checked</c:if> />
 								<p
 									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为保密</p>
+								<div id="currentSalaryTip"
+									style="position:absolute;left:360;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 							</div>
 						</div>
 					</form>
 					<div id="section-4" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
-							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">工作经历</p>
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
+							<a id="addWorkExperienceBtn" href="javascript:void(0)"
+								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">工作经历
+							</a>
+						</p>
 						<div
 							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
 							<img
@@ -602,223 +641,209 @@
 					</div>
 					<div id="LM4" class="workexperience"
 						style="DISPLAY:block;margin-top:10;">
-						<div class="fill2">
-							<p>Neusoft科技有限公司&nbsp;&nbsp;&nbsp;201607-至今</p>
-							<div style="position:absolute;top:0;right:30;width:30;height:30;">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
-							</div>
-							<div onClick="javascript:ShowFLT(9)" href="javascript:void(null)">
-								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('fold2-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+						<c:if test="${sessionScope.workExperiences!=null }">
+							<c:forEach items="${sessionScope.workExperiences}"
+								var="workExperience" varStatus="num">
+								<div class="fill2">
+									<p>
+										${workExperience.companyName }&nbsp;&nbsp;&nbsp;
+										<fmt:formatDate
+											value="${workExperience.startTime
+										}"
+											pattern="yyyy/MM/dd" />
+										-
+										<fmt:formatDate value="${workExperience.endTime
+										}"
+											pattern="yyyy/MM/dd" />
+									</p>
 									<div
-										style="position:absolute;top:0;right:0;width:30;height:30;">
-										<img
-											src="${pageContext.request.contextPath}/images/resume/fold2.png"
-											alt="" width="30" height="30" id="fold2-1">
-									</div> </a>
-							</div>
-						</div>
-						<div id="LM9"
-							style="DISPLAY:block;position:relative;left:-25;width:400;height:500;">
-							<div class="fill" style="top:10">
-								<p>公司名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="companyname" value="Neusoft科技有限公司"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='填写公司名称'){value =''}"
-									onBlur="if (value ==''){value='填写公司名称'}"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:60">
-								<p>公司行业：</p>
-								<select id="profession3" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>互联网/IT</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="type3" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>前端工程师</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:110">
-								<p>工作地点：</p>
-								<select id="province4" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>广东省</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="city4" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>广州市</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:160">
-								<p>职位名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="jobname2" value="Web前端工程师"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:210">
-								<p>任职时间：</p>
-								<select id="year4" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2016年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month4" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>7月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:260">
-								<p>离职时间：</p>
-								<select id="year5" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month5" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:310">
-								<p>下属人数：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="subordinate" value="20人"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:360">
-								<p>工作职责：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="evaluation" onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='描述你的工作内容或工作成绩（限制140字）'){value =''}"
-									onBlur="if (value ==''){value='描述你的工作内容或工作成绩（限制140字）'}"
-									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">主要负责前端页面的排版。</textarea>
-							</div>
-						</div>
-						<div class="fill2">
-							<p>Apple公司&nbsp;&nbsp;&nbsp;201512-201604</p>
-							<div style="position:absolute;top:0;right:30;width:30;height:30;">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
-							</div>
-							<div onClick="javascript:ShowFLT(10)"
-								href="javascript:void(null)">
-								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('fold2-2','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
-									<div
-										style="position:absolute;top:0;right:0;width:30;height:30;">
-										<img
-											src="${pageContext.request.contextPath}/images/resume/fold2.png"
-											alt="" width="30" height="30" id="fold2-2">
-									</div> </a>
-							</div>
-						</div>
-						<div id="LM10"
-							style="DISPLAY:none;position:relative;left:-25;width:400;height:500;">
-							<div class="fill" style="top:10">
-								<p>公司名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="companyname2" value="Apple公司"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:60">
-								<p>公司行业：</p>
-								<select id="profession4" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>互联网/IT</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="type4" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>前端工程师</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:110">
-								<p>工作地点：</p>
-								<select id="province5" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>广东省</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="city5" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>广州市</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:160">
-								<p>职位名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="jobname3" value="Web前端工程师"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:210">
-								<p>任职时间：</p>
-								<select id="year6" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2016年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month6" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>7月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:260">
-								<p>离职时间：</p>
-								<select id="year7" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month7" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:310">
-								<p>下属人数：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="subordinate2" value="20人"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:360">
-								<p>工作职责：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="evaluation2" onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 8px;">主要负责Apple官网的网页交互设计。</textarea>
-							</div>
-						</div>
+										style="position:absolute;top:0;right:30;width:30;height:30;">
+										<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
+									</div>
+									<div onClick="javascript:ShowFLT(${num.count+8})"
+										href="javascript:void(null)">
+										<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+											onMouseOver="MM_swapImage('fold2-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+											<div
+												style="position:absolute;top:0;right:0;width:30;height:30;">
+												<img
+													src="${pageContext.request.contextPath}/images/resume/fold2.png"
+													alt="" width="30" height="30" id="fold2-1">
+											</div> </a>
+									</div>
+								</div>
+								<div id="LM${num.count+8}"
+									style="DISPLAY:<c:if test="${num.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:500;">
+									<div class="fill" style="top:10">
+										<p>公司名称：</p>
+										<input class="form-control" name="companyName" type="text"
+											value="${workExperience.companyName}" id="companyname"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:60">
+										<p>公司行业：</p>
+										<select id="companyIndustryId${num.count+8}"
+											name="companyIndustryId" class="form-control"
+											style="left:100;width:90px;">
+											<option value=1
+												<c:if test="${workExperience.companyIndustryId eq 1 }">selected</c:if>>互联网·IT</option>
+											<option value=2
+												<c:if test="${workExperience.companyIndustryId eq 2 }">selected</c:if>>金融业</option>
+											<option value=3
+												<c:if test="${workExperience.companyIndustryId eq 3 }">selected</c:if>>快销行业</option>
+											<option value=4
+												<c:if test="${workExperience.companyIndustryId eq 4 }">selected</c:if>>建筑业</option>
+											<option value=5
+												<c:if test="${workExperience.companyIndustryId eq 5 }">selected</c:if>>汽车·制造</option>
+											<option value=6
+												<c:if test="${workExperience.companyIndustryId eq 6 }">selected</c:if>>医疗·化工</option>
+										</select>
+									</div>
+									<div class="fill" style="top:110">
+										<p>工作地点：</p>
+										<input class="form-control" name="companyName" type="text"
+											value="${workExperience.worksite}"
+											id="worksite${num.count+8}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:160">
+										<p>职位名称：</p>
+										<input class="form-control" name="positionName" type="text"
+											id="positionName${num.count+8}"
+											value="${workExperience.positionName}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:210">
+										<p>
+											任职时间：
+											<fmt:formatDate value="${workExperience.startTime}"
+												pattern="yyyy" var="startYear1" />
+											<fmt:formatDate value="${workExperience.startTime}"
+												pattern="MM" var="startMonth1" />
+										</p>
+										<select id="startYear${num.count+8}" type="text"
+											class="form-control" style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${startYear1 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${startYear1 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${startYear1 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${startYear1 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${startYear1 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${startYear1 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${startYear1 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="startMonth${num.count+8}" type="text"
+											class="form-control" style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${startMonth1=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${startMonth1=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${startMonth1=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${startMonth1=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${startMonth1=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${startMonth1=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${startMonth1=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${startMonth1=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${startMonth1=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${startMonth1=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${startMonth1=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${startMonth1=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:260">
+										<p>
+											离职时间：
+											<fmt:formatDate value="${workExperience.endTime}"
+												pattern="yyyy" var="endYear1" />
+											<fmt:formatDate value="${workExperience.endTime}"
+												pattern="MM" var="endMonth1" />
+										</p>
+										<select id="endYear${num.count+8}" type="text"
+											class="form-control" style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${endYear1 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${endYear1 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${endYear1 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${endYear1 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${endYear1 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${endYear1 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${endYear1 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="endMonth${num.count+8}" type="text"
+											class="form-control" style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${endMonth1=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${endMonth1=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${endMonth1=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${endMonth1=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${endMonth1=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${endMonth1=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${endMonth1=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${endMonth1=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${endMonth1=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${endMonth1=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${endMonth1=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${endMonth1=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:310">
+										<p>下属人数：</p>
+										<input class="form-control" name="subordinateNumber"
+											type="text" id="subordinateNumber${num.count+8}"
+											value="${workExperience.subordinateNumber}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:360">
+										<p>工作职责：</p>
+										<textarea class="form-control" name="duty" type="text"
+											id="duty${num.count+8}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${workExperience.duty}</textarea>
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
+
 						<div class="fill2" id="createWorkExperienceDiv">
 							<p>创建新工作经历</p>
 							<div style="position:absolute;top:0;right:30;width:30;height:30;">
@@ -830,93 +855,127 @@
 						</div>
 						<div id="hiddenDivForAdd"
 							style="DISPLAY:none;position:relative;left:-25;width:400;height:500;">
-							<div class="fill" style="top:10">
-								<p>公司名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="companyname2" value="Apple公司"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:60">
-								<p>公司行业：</p>
-								<select id="profession4" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>互联网/IT</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="type4" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>前端工程师</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:110">
-								<p>工作地点：</p>
-								<select id="province5" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>广东省</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="city5" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>广州市</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:160">
-								<p>职位名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="jobname3" value="Web前端工程师"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:210">
-								<p>任职时间：</p>
-								<select id="year6" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2016年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month6" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>7月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:260">
-								<p>离职时间：</p>
-								<select id="year7" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month7" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>至今</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:310">
-								<p>下属人数：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="subordinate2" value="20人"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:360">
-								<p>工作职责：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="evaluation2" onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									style="position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 8px;">主要负责Apple官网的网页交互设计。</textarea>
-							</div>
+							<form id="addWorkExperienceForm"
+								action="${pageContext.request.contextPath}/workExperience/addWorkExperience.action"
+								method="post">
+								<div class="fill" style="top:10">
+									<p>公司名称：</p>
+									<input class="form-control" name="workExperience.companyName"
+										type="text" id="companyName"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="companyNameTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:60">
+									<p>公司行业：</p>
+									<select id="companyIndustryId"
+										name="workExperience.companyIndustryId" class="form-control"
+										style="left:100;width:90px;">
+										<option value=1>互联网·IT</option>
+										<option value=2>金融业</option>
+										<option value=3>快销行业</option>
+										<option value=4>建筑业</option>
+										<option value=5>汽车·制造</option>
+										<option value=6>医疗·化工</option>
+									</select>
+								</div>
+								<div class="fill" style="top:110">
+									<p>工作地点：</p>
+									<input class="form-control" name="workExperience.worksite"
+										type="text" id="worksite"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="worksiteTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:160">
+									<p>职位名称：</p>
+									<input class="form-control" name="workExperience.positionName"
+										type="text" id="positionName"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="positionNameTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:210">
+									<p>任职时间：</p>
+									<select name="startYear" type="text" class="form-control"
+										style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select name="startMonth" type="text" class="form-control"
+										style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:260">
+									<p>离职时间：</p>
+									<select name="endYear" type="text" class="form-control"
+										style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select name="endMonth" type="
+									text"
+										class="form-control" style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:310">
+									<p>下属人数：</p>
+									<input class="form-control"
+										name="workExperience.subordinateNumber" type="text"
+										id="subordinateNumber"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="subordinateNumberTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:360">
+									<p>工作职责：</p>
+									<textarea class="form-control" name="workExperience.duty"
+										type="text" id="duty"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 8px;"></textarea>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div id="section-5" style="position:relative;height:50"></div>
@@ -960,7 +1019,7 @@
 									</div> </a>
 							</div>
 						</div>
-						<div id="LM11"
+						<!-- <div id="LM11"
 							style="DISPLAY:block;position:relative;left:-25;width:400;height:280;">
 							<div class="fill" style="top:10">
 								<p>学校名称：</p>
@@ -1022,7 +1081,7 @@
 								<p
 									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
 							</div>
-						</div>
+						</div> -->
 						<div class="fill2">
 							<p>创建新项目经验</p>
 							<div
@@ -1072,7 +1131,7 @@
 									</div> </a>
 							</div>
 						</div>
-						<div id="LM12"
+						<!-- <div id="LM12"
 							style="DISPLAY:block;position:relative;left:-25;width:400;height:580;">
 							<div class="fill" style="top:10">
 								<p>项目名称：</p>
@@ -1151,7 +1210,7 @@
 									onBlur="if (value ==''){value='描述你的工作业绩（限制140字）'}"
 									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">据统计，网站投入使用后，经过一段时间的宣传，在网络同行的网站点击率占比百分之20%,在广告销售方面取得非常高的利润。</textarea>
 							</div>
-						</div>
+						</div> -->
 						<div class="fill2">
 							<p>创建新项目经验</p>
 							<div

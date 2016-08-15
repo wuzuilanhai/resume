@@ -82,4 +82,41 @@
 		resultMap="BaseResultMap">
 		select * from resume where jobhunter_id=#{jobhunterId}
 	</select>
+	<update id="updateResume" parameterType="com.pojo.Resume">
+		update resume
+		<set>
+			<if test="resumeId != null">
+				resume_id = #{resumeId,jdbcType=INTEGER},
+			</if>
+			<if test="jobhunterId != null">
+				jobhunter_id = #{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="careerIntentionId != null">
+				career_intention_id =
+				#{careerIntentionId,jdbcType=INTEGER},
+			</if>
+			<if test="workExperienceIds != null">
+				work_experience_ids =
+				#{workExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="educationExperienceIds != null">
+				education_experience_ids =
+				#{educationExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="projectExperienceIds != null">
+				project_experience_ids =
+				#{projectExperienceIds,jdbcType=VARCHAR},
+			</if>
+			<if test="visibility != null">
+				visibility = #{visibility,jdbcType=INTEGER},
+			</if>
+			<if test="visitNumber != null">
+				visit_number = #{visitNumber,jdbcType=INTEGER},
+			</if>
+			<if test="lastEditTime != null">
+				last_edit_time = #{lastEditTime,jdbcType=DATE},
+			</if>
+		</set>
+		where resume_id=#{resumeId}
+	</update>
 </mapper>
