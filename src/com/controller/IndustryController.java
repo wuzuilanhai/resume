@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pojo.Industry;
-import com.pojo.Position;
 
 /**
  * 类描述：行业控制类

@@ -1,11 +1,14 @@
 package com.controller;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.pojo.EducationExperience;
+import com.pojo.EducationExperienceQueryVo;
+import com.pojo.Resume;
 
 /**
  * 类描述：教育经历控制类
@@ -17,6 +20,7 @@ import com.pojo.EducationExperience;
 @Controller
 @RequestMapping("/educationExperience")
 public class EducationExperienceController extends BasicController {
+
 	/**
 	 * 添加教育经历
 	 * 
@@ -25,11 +29,29 @@ public class EducationExperienceController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addEducationExperience")
-	public String addEducationExperience(EducationExperience educationExperience)
-			throws Exception {
-		educationExperience.setStartTime(new Date());
-		educationExperience.setEndTime(new Date());
-		educationExperienceService.addEducationExperience(educationExperience);
-		return "success";
+	public String addEducationExperience(
+			EducationExperienceQueryVo educationExperienceQueryVo,
+			HttpSession session) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		educationExperienceQueryVo.getEducationExperience().setStartTime(
+				(format.parse(educationExperienceQueryVo.getStartYear() + "-"
+						+ educationExperienceQueryVo.getStartMonth())));
+		educationExperienceQueryVo.getEducationExperience().setEndTime(
+				(format.parse(educationExperienceQueryVo.getEndYear() + "-"
+						+ educationExperienceQueryVo.getEndMonth())));
+		educationExperienceService
+				.addEducationExperience(educationExperienceQueryVo
+						.getEducationExperience());
+		// 更新resume
+		Resume resume = (Resume) session.getAttribute("resume");
+		String ids = resume.getEducationExperienceIds();
+		if (ids != null && ids.length() > 0) {
+			resume.setEducationExperienceIds(ids
+					+ ","
+					+ educationExperienceQueryVo.getEducationExperience()
+							.getEexperienceId());
+		}
+		resumeService.updateResume(resume);
+		return "redirect:/resume/showResume.action";
 	}
 }

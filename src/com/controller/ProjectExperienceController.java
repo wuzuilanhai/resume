@@ -1,11 +1,14 @@
 package com.controller;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.pojo.ProjectExperience;
+import com.pojo.ProjectExperienceQueryVo;
+import com.pojo.Resume;
 
 /**
  * 类描述：项目经验控制类
@@ -24,11 +27,28 @@ public class ProjectExperienceController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addProjectExperience")
-	public String addProjectExperience(ProjectExperience projectExperience)
-			throws Exception {
-		projectExperience.setStartTime(new Date());
-		projectExperience.setEndTime(new Date());
-		projectExperienceService.addProjectExperience(projectExperience);
-		return "success";
+	public String addProjectExperience(
+			ProjectExperienceQueryVo projectExperienceQueryVo,
+			HttpSession session) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		projectExperienceQueryVo.getProjectExperience().setStartTime(
+				(format.parse(projectExperienceQueryVo.getStartYear() + "-"
+						+ projectExperienceQueryVo.getStartMonth())));
+		projectExperienceQueryVo.getProjectExperience().setEndTime(
+				(format.parse(projectExperienceQueryVo.getEndYear() + "-"
+						+ projectExperienceQueryVo.getEndMonth())));
+		projectExperienceService.addProjectExperience(projectExperienceQueryVo
+				.getProjectExperience());
+		// 更新resume
+		Resume resume = (Resume) session.getAttribute("resume");
+		String ids = resume.getProjectExperienceIds();
+		if (ids != null && ids.length() > 0) {
+			resume.setProjectExperienceIds(ids
+					+ ","
+					+ projectExperienceQueryVo.getProjectExperience()
+							.getPexperienceId());
+		}
+		resumeService.updateResume(resume);
+		return "redirect:/resume/showResume.action";
 	}
 }

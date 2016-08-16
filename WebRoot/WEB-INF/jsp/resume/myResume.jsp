@@ -644,6 +644,7 @@
 						<c:if test="${sessionScope.workExperiences!=null }">
 							<c:forEach items="${sessionScope.workExperiences}"
 								var="workExperience" varStatus="num">
+								<c:set value="${num.count }" var="num_count"></c:set>
 								<div class="fill2">
 									<p>
 										${workExperience.companyName }&nbsp;&nbsp;&nbsp;
@@ -981,7 +982,11 @@
 					<div id="section-5" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
-							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">教育经历</p>
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
+							<a id="addEducationExperienceBtn" href="javascript:void(0)"
+								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">教育经历
+							</a>
+						</p>
 						<div
 							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
 							<img
@@ -1001,99 +1006,305 @@
 					</div>
 					<div id="LM5" class="projectexperience"
 						style="DISPLAY:block;margin-top:10;">
-						<div class="fill2">
-							<p>香港中文大学&nbsp;&nbsp;&nbsp;201309-201709</p>
-							<div
-								style="position:absolute;top:0;right:30;width:30;height:30;float:left">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
-							</div>
-							<div onClick="javascript:ShowFLT(11)"
-								href="javascript:void(null)">
-								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('fold3-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+						<c:if test="${sessionScope.educationExperiences!=null }">
+							<c:forEach items="${sessionScope.educationExperiences}"
+								var="educationExperience" varStatus="num1">
+								<c:set value="${num1.count }" var="num1_count"></c:set>
+								<div class="fill2">
+									<p>
+										${educationExperience.schoolName }&nbsp;&nbsp;&nbsp;
+										<fmt:formatDate
+											value="${educationExperience.startTime
+										}"
+											pattern="yyyy/MM/dd" />
+										-
+										<fmt:formatDate
+											value="${educationExperience.endTime
+										}"
+											pattern="yyyy/MM/dd" />
+									</p>
 									<div
-										style="position:absolute;top:0;right:0;width:30;height:30;float:left">
-										<img
-											src="${pageContext.request.contextPath}/images/resume/fold2.png"
-											alt="" width="30" height="30" id="fold3-1">
-									</div> </a>
+										style="position:absolute;top:0;right:30;width:30;height:30;float:left">
+										<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
+									</div>
+									<div onClick="javascript:ShowFLT(${num_count+num1.count+8 })"
+										href="javascript:void(null)">
+										<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+											onMouseOver="MM_swapImage('fold3-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+											<div
+												style="position:absolute;top:0;right:0;width:30;height:30;float:left">
+												<img
+													src="${pageContext.request.contextPath}/images/resume/fold2.png"
+													alt="" width="30" height="30" id="fold3-1">
+											</div> </a>
+									</div>
+								</div>
+								<div id="LM${num_count+num1.count+8 }"
+									style="DISPLAY:<c:if test="${num1.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:280;">
+									<div class="fill" style="top:10">
+										<p>学校名称：</p>
+										<input class="form-control" name="schoolName" type="text"
+											value="${educationExperience.schoolName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:60">
+										<p>专业名称：</p>
+										<input class="form-control" name="majorname" type="text"
+											value="${educationExperience.majorName}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:110">
+										<p>
+											就读时间：
+											<fmt:formatDate value="${educationExperience.startTime}"
+												pattern="yyyy" var="startYear2" />
+											<fmt:formatDate value="${educationExperience.startTime}"
+												pattern="MM" var="startMonth2" />
+										</p>
+										<select id="startYear${num_count+num1.count+8 }" type="text"
+											name="startYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${startYear2 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${startYear2 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${startYear2 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${startYear2 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${startYear2 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${startYear2 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${startYear2 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
+											name="startMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${startMonth2=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${startMonth2=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${startMonth2=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${startMonth2=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${startMonth2=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${startMonth2=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${startMonth2=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${startMonth2=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${startMonth2=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${startMonth2=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${startMonth2=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${startMonth2=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:160">
+										<p>
+											离校时间：
+											<fmt:formatDate value="${educationExperience.endTime}"
+												pattern="yyyy" var="endYear2" />
+											<fmt:formatDate value="${educationExperience.endTime}"
+												pattern="MM" var="endMonth2" />
+										</p>
+										<select id="endYear${num_count+num1.count+8 }" type="text"
+											name="endYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${endYear2 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${endYear2 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${endYear2 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${endYear2 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${endYear2 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${endYear2 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${endYear2 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+											name="endMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${endMonth2=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${endMonth2=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${endMonth2=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${endMonth2=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${endMonth2=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${endMonth2=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${endMonth2=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${endMonth2=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${endMonth2=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${endMonth2=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${endMonth2=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${endMonth2=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:210">
+										<p>学历程度：</p>
+										<select id="qualification" type="text" class="form-control"
+											name="qualification" style="left:100;width:150px;">
+											<option value="高中以下"
+												<c:if test="${educationExperience.qualification=='高中以下'}">selected</c:if>>高中以下</option>
+											<option value="高中"
+												<c:if test="${educationExperience.qualification=='高中'}">selected</c:if>>高中</option>
+											<option value="本科"
+												<c:if test="${educationExperience.qualification=='本科'}">selected</c:if>>本科</option>
+											<option value="硕士"
+												<c:if test="${educationExperience.qualification=='硕士'}">selected</c:if>>硕士</option>
+											<option value="博士"
+												<c:if test="${educationExperience.qualification=='博士'}">selected</c:if>>博士</option>
+										</select> <input type="checkbox" name="isUnify"
+											value="${educationExperience.isUnify}"
+											<c:if test="${educationExperience.isUnify eq 1}">checked</c:if>
+											style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
+										<p
+											style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">是否统招</p>
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
+						<div class="fill2" id="createEducationExperienceDiv">
+							<p>创建新教育经历</p>
+							<div style="position:absolute;top:0;right:30;width:30;height:30;">
+								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">
+									<a id="addEducationExperience" href="javascript:void(0)"
+										style="color:#3d7d52;font-size:14;text-decoration: none;">新建</a>
+								</p>
 							</div>
 						</div>
-						<!-- <div id="LM11"
-							style="DISPLAY:block;position:relative;left:-25;width:400;height:280;">
-							<div class="fill" style="top:10">
-								<p>学校名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="schoolname" value="香港中文大学"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='填写学校名称'){value =''}"
-									onBlur="if (value ==''){value='填写学校名称'}"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:60">
-								<p>公司名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="majorname" value="软件工程"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='填写专业名称'){value =''}"
-									onBlur="if (value ==''){value='填写专业名称'}"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:110">
-								<p>就读时间：</p>
-								<select id="year11" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2012年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month11" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>09月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:160">
-								<p>离校时间：</p>
-								<select id="year12" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2016年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month13" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>9月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:210">
-								<p>学历程度：</p>
-								<select id="education" type="text" class="form-control"
-									style="left:100;width:150px;">
-									<option>本科</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <input type="checkbox"
-									style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
-								<p
-									style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-							</div>
-						</div> -->
-						<div class="fill2">
-							<p>创建新项目经验</p>
-							<div
-								style="position:absolute;top:0;right:30;width:30;height:30;float:left">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">新建</p>
-							</div>
+						<div id="hiddenDivForEducationExperience"
+							style="DISPLAY:none;position:relative;left:-25;width:400;height:280;">
+							<form id="addEducationExperienceForm"
+								action="${pageContext.request.contextPath}/educationExperience/addEducationExperience.action"
+								method="post">
+								<div class="fill" style="top:10">
+									<p>学校名称：</p>
+									<input class="form-control"
+										name="educationExperience.schoolName" type="text"
+										id="schoolName" onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="schoolNameTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:60">
+									<p>专业名称：</p>
+									<input class="form-control"
+										name="educationExperience.majorName" type="text"
+										id="majorName" onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="majorNameTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:110">
+									<p>就读时间：</p>
+									<select id="startYear" type="text" name="startYear"
+										class="form-control" style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select id="startMonth" type="text" name="startMonth"
+										class="form-control" style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:160">
+									<p>离校时间：</p>
+									<select id="endYear" type="text" name="endYear"
+										class="form-control" style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+										name="endMonth" class="form-control"
+										style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:210">
+									<p>学历程度：</p>
+									<select id="qualification" type="text" class="form-control"
+										name="educationExperience.qualification"
+										style="left:100;width:150px;">
+										<option value="高中以下">高中以下</option>
+										<option value="高中">高中</option>
+										<option value="本科">本科</option>
+										<option value="硕士">硕士</option>
+										<option value="博士">博士</option>
+									</select> <input type="checkbox" name="educationExperience.isUnify"
+										id="isUnify"
+										style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
+									<p
+										style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">是否统招</p>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div id="section-6" style="position:relative;height:50"></div>
 					<div style="position:relative;width:450;height:50;">
 						<p
-							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">项目经验</p>
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">
+							<a id="addProjectExperienceBtn" href="javascript:void(0)"
+								style="text-decoration: none;font-family:微软雅黑;font-size: 18px; color: #3d7d52;">项目经验
+							</a>
+						</p>
 						<div
 							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
 							<img
@@ -1113,110 +1324,312 @@
 					</div>
 					<div id="LM6" class="projectexperience"
 						style="DISPLAY:block;margin-top:10;">
-						<div class="fill2">
-							<p>微简历项目&nbsp;&nbsp;&nbsp;201512-201602</p>
-							<div
-								style="position:absolute;top:0;right:30;width:30;height:30;float:left">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
-							</div>
-							<div onClick="javascript:ShowFLT(12)"
-								href="javascript:void(null)">
-								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('fold3-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+						<c:if test="${sessionScope.projectExperiences!=null }">
+							<c:forEach items="${sessionScope.projectExperiences}"
+								var="projectExperience" varStatus="num2">
+								<div class="fill2">
+									<p>
+										${projectExperience.projectName }&nbsp;&nbsp;&nbsp;
+										<fmt:formatDate
+											value="${projectExperience.startTime
+										}"
+											pattern="yyyy/MM/dd" />
+										-
+										<fmt:formatDate
+											value="${projectExperience.endTime
+										}"
+											pattern="yyyy/MM/dd" />
+									</p>
 									<div
-										style="position:absolute;top:0;right:0;width:30;height:30;float:left">
-										<img
-											src="${pageContext.request.contextPath}/images/resume/fold2.png"
-											alt="" width="30" height="30" id="fold3-1">
-									</div> </a>
-							</div>
-						</div>
-						<!-- <div id="LM12"
-							style="DISPLAY:block;position:relative;left:-25;width:400;height:580;">
-							<div class="fill" style="top:10">
-								<p>项目名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="projectname" value="微简历项目"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='填写项目名称'){value =''}"
-									onBlur="if (value ==''){value='填写项目名称'}"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:60">
-								<p>公司名称：</p>
-								<input class="form-control" name="textfield" type="text"
-									id="companyname3" value="Apple公司"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='填写公司名称'){value =''}"
-									onBlur="if (value ==''){value='填写公司名称'}"
-									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-							</div>
-							<div class="fill" style="top:110">
-								<p>开始时间：</p>
-								<select id="year8" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2015年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month8" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>12月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:160">
-								<p>结束时间：</p>
-								<select id="year9" type="text" class="form-control"
-									style="left:100;width:90px;">
-									<option>2016年</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select> <select id="month9" type="text" class="form-control"
-									style="left:210;width:90px;">
-									<option>2月</option>
-									<option>北京市</option>
-									<option>上海市</option>
-								</select>
-							</div>
-							<div class="fill" style="top:210">
-								<p>项目描述：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="projectdescription"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='描述你的工作内容或工作成绩（限制140字）'){value =''}"
-									onBlur="if (value ==''){value='描述你的项目内容（限制140字）'}"
-									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">实现一个目前市场上的招聘网站</textarea>
-							</div>
-							<div class="fill" style="top:330">
-								<p>项目职责：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="projectduty" onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='描述你的工作内容和职责（限制140字）'){value =''}"
-									onBlur="if (value ==''){value='描述你的工作内容和职责（限制140字）'}"
-									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">本人主要负责项目的前端页面实现和交互设计</textarea>
-							</div>
-							<div class="fill" style="top:450">
-								<p>项目业绩：</p>
-								<textarea class="form-control" name="textfield" type="text"
-									id="projectachievement"
-									onmouseover="this.style.borderColor='#3d7d52'"
-									onmouseout="this.style.borderColor=''"
-									onFocus="if (value =='描述你的工作业绩（限制140字）'){value =''}"
-									onBlur="if (value ==''){value='描述你的工作业绩（限制140字）'}"
-									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">据统计，网站投入使用后，经过一段时间的宣传，在网络同行的网站点击率占比百分之20%,在广告销售方面取得非常高的利润。</textarea>
-							</div>
-						</div> -->
+										style="position:absolute;top:0;right:30;width:30;height:30;">
+										<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">删除</p>
+									</div>
+									<div
+										onClick="javascript:ShowFLT(${num_count+num1_count+num2.count+8 })"
+										href="javascript:void(null)">
+										<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+											onMouseOver="MM_swapImage('fold2-1','','${pageContext.request.contextPath}/images/resume/fold2-hover.png',0)">
+											<div
+												style="position:absolute;top:0;right:0;width:30;height:30;">
+												<img
+													src="${pageContext.request.contextPath}/images/resume/fold2.png"
+													alt="" width="30" height="30" id="fold2-1">
+											</div> </a>
+									</div>
+								</div>
+								<div id="LM${num_count+num1_count+num2.count+8 }"
+									style="DISPLAY:<c:if test="${num2.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:580;">
+									<div class="fill" style="top:10">
+										<p>项目名称：</p>
+										<input class="form-control" name="projectName" type="text"
+											value="${projectExperience.projectName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:60">
+										<p>公司名称：</p>
+										<input class="form-control" name="companyName" type="text"
+											value="${projectExperience.companyName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									</div>
+									<div class="fill" style="top:110">
+										<p>
+											开始时间：
+											<fmt:formatDate value="${projectExperience.startTime}"
+												pattern="yyyy" var="startYear3" />
+											<fmt:formatDate value="${projectExperience.startTime}"
+												pattern="MM" var="startMonth3" />
+										</p>
+										<select id="startYear${num_count+num1.count+8 }" type="text"
+											name="startYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${startYear3 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${startYear3 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${startYear3 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${startYear3 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${startYear3 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${startYear3 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${startYear3 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
+											name="startMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${startMonth3=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${startMonth3=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${startMonth3=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${startMonth3=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${startMonth3=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${startMonth3=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${startMonth3=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${startMonth3=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${startMonth3=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${startMonth3=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${startMonth3=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${startMonth3=='12' }">selected</c:if>>12月</option>
+										</select> </select>
+									</div>
+									<div class="fill" style="top:160">
+										<p>
+											结束时间：
+											<fmt:formatDate value="${projectExperience.endTime}"
+												pattern="yyyy" var="endYear3" />
+											<fmt:formatDate value="${projectExperience.endTime}"
+												pattern="MM" var="endMonth3" />
+										</p>
+										<select id="endYear${num_count+num1.count+8 }" type="text"
+											name="endYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${endYear3 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${endYear3 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${endYear3 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${endYear3 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${endYear3 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${endYear3 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${endYear3 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+											name="endMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${endMonth3=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${endMonth3=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${endMonth3=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${endMonth3=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${endMonth3=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${endMonth3=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${endMonth3=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${endMonth3=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${endMonth3=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${endMonth3=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${endMonth3=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${endMonth3=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:210">
+										<p>项目描述：</p>
+										<textarea class="form-control" name="projectDescription"
+											type="text" onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectDescription }</textarea>
+									</div>
+									<div class="fill" style="top:330">
+										<p>项目职责：</p>
+										<textarea class="form-control" name="projectResponsibility"
+											type="text" onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectResponsibility }</textarea>
+									</div>
+									<div class="fill" style="top:450">
+										<p>项目业绩：</p>
+										<textarea class="form-control" name="projectAchievement"
+											type="text" onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectAchievement }</textarea>
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
 						<div class="fill2">
 							<p>创建新项目经验</p>
 							<div
 								style="position:absolute;top:0;right:30;width:30;height:30;float:left">
-								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">新建</p>
+								<p style="position:absolute;top:5;color:#3d7d52;font-size:14;">
+									<a id="addProjectExperience" href="javascript:void(0)"
+										style="color:#3d7d52;font-size:14;text-decoration: none;">新建</a>
+								</p>
 							</div>
+						</div>
+						<div id="hiddenDivForProjectExperience"
+							style="DISPLAY:none;position:relative;left:-25;width:400;height:580;">
+							<form id="addProjectExperienceForm"
+								action="${pageContext.request.contextPath}/projectExperience/addProjectExperience.action"
+								method="post">
+								<div class="fill" style="top:10">
+									<p>项目名称：</p>
+									<input class="form-control"
+										name="projectExperience.projectName" type="text"
+										id="projectName"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="projectNameTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:60">
+									<p>公司名称：</p>
+									<input class="form-control"
+										name="projectExperience.companyName" type="text"
+										id="companyName1"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="companyNameTip1"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:110">
+									<p>开始时间：</p>
+									<select id="startYear${num_count+num1.count+8 }" type="text"
+										name="startYear" class="form-control"
+										style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
+										name="startMonth" class="form-control"
+										style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:160">
+									<p>结束时间：</p>
+									<select id="endYear${num_count+num1.count+8 }" type="text"
+										name="endYear" class="form-control"
+										style="left:100;width:90px;">
+										<option value=2016>2016年</option>
+										<option value=2015>2015年</option>
+										<option value=2014>2014年</option>
+										<option value=2013>2013年</option>
+										<option value=2012>2012年</option>
+										<option value=2011>2011年</option>
+										<option value=2010>2010年</option>
+									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+										name="endMonth" class="form-control"
+										style="left:210;width:90px;">
+										<option value=1>1月</option>
+										<option value=2>2月</option>
+										<option value=3>3月</option>
+										<option value=4>4月</option>
+										<option value=5>5月</option>
+										<option value=6>6月</option>
+										<option value=7>7月</option>
+										<option value=8>8月</option>
+										<option value=9>9月</option>
+										<option value=10>10月</option>
+										<option value=11>11月</option>
+										<option value=12>12月</option>
+									</select>
+								</div>
+								<div class="fill" style="top:210">
+									<p>项目描述：</p>
+									<textarea class="form-control"
+										name="projectExperience.projectDescription" type="text"
+										id="projectdescription"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
+								</div>
+								<div class="fill" style="top:330">
+									<p>项目职责：</p>
+									<textarea class="form-control"
+										name="projectExperience.projectResponsibility" type="text"
+										id="projectduty"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
+								</div>
+								<div class="fill" style="top:450">
+									<p>项目业绩：</p>
+									<textarea class="form-control"
+										name="projectExperience.projectAchievement" type="text"
+										id="projectachievement"
+										onmouseover="this.style.borderColor='#3d7d52'"
+										onmouseout="this.style.borderColor=''"
+										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div id="section-7" style="position:relative;height:50"></div>

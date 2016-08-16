@@ -20,4 +20,13 @@ public interface ProjectExperienceService {
 	void addProjectExperience(ProjectExperience projectExperience)
 			throws Exception;
 
+	/**
+	 * 根据id查找项目经验
+	 * 
+	 * @param id
+	 *            项目id
+	 * @return 封装项目经验信息的实体
+	 */
+	ProjectExperience findProjectExperiencesById(Integer id) throws Exception;
+
 }

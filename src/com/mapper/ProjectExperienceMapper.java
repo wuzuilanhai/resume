@@ -14,4 +14,6 @@ public interface ProjectExperienceMapper {
 
 	void addProjectExperience(ProjectExperience projectExperience)
 			throws Exception;
+
+	ProjectExperience findProjectExperiencesById(Integer id) throws Exception;
 }

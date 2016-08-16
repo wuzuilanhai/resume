@@ -16,6 +16,7 @@ import com.pojo.CareerIntention;
 import com.pojo.EducationExperience;
 import com.pojo.Jobhunter;
 import com.pojo.Position;
+import com.pojo.ProjectExperience;
 import com.pojo.Resume;
 import com.pojo.WorkExperience;
 
@@ -115,6 +116,15 @@ public class ResumeController extends BasicController {
 				}
 			}
 			// 准备项目经验数据信息
+			List<ProjectExperience> projectExperiences = new ArrayList<ProjectExperience>();
+			String projectExperienceIds = resume.getProjectExperienceIds();
+			if (projectExperienceIds != null) {
+				for (String str : projectExperienceIds.split(",")) {
+					Integer id = Integer.parseInt(str);
+					projectExperiences.add(projectExperienceService
+							.findProjectExperiencesById(id));
+				}
+			}
 			// 准备求职者头像信息
 			session.setAttribute("workTime", (latest - original) / 1000 / 60
 					/ 60 / 24);
@@ -128,6 +138,7 @@ public class ResumeController extends BasicController {
 			session.setAttribute("latestWorkExperience", latestWorkExperience);
 			session.setAttribute("workExperiences", workExperiences);
 			session.setAttribute("educationExperiences", educationExperiences);
+			session.setAttribute("projectExperiences", projectExperiences);
 			return "resume/myResume";
 		} else {
 			throw new MyException("用户还未登录！");

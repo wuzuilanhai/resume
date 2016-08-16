@@ -21,4 +21,9 @@ public class ProjectExperienceServiceImpl extends BasicServiceImpl implements
 		projectExperienceMapper.addProjectExperience(projectExperience);
 	}
 
+	public ProjectExperience findProjectExperiencesById(Integer id)
+			throws Exception {
+		return projectExperienceMapper.findProjectExperiencesById(id);
+	}
+
 }

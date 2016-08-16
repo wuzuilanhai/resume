@@ -80,6 +80,24 @@ $('#addWorkExperience').click(function() {
 		$('#addWorkExperience').html("新建");
 	}
 });
+$('#addEducationExperience').click(function() {
+	if ($('#hiddenDivForEducationExperience').is(':hidden')) {
+		$('#hiddenDivForEducationExperience').show();
+		$('#addEducationExperience').html("取消");
+	} else {
+		$('#hiddenDivForEducationExperience').hide();
+		$('#addEducationExperience').html("新建");
+	}
+});
+$('#addProjectExperience').click(function() {
+	if ($('#hiddenDivForProjectExperience').is(':hidden')) {
+		$('#hiddenDivForProjectExperience').show();
+		$('#addProjectExperience').html("取消");
+	} else {
+		$('#hiddenDivForProjectExperience').hide();
+		$('#addProjectExperience').html("新建");
+	}
+});
 $('#form1 input:eq(0)').click(function() {
 	$('#jobhunterRealName').html("");
 });
@@ -196,6 +214,13 @@ $('#isDiscuss').click(function() {
 		$("#isDiscuss").attr("value", 0);
 	}
 });
+$('#isUnify').click(function() {
+	if ($("#isUnify").is(':checked')) {
+		$("#isUnify").attr("value", 1);
+	} else {
+		$("#isUnify").attr("value", 0);
+	}
+});
 $('#isShow').click(function() {
 	if ($("#isShow").is(':checked')) {
 		$("#isShow").attr("value", 1);
@@ -214,6 +239,18 @@ $('#positionName').click(function() {
 });
 $('#subordinateNumber').click(function() {
 	$('#subordinateNumberTip').html("");
+});
+$('#schoolName').click(function() {
+	$('#schoolNameTip').html("");
+});
+$('#majorName').click(function() {
+	$('#majorNameTip').html("");
+});
+$('#projectName').click(function() {
+	$('#projectNameTip').html("");
+});
+$('#companyName1').click(function() {
+	$('#companyNameTip1').html("");
 });
 $('#addWorkExperienceBtn').click(function() {
 	if ($('#companyName').val().trim().length == 0) {
@@ -242,4 +279,30 @@ $('#addWorkExperienceBtn').click(function() {
 		return;
 	}
 	$('#addWorkExperienceForm').submit();
+});
+$('#addEducationExperienceBtn').click(function() {
+	if ($('#schoolName').val().trim().length == 0) {
+		$('#schoolNameTip').html("");
+		$('#schoolNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($('#majorName').val().trim().length == 0) {
+		$('#majorNameTip').html("");
+		$('#majorNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	$('#addEducationExperienceForm').submit();
+});
+$('#addProjectExperienceBtn').click(function() {
+	if ($('#projectName').val().trim().length == 0) {
+		$('#projectNameTip').html("");
+		$('#projectNameTip').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($('#companyName1').val().trim().length == 0) {
+		$('#companyNameTip1').html("");
+		$('#companyNameTip1').html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	$('#addProjectExperienceForm').submit();
 });

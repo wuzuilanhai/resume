@@ -78,4 +78,8 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findProjectExperiencesById" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from project_experience where pExperience_id=#{id}
+	</select>
 </mapper>
