@@ -306,3 +306,52 @@ $('#addProjectExperienceBtn').click(function() {
 	}
 	$('#addProjectExperienceForm').submit();
 });
+$("input[id^='workExperienceCompanyName']").click(function() {
+	var id = $(this).attr('id').substring(25);
+	var newId = "#workExperienceCompanyNameTip" + id;
+	$(newId).html("");
+});
+$("input[id^='workExperienceWorksite']").click(function() {
+	var id = $(this).attr('id').substring(22);
+	var newId = "#workExperienceWorksiteTip" + id;
+	$(newId).html("");
+});
+$("input[id^='workExperiencePositionName']").click(function() {
+	var id = $(this).attr('id').substring(26);
+	var newId = "#workExperiencePositionNameTip" + id;
+	$(newId).html("");
+});
+$("a[id^='updateWorkExperience']").click(
+		function() {
+			var id = $(this).attr("id").substring(20);
+			var formId = "#workExperience" + id;
+			var id1 = "#workExperienceCompanyName" + id;
+			var id11 = "#workExperienceCompanyNameTip" + id;
+			var id2 = "#workExperienceWorksite" + id;
+			var id22 = "#workExperienceWorksiteTip" + id;
+			var id3 = "#workExperiencePositionName" + id;
+			var id33 = "#workExperiencePositionNameTip" + id;
+			if ($(id1).val().trim().length == 0) {
+				$(id11).html("");
+				$(id11).html("<font color='red'>输入不能为空!</font>");
+				return;
+			}
+			if ($(id2).val().trim().length == 0) {
+				$(id22).html("");
+				$(id22).html("<font color='red'>输入不能为空!</font>");
+				return;
+			}
+			if ($(id3).val().trim().length == 0) {
+				$(id33).html("");
+				$(id33).html("<font color='red'>输入不能为空!</font>");
+				return;
+			}
+			$(formId).attr(
+					"action",
+					getRootPath()
+							+ "/workExperience/updateWorkExperience.action");
+			$(formId).submit();
+		});
+$("a[id^='deleteWorkExperience']").click(function() {
+	var id = $(this).attr("id").substring(20);
+});

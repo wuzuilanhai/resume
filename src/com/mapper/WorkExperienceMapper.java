@@ -15,4 +15,8 @@ public interface WorkExperienceMapper {
 	void addWorkExperience(WorkExperience workExperience) throws Exception;
 
 	WorkExperience findWorkExperienceById(Integer id) throws Exception;
+
+	void updateWorkExperience(WorkExperience workExperience) throws Exception;
+
+	void deleteWorkExperienceById(Integer wexperienceId) throws Exception;
 }

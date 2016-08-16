@@ -52,4 +52,48 @@ public class WorkExperienceController extends BasicController {
 		resumeService.updateResume(resume);
 		return "redirect:/resume/showResume.action";
 	}
+
+	/**
+	 * 更新工作经历
+	 * 
+	 * @param workExperienceQueryVo
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateWorkExperience")
+	public String updateWorkExperience(
+			WorkExperienceQueryVo workExperienceQueryVo) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		workExperienceQueryVo.getWorkExperience().setStartTime(
+				(format.parse(workExperienceQueryVo.getStartYear() + "-"
+						+ workExperienceQueryVo.getStartMonth())));
+		workExperienceQueryVo.getWorkExperience().setEndTime(
+				(format.parse(workExperienceQueryVo.getEndYear() + "-"
+						+ workExperienceQueryVo.getEndMonth())));
+		workExperienceQueryVo.getWorkExperience().setWexperienceId(
+				workExperienceQueryVo.getWorkExperienceId());
+		workExperienceService.updateWorkExperience(workExperienceQueryVo
+				.getWorkExperience());
+		return "redirect:/resume/showResume.action";
+	}
+
+	/**
+	 * 根据id删除工作经历
+	 * 
+	 * @param wexperienceId
+	 * @return
+	 * @throws Exception
+	 */
+	public String deleteWorkExperienceById(Integer wexperienceId,
+			HttpSession session) throws Exception {
+		workExperienceService.deleteWorkExperienceById(wexperienceId);
+		// 更新resume中数据
+		Resume resume = (Resume) session.getAttribute("resume");
+		String ids = resume.getWorkExperienceIds();
+		
+		
+		
+		return "redirect:/resume/showResume.action";
+	}
+
 }

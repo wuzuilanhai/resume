@@ -16,6 +16,8 @@ public class WorkExperienceQueryVo implements Serializable {
 	 */
 	private static final long serialVersionUID = -2799133748209562376L;
 
+	private Integer workExperienceId;
+
 	private WorkExperience workExperience;
 
 	private Integer startYear;
@@ -25,6 +27,14 @@ public class WorkExperienceQueryVo implements Serializable {
 	private Integer startMonth;
 
 	private Integer endMonth;
+
+	public Integer getWorkExperienceId() {
+		return workExperienceId;
+	}
+
+	public void setWorkExperienceId(Integer workExperienceId) {
+		this.workExperienceId = workExperienceId;
+	}
 
 	public WorkExperience getWorkExperience() {
 		return workExperience;

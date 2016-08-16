@@ -77,7 +77,45 @@
 			</if>
 		</trim>
 	</insert>
-	<select id="findWorkExperienceById" parameterType="int" resultMap="BaseResultMap">
-		select * from work_experience where wExperience_id=#{wexperienceId}
+	<select id="findWorkExperienceById" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from work_experience where
+		wExperience_id=#{wexperienceId}
 	</select>
+	<update id="updateWorkExperience" parameterType="com.pojo.WorkExperience">
+		update work_experience
+		<set>
+			<if test="companyName != null">
+				company_name = #{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyIndustryId != null">
+				company_industry_id =
+				#{companyIndustryId,jdbcType=INTEGER},
+			</if>
+			<if test="positionName != null">
+				position_name = #{positionName,jdbcType=VARCHAR},
+			</if>
+			<if test="worksite != null">
+				worksite = #{worksite,jdbcType=VARCHAR},
+			</if>
+			<if test="subordinateNumber != null">
+				subordinate_number =
+				#{subordinateNumber,jdbcType=INTEGER},
+			</if>
+			<if test="startTime != null">
+				start_time = #{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				end_time = #{endTime,jdbcType=DATE},
+			</if>
+			<if test="duty != null">
+				duty = #{duty,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where wExperience_id=#{wexperienceId}
+	</update>
+	<delete id="deleteWorkExperienceById" parameterType="int">
+		delete from
+		work_experience where wExperience_id=#{wexperienceId}
+	</delete>
 </mapper>

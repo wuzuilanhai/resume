@@ -28,4 +28,20 @@ public interface WorkExperienceService {
 	 */
 	WorkExperience findWorkExperienceById(Integer id) throws Exception;
 
+	/**
+	 * 更新工作经历
+	 * 
+	 * @param workExperience
+	 *            封装工作经历信息的实体
+	 */
+	void updateWorkExperience(WorkExperience workExperience) throws Exception;
+
+	/**
+	 * 根据id删除工作经历
+	 * 
+	 * @param wexperienceId
+	 *            工作经历id
+	 */
+	void deleteWorkExperienceById(Integer wexperienceId) throws Exception;
+
 }

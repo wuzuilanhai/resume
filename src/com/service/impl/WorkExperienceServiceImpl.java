@@ -25,4 +25,14 @@ public class WorkExperienceServiceImpl extends BasicServiceImpl implements
 		return workExperienceMapper.findWorkExperienceById(id);
 	}
 
+	public void updateWorkExperience(WorkExperience workExperience)
+			throws Exception {
+		workExperienceMapper.updateWorkExperience(workExperience);
+	}
+
+	public void deleteWorkExperienceById(Integer wexperienceId)
+			throws Exception {
+		workExperienceMapper.deleteWorkExperienceById(wexperienceId);
+	}
+
 }

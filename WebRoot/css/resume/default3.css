@@ -1,0 +1,335 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+	font-size: 12px;
+	color: #6b6b6b;
+	font-family: "微软雅黑";
+}
+a {
+	text-decoration: none;
+	color: #6b6b6b;
+	font-family: "微软雅黑"
+}
+a:hover {
+	text-decoration: underline;
+}
+a:visited {
+	color: #6b6b6b;
+}
+h1 {
+	color: #3d7d52;
+	font-family: "微软雅黑";
+	font-size: 16;
+	font-weight: normal;
+}
+h2 {
+	font-size: 18px;
+	font-family: "微软雅黑";
+	color: #3d7d52;
+	font-weight: bold;
+}
+p {
+	line-height: 180%;
+	margin: 0;
+	color: #6b6b6b;
+	font-family: "微软雅黑";
+	font-size: 14;
+}
+.framehead {
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 5px 10px #E1E1E1;
+	background: #FFFFFF;
+}
+.frameheadmid {
+	text-align: center;
+	margin: 0 auto;
+	width: 950px;
+	height: 50px;
+}
+.framemain {
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 900;
+}
+.frameleft {
+	margin-top: 50px;
+	width: 232px;
+	height: 100%;
+	box-shadow: 0px 0px 5px #E1E1E1;
+}
+.frameright {
+	margin-left: 21;
+	margin-top: 50px;
+	width: 697px;
+	height: 100%;
+}
+.framebottom {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 150px;
+	text-align: center;
+}
+.frametail {
+	margin-left: auto;
+	margin-right: auto;
+	width: 950px;
+	height: 100px;
+	position: relative;
+	text-align: center;
+	font-size: 10px;
+}
+.buttontop {
+	position: absolute;
+	float: left;
+	width: 100;
+	height: 50;
+}
+.mask img {
+	/*头像蒙版样式*/
+	-webkit-mask-image: url('../../images/resume/mask.png');
+}
+.mask2 img {
+	/*头像蒙版样式*/
+	-webkit-mask-image: url('../../images/resume/mask2.png');
+}
+.col-xs-9 {
+	width: 697px;
+	height: auto;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}
+.myresume {
+	margin: 0;
+	position: absolute;
+	top: 10;
+	left: 40;
+	width: 192;
+	height: 30px;
+	float: left;
+}
+.myresume p {
+	position: absolute;
+	left: 18;
+	top: 2;
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: #3d7d52;
+	font-weight: bold;
+	margin: 0 auto;
+}
+select {
+	/*选择框样式*/
+	border: solid 1px #c2cc87;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: url("../../images/resume/triangle.png") no-repeat scroll right center transparent;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-align: left;
+}
+select::-ms-expand {
+display:none;
+}
+.form-control {
+	/*位置样式*/
+	position: absolute;
+	left: 100;
+	top: 10;
+	float: left;
+	/*输入框样式*/
+	display: block;
+	width: 200px;
+	height: 30px;
+	padding: 0px 10px;
+	padding-right: 20px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	line-height: 1.428571429;
+	color: #6b6b6b;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #6b6b6b;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+	/*输入框样式*/
+	border-color: #77a486;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.personalinfo {
+	position: relative;
+	width: 400;
+	height: 410;
+	z-index: 9;
+}
+.basicinfo {
+	position: relative;
+	width: 400;
+	height: 450;
+	z-index: 9;
+}
+.careerintention {
+	position: relative;
+	width: 400;
+	height: 260px;
+	z-index: 9;
+}
+.workexperience {
+	width: 400px;
+	height: auto;
+	position: relative;
+	padding-left: 50px;
+	z-index: 9;
+	margin-top: 10;
+	margin-bottom: 20;
+}
+.projectexperience {
+	width: 400px;
+	height: auto;
+	position: relative;
+	padding-left: 50px;
+	z-index: 9;
+	margin-top: 10;
+	margin-bottom: 20;
+}
+.educationexperience {
+	width: 400px;
+	height: auto;
+	position: relative;
+	padding-left: 50px;
+	z-index: 9;
+	margin-top: 10;
+	margin-bottom: 20;
+}
+.selfappraisal {
+	width: 400px;
+	height: 180px;
+	position: relative;
+	z-index: 9;
+}
+.extramessage {
+	width: 400px;
+	height: 180px;
+	position: relative;
+	z-index: 9;
+}
+.password {
+	width: 400px;
+	height: 160px;
+	position: relative;
+	z-index: 9;
+}
+.security {
+	width: 400px;
+	height: 110px;
+	position: relative;
+	z-index: 9;
+}
+.icon {
+	width: 400px;
+	height: 80px;
+	position: relative;
+	z-index: 9;
+}
+.fill {
+	position: absolute;
+	left: 50;
+	width: 300;
+	height: 50;
+}
+.fill p {
+	position: absolute;
+	top: 15;
+	width: 70px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #6b6b6b;
+	text-align: right;
+}
+.fill2 {
+	position: relative;
+	width: 350px;
+	height: 30;
+	text-align: center;
+}
+.fill2 p {
+	position: absolute;
+	top: 7px;
+	width: 200px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #6b6b6b;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.fill_left {
+	width: 667;
+	position: relative;
+	padding-bottom: 10;
+	max-width: 637px;
+}
+.div_left {
+	position: relative;
+	margin-top: 21px;
+	width: 697px;
+	height: auto;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}
+.fill_title_left {
+	position: relative;
+	width: 637;
+	height: 50;
+}
+#scroll {
+	position: fixed;
+	bottom: 100px;
+	right: 180px;
+}
+.scrollItem {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	text-align: center;
+	padding-top: 10px;
+}
+.text_operation {
+	margin: 0;
+	position: absolute;
+	right: 170;
+	top: 0;
+	text-align: right;
+}
+.text_delete {
+	margin: 0;
+	position: absolute;
+	right: 170;
+	top: 80;
+	text-align: right;
+}
+.text_viewdetail {
+	margin: 0;
+	position: absolute;
+	right: 170;
+	top: 103;
+	text-align: right;
+}
