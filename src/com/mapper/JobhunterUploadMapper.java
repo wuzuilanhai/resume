@@ -13,4 +13,10 @@ import com.pojo.JobhunterUpload;
 public interface JobhunterUploadMapper {
 
 	void addJobHunterUpload(JobhunterUpload jobhunterUpload) throws Exception;
+
+	JobhunterUpload findJobhunterUploadByJobhunterId(Integer jobhunterId)
+			throws Exception;
+
+	void updateJobHunterUpload(JobhunterUpload jobhunterUpload)
+			throws Exception;
 }

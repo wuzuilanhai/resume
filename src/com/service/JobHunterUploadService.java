@@ -19,4 +19,23 @@ public interface JobHunterUploadService {
 	 */
 	void addJobHunterUpload(JobhunterUpload jobhunterUpload) throws Exception;
 
+	/**
+	 * 根据求职者id查找上传的头像
+	 * 
+	 * @param jobhunterId
+	 *            求职者id
+	 * @return 封装上传头像信息的实体
+	 */
+	JobhunterUpload findJobhunterUploadByJobhunterId(Integer jobhunterId)
+			throws Exception;
+
+	/**
+	 * 更新求职者上传头像
+	 * 
+	 * @param jobhunterUpload
+	 *            封装上传头像信息的实体
+	 */
+	void updateJobHunterUpload(JobhunterUpload jobhunterUpload)
+			throws Exception;
+
 }

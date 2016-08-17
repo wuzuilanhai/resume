@@ -60,4 +60,33 @@
 			</if>
 		</trim>
 	</insert>
+	<select id="findJobhunterUploadByJobhunterId" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from jobhunter_upload where
+		jobhunter_id=#{jobhunterId}
+	</select>
+	<update id="updateJobHunterUpload" parameterType="com.pojo.JobhunterUpload">
+		update jobhunter_upload
+		<set>
+			<if test="jobhunterId != null">
+				jobhunter_id = #{jobhunterId,jdbcType=INTEGER},
+			</if>
+			<if test="companyId != null">
+				company_id = #{companyId,jdbcType=INTEGER},
+			</if>
+			<if test="uploadLocation != null">
+				upload_location = #{uploadLocation,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadName != null">
+				upload_name = #{uploadName,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				upload_time = #{uploadTime,jdbcType=DATE},
+			</if>
+			<if test="uploadType != null">
+				upload_type = #{uploadType,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where upload_id=#{uploadId}
+	</update>
 </mapper>

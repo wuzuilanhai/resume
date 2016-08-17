@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.io.File;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,10 +16,12 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pojo.JobCustom;
 import com.pojo.Jobhunter;
 import com.pojo.JobhunterQueryVo;
+import com.pojo.JobhunterUpload;
 import com.sun.org.apache.commons.beanutils.BeanUtils;
 import com.util.MD5Utils;
 
@@ -228,6 +232,81 @@ public class JobHunterController extends BasicController {
 		// ObjectMapper mapper = new ObjectMapper();
 		// return mapper.writeValueAsString(map);
 		return "resume/myResume";
+	}
+
+	/**
+	 * 修改账号信息
+	 * 
+	 * @param jobhunter
+	 *            封装求职者修改后信息的实体
+	 * @param uploadPic
+	 *            封装上传图片信息的实体
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateAccountMsg")
+	public String updateAccountMsg(Jobhunter newJobhunter,
+			MultipartFile uploadPic, HttpSession session) throws Exception {
+		Jobhunter jobhunter = (Jobhunter) session.getAttribute("jobhunter");
+		// 修改求职者信息
+		newJobhunter.setJobhunterId(jobhunter.getJobhunterId());
+		newJobhunter.setJobhunterPassword(MD5Utils.md5(newJobhunter
+				.getJobhunterPassword()));
+		jobHunterService.updateJobHunterByDetails(newJobhunter);
+		// 更新session中jobhunter的值
+		jobhunter = jobHunterService.findJobHunterById(jobhunter
+				.getJobhunterId());
+		session.setAttribute("jobhunter", jobhunter);
+
+		// 如果未上传过头像，存储求职者头像信息，否则修改求职者上传头像，并删除原来的头像
+		JobhunterUpload jobhunterUpload = jobHunterUploadService
+				.findJobhunterUploadByJobhunterId(jobhunter.getJobhunterId());
+		// 图片原始名称
+		String originalFilename = uploadPic.getOriginalFilename();
+		// 上传图片
+		if (uploadPic != null && originalFilename != null
+				&& originalFilename.length() > 0) {
+			// 获取项目根路径
+			String path = session.getServletContext().getRealPath("uploads");
+			// 存储图片的物理路径
+			String uploadLocation = path + "\\"
+					+ new SimpleDateFormat("yyyy\\MM\\dd").format(new Date())
+					+ "\\";
+			// 创建文件夹
+			File dir = new File(uploadLocation);
+			if (!dir.exists())
+				dir.mkdirs();
+			String uploadName = UUID.randomUUID()
+					+ originalFilename.substring(originalFilename
+							.lastIndexOf("."));
+			String uploadType = uploadPic.getContentType();
+			if (jobhunterUpload == null) {
+				jobhunterUpload = new JobhunterUpload();
+				jobhunterUpload.setJobhunterId(jobhunter.getJobhunterId());
+				jobhunterUpload.setUploadLocation(uploadLocation);
+				jobhunterUpload.setUploadName(uploadName);
+				jobhunterUpload.setUploadType(uploadType);
+				jobhunterUpload.setUploadTime(new Date());
+				jobHunterUploadService.addJobHunterUpload(jobhunterUpload);
+			} else {
+				File oldFile = new File(jobhunterUpload.getUploadLocation()
+						+ jobhunterUpload.getUploadName());
+				// 删除原来的头像
+				oldFile.deleteOnExit();
+				// 将新图片信息存入数据库
+				jobhunterUpload.setUploadLocation(uploadLocation);
+				jobhunterUpload.setUploadName(uploadName);
+				jobhunterUpload.setUploadType(uploadType);
+				jobhunterUpload.setUploadTime(new Date());
+				jobHunterUploadService.updateJobHunterUpload(jobhunterUpload);
+			}
+			// 新图片
+			File file = new File(uploadLocation + uploadName);
+			// 将内存中的数据写入磁盘
+			uploadPic.transferTo(file);
+		}
+		return "redirect:/resume/showResume.action";
 	}
 
 }

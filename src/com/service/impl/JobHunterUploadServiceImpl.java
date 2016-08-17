@@ -21,4 +21,15 @@ public class JobHunterUploadServiceImpl extends BasicServiceImpl implements
 		jobhunterUploadMapper.addJobHunterUpload(jobhunterUpload);
 	}
 
+	public JobhunterUpload findJobhunterUploadByJobhunterId(Integer jobhunterId)
+			throws Exception {
+		return jobhunterUploadMapper
+				.findJobhunterUploadByJobhunterId(jobhunterId);
+	}
+
+	public void updateJobHunterUpload(JobhunterUpload jobhunterUpload)
+			throws Exception {
+		jobhunterUploadMapper.updateJobHunterUpload(jobhunterUpload);
+	}
+
 }
