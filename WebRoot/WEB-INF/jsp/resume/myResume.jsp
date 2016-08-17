@@ -411,17 +411,20 @@
 											name="jobhunter.jobhunterMaritalStatus" value="已婚"
 											id="RadioGroup1_0"
 											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-											已婚</label></td>
+											已婚</label>
+									</td>
 									<td><label> <input type="radio"
 											name="jobhunter.jobhunterMaritalStatus" value="未婚"
 											id="RadioGroup1_1"
 											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-											未婚</label></td>
+											未婚</label>
+									</td>
 									<td><label> <input type="radio"
 											name="jobhunter.jobhunterMaritalStatus" value="不显示"
 											id="RadioGroup1_2"
 											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-											保密</label></td>
+											保密</label>
+									</td>
 								</tr>
 							</table>
 						</div>
@@ -1067,161 +1070,181 @@
 										</div> </a>
 								</div>
 							</div>
-							<div id="LM${num_count+num1.count+8 }"
-								style="DISPLAY:<c:if test="${num1.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:310;">
-								<div class="fill" style="top:10">
-									<p>学校名称：</p>
-									<input class="form-control" name="schoolName" type="text"
-										value="${educationExperience.schoolName }"
-										onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<form
+								id="educationExperience${educationExperience.eexperienceId}"
+								action="${pageContext.request.contextPath}/educationExperience/updateEducationExperience.action"
+								method="post">
+								<input name="educationExperienceId" type="hidden"
+									value="${educationExperience.eexperienceId}" />
+								<div id="LM${num_count+num1.count+8 }"
+									style="DISPLAY:<c:if test="${num1.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:310;">
+									<div class="fill" style="top:10">
+										<p>学校名称：</p>
+										<input class="form-control"
+											id="educationExperienceSchoolName${educationExperience.eexperienceId}"
+											name="educationExperience.schoolName" type="text"
+											value="${educationExperience.schoolName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div
+											id="educationExperienceSchoolNameTip${educationExperience.eexperienceId}"
+											style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:60">
+										<p>专业名称：</p>
+										<input class="form-control"
+											id="educationExperienceMajorName${educationExperience.eexperienceId}"
+											name="educationExperience.majorName" type="text"
+											value="${educationExperience.majorName}"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div
+											id="educationExperienceMajorNameTip${educationExperience.eexperienceId}"
+											style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:110">
+										<p>
+											就读时间：
+											<fmt:formatDate value="${educationExperience.startTime}"
+												pattern="yyyy" var="startYear2" />
+											<fmt:formatDate value="${educationExperience.startTime}"
+												pattern="MM" var="startMonth2" />
+										</p>
+										<select id="startYear${num_count+num1.count+8 }" type="text"
+											name="startYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${startYear2 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${startYear2 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${startYear2 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${startYear2 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${startYear2 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${startYear2 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${startYear2 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
+											name="startMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${startMonth2=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${startMonth2=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${startMonth2=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${startMonth2=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${startMonth2=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${startMonth2=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${startMonth2=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${startMonth2=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${startMonth2=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${startMonth2=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${startMonth2=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${startMonth2=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:160">
+										<p>
+											离校时间：
+											<fmt:formatDate value="${educationExperience.endTime}"
+												pattern="yyyy" var="endYear2" />
+											<fmt:formatDate value="${educationExperience.endTime}"
+												pattern="MM" var="endMonth2" />
+										</p>
+										<select id="endYear${num_count+num1.count+8 }" type="text"
+											name="endYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${endYear2 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${endYear2 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${endYear2 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${endYear2 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${endYear2 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${endYear2 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${endYear2 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+											name="endMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${endMonth2=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${endMonth2=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${endMonth2=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${endMonth2=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${endMonth2=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${endMonth2=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${endMonth2=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${endMonth2=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${endMonth2=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${endMonth2=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${endMonth2=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${endMonth2=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:210">
+										<p>学历程度：</p>
+										<select id="qualification" type="text" class="form-control"
+											name="educationExperience.qualification"
+											style="left:100;width:150px;">
+											<option value="高中以下"
+												<c:if test="${educationExperience.qualification=='高中以下'}">selected</c:if>>高中以下</option>
+											<option value="高中"
+												<c:if test="${educationExperience.qualification=='高中'}">selected</c:if>>高中</option>
+											<option value="本科"
+												<c:if test="${educationExperience.qualification=='本科'}">selected</c:if>>本科</option>
+											<option value="硕士"
+												<c:if test="${educationExperience.qualification=='硕士'}">selected</c:if>>硕士</option>
+											<option value="博士"
+												<c:if test="${educationExperience.qualification=='博士'}">selected</c:if>>博士</option>
+										</select> <input type="checkbox" name="educationExperience.isUnify"
+											value="${educationExperience.isUnify}"
+											id="isUnify${educationExperience.eexperienceId }"
+											<c:if test="${educationExperience.isUnify eq 1}">checked</c:if>
+											style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
+										<p
+											style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">是否统招</p>
+									</div>
+									<div class="fill" style="padding-top:10;top:260">
+										<a
+											id="updateEducationExperience${educationExperience.eexperienceId}"
+											href="javascript:void(0)">
+											<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a> <a
+											href="${pageContext.request.contextPath}/educationExperience/deleteEducationExperienceById.action?eexperienceId=${educationExperience.eexperienceId}">
+											<h1 style="margin:0;position:absolute;left:150;">删除</h1> </a>
+									</div>
 								</div>
-								<div class="fill" style="top:60">
-									<p>专业名称：</p>
-									<input class="form-control" name="majorname" type="text"
-										value="${educationExperience.majorName}"
-										onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-								</div>
-								<div class="fill" style="top:110">
-									<p>
-										就读时间：
-										<fmt:formatDate value="${educationExperience.startTime}"
-											pattern="yyyy" var="startYear2" />
-										<fmt:formatDate value="${educationExperience.startTime}"
-											pattern="MM" var="startMonth2" />
-									</p>
-									<select id="startYear${num_count+num1.count+8 }" type="text"
-										name="startYear" class="form-control"
-										style="left:100;width:90px;">
-										<option value=2016
-											<c:if test="${startYear2 eq 2016 }">selected</c:if>>2016年</option>
-										<option value=2015
-											<c:if test="${startYear2 eq 2015 }">selected</c:if>>2015年</option>
-										<option value=2014
-											<c:if test="${startYear2 eq 2014 }">selected</c:if>>2014年</option>
-										<option value=2013
-											<c:if test="${startYear2 eq 2013 }">selected</c:if>>2013年</option>
-										<option value=2012
-											<c:if test="${startYear2 eq 2012 }">selected</c:if>>2012年</option>
-										<option value=2011
-											<c:if test="${startYear2 eq 2011 }">selected</c:if>>2011年</option>
-										<option value=2010
-											<c:if test="${startYear2 eq 2010 }">selected</c:if>>2010年</option>
-									</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
-										name="startMonth" class="form-control"
-										style="left:210;width:90px;">
-										<option value=1
-											<c:if test="${startMonth2=='01' }">selected</c:if>>1月</option>
-										<option value=2
-											<c:if test="${startMonth2=='02' }">selected</c:if>>2月</option>
-										<option value=3
-											<c:if test="${startMonth2=='03' }">selected</c:if>>3月</option>
-										<option value=4
-											<c:if test="${startMonth2=='04' }">selected</c:if>>4月</option>
-										<option value=5
-											<c:if test="${startMonth2=='05' }">selected</c:if>>5月</option>
-										<option value=6
-											<c:if test="${startMonth2=='06' }">selected</c:if>>6月</option>
-										<option value=7
-											<c:if test="${startMonth2=='07' }">selected</c:if>>7月</option>
-										<option value=8
-											<c:if test="${startMonth2=='08' }">selected</c:if>>8月</option>
-										<option value=9
-											<c:if test="${startMonth2=='09' }">selected</c:if>>9月</option>
-										<option value=10
-											<c:if test="${startMonth2=='10' }">selected</c:if>>10月</option>
-										<option value=11
-											<c:if test="${startMonth2=='11' }">selected</c:if>>11月</option>
-										<option value=12
-											<c:if test="${startMonth2=='12' }">selected</c:if>>12月</option>
-									</select>
-								</div>
-								<div class="fill" style="top:160">
-									<p>
-										离校时间：
-										<fmt:formatDate value="${educationExperience.endTime}"
-											pattern="yyyy" var="endYear2" />
-										<fmt:formatDate value="${educationExperience.endTime}"
-											pattern="MM" var="endMonth2" />
-									</p>
-									<select id="endYear${num_count+num1.count+8 }" type="text"
-										name="endYear" class="form-control"
-										style="left:100;width:90px;">
-										<option value=2016
-											<c:if test="${endYear2 eq 2016 }">selected</c:if>>2016年</option>
-										<option value=2015
-											<c:if test="${endYear2 eq 2015 }">selected</c:if>>2015年</option>
-										<option value=2014
-											<c:if test="${endYear2 eq 2014 }">selected</c:if>>2014年</option>
-										<option value=2013
-											<c:if test="${endYear2 eq 2013 }">selected</c:if>>2013年</option>
-										<option value=2012
-											<c:if test="${endYear2 eq 2012 }">selected</c:if>>2012年</option>
-										<option value=2011
-											<c:if test="${endYear2 eq 2011 }">selected</c:if>>2011年</option>
-										<option value=2010
-											<c:if test="${endYear2 eq 2010 }">selected</c:if>>2010年</option>
-									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
-										name="endMonth" class="form-control"
-										style="left:210;width:90px;">
-										<option value=1
-											<c:if test="${endMonth2=='01' }">selected</c:if>>1月</option>
-										<option value=2
-											<c:if test="${endMonth2=='02' }">selected</c:if>>2月</option>
-										<option value=3
-											<c:if test="${endMonth2=='03' }">selected</c:if>>3月</option>
-										<option value=4
-											<c:if test="${endMonth2=='04' }">selected</c:if>>4月</option>
-										<option value=5
-											<c:if test="${endMonth2=='05' }">selected</c:if>>5月</option>
-										<option value=6
-											<c:if test="${endMonth2=='06' }">selected</c:if>>6月</option>
-										<option value=7
-											<c:if test="${endMonth2=='07' }">selected</c:if>>7月</option>
-										<option value=8
-											<c:if test="${endMonth2=='08' }">selected</c:if>>8月</option>
-										<option value=9
-											<c:if test="${endMonth2=='09' }">selected</c:if>>9月</option>
-										<option value=10
-											<c:if test="${endMonth2=='10' }">selected</c:if>>10月</option>
-										<option value=11
-											<c:if test="${endMonth2=='11' }">selected</c:if>>11月</option>
-										<option value=12
-											<c:if test="${endMonth2=='12' }">selected</c:if>>12月</option>
-									</select>
-								</div>
-								<div class="fill" style="top:210">
-									<p>学历程度：</p>
-									<select id="qualification" type="text" class="form-control"
-										name="qualification" style="left:100;width:150px;">
-										<option value="高中以下"
-											<c:if test="${educationExperience.qualification=='高中以下'}">selected</c:if>>高中以下</option>
-										<option value="高中"
-											<c:if test="${educationExperience.qualification=='高中'}">selected</c:if>>高中</option>
-										<option value="本科"
-											<c:if test="${educationExperience.qualification=='本科'}">selected</c:if>>本科</option>
-										<option value="硕士"
-											<c:if test="${educationExperience.qualification=='硕士'}">selected</c:if>>硕士</option>
-										<option value="博士"
-											<c:if test="${educationExperience.qualification=='博士'}">selected</c:if>>博士</option>
-									</select> <input type="checkbox" name="isUnify"
-										value="${educationExperience.isUnify}"
-										<c:if test="${educationExperience.isUnify eq 1}">checked</c:if>
-										style="position:absolute;right:25;top:15;float:left;width:14px; height:14px;" />
-									<p
-										style="position:absolute;right:-60;top:17;float:left;width:80px; height:30px;text-align:left;font-size:12;">是否统招</p>
-								</div>
-								<div class="fill" style="padding-top:10;top:260">
-									<a href=" ">
-										<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a> <a
-										href=" ">
-										<h1 style="margin:0;position:absolute;left:150;">删除</h1> </a>
-								</div>
-
-							</div>
+							</form>
 						</c:forEach>
 					</c:if>
 					<div class="fill2" id="createEducationExperienceDiv">
@@ -1392,160 +1415,181 @@
 										</div> </a>
 								</div>
 							</div>
-							<div id="LM${num_count+num1_count+num2.count+8 }"
-								style="DISPLAY:<c:if test="${num2.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:620;">
-								<div class="fill" style="top:10">
-									<p>项目名称：</p>
-									<input class="form-control" name="projectName" type="text"
-										value="${projectExperience.projectName }"
-										onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<form id="projectExperience${projectExperience.pexperienceId}"
+								action="${pageContext.request.contextPath}/projectExperience/updateProjectExperience.action"
+								method="post">
+								<input name="projectExperienceId" type="hidden"
+									value="${projectExperience.pexperienceId}" />
+								<div id="LM${num_count+num1_count+num2.count+8 }"
+									style="DISPLAY:<c:if test="${num2.count gt 1 }">none</c:if>;position:relative;left:-25;width:400;height:620;">
+									<div class="fill" style="top:10">
+										<p>项目名称：</p>
+										<input class="form-control"
+											id="projectExperienceProjectName${projectExperience.pexperienceId}"
+											name="projectExperience.projectName" type="text"
+											value="${projectExperience.projectName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div
+											id="projectExperienceProjectNameTip${projectExperience.pexperienceId}"
+											style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:60">
+										<p>公司名称：</p>
+										<input class="form-control"
+											id="projectExperienceCompanyName${projectExperience.pexperienceId}"
+											name="projectExperience.companyName" type="text"
+											value="${projectExperience.companyName }"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div
+											id="projectExperienceCompanyNameTip${projectExperience.pexperienceId}"
+											style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:110">
+										<p>
+											开始时间：
+											<fmt:formatDate value="${projectExperience.startTime}"
+												pattern="yyyy" var="startYear3" />
+											<fmt:formatDate value="${projectExperience.startTime}"
+												pattern="MM" var="startMonth3" />
+										</p>
+										<select id="startYear${num_count+num1.count+8 }" type="text"
+											name="startYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${startYear3 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${startYear3 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${startYear3 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${startYear3 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${startYear3 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${startYear3 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${startYear3 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
+											name="startMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${startMonth3=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${startMonth3=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${startMonth3=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${startMonth3=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${startMonth3=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${startMonth3=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${startMonth3=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${startMonth3=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${startMonth3=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${startMonth3=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${startMonth3=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${startMonth3=='12' }">selected</c:if>>12月</option>
+										</select> </select>
+									</div>
+									<div class="fill" style="top:160">
+										<p>
+											结束时间：
+											<fmt:formatDate value="${projectExperience.endTime}"
+												pattern="yyyy" var="endYear3" />
+											<fmt:formatDate value="${projectExperience.endTime}"
+												pattern="MM" var="endMonth3" />
+										</p>
+										<select id="endYear${num_count+num1.count+8 }" type="text"
+											name="endYear" class="form-control"
+											style="left:100;width:90px;">
+											<option value=2016
+												<c:if test="${endYear3 eq 2016 }">selected</c:if>>2016年</option>
+											<option value=2015
+												<c:if test="${endYear3 eq 2015 }">selected</c:if>>2015年</option>
+											<option value=2014
+												<c:if test="${endYear3 eq 2014 }">selected</c:if>>2014年</option>
+											<option value=2013
+												<c:if test="${endYear3 eq 2013 }">selected</c:if>>2013年</option>
+											<option value=2012
+												<c:if test="${endYear3 eq 2012 }">selected</c:if>>2012年</option>
+											<option value=2011
+												<c:if test="${endYear3 eq 2011 }">selected</c:if>>2011年</option>
+											<option value=2010
+												<c:if test="${endYear3 eq 2010 }">selected</c:if>>2010年</option>
+										</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
+											name="endMonth" class="form-control"
+											style="left:210;width:90px;">
+											<option value=1
+												<c:if test="${endMonth3=='01' }">selected</c:if>>1月</option>
+											<option value=2
+												<c:if test="${endMonth3=='02' }">selected</c:if>>2月</option>
+											<option value=3
+												<c:if test="${endMonth3=='03' }">selected</c:if>>3月</option>
+											<option value=4
+												<c:if test="${endMonth3=='04' }">selected</c:if>>4月</option>
+											<option value=5
+												<c:if test="${endMonth3=='05' }">selected</c:if>>5月</option>
+											<option value=6
+												<c:if test="${endMonth3=='06' }">selected</c:if>>6月</option>
+											<option value=7
+												<c:if test="${endMonth3=='07' }">selected</c:if>>7月</option>
+											<option value=8
+												<c:if test="${endMonth3=='08' }">selected</c:if>>8月</option>
+											<option value=9
+												<c:if test="${endMonth3=='09' }">selected</c:if>>9月</option>
+											<option value=10
+												<c:if test="${endMonth3=='10' }">selected</c:if>>10月</option>
+											<option value=11
+												<c:if test="${endMonth3=='11' }">selected</c:if>>11月</option>
+											<option value=12
+												<c:if test="${endMonth3=='12' }">selected</c:if>>12月</option>
+										</select>
+									</div>
+									<div class="fill" style="top:210">
+										<p>项目描述：</p>
+										<textarea class="form-control"
+											name="projectExperience.projectDescription" type="text"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectDescription }</textarea>
+									</div>
+									<div class="fill" style="top:330">
+										<p>项目职责：</p>
+										<textarea class="form-control"
+											name="projectExperience.projectResponsibility" type="text"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectResponsibility }</textarea>
+									</div>
+									<div class="fill" style="top:450">
+										<p>项目业绩：</p>
+										<textarea class="form-control"
+											name="projectExperience.projectAchievement" type="text"
+											onmouseover="this.style.borderColor='#3d7d52'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectAchievement }</textarea>
+									</div>
+									<div class="fill" style="padding-top:10;top:570">
+										<a
+											id="updateProjectExperience${projectExperience.pexperienceId}"
+											href="javascript:void(0)">
+											<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a> <a
+											href="${pageContext.request.contextPath}/projectExperience/deleteProjectExperienceById.action?pexperienceId=${projectExperience.pexperienceId}">
+											<h1 style="margin:0;position:absolute;left:150;">删除</h1> </a>
+									</div>
 								</div>
-								<div class="fill" style="top:60">
-									<p>公司名称：</p>
-									<input class="form-control" name="companyName" type="text"
-										value="${projectExperience.companyName }"
-										onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-								</div>
-								<div class="fill" style="top:110">
-									<p>
-										开始时间：
-										<fmt:formatDate value="${projectExperience.startTime}"
-											pattern="yyyy" var="startYear3" />
-										<fmt:formatDate value="${projectExperience.startTime}"
-											pattern="MM" var="startMonth3" />
-									</p>
-									<select id="startYear${num_count+num1.count+8 }" type="text"
-										name="startYear" class="form-control"
-										style="left:100;width:90px;">
-										<option value=2016
-											<c:if test="${startYear3 eq 2016 }">selected</c:if>>2016年</option>
-										<option value=2015
-											<c:if test="${startYear3 eq 2015 }">selected</c:if>>2015年</option>
-										<option value=2014
-											<c:if test="${startYear3 eq 2014 }">selected</c:if>>2014年</option>
-										<option value=2013
-											<c:if test="${startYear3 eq 2013 }">selected</c:if>>2013年</option>
-										<option value=2012
-											<c:if test="${startYear3 eq 2012 }">selected</c:if>>2012年</option>
-										<option value=2011
-											<c:if test="${startYear3 eq 2011 }">selected</c:if>>2011年</option>
-										<option value=2010
-											<c:if test="${startYear3 eq 2010 }">selected</c:if>>2010年</option>
-									</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
-										name="startMonth" class="form-control"
-										style="left:210;width:90px;">
-										<option value=1
-											<c:if test="${startMonth3=='01' }">selected</c:if>>1月</option>
-										<option value=2
-											<c:if test="${startMonth3=='02' }">selected</c:if>>2月</option>
-										<option value=3
-											<c:if test="${startMonth3=='03' }">selected</c:if>>3月</option>
-										<option value=4
-											<c:if test="${startMonth3=='04' }">selected</c:if>>4月</option>
-										<option value=5
-											<c:if test="${startMonth3=='05' }">selected</c:if>>5月</option>
-										<option value=6
-											<c:if test="${startMonth3=='06' }">selected</c:if>>6月</option>
-										<option value=7
-											<c:if test="${startMonth3=='07' }">selected</c:if>>7月</option>
-										<option value=8
-											<c:if test="${startMonth3=='08' }">selected</c:if>>8月</option>
-										<option value=9
-											<c:if test="${startMonth3=='09' }">selected</c:if>>9月</option>
-										<option value=10
-											<c:if test="${startMonth3=='10' }">selected</c:if>>10月</option>
-										<option value=11
-											<c:if test="${startMonth3=='11' }">selected</c:if>>11月</option>
-										<option value=12
-											<c:if test="${startMonth3=='12' }">selected</c:if>>12月</option>
-									</select> </select>
-								</div>
-								<div class="fill" style="top:160">
-									<p>
-										结束时间：
-										<fmt:formatDate value="${projectExperience.endTime}"
-											pattern="yyyy" var="endYear3" />
-										<fmt:formatDate value="${projectExperience.endTime}"
-											pattern="MM" var="endMonth3" />
-									</p>
-									<select id="endYear${num_count+num1.count+8 }" type="text"
-										name="endYear" class="form-control"
-										style="left:100;width:90px;">
-										<option value=2016
-											<c:if test="${endYear3 eq 2016 }">selected</c:if>>2016年</option>
-										<option value=2015
-											<c:if test="${endYear3 eq 2015 }">selected</c:if>>2015年</option>
-										<option value=2014
-											<c:if test="${endYear3 eq 2014 }">selected</c:if>>2014年</option>
-										<option value=2013
-											<c:if test="${endYear3 eq 2013 }">selected</c:if>>2013年</option>
-										<option value=2012
-											<c:if test="${endYear3 eq 2012 }">selected</c:if>>2012年</option>
-										<option value=2011
-											<c:if test="${endYear3 eq 2011 }">selected</c:if>>2011年</option>
-										<option value=2010
-											<c:if test="${endYear3 eq 2010 }">selected</c:if>>2010年</option>
-									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
-										name="endMonth" class="form-control"
-										style="left:210;width:90px;">
-										<option value=1
-											<c:if test="${endMonth3=='01' }">selected</c:if>>1月</option>
-										<option value=2
-											<c:if test="${endMonth3=='02' }">selected</c:if>>2月</option>
-										<option value=3
-											<c:if test="${endMonth3=='03' }">selected</c:if>>3月</option>
-										<option value=4
-											<c:if test="${endMonth3=='04' }">selected</c:if>>4月</option>
-										<option value=5
-											<c:if test="${endMonth3=='05' }">selected</c:if>>5月</option>
-										<option value=6
-											<c:if test="${endMonth3=='06' }">selected</c:if>>6月</option>
-										<option value=7
-											<c:if test="${endMonth3=='07' }">selected</c:if>>7月</option>
-										<option value=8
-											<c:if test="${endMonth3=='08' }">selected</c:if>>8月</option>
-										<option value=9
-											<c:if test="${endMonth3=='09' }">selected</c:if>>9月</option>
-										<option value=10
-											<c:if test="${endMonth3=='10' }">selected</c:if>>10月</option>
-										<option value=11
-											<c:if test="${endMonth3=='11' }">selected</c:if>>11月</option>
-										<option value=12
-											<c:if test="${endMonth3=='12' }">selected</c:if>>12月</option>
-									</select>
-								</div>
-								<div class="fill" style="top:210">
-									<p>项目描述：</p>
-									<textarea class="form-control" name="projectDescription"
-										type="text" onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectDescription }</textarea>
-								</div>
-								<div class="fill" style="top:330">
-									<p>项目职责：</p>
-									<textarea class="form-control" name="projectResponsibility"
-										type="text" onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectResponsibility }</textarea>
-								</div>
-								<div class="fill" style="top:450">
-									<p>项目业绩：</p>
-									<textarea class="form-control" name="projectAchievement"
-										type="text" onmouseover="this.style.borderColor='#3d7d52'"
-										onmouseout="this.style.borderColor=''"
-										style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;">${projectExperience.projectAchievement }</textarea>
-								</div>
-								<div class="fill" style="padding-top:10;top:570">
-									<a href=" ">
-										<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a> <a
-										href=" ">
-										<h1 style="margin:0;position:absolute;left:150;">删除</h1> </a>
-								</div>
-							</div>
+							</form>
 						</c:forEach>
 					</c:if>
 					<div class="fill2">
@@ -1668,7 +1712,7 @@
 									style="text-align:left;position: absolute; left: 100; top: 10; float: left; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
 							</div>
 							<div class="fill" style="padding-top:10;top:570">
-								<a href=" ">
+								<a href="javascript:void(0)" id="addProjectExperienceBtn">
 									<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a>
 							</div>
 						</form>
@@ -1705,7 +1749,7 @@
 							style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">${sessionScope.jobhunter.jobhunterSelfAppraisal }</textarea>
 					</div>
 					<div class="fill" style="padding-top:10;top:130">
-						<a href=" ">
+						<a href="">
 							<h1 style="margin:0;position:absolute;left:100;">保存</h1> </a>
 					</div>
 				</div>

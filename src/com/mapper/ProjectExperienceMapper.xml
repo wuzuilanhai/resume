@@ -82,4 +82,42 @@
 		resultMap="BaseResultMap">
 		select * from project_experience where pExperience_id=#{id}
 	</select>
+	<update id="updateProjectExperience" parameterType="com.pojo.ProjectExperience">
+		update project_experience
+		<set>
+			<if test="projectName != null">
+				project_name = #{projectName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null">
+				company_name = #{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="projectPosition != null">
+				project_position =
+				#{projectPosition,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				start_time = #{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				end_time = #{endTime,jdbcType=DATE},
+			</if>
+			<if test="projectDescription != null">
+				project_description =
+				#{projectDescription,jdbcType=VARCHAR},
+			</if>
+			<if test="projectResponsibility != null">
+				project_responsibility =
+				#{projectResponsibility,jdbcType=VARCHAR},
+			</if>
+			<if test="projectAchievement != null">
+				project_achievement =
+				#{projectAchievement,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where pExperience_id=#{pexperienceId}
+	</update>
+	<delete id="deleteProjectExperienceById" parameterType="int">
+		delete
+		from project_experience where pExperience_id=#{pexperienceId}
+	</delete>
 </mapper>

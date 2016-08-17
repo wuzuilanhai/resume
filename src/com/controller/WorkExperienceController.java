@@ -84,15 +84,32 @@ public class WorkExperienceController extends BasicController {
 	 * @return
 	 * @throws Exception
 	 */
+	@RequestMapping("/deleteWorkExperienceById")
 	public String deleteWorkExperienceById(Integer wexperienceId,
 			HttpSession session) throws Exception {
 		workExperienceService.deleteWorkExperienceById(wexperienceId);
 		// 更新resume中数据
 		Resume resume = (Resume) session.getAttribute("resume");
 		String ids = resume.getWorkExperienceIds();
-		
-		
-		
+		StringBuffer buffer = new StringBuffer();
+		int i = 1;
+		for (String str : ids.split(",")) {
+			if (i == ids.split(",").length
+					&& Integer.parseInt(str) != wexperienceId) {
+				buffer.append(str);
+				break;
+			}
+			if (Integer.parseInt(str) != wexperienceId) {
+				buffer.append(str + ",");
+			}
+			i++;
+		}
+		String newIds = buffer.toString();
+		if ((newIds.lastIndexOf(",") + 1) == newIds.length()) {
+			newIds = newIds.substring(0, newIds.lastIndexOf(","));
+		}
+		resume.setWorkExperienceIds(newIds);
+		resumeService.updateResume(resume);
 		return "redirect:/resume/showResume.action";
 	}
 

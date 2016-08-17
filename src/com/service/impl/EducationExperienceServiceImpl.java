@@ -26,4 +26,14 @@ public class EducationExperienceServiceImpl extends BasicServiceImpl implements
 		return educationExperienceMapper.findEducationExperiencesById(id);
 	}
 
+	public void updateWorkExperience(EducationExperience educationExperience)
+			throws Exception {
+		educationExperienceMapper.updateWorkExperience(educationExperience);
+	}
+
+	public void deleteEducationExperienceById(Integer eexperienceId)
+			throws Exception {
+		educationExperienceMapper.deleteEducationExperienceById(eexperienceId);
+	}
+
 }

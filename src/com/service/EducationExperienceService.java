@@ -30,4 +30,21 @@ public interface EducationExperienceService {
 	EducationExperience findEducationExperiencesById(Integer id)
 			throws Exception;
 
+	/**
+	 * 更新教育经历
+	 * 
+	 * @param educationExperience
+	 *            封装教育经历信息的实体
+	 */
+	void updateWorkExperience(EducationExperience educationExperience)
+			throws Exception;
+
+	/**
+	 * 根据id删除教育经历
+	 * 
+	 * @param eexperienceId
+	 *            教育经历id
+	 */
+	void deleteEducationExperienceById(Integer eexperienceId) throws Exception;
+
 }

@@ -29,4 +29,21 @@ public interface ProjectExperienceService {
 	 */
 	ProjectExperience findProjectExperiencesById(Integer id) throws Exception;
 
+	/**
+	 * 更新项目经验
+	 * 
+	 * @param projectExperience
+	 *            封装项目经验信息的实体
+	 */
+	void updateProjectExperience(ProjectExperience projectExperience)
+			throws Exception;
+
+	/**
+	 * 根据id删除项目经验
+	 * 
+	 * @param pexperienceId
+	 *            项目经验id
+	 */
+	void deleteProjectExperienceById(Integer pexperienceId) throws Exception;
+
 }

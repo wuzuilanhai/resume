@@ -66,4 +66,32 @@
 		select * from education_experience where
 		eExperience_id=#{eexperienceId}
 	</select>
+	<update id="updateWorkExperience" parameterType="com.pojo.EducationExperience">
+		update education_experience
+		<set>
+			<if test="schoolName != null">
+				school_name = #{schoolName,jdbcType=VARCHAR},
+			</if>
+			<if test="majorName != null">
+				major_name = #{majorName,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				start_time = #{startTime,jdbcType=DATE},
+			</if>
+			<if test="endTime != null">
+				end_time = #{endTime,jdbcType=DATE},
+			</if>
+			<if test="qualification != null">
+				qualification = #{qualification,jdbcType=VARCHAR},
+			</if>
+			<if test="isUnify != null">
+				is_unify = #{isUnify,jdbcType=INTEGER},
+			</if>
+		</set>
+		where eExperience_id=#{eexperienceId}
+	</update>
+	<delete id="deleteEducationExperienceById" parameterType="int">
+		delete
+		from education_experience where eExperience_id=#{eexperienceId}
+	</delete>
 </mapper>

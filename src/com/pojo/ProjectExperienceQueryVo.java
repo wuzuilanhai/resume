@@ -18,6 +18,8 @@ public class ProjectExperienceQueryVo implements Serializable {
 
 	private ProjectExperience projectExperience;
 
+	private Integer projectExperienceId;
+
 	private Integer startYear;
 
 	private Integer endYear;
@@ -32,6 +34,14 @@ public class ProjectExperienceQueryVo implements Serializable {
 
 	public void setProjectExperience(ProjectExperience projectExperience) {
 		this.projectExperience = projectExperience;
+	}
+
+	public Integer getProjectExperienceId() {
+		return projectExperienceId;
+	}
+
+	public void setProjectExperienceId(Integer projectExperienceId) {
+		this.projectExperienceId = projectExperienceId;
 	}
 
 	public Integer getStartYear() {

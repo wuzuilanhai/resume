@@ -18,6 +18,8 @@ public class EducationExperienceQueryVo implements Serializable {
 
 	private EducationExperience educationExperience;
 
+	private Integer educationExperienceId;
+
 	private Integer startYear;
 
 	private Integer endYear;
@@ -32,6 +34,14 @@ public class EducationExperienceQueryVo implements Serializable {
 
 	public void setEducationExperience(EducationExperience educationExperience) {
 		this.educationExperience = educationExperience;
+	}
+
+	public Integer getEducationExperienceId() {
+		return educationExperienceId;
+	}
+
+	public void setEducationExperienceId(Integer educationExperienceId) {
+		this.educationExperienceId = educationExperienceId;
 	}
 
 	public Integer getStartYear() {

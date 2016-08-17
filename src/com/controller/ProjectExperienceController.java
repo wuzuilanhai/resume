@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pojo.EducationExperienceQueryVo;
 import com.pojo.ProjectExperienceQueryVo;
 import com.pojo.Resume;
 
@@ -51,4 +52,67 @@ public class ProjectExperienceController extends BasicController {
 		resumeService.updateResume(resume);
 		return "redirect:/resume/showResume.action";
 	}
+
+	/**
+	 * 更新项目经验
+	 * 
+	 * @param educationExperienceQueryVo
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateProjectExperience")
+	public String updateProjectExperience(
+			ProjectExperienceQueryVo projectExperienceQueryVo) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		projectExperienceQueryVo.getProjectExperience().setStartTime(
+				(format.parse(projectExperienceQueryVo.getStartYear() + "-"
+						+ projectExperienceQueryVo.getStartMonth())));
+		projectExperienceQueryVo.getProjectExperience().setEndTime(
+				(format.parse(projectExperienceQueryVo.getEndYear() + "-"
+						+ projectExperienceQueryVo.getEndMonth())));
+		projectExperienceQueryVo.getProjectExperience().setPexperienceId(
+				projectExperienceQueryVo.getProjectExperienceId());
+		projectExperienceService
+				.updateProjectExperience(projectExperienceQueryVo
+						.getProjectExperience());
+		return "redirect:/resume/showResume.action";
+	}
+
+	/**
+	 * 根据id删除项目经验
+	 * 
+	 * @param eexperienceId
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/deleteProjectExperienceById")
+	public String deleteProjectExperienceById(Integer pexperienceId,
+			HttpSession session) throws Exception {
+		projectExperienceService.deleteProjectExperienceById(pexperienceId);
+		// 更新resume中数据
+		Resume resume = (Resume) session.getAttribute("resume");
+		String ids = resume.getProjectExperienceIds();
+		StringBuffer buffer = new StringBuffer();
+		int i = 1;
+		for (String str : ids.split(",")) {
+			if (i == ids.split(",").length
+					&& Integer.parseInt(str) != pexperienceId) {
+				buffer.append(str);
+				break;
+			}
+			if (Integer.parseInt(str) != pexperienceId) {
+				buffer.append(str + ",");
+			}
+			i++;
+		}
+		String newIds = buffer.toString();
+		if ((newIds.lastIndexOf(",") + 1) == newIds.length()) {
+			newIds = newIds.substring(0, newIds.lastIndexOf(","));
+		}
+		resume.setProjectExperienceIds(newIds);
+		resumeService.updateResume(resume);
+		return "redirect:/resume/showResume.action";
+	}
+
 }

@@ -214,11 +214,11 @@ $('#isDiscuss').click(function() {
 		$("#isDiscuss").attr("value", 0);
 	}
 });
-$('#isUnify').click(function() {
-	if ($("#isUnify").is(':checked')) {
-		$("#isUnify").attr("value", 1);
+$("input[id^='isUnify']").click(function() {
+	if ($(this).is(':checked')) {
+		$(this).attr("value", 1);
 	} else {
-		$("#isUnify").attr("value", 0);
+		$(this).attr("value", 0);
 	}
 });
 $('#isShow').click(function() {
@@ -352,6 +352,61 @@ $("a[id^='updateWorkExperience']").click(
 							+ "/workExperience/updateWorkExperience.action");
 			$(formId).submit();
 		});
-$("a[id^='deleteWorkExperience']").click(function() {
-	var id = $(this).attr("id").substring(20);
+$("input[id^='educationExperienceSchoolName']").click(function() {
+	var id = $(this).attr('id').substring(29);
+	var newId = "#educationExperienceSchoolNameTip" + id;
+	$(newId).html("");
+});
+$("input[id^='educationExperienceMajorName']").click(function() {
+	var id = $(this).attr('id').substring(28);
+	var newId = "#educationExperienceMajorNameTip" + id;
+	$(newId).html("");
+});
+$("a[id^='updateEducationExperience']").click(function() {
+	var id = $(this).attr("id").substring(25);
+	var formId = "#educationExperience" + id;
+	var id1 = "#educationExperienceSchoolName" + id;
+	var id11 = "#educationExperienceSchoolNameTip" + id;
+	var id2 = "#educationExperienceMajorName" + id;
+	var id22 = "#educationExperienceMajorNameTip" + id;
+	if ($(id1).val().trim().length == 0) {
+		$(id11).html("");
+		$(id11).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($(id2).val().trim().length == 0) {
+		$(id22).html("");
+		$(id22).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	$(formId).submit();
+});
+$("input[id^='projectExperienceProjectName']").click(function() {
+	var id = $(this).attr('id').substring(28);
+	var newId = "#projectExperienceProjectNameTip" + id;
+	$(newId).html("");
+});
+$("input[id^='projectExperienceCompanyName']").click(function() {
+	var id = $(this).attr('id').substring(28);
+	var newId = "#projectExperienceCompanyNameTip" + id;
+	$(newId).html("");
+});
+$("a[id^='updateProjectExperience']").click(function() {
+	var id = $(this).attr("id").substring(23);
+	var formId = "#projectExperience" + id;
+	var id1 = "#projectExperienceProjectName" + id;
+	var id11 = "#projectExperienceProjectNameTip" + id;
+	var id2 = "#projectExperienceCompanyName" + id;
+	var id22 = "#projectExperienceCompanyNameTip" + id;
+	if ($(id1).val().trim().length == 0) {
+		$(id11).html("");
+		$(id11).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($(id2).val().trim().length == 0) {
+		$(id22).html("");
+		$(id22).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	$(formId).submit();
 });
