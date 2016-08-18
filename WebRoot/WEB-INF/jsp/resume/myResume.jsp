@@ -87,7 +87,7 @@
 			<div class="mask"
 				style="position:absolute;left:0;top:21;width:232;height:330;float:left">
 				<img style="position:absolute;left:46;top:20;float:left"
-					src="${pageContext.request.contextPath}/images/resume/baby2.jpg"
+					src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
 					width="140" height="140" alt="" />
 				<div
 					style="position:absolute;right:0;top:180;width:232;height:150;float:left">
@@ -2163,7 +2163,8 @@
 						<div id="LM30000" class="icon" style="DISPLAY:block">
 							<div class="fill" style="top:10">
 								<p>修改头像：</p>
-								<input class="form-control" name="uploadPic" type="file" id="icon"
+								<input class="form-control" name="uploadPic" type="file"
+									id="icon"
 									style="position:absolute;padding-top:4;left:100;top:10;float:left;width:200px; height:30px;" />
 							</div>
 						</div>

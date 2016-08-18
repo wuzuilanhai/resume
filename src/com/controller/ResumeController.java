@@ -15,10 +15,12 @@ import com.exception.MyException;
 import com.pojo.CareerIntention;
 import com.pojo.EducationExperience;
 import com.pojo.Jobhunter;
+import com.pojo.JobhunterUpload;
 import com.pojo.Position;
 import com.pojo.ProjectExperience;
 import com.pojo.Resume;
 import com.pojo.WorkExperience;
+import com.util.MD5Utils;
 
 /**
  * 类描述：简历控制类
@@ -126,6 +128,10 @@ public class ResumeController extends BasicController {
 				}
 			}
 			// 准备求职者头像信息
+			JobhunterUpload jobhunterUpload = jobHunterUploadService
+					.findJobhunterUploadByJobhunterId(jobhunter
+							.getJobhunterId());
+
 			session.setAttribute("workTime", (latest - original) / 1000 / 60
 					/ 60 / 24);
 			session.setAttribute("year", year);
@@ -139,6 +145,7 @@ public class ResumeController extends BasicController {
 			session.setAttribute("workExperiences", workExperiences);
 			session.setAttribute("educationExperiences", educationExperiences);
 			session.setAttribute("projectExperiences", projectExperiences);
+			session.setAttribute("jobhunterUpload", jobhunterUpload);
 			return "resume/myResume";
 		} else {
 			throw new MyException("用户还未登录！");

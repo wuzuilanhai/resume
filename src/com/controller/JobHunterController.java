@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -242,12 +243,15 @@ public class JobHunterController extends BasicController {
 	 * @param uploadPic
 	 *            封装上传图片信息的实体
 	 * @param session
+	 * @param request
 	 * @return
 	 * @throws Exception
 	 */
+	@SuppressWarnings("deprecation")
 	@RequestMapping("/updateAccountMsg")
 	public String updateAccountMsg(Jobhunter newJobhunter,
-			MultipartFile uploadPic, HttpSession session) throws Exception {
+			MultipartFile uploadPic, HttpSession session,
+			HttpServletRequest request) throws Exception {
 		Jobhunter jobhunter = (Jobhunter) session.getAttribute("jobhunter");
 		// 修改求职者信息
 		newJobhunter.setJobhunterId(jobhunter.getJobhunterId());
@@ -267,14 +271,17 @@ public class JobHunterController extends BasicController {
 		// 上传图片
 		if (uploadPic != null && originalFilename != null
 				&& originalFilename.length() > 0) {
-			// 获取项目根路径
-			String path = session.getServletContext().getRealPath("uploads");
+			// 获取网站url
+			String path = request.getContextPath();
 			// 存储图片的物理路径
-			String uploadLocation = path + "\\"
+			String uploadLocation = path + "/uploads/"
+					+ new SimpleDateFormat("yyyy/MM/dd").format(new Date())
+					+ "/";
+			String realPath = request.getRealPath("uploads") + "\\"
 					+ new SimpleDateFormat("yyyy\\MM\\dd").format(new Date())
 					+ "\\";
 			// 创建文件夹
-			File dir = new File(uploadLocation);
+			File dir = new File(realPath);
 			if (!dir.exists())
 				dir.mkdirs();
 			String uploadName = UUID.randomUUID()
@@ -291,7 +298,7 @@ public class JobHunterController extends BasicController {
 				jobHunterUploadService.addJobHunterUpload(jobhunterUpload);
 			} else {
 				// 删除原来的头像
-				File oldFile = new File(jobhunterUpload.getUploadLocation()
+				File oldFile = new File(realPath
 						+ jobhunterUpload.getUploadName());
 				if (oldFile.exists()) {
 					oldFile.delete();
@@ -304,7 +311,7 @@ public class JobHunterController extends BasicController {
 				jobHunterUploadService.updateJobHunterUpload(jobhunterUpload);
 			}
 			// 新图片
-			File file = new File(uploadLocation + uploadName);
+			File file = new File(realPath + uploadName);
 			// 将内存中的数据写入磁盘
 			uploadPic.transferTo(file);
 		}
