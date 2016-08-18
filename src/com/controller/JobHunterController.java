@@ -290,10 +290,12 @@ public class JobHunterController extends BasicController {
 				jobhunterUpload.setUploadTime(new Date());
 				jobHunterUploadService.addJobHunterUpload(jobhunterUpload);
 			} else {
+				// 删除原来的头像
 				File oldFile = new File(jobhunterUpload.getUploadLocation()
 						+ jobhunterUpload.getUploadName());
-				// 删除原来的头像
-				oldFile.deleteOnExit();
+				if (oldFile.exists()) {
+					oldFile.delete();
+				}
 				// 将新图片信息存入数据库
 				jobhunterUpload.setUploadLocation(uploadLocation);
 				jobhunterUpload.setUploadName(uploadName);

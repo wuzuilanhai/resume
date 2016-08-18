@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pojo.EducationExperienceQueryVo;
 import com.pojo.Resume;
-import com.pojo.WorkExperienceQueryVo;
 
 /**
  * 类描述：教育经历控制类
