@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
@@ -16,23 +17,34 @@ public class ResumeJob implements Serializable {
 	 */
 	private static final long serialVersionUID = -3647714061113979444L;
 
-	private Integer resumeId;
+	private Resume resume;
 
-	private Integer jobId;
+	private Job job;
 
-	public Integer getResumeId() {
-		return resumeId;
+	private Date submittime;
+
+	public Resume getResume() {
+		return resume;
 	}
 
-	public void setResumeId(Integer resumeId) {
-		this.resumeId = resumeId;
+	public void setResume(Resume resume) {
+		this.resume = resume;
 	}
 
-	public Integer getJobId() {
-		return jobId;
+	public Job getJob() {
+		return job;
 	}
 
-	public void setJobId(Integer jobId) {
-		this.jobId = jobId;
+	public void setJob(Job job) {
+		this.job = job;
 	}
+
+	public Date getSubmittime() {
+		return submittime;
+	}
+
+	public void setSubmittime(Date submittime) {
+		this.submittime = submittime;
+	}
+
 }

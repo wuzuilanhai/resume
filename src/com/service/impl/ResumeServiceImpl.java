@@ -3,6 +3,7 @@ package com.service.impl;
 import org.springframework.stereotype.Service;
 
 import com.pojo.Resume;
+import com.pojo.ResumeCustom;
 import com.service.ResumeService;
 
 /**
@@ -26,6 +27,10 @@ public class ResumeServiceImpl extends BasicServiceImpl implements
 
 	public void updateResume(Resume resume) throws Exception {
 		resumeMapper.updateResume(resume);
+	}
+
+	public ResumeCustom findResumeJob(Integer resumeId) throws Exception {
+		return resumeMapper.findResumeJob(resumeId);
 	}
 
 }

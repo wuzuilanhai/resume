@@ -1,115 +1,133 @@
 package com.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Job {
-    private Integer jobId;
+public class Job implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7075948564422789140L;
 
-    private String jobName;
+	private Integer jobId;
 
-    private String worksite;
+	private String jobName;
 
-    private Date jobSubtime;
+	private String worksite;
 
-    private Integer industryId;
+	private Date jobSubtime;
 
-    private Double jobSalary;
+	private Integer industryId;
 
-    private Integer jobStatus;
+	private Double jobSalary;
 
-    private String jobDescription;
+	private Integer jobStatus;
 
-    private String jobEmail;
+	private String jobDescription;
 
-    private Integer companyId;
+	private String jobEmail;
 
-    private Integer isHot;
+	private Integer companyId;
 
-    public Integer getJobId() {
-        return jobId;
-    }
+	private Integer isHot;
 
-    public void setJobId(Integer jobId) {
-        this.jobId = jobId;
-    }
+	private List<Resume> resumes;
 
-    public String getJobName() {
-        return jobName;
-    }
+	public Integer getJobId() {
+		return jobId;
+	}
 
-    public void setJobName(String jobName) {
-        this.jobName = jobName == null ? null : jobName.trim();
-    }
+	public void setJobId(Integer jobId) {
+		this.jobId = jobId;
+	}
 
-    public String getWorksite() {
-        return worksite;
-    }
+	public String getJobName() {
+		return jobName;
+	}
 
-    public void setWorksite(String worksite) {
-        this.worksite = worksite == null ? null : worksite.trim();
-    }
+	public void setJobName(String jobName) {
+		this.jobName = jobName == null ? null : jobName.trim();
+	}
 
-    public Date getJobSubtime() {
-        return jobSubtime;
-    }
+	public String getWorksite() {
+		return worksite;
+	}
 
-    public void setJobSubtime(Date jobSubtime) {
-        this.jobSubtime = jobSubtime;
-    }
+	public void setWorksite(String worksite) {
+		this.worksite = worksite == null ? null : worksite.trim();
+	}
 
-    public Integer getIndustryId() {
-        return industryId;
-    }
+	public Date getJobSubtime() {
+		return jobSubtime;
+	}
 
-    public void setIndustryId(Integer industryId) {
-        this.industryId = industryId;
-    }
+	public void setJobSubtime(Date jobSubtime) {
+		this.jobSubtime = jobSubtime;
+	}
 
-    public Double getJobSalary() {
-        return jobSalary;
-    }
+	public Integer getIndustryId() {
+		return industryId;
+	}
 
-    public void setJobSalary(Double jobSalary) {
-        this.jobSalary = jobSalary;
-    }
+	public void setIndustryId(Integer industryId) {
+		this.industryId = industryId;
+	}
 
-    public Integer getJobStatus() {
-        return jobStatus;
-    }
+	public Double getJobSalary() {
+		return jobSalary;
+	}
 
-    public void setJobStatus(Integer jobStatus) {
-        this.jobStatus = jobStatus;
-    }
+	public void setJobSalary(Double jobSalary) {
+		this.jobSalary = jobSalary;
+	}
 
-    public String getJobDescription() {
-        return jobDescription;
-    }
+	public Integer getJobStatus() {
+		return jobStatus;
+	}
 
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription == null ? null : jobDescription.trim();
-    }
+	public void setJobStatus(Integer jobStatus) {
+		this.jobStatus = jobStatus;
+	}
 
-    public String getJobEmail() {
-        return jobEmail;
-    }
+	public String getJobDescription() {
+		return jobDescription;
+	}
 
-    public void setJobEmail(String jobEmail) {
-        this.jobEmail = jobEmail == null ? null : jobEmail.trim();
-    }
+	public void setJobDescription(String jobDescription) {
+		this.jobDescription = jobDescription == null ? null : jobDescription
+				.trim();
+	}
 
-    public Integer getCompanyId() {
-        return companyId;
-    }
+	public String getJobEmail() {
+		return jobEmail;
+	}
 
-    public void setCompanyId(Integer companyId) {
-        this.companyId = companyId;
-    }
+	public void setJobEmail(String jobEmail) {
+		this.jobEmail = jobEmail == null ? null : jobEmail.trim();
+	}
 
-    public Integer getIsHot() {
-        return isHot;
-    }
+	public Integer getCompanyId() {
+		return companyId;
+	}
 
-    public void setIsHot(Integer isHot) {
-        this.isHot = isHot;
-    }
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
+	}
+
+	public Integer getIsHot() {
+		return isHot;
+	}
+
+	public void setIsHot(Integer isHot) {
+		this.isHot = isHot;
+	}
+
+	public List<Resume> getResumes() {
+		return resumes;
+	}
+
+	public void setResumes(List<Resume> resumes) {
+		this.resumes = resumes;
+	}
 }

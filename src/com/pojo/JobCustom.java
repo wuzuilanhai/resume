@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
@@ -22,6 +23,16 @@ public class JobCustom extends Job implements Serializable {
 	private String companyLocation;
 
 	private String industryName;
+
+	private Date submitTime;
+
+	public Date getSubmitTime() {
+		return submitTime;
+	}
+
+	public void setSubmitTime(Date submitTime) {
+		this.submitTime = submitTime;
+	}
 
 	public String getCompanyName() {
 		return companyName;

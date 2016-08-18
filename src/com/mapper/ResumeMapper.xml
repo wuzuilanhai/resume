@@ -17,6 +17,48 @@
 		<result column="last_edit_time" property="lastEditTime"
 			jdbcType="DATE" />
 	</resultMap>
+	<resultMap type="com.pojo.Resume" id="resumeJobMap" extends="BaseResultMap">
+		<collection property="jobCustoms" ofType="com.pojo.JobCustom">
+			<id column="job_id" property="jobId" jdbcType="INTEGER" />
+			<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+			<result column="worksite" property="worksite" jdbcType="VARCHAR" />
+			<result column="job_subtime" property="jobSubtime" jdbcType="DATE" />
+			<result column="industry_id" property="industryId" jdbcType="INTEGER" />
+			<result column="job_salary" property="jobSalary" jdbcType="DOUBLE" />
+			<result column="job_status" property="jobStatus" jdbcType="INTEGER" />
+			<result column="job_description" property="jobDescription"
+				jdbcType="VARCHAR" />
+			<result column="job_email" property="jobEmail" jdbcType="VARCHAR" />
+			<result column="company_id" property="companyId" jdbcType="INTEGER" />
+			<result column="is_hot" property="isHot" jdbcType="INTEGER" />
+			<result column="company_name" property="companyName" jdbcType="VARCHAR" />
+			<result column="company_location" property="companyLocation"
+				jdbcType="VARCHAR" />
+			<result column="industry_name" property="industryName"
+				jdbcType="VARCHAR" />
+			<result column="submittime" property="submitTime" jdbcType="DATE" />
+		</collection>
+	</resultMap>
+	<resultMap type="com.pojo.ResumeCustom" id="resumeCustomJobMap"
+		extends="resumeJobMap">
+	</resultMap>
+	<select id="findResumeJob" parameterType="int" resultMap="resumeCustomJobMap">
+		select
+		r.*,rj.submitTime,j.*,c.company_name,c.company_location,i.industry_name
+		from resume r
+		left join resume_job rj on
+		r.resume_id=rj.resume_id
+		left
+		join job j on
+		rj.job_id=j.job_id left join
+		company c on
+		j.company_id=c.company_id
+		left join
+		industry i on
+		j.industry_id=i.industry_id where
+		r.resume_id =
+		#{resumeId}
+	</select>
 	<insert id="addResume" parameterType="com.pojo.Resume">
 		insert into resume
 		<trim prefix="(" suffix=")" suffixOverrides=",">

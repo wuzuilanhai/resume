@@ -2,6 +2,7 @@ package com.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 
@@ -34,6 +35,8 @@ public class Resume implements Serializable {
 	private Integer visitNumber;
 
 	private Date lastEditTime;
+
+	private List<JobCustom> jobCustoms;
 
 	public Integer getResumeId() {
 		return resumeId;
@@ -109,4 +112,13 @@ public class Resume implements Serializable {
 	public void setLastEditTime(Date lastEditTime) {
 		this.lastEditTime = lastEditTime;
 	}
+
+	public List<JobCustom> getJobCustoms() {
+		return jobCustoms;
+	}
+
+	public void setJobCustoms(List<JobCustom> jobCustoms) {
+		this.jobCustoms = jobCustoms;
+	}
+
 }

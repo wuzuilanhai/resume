@@ -19,8 +19,8 @@ import com.pojo.JobhunterUpload;
 import com.pojo.Position;
 import com.pojo.ProjectExperience;
 import com.pojo.Resume;
+import com.pojo.ResumeCustom;
 import com.pojo.WorkExperience;
-import com.util.MD5Utils;
 
 /**
  * 类描述：简历控制类
@@ -131,6 +131,9 @@ public class ResumeController extends BasicController {
 			JobhunterUpload jobhunterUpload = jobHunterUploadService
 					.findJobhunterUploadByJobhunterId(jobhunter
 							.getJobhunterId());
+			// 准备投递记录信息resume_job
+			ResumeCustom resumeCustom = resumeService.findResumeJob(resume
+					.getResumeId());
 
 			session.setAttribute("workTime", (latest - original) / 1000 / 60
 					/ 60 / 24);
@@ -146,6 +149,7 @@ public class ResumeController extends BasicController {
 			session.setAttribute("educationExperiences", educationExperiences);
 			session.setAttribute("projectExperiences", projectExperiences);
 			session.setAttribute("jobhunterUpload", jobhunterUpload);
+			session.setAttribute("resumeCustom", resumeCustom);
 			return "resume/myResume";
 		} else {
 			throw new MyException("用户还未登录！");

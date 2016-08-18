@@ -1,6 +1,7 @@
 package com.mapper;
 
 import com.pojo.Resume;
+import com.pojo.ResumeCustom;
 
 /**
  * 
@@ -17,4 +18,6 @@ public interface ResumeMapper {
 	Resume findResumeByJobhunterId(Integer jobhunterId) throws Exception;
 
 	void updateResume(Resume resume) throws Exception;
+
+	ResumeCustom findResumeJob(Integer resumeId) throws Exception;
 }

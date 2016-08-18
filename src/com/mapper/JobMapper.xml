@@ -15,6 +15,24 @@
 		<result column="company_id" property="companyId" jdbcType="INTEGER" />
 		<result column="is_hot" property="isHot" jdbcType="INTEGER" />
 	</resultMap>
+	<resultMap type="com.pojo.Job" id="jobResumeMap" extends="BaseResultMap">
+		<collection property="resumes" ofType="com.pojo.Resume">
+			<id column="resume_id" property="resumeId" jdbcType="INTEGER" />
+			<result column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
+			<result column="career_intention_id" property="careerIntentionId"
+				jdbcType="INTEGER" />
+			<result column="work_experience_ids" property="workExperienceIds"
+				jdbcType="VARCHAR" />
+			<result column="education_experience_ids" property="educationExperienceIds"
+				jdbcType="VARCHAR" />
+			<result column="project_experience_ids" property="projectExperienceIds"
+				jdbcType="VARCHAR" />
+			<result column="visibility" property="visibility" jdbcType="INTEGER" />
+			<result column="visit_number" property="visitNumber" jdbcType="INTEGER" />
+			<result column="last_edit_time" property="lastEditTime"
+				jdbcType="DATE" />
+		</collection>
+	</resultMap>
 	<resultMap type="com.pojo.JobCustom" id="hotJobLimitTenAndNewResultMap"
 		extends="BaseResultMap">
 		<result column="company_name" property="companyName" jdbcType="VARCHAR" />

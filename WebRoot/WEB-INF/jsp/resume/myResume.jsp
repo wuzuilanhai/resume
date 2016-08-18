@@ -1885,123 +1885,25 @@
 								width="647" height="1" alt="" />
 						</div>
 					</div>
-					<div class="fill_left">
-						<h1>网易 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：18-25万<br /> 所在地：广东·广州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand2.jpg"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>阿里巴巴 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：18-25万<br /> 所在地：广东·广州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand3.jpg"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>小米 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：北京·朝阳<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand5.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>新浪 · PHP工程师</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看职位详情</p> </a>
-						<p>
-							年薪：12-18万<br /> 所在地：浙江·杭州<br /> 行业：互联网·IT<br />
-							投递时间：2016-08-15 22:10
-						</p>
-						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/resume/brand6.png"
-							width="160" height="80" alt="" />
-					</div>
+					<c:forEach items="${sessionScope.resumeCustom.jobCustoms }"
+						var="jobCustom">
+						<div class="fill_left">
+							<h1>${jobCustom.companyName } · ${jobCustom.jobName}</h1>
+							<h1 class="text_operation">操作</h1>
+							<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
+									class="text_viewdetail">查看职位详情</p> </a>
+							<p>
+								月薪：${jobCustom.jobSalary}元<br />
+								所在地：${jobCustom.companyLocation}<br />
+								行业：${jobCustom.industryName}<br /> 投递时间：
+								<fmt:formatDate value="${jobCustom.submitTime }"
+									pattern="yyyy/MM/dd" />
+							</p>
+							<img style="position:absolute;right:0;top:31;float:right;"
+								src="${pageContext.request.contextPath}/images/resume/brand2.jpg"
+								width="160" height="80" alt="" />
+						</div>
+					</c:forEach>
 					<div class="fill_left"
 						style="margin-top:20;width:100%;text-align:center;">
 						<p>

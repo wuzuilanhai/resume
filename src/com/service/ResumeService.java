@@ -1,6 +1,7 @@
 package com.service;
 
 import com.pojo.Resume;
+import com.pojo.ResumeCustom;
 
 /**
  * 类描述：简历业务类接口
@@ -35,5 +36,14 @@ public interface ResumeService {
 	 *            封装简历信息的实体
 	 */
 	void updateResume(Resume resume) throws Exception;
+
+	/**
+	 * 根据简历id查找投递给相关职位的信息
+	 * 
+	 * @param resumeId
+	 *            简历id
+	 * @return 相关职位的信息
+	 */
+	ResumeCustom findResumeJob(Integer resumeId) throws Exception;
 
 }
