@@ -275,4 +275,18 @@ public class JobController extends BasicController {
 		session.setAttribute("childrenIndustries", childrenIndustries);
 		return "job/searchJob";
 	}
+
+	/**
+	 * 根据职位id查看职位详细信息
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/showJobDetailByJobId")
+	public String showJobDetailByJobId(Integer jobId) throws Exception {
+		return "job/jobDetail";
+	}
+
 }

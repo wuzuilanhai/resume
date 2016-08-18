@@ -155,4 +155,5 @@ public class ResumeController extends BasicController {
 			throw new MyException("用户还未登录！");
 		}
 	}
+
 }

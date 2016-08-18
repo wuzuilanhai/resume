@@ -1887,10 +1887,12 @@
 					</div>
 					<c:forEach items="${sessionScope.resumeCustom.jobCustoms }"
 						var="jobCustom">
-						<div class="fill_left">
+						<div class="fill_left" id="resumeJobDiv${jobCustom.jobId}">
 							<h1>${jobCustom.companyName } · ${jobCustom.jobName}</h1>
 							<h1 class="text_operation">操作</h1>
-							<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
+							<a id="deleteResumeJobByJobIdBtn${jobCustom.jobId}"
+								href="javascript:void(0) "><p class="text_delete">删除</p> </a> <a
+								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom.jobId}"><p
 									class="text_viewdetail">查看职位详情</p> </a>
 							<p>
 								月薪：${jobCustom.jobSalary}元<br />
@@ -1904,14 +1906,14 @@
 								width="160" height="80" alt="" />
 						</div>
 					</c:forEach>
-					<div class="fill_left"
+					<!-- <div class="fill_left"
 						style="margin-top:20;width:100%;text-align:center;">
 						<p>
 							<a href="#">&lt;&lt;</a>&nbsp;&nbsp;<a href="#">1</a> <a href="#">2</a>
 							<a href="#">3</a> <a href="#">4</a> <a href="#">5</a>&nbsp;&nbsp;<a
 								href="#">&gt;&gt;</a>
 						</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 

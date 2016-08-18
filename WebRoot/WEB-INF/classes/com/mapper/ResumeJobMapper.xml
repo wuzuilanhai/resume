@@ -24,4 +24,8 @@
 			</if>
 		</trim>
 	</insert>
+	<delete id="deleteResumeJobByJobId" parameterType="int">
+		delete from
+		resume_job where job_id=#{jobId}
+	</delete>
 </mapper>

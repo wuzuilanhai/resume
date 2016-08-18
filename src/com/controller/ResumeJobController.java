@@ -1,8 +1,19 @@
 package com.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pojo.JobCustom;
+import com.pojo.Resume;
+import com.pojo.ResumeCustom;
 import com.pojo.ResumeJob;
 
 /**
@@ -25,5 +36,28 @@ public class ResumeJobController extends BasicController {
 	public String addResumeJob(ResumeJob resumeJob) throws Exception {
 		resumeJobService.addResumeJob(resumeJob);
 		return "success";
+	}
+
+	/**
+	 * 根据职位id删除简历-职位关系表中的记录
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @param session
+	 * @return 新的json类型的resume_job记录
+	 * @throws Exception
+	 */
+	@RequestMapping("/deleteResumeJobByJobId")
+	public @ResponseBody
+	String deleteResumeJobByJobId(Integer jobId, HttpSession session)
+			throws Exception {
+		resumeJobService.deleteResumeJobByJobId(jobId);
+		ResumeCustom resumeCustom = resumeService
+				.findResumeJob(((Resume) session.getAttribute("resume"))
+						.getResumeId());
+		Map<String, List<JobCustom>> map = new HashMap<String, List<JobCustom>>();
+		map.put("newData", resumeCustom.getJobCustoms());
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(map);
 	}
 }

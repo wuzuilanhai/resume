@@ -19,4 +19,12 @@ public interface ResumeJobService {
 	 */
 	void addResumeJob(ResumeJob resumeJob) throws Exception;
 
+	/**
+	 * 根据职位id删除简历-职位关系表中的记录
+	 * 
+	 * @param jobId
+	 *            职位id
+	 */
+	void deleteResumeJobByJobId(Integer jobId) throws Exception;
+
 }

@@ -13,4 +13,6 @@ import com.pojo.ResumeJob;
 public interface ResumeJobMapper {
 
 	void addResumeJob(ResumeJob resumeJob) throws Exception;
+
+	void deleteResumeJobByJobId(Integer jobId) throws Exception;
 }
