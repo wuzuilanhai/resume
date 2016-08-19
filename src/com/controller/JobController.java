@@ -15,7 +15,10 @@ import com.pojo.Industry;
 import com.pojo.Job;
 import com.pojo.JobCustom;
 import com.pojo.JobQueryVo;
+import com.pojo.Jobhunter;
 import com.pojo.Page;
+import com.pojo.Resume;
+import com.pojo.ResumeJob;
 
 /**
  * 类描述：职位控制类
@@ -281,11 +284,46 @@ public class JobController extends BasicController {
 	 * 
 	 * @param jobId
 	 *            职位id
+	 * @param session
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/showJobDetailByJobId")
-	public String showJobDetailByJobId(Integer jobId) throws Exception {
+	public String showJobDetailByJobId(Integer jobId, HttpSession session)
+			throws Exception {
+		// 查看该简历是否已经投递过
+		// 判断是否已经登录
+		Jobhunter jobhunter = (Jobhunter) session.getAttribute("jobhunter");
+		if (jobhunter == null) {
+			session.setAttribute("hasSend", 0);
+		} else {
+			Resume resume = resumeService.findResumeByJobhunterId(jobhunter
+					.getJobhunterId());
+			Job job = new Job();
+			job.setJobId(jobId);
+			ResumeJob resumeJob = new ResumeJob();
+			resumeJob.setResume(resume);
+			resumeJob.setJob(job);
+			ResumeJob record = resumeJobService
+					.findResumeJobByResumeJob(resumeJob);
+			if (record != null) {
+				// 已投递
+				session.setAttribute("hasSend", 1);
+			} else {
+				// 未投递
+				session.setAttribute("hasSend", 0);
+			}
+		}
+		JobCustom jobCustom = jobService.findJobDetailByJobId(jobId);
+		// 准备该企业最新三个发布的职位信息
+		List<JobCustom> threeLatestJobs = jobService
+				.findThreeJobByCompanyId(jobCustom.getCompanyId());
+		// 准备四个类似职位名称的其它职位信息（模糊查找）
+		List<JobCustom> fourCommonJobs = jobService
+				.findJobsByCommonNameLimitFour(jobCustom);
+		session.setAttribute("jobCustom", jobCustom);
+		session.setAttribute("threeLatestJobs", threeLatestJobs);
+		session.setAttribute("fourCommonJobs", fourCommonJobs);
 		return "job/jobDetail";
 	}
 

@@ -315,7 +315,7 @@
 		</div>
 	</form>
 
-	<div class="framemid" style="position:relative;display:true" id="div3">
+	<div class="framemid" style="position:relative;display:none" id="div3">
 
 		<div style="position:absolute;top:45;left:131;width:688;height:31;">
 			<img

@@ -57,9 +57,7 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:100;height:50;left:282;">
-				<a
-					href="javscript:void(0)"
-					onMouseOut="MM_swapImgRestore()"
+				<a href="javscript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/job/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/job/job3.png" alt=""
 					width="100" height="50" id="job"> </a>
@@ -277,7 +275,8 @@
 								style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 								<p class="link_a"
 									style="margin: 0; position: absolute; top: 17; left: 20; ">
-									<a href="#">${job.companyName }</a> · <a href="#">${job.jobName
+									<a href="#">${job.companyName }</a> · <a
+										href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${job.jobId}">${job.jobName
 										}</a>
 								</p>
 								<p class="text_a"

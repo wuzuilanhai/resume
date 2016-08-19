@@ -57,7 +57,8 @@
 		industry i on
 		j.industry_id=i.industry_id where
 		r.resume_id =
-		#{resumeId}
+		#{resumeId} order by
+		rj.submitTime desc
 	</select>
 	<insert id="addResume" parameterType="com.pojo.Resume">
 		insert into resume

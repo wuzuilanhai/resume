@@ -75,4 +75,32 @@ public interface JobService {
 	 */
 	List<JobCustom> findJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
 
+	/**
+	 * 根据职位id查看职位详细信息
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @return
+	 */
+	JobCustom findJobDetailByJobId(Integer jobId) throws Exception;
+
+	/**
+	 * 根据企业id准备该企业最新三个发布的职位信息
+	 * 
+	 * @param companyId
+	 *            企业id
+	 * @return 封装企业信息的列表
+	 */
+	List<JobCustom> findThreeJobByCompanyId(Integer companyId) throws Exception;
+
+	/**
+	 * 根据职位名称查找四个类似此职位名称的其它职位信息（模糊查找）
+	 * 
+	 * @param jobCustom
+	 *            职位名称
+	 * @return 封装企业信息的列表
+	 */
+	List<JobCustom> findJobsByCommonNameLimitFour(JobCustom jobCustom)
+			throws Exception;
+
 }

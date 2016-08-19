@@ -2,25 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.ResumeJobMapper">
 	<resultMap id="BaseResultMap" type="com.pojo.ResumeJob">
-		<result column="resume_id" property="resumeId" jdbcType="INTEGER" />
-		<result column="job_id" property="jobId" jdbcType="INTEGER" />
+		<result column="resume_id" property="resume.resumeId" jdbcType="INTEGER" />
+		<result column="job_id" property="job.jobId" jdbcType="INTEGER" />
+		<result column="submitTime" jdbcType="DATE" property="submittime" />
 	</resultMap>
 	<insert id="addResumeJob" parameterType="com.pojo.ResumeJob">
 		insert into resume_job
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="resumeId != null">
+			<if test="resume.resumeId != null">
 				resume_id,
 			</if>
-			<if test="jobId != null">
+			<if test="job.jobId != null">
 				job_id,
+			</if>
+			<if test="submittime != null">
+				submitTime,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="resumeId != null">
-				#{resumeId,jdbcType=INTEGER},
+			<if test="resume.resumeId != null">
+				#{resume.resumeId,jdbcType=INTEGER},
 			</if>
-			<if test="jobId != null">
-				#{jobId,jdbcType=INTEGER},
+			<if test="job.jobId != null">
+				#{job.jobId,jdbcType=INTEGER},
+			</if>
+			<if test="submittime != null">
+				#{submittime,jdbcType=DATE},
 			</if>
 		</trim>
 	</insert>
@@ -28,4 +35,10 @@
 		delete from
 		resume_job where job_id=#{jobId}
 	</delete>
+	<select id="findResumeJobByResumeJob" parameterType="com.pojo.ResumeJob"
+		resultMap="BaseResultMap">
+		select * from resume_job where resume_id=#{resume.resumeId}
+		and
+		job_id=#{job.jobId}
+	</select>
 </mapper>

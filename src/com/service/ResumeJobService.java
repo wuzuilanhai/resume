@@ -27,4 +27,12 @@ public interface ResumeJobService {
 	 */
 	void deleteResumeJobByJobId(Integer jobId) throws Exception;
 
+	/**
+	 * 根据实体查找记录
+	 * 
+	 * @param resumeJob
+	 * @return
+	 */
+	ResumeJob findResumeJobByResumeJob(ResumeJob resumeJob) throws Exception;
+
 }

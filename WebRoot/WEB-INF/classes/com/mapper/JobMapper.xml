@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.JobMapper">
 	<resultMap id="BaseResultMap" type="com.pojo.Job">
-		<id column="job_id" property="jobId" jdbcType="INTEGER" />
-		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
-		<result column="worksite" property="worksite" jdbcType="VARCHAR" />
-		<result column="job_subtime" property="jobSubtime" jdbcType="DATE" />
-		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
-		<result column="job_salary" property="jobSalary" jdbcType="DOUBLE" />
-		<result column="job_status" property="jobStatus" jdbcType="INTEGER" />
-		<result column="job_description" property="jobDescription"
-			jdbcType="VARCHAR" />
-		<result column="job_email" property="jobEmail" jdbcType="VARCHAR" />
-		<result column="company_id" property="companyId" jdbcType="INTEGER" />
-		<result column="is_hot" property="isHot" jdbcType="INTEGER" />
+		<id column="job_id" jdbcType="INTEGER" property="jobId" />
+		<result column="job_name" jdbcType="VARCHAR" property="jobName" />
+		<result column="worksite" jdbcType="VARCHAR" property="worksite" />
+		<result column="job_subtime" jdbcType="DATE" property="jobSubtime" />
+		<result column="industry_id" jdbcType="INTEGER" property="industryId" />
+		<result column="job_salary" jdbcType="DOUBLE" property="jobSalary" />
+		<result column="job_status" jdbcType="INTEGER" property="jobStatus" />
+		<result column="job_description" jdbcType="VARCHAR" property="jobDescription" />
+		<result column="job_email" jdbcType="VARCHAR" property="jobEmail" />
+		<result column="company_id" jdbcType="INTEGER" property="companyId" />
+		<result column="is_hot" jdbcType="INTEGER" property="isHot" />
+		<result column="job_acquire" jdbcType="VARCHAR" property="jobAcquire" />
 	</resultMap>
 	<resultMap type="com.pojo.Job" id="jobResumeMap" extends="BaseResultMap">
 		<collection property="resumes" ofType="com.pojo.Resume">
@@ -77,6 +77,9 @@
 			<if test="isHot != null">
 				is_hot,
 			</if>
+			<if test="jobAcquire != null">
+				job_acquire,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="jobId != null">
@@ -111,6 +114,9 @@
 			</if>
 			<if test="isHot != null">
 				#{isHot,jdbcType=INTEGER},
+			</if>
+			<if test="jobAcquire != null">
+				#{jobAcquire,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -194,5 +200,39 @@
 		<if test="page!=null">
 			limit #{page.pageNums},#{page.pageSize}
 		</if>
+	</select>
+	<select id="findJobDetailByJobId" parameterType="int"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry where job_id=#{jobId} and
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=company.company_id
+	</select>
+	<select id="findThreeJobByCompanyId" parameterType="int"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry where job.company_id=#{companyId} and
+		job.company_id=company.company_id and
+		job.industry_id=industry.industry_id order by
+		job.job_subtime desc
+		limit 3
+	</select>
+	<select id="findJobsByCommonNameLimitFour" parameterType="com.pojo.JobCustom"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,industry.industry_name
+		from
+		job,company,industry where job.job_name like "%${jobName}%" and
+		job.job_id!=#{jobId}
+		and
+		job.company_id=company.company_id and
+		job.industry_id=industry.industry_id order by
+		job.job_subtime desc
+		limit 4
 	</select>
 </mapper>

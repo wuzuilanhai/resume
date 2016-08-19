@@ -32,4 +32,10 @@ public interface JobMapper {
 
 	List<JobCustom> findJobsByCondition(JobQueryVo jobQueryVo) throws Exception;
 
+	JobCustom findJobDetailByJobId(Integer jobId) throws Exception;
+
+	List<JobCustom> findThreeJobByCompanyId(Integer companyId) throws Exception;
+
+	List<JobCustom> findJobsByCommonNameLimitFour(JobCustom jobCustom) throws Exception;
+
 }

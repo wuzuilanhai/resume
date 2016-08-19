@@ -24,4 +24,9 @@ public class ResumeJobServiceImpl extends BasicServiceImpl implements
 		resumeJobMapper.deleteResumeJobByJobId(jobId);
 	}
 
+	public ResumeJob findResumeJobByResumeJob(ResumeJob resumeJob)
+			throws Exception {
+		return resumeJobMapper.findResumeJobByResumeJob(resumeJob);
+	}
+
 }

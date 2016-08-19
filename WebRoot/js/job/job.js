@@ -139,3 +139,26 @@ $('#salary').change(function() {
 		$('#searchForm').submit();
 	}
 });
+$('#addResumeJobBtn').click(
+		function() {
+			var jobId = $('#jobIdValue').val();
+			$.ajax({
+				type : 'post',
+				url : getRootPath() + "/resumeJob/addResumeJob.action?jobId="
+						+ jobId,
+				data : {},
+				dataType : "json",
+				success : function(data) {
+					if (data.info == "success") {
+						$('#addResumeJobImg').attr("src",
+								getRootPath() + "/images/job/hasSend.png");
+					} else if (data.info == "failed") {
+						alert("用户还未登录！");
+						window.location.href = getRootPath() + "/index.jsp";
+					}
+				},
+				error : function() {
+					alert("异常");
+				}
+			});
+		});

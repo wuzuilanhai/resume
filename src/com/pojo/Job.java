@@ -32,6 +32,8 @@ public class Job implements Serializable {
 
 	private Integer isHot;
 
+	private String jobAcquire;
+
 	private List<Resume> resumes;
 
 	public Integer getJobId() {
@@ -121,6 +123,14 @@ public class Job implements Serializable {
 
 	public void setIsHot(Integer isHot) {
 		this.isHot = isHot;
+	}
+
+	public String getJobAcquire() {
+		return jobAcquire;
+	}
+
+	public void setJobAcquire(String jobAcquire) {
+		this.jobAcquire = jobAcquire;
 	}
 
 	public List<Resume> getResumes() {
