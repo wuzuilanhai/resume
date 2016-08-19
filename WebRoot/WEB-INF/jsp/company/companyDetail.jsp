@@ -33,9 +33,10 @@
 	<div class="framehead" style="position:fixed;z-index:100;">
 		<div class="frameheadmid" style="position:relative;z-index:101">
 			<div class="buttontop">
-				<img
+				<a href="${pageContext.request.contextPath}/index.jsp"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/detail/logo.png"
 					width="132" height="50" alt="" />
+				</a>
 			</div>
 			<div class="buttontop" style="left:182;">
 				<a

@@ -144,4 +144,16 @@ public class CompanyController extends BasicController {
 		return "company/companyDetail";
 	}
 
+	/**
+	 * 企业版的管理页面
+	 * 
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/companyManage")
+	public String companyManage(HttpSession session) throws Exception {
+		return "company/companyManage";
+	}
+
 }

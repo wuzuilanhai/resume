@@ -565,3 +565,15 @@ $("a[id^='deleteResumeJobByJobIdBtn']").click(
 				}
 			});
 		});
+var rotation2 = function() {
+	$('#headImg').rotate({
+		angle : 0,
+		animateTo : 360,
+		callback : rotation2,
+		duration : 40000,
+		easing : function(x, t, b, c, d) {
+			return c * (t / d) + b;
+		}
+	});
+}
+rotation2();

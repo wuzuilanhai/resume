@@ -87,6 +87,7 @@
 			<div class="mask"
 				style="position:absolute;left:0;top:21;width:232;height:330;float:left">
 				<img style="position:absolute;left:46;top:20;float:left"
+					id="headImg"
 					src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
 					width="140" height="140" alt="" />
 				<div
@@ -458,20 +459,17 @@
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label>
-										</td>
+												已婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label>
-										</td>
+												未婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label>
-										</td>
+												保密</label></td>
 									</tr>
 								</table>
 							</div>
@@ -2096,6 +2094,8 @@
 		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jquery.rotate.min.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/resume/myResume.js"></script>
 	<script type="text/javascript"

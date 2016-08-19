@@ -82,7 +82,7 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
-				<a href="#" onclick="return false" onMouseOut="MM_swapImgRestore()"
+				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/jobhunterRegister/index/business2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/business.png"
 					alt="" width="80" height="30" id="business"> </a>
@@ -95,10 +95,12 @@
 				<li class="active"
 					style="position: absolute; left: 0; top: 0;padding:0px"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner1.png"
-					alt="" /></li>
+					alt="" />
+				</li>
 				<li style="position: absolute; left: 0; top: 0;"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner2.png"
-					alt="" /></li>
+					alt="" />
+				</li>
 			</ul>
 			<div class="fomW"
 				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
