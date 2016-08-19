@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pojo.Company;
 import com.pojo.Industry;
+import com.pojo.Job;
+import com.pojo.JobCustom;
+import com.pojo.Jobhunter;
+import com.pojo.Resume;
+import com.pojo.ResumeJob;
 import com.util.MD5Utils;
 
 /**
@@ -117,4 +122,26 @@ public class CompanyController extends BasicController {
 		}
 		return company2;
 	}
+
+	/**
+	 * 根据职位id查看企业详细信息
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/showCompanyDetailByJobId")
+	public String showCompanyDetailByJobId(Integer jobId, HttpSession session)
+			throws Exception {
+		JobCustom jobCustom = jobService.findJobDetailByJobId(jobId);
+		// 准备该企业最新三个发布的职位信息
+		List<JobCustom> threeLatestJobs = jobService
+				.findThreeJobByCompanyId(jobCustom.getCompanyId());
+		session.setAttribute("jobCustom", jobCustom);
+		session.setAttribute("threeLatestJobs", threeLatestJobs);
+		return "company/companyDetail";
+	}
+
 }

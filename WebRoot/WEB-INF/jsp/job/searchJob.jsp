@@ -275,7 +275,9 @@
 								style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 								<p class="link_a"
 									style="margin: 0; position: absolute; top: 17; left: 20; ">
-									<a href="#">${job.companyName }</a> · <a
+									<a
+										href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${job.jobId}">${job.companyName
+										}</a> · <a
 										href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${job.jobId}">${job.jobName
 										}</a>
 								</p>

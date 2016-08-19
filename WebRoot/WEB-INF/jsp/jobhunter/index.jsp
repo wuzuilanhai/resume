@@ -95,12 +95,10 @@
 				<li class="active"
 					style="position: absolute; left: 0; top: 0;padding:0px"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner1.png"
-					alt="" />
-				</li>
+					alt="" /></li>
 				<li style="position: absolute; left: 0; top: 0;"><img
 					src="${pageContext.request.contextPath}/images/jobhunterRegister/index/banner2.png"
-					alt="" />
-				</li>
+					alt="" /></li>
 			</ul>
 			<div class="fomW"
 				style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
@@ -259,7 +257,9 @@
 							style="position:absolute;top:0;left:220;width:430px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top:17; left: 20;">
-								<a href="#">${jobCustom.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom.jobId}">${jobCustom.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom.jobId}">${jobCustom.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -286,7 +286,9 @@
 							style="position:absolute;top:${(num2.count-1)*80};right:0;width:299px;height:70px;float:left;">
 							<p class="link_a"
 								style="margin:0;position:absolute;top:10;left:35;">
-								<a href="#">${jobCustom2.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom2.jobId}">${jobCustom2.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom2.jobId}">${jobCustom2.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -353,7 +355,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom3.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom3.jobId}">${jobCustom3.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom3.jobId}">${jobCustom3.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -422,7 +426,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom4.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom4.jobId}">${jobCustom4.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom4.jobId}">${jobCustom4.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -491,7 +497,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom5.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom5.jobId}">${jobCustom5.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom5.jobId}">${jobCustom5.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -560,7 +568,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom6.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom6.jobId}">${jobCustom6.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom6.jobId}">${jobCustom6.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -629,7 +639,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom7.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom7.jobId}">${jobCustom7.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom7.jobId}">${jobCustom7.jobName}</a>
 							</p>
 							<p class="text_a"
@@ -698,7 +710,9 @@
 							style="position:absolute;top:0;left:20;width:700px;height:115px;float:left;">
 							<p class="link_a"
 								style="margin: 0; position: absolute; top: 17; left: 20; ">
-								<a href="#">${jobCustom8.companyName}</a> · <a
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom8.jobId}">${jobCustom8.companyName}</a>
+								· <a
 									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom8.jobId}">${jobCustom8.jobName}</a>
 							</p>
 							<p class="text_a"
