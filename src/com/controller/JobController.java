@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pojo.Company;
 import com.pojo.Industry;
 import com.pojo.Job;
 import com.pojo.JobCustom;
@@ -40,17 +41,14 @@ public class JobController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addJob")
-	public String addJob(Job job, String positionName, String companyName)
-			throws Exception {
-		Integer companyId = companyService
-				.findCompanyIdByCompanyName(companyName);
-		job.setCompanyId(companyId);
+	public String addJob(Job job, HttpSession session) throws Exception {
+		Company company = (Company) session.getAttribute("company");
 		job.setJobSubtime(new Date());
 		// 设置发布的职位状态，0：已失效，1：有效
 		job.setJobStatus(1);
+		job.setCompanyId(company.getCompanyId());
 		jobService.addJob(job);
-		System.out.println("==========>" + job.getJobId());
-		return "success";
+		return "redirect:/company/companyManage.action";
 	}
 
 	/**
@@ -325,6 +323,83 @@ public class JobController extends BasicController {
 		session.setAttribute("threeLatestJobs", threeLatestJobs);
 		session.setAttribute("fourCommonJobs", fourCommonJobs);
 		return "job/jobDetail";
+	}
+
+	/**
+	 * 更新职位信息
+	 * 
+	 * @param job
+	 *            封装职位信息的实体
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateJob")
+	public String updateJob(Job job, HttpSession session) throws Exception {
+		jobService.updateJob(job);
+		return "redirect:/company/companyManage.action";
+	}
+
+	/**
+	 * 根据职位id删除职位信息
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/deleteJobByJobId")
+	public String deleteJobByJobId(Integer jobId) throws Exception {
+		jobService.deleteJobByJobId(jobId);
+		return "redirect:/company/companyManage.action";
+	}
+
+	/**
+	 * 根据条件查询职位信息
+	 * 
+	 * @param jobQueryVo
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/searchJob")
+	public String searchJob(JobQueryVo jobQueryVo, HttpServletRequest request,
+			HttpSession session) throws Exception {
+		Company company = (Company) session.getAttribute("company");
+		if (jobQueryVo.getJob() != null) {
+			jobQueryVo.getJob().setCompanyId(company.getCompanyId());
+		} else {
+			Job job = new Job();
+			job.setCompanyId(company.getCompanyId());
+			jobQueryVo.setJob(job);
+		}
+		switch (jobQueryVo.getTime()) {
+		case 1:
+			// 计算一天前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 1
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 2:
+			// 计算一周前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 7
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 3:
+			// 计算一月前的日期
+			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 30
+					* 24 * 60 * 60 * 1000));
+			break;
+		case 4:
+			jobQueryVo.setQueryTime(null);
+			break;
+		default:
+			break;
+		}
+		List<JobCustom> jobCustoms = jobService.findJobsByVo(jobQueryVo);
+		session.setAttribute("jobCustoms", jobCustoms);
+		request.setAttribute("queryJobName", jobQueryVo.getJob().getJobName());
+		request.setAttribute("time", jobQueryVo.getTime());
+		return "company/companyManage";
 	}
 
 }

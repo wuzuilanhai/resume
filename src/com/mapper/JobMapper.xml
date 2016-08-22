@@ -38,6 +38,8 @@
 		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
 		<result column="company_location" property="companyLocation"
 			jdbcType="VARCHAR" />
+		<result column="company_description" property="companyDescription"
+			jdbcType="VARCHAR" />
 		<result column="industry_name" property="industryName"
 			jdbcType="VARCHAR" />
 	</resultMap>
@@ -122,7 +124,7 @@
 	</insert>
 	<select id="findHotJobLimitTenAndNew" resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where
 		job.company_id=company.company_id and
@@ -132,7 +134,7 @@
 	<select id="findHotJobLimitFourAndNewByIndustryId"
 		parameterType="int" resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where job.industry_id=#{industryId} and
 		job.company_id=company.company_id and
@@ -147,7 +149,7 @@
 	<select id="findAllJobsByPage" parameterType="com.pojo.Page"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where job.industry_id=industry.industry_id
 		and
@@ -188,7 +190,7 @@
 	<select id="findJobsByCondition" parameterType="com.pojo.JobQueryVo"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry
 		<where>
@@ -204,7 +206,7 @@
 	<select id="findJobDetailByJobId" parameterType="int"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where job_id=#{jobId} and
 		job.industry_id=industry.industry_id
@@ -214,7 +216,7 @@
 	<select id="findThreeJobByCompanyId" parameterType="int"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where job.company_id=#{companyId} and
 		job.company_id=company.company_id and
@@ -222,10 +224,20 @@
 		job.job_subtime desc
 		limit 3
 	</select>
+	<select id="findJobsByCompanyId" parameterType="int"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		from
+		job,company,industry where job.company_id=#{companyId} and
+		job.company_id=company.company_id and
+		job.industry_id=industry.industry_id order by
+		job.job_subtime desc
+	</select>
 	<select id="findJobsByCommonNameLimitFour" parameterType="com.pojo.JobCustom"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
 		from
 		job,company,industry where job.job_name like "%${jobName}%" and
 		job.job_id!=#{jobId}
@@ -234,5 +246,64 @@
 		job.industry_id=industry.industry_id order by
 		job.job_subtime desc
 		limit 4
+	</select>
+	<update id="updateJob" parameterType="com.pojo.Job">
+		update job
+		<set>
+			<if test="jobName != null">
+				job_name = #{jobName,jdbcType=VARCHAR},
+			</if>
+			<if test="worksite != null">
+				worksite = #{worksite,jdbcType=VARCHAR},
+			</if>
+			<if test="jobSubtime != null">
+				job_subtime = #{jobSubtime,jdbcType=DATE},
+			</if>
+			<if test="industryId != null">
+				industry_id = #{industryId,jdbcType=INTEGER},
+			</if>
+			<if test="jobSalary != null">
+				job_salary = #{jobSalary,jdbcType=DOUBLE},
+			</if>
+			<if test="jobStatus != null">
+				job_status = #{jobStatus,jdbcType=INTEGER},
+			</if>
+			<if test="jobDescription != null">
+				job_description = #{jobDescription,jdbcType=VARCHAR},
+			</if>
+			<if test="jobEmail != null">
+				job_email = #{jobEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				company_id = #{companyId,jdbcType=INTEGER},
+			</if>
+			<if test="isHot != null">
+				is_hot = #{isHot,jdbcType=INTEGER},
+			</if>
+			<if test="jobAcquire != null">
+				job_acquire = #{jobAcquire,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where job_id=#{jobId}
+	</update>
+	<delete id="deleteJobByJobId" parameterType="int">
+		delete from job
+		where job_id=#{jobId}
+	</delete>
+	<select id="findJobsByVo" parameterType="com.pojo.JobQueryVo"
+		resultMap="hotJobLimitTenAndNewResultMap">
+		select
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		from
+		job,company,industry where job.company_id=#{job.companyId}
+		<if test="job.jobName!=null">
+			and job_name like "%${job.jobName}%"
+		</if>
+		<if test="queryTime!=null">
+			and job.job_subtime>#{queryTime}
+		</if>
+		and
+		job.company_id=company.company_id and
+		job.industry_id=industry.industry_id
 	</select>
 </mapper>

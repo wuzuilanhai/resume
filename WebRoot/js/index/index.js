@@ -131,7 +131,7 @@ $('#findCompanyBtn').click(function() {
 	var formAttr = $('#form2').serialize();
 	$.post(action, formAttr, function(data) {
 		if (jQuery.isEmptyObject(data)) {
-			alert("用户名与密码不相符!");
+			alert("企业用户名与密码不相符!");
 			$("#form2 input:eq(1)").val("");
 		}
 	});

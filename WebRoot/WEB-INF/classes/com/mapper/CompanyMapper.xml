@@ -2,22 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.CompanyMapper">
 	<resultMap id="BaseResultMap" type="com.pojo.Company">
-		<id column="company_id" property="companyId" jdbcType="INTEGER" />
-		<result column="company_name" property="companyName" jdbcType="VARCHAR" />
-		<result column="company_login_name" property="companyLoginName"
-			jdbcType="VARCHAR" />
-		<result column="company_password" property="companyPassword"
-			jdbcType="VARCHAR" />
-		<result column="company_location" property="companyLocation"
-			jdbcType="VARCHAR" />
-		<result column="industry_id" property="industryId" jdbcType="INTEGER" />
-		<result column="chatter_name" property="chatterName" jdbcType="VARCHAR" />
-		<result column="chatter_sex" property="chatterSex" jdbcType="VARCHAR" />
-		<result column="company_email" property="companyEmail"
-			jdbcType="VARCHAR" />
-		<result column="chatter_phone" property="chatterPhone"
-			jdbcType="VARCHAR" />
-		<result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+		<id column="company_id" jdbcType="INTEGER" property="companyId" />
+		<result column="company_name" jdbcType="VARCHAR" property="companyName" />
+		<result column="company_login_name" jdbcType="VARCHAR"
+			property="companyLoginName" />
+		<result column="company_password" jdbcType="VARCHAR" property="companyPassword" />
+		<result column="company_location" jdbcType="VARCHAR" property="companyLocation" />
+		<result column="industry_id" jdbcType="INTEGER" property="industryId" />
+		<result column="chatter_name" jdbcType="VARCHAR" property="chatterName" />
+		<result column="chatter_sex" jdbcType="VARCHAR" property="chatterSex" />
+		<result column="company_email" jdbcType="VARCHAR" property="companyEmail" />
+		<result column="chatter_phone" jdbcType="VARCHAR" property="chatterPhone" />
+		<result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+		<result column="company_description" jdbcType="VARCHAR"
+			property="companyDescription" />
 	</resultMap>
 	<insert id="addCompany" parameterType="com.pojo.Company">
 		insert into company
@@ -55,6 +53,9 @@
 			<if test="phoneNumber != null">
 				phone_number,
 			</if>
+			<if test="companyDescription != null">
+				company_description,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="companyId != null">
@@ -89,6 +90,9 @@
 			</if>
 			<if test="phoneNumber != null">
 				#{phoneNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="companyDescription != null">
+				#{companyDescription,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>

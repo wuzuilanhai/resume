@@ -12,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.exception.MyException;
 import com.pojo.Company;
 import com.pojo.Industry;
 import com.pojo.Job;
 import com.pojo.JobCustom;
+import com.pojo.JobQueryVo;
 import com.pojo.Jobhunter;
 import com.pojo.Resume;
 import com.pojo.ResumeJob;
@@ -117,8 +119,7 @@ public class CompanyController extends BasicController {
 		company.setCompanyPassword(MD5Utils.md5(company.getCompanyPassword()));
 		Company company2 = companyService.findCompanyLogin(company);
 		if (company2 != null) {
-			session.setAttribute("companyLoginName",
-					company2.getCompanyLoginName());
+			session.setAttribute("company", company2);
 		}
 		return company2;
 	}
@@ -153,7 +154,17 @@ public class CompanyController extends BasicController {
 	 */
 	@RequestMapping("/companyManage")
 	public String companyManage(HttpSession session) throws Exception {
-		return "company/companyManage";
+		// 判断企业是否已经登录
+		Company company = (Company) session.getAttribute("company");
+		if (company != null) {
+			// 准备职位数据信息
+			List<JobCustom> jobCustoms = jobService.findJobsByCompanyId(company
+					.getCompanyId());
+			// 准备简历数据信息
+			session.setAttribute("jobCustoms", jobCustoms);
+			return "company/companyManage";
+		} else {
+			throw new MyException("企业用户还未登录！");
+		}
 	}
-
 }

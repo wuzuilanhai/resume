@@ -65,4 +65,21 @@ public class JobServiceImpl extends BasicServiceImpl implements JobService {
 		return jobMapper.findJobsByCommonNameLimitFour(jobCustom);
 	}
 
+	public List<JobCustom> findJobsByCompanyId(Integer companyId)
+			throws Exception {
+		return jobMapper.findJobsByCompanyId(companyId);
+	}
+
+	public void updateJob(Job job) throws Exception {
+		jobMapper.updateJob(job);
+	}
+
+	public void deleteJobByJobId(Integer jobId) throws Exception {
+		jobMapper.deleteJobByJobId(jobId);
+	}
+
+	public List<JobCustom> findJobsByVo(JobQueryVo jobQueryVo) throws Exception {
+		return jobMapper.findJobsByVo(jobQueryVo);
+	}
+
 }

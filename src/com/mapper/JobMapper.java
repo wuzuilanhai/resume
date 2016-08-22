@@ -36,6 +36,14 @@ public interface JobMapper {
 
 	List<JobCustom> findThreeJobByCompanyId(Integer companyId) throws Exception;
 
-	List<JobCustom> findJobsByCommonNameLimitFour(JobCustom jobCustom) throws Exception;
+	List<JobCustom> findJobsByCommonNameLimitFour(JobCustom jobCustom)
+			throws Exception;
 
+	List<JobCustom> findJobsByCompanyId(Integer companyId) throws Exception;
+
+	void updateJob(Job job) throws Exception;
+
+	void deleteJobByJobId(Integer jobId) throws Exception;
+
+	List<JobCustom> findJobsByVo(JobQueryVo jobQueryVo) throws Exception;
 }

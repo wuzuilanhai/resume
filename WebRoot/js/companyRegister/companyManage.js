@@ -108,3 +108,106 @@ $("a[id^='showFrameRight']").click(function() {
 	$(showDivId).show();
 	$(showLeftDivId).show();
 });
+$("input[id^='jobName']").click(function() {
+	var id = $(this).attr('id').substring(7);
+	var newId = "#jobNameTip" + id;
+	$(newId).html("");
+});
+$("input[id^='worksite']").click(function() {
+	var id = $(this).attr('id').substring(8);
+	var newId = "#worksiteTip" + id;
+	$(newId).html("");
+});
+$("input[id^='jobSalary']").click(function() {
+	var id = $(this).attr('id').substring(9);
+	var newId = "#jobSalaryTip" + id;
+	$(newId).html("");
+});
+$("input[id^='jobEmail']").click(function() {
+	var id = $(this).attr('id').substring(8);
+	var newId = "#jobEmailTip" + id;
+	$(newId).html("");
+});
+$("a[id^='updateJob']").click(function() {
+	var str = $(this).attr("id").substring(9);
+	var input1 = "#jobName" + str;
+	var inputTip1 = "#jobNameTip" + str;
+	var input2 = "#worksite" + str;
+	var inputTip2 = "#worksiteTip" + str;
+	var input3 = "#jobSalary" + str;
+	var inputTip3 = "#jobSalaryTip" + str;
+	var input4 = "#jobEmail" + str;
+	var inputTip4 = "#jobEmailTip" + str;
+	if ($(input1).val().trim().length == 0) {
+		$(inputTip1).html("");
+		$(inputTip1).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($(input2).val().trim().length == 0) {
+		$(inputTip2).html("");
+		$(inputTip2).html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($(input3).val().trim().length == 0) {
+		$(inputTip3).html("");
+		$(inputTip3).html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^[0-9]+(\.[0-9]+){0,1}$/.test($(input3).val().trim())) {
+		$(input3).val("");
+		$(inputTip3).html("");
+		$(inputTip3).html("<font color='red'>请输入数字!</font>");
+		return;
+	}
+	if ($(input4).val().trim().length == 0) {
+		$(inputTip4).html("");
+		$(inputTip4).html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^\w{3,}@\w+(\.\w+)+$/.test($(input4).val().trim())) {
+		$(input4).val("");
+		$(inputTip4).html("");
+		$(inputTip4).html("<font color='red'>邮箱格式有误!</font>");
+		return;
+	}
+	var formId = "#updateJobForm" + str;
+	$(formId).submit();
+});
+$("a[id^='addJobBtn']").click(function() {
+	if ($("#jobName").val().trim().length == 0) {
+		$("#jobNameTip").html("");
+		$("#jobNameTip").html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($("#worksite").val().trim().length == 0) {
+		$("#worksiteTip").html("");
+		$("#worksiteTip").html("<font color='red'>输入不能为空!</font>");
+		return;
+	}
+	if ($("#jobSalary").val().trim().length == 0) {
+		$("#jobSalaryTip").html("");
+		$("#jobSalaryTip").html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^[0-9]+(\.[0-9]+){0,1}$/.test($("#jobSalary").val().trim())) {
+		$("#jobSalary").val("");
+		$("#jobSalaryTip").html("");
+		$("#jobSalaryTip").html("<font color='red'>请输入数字!</font>");
+		return;
+	}
+	if ($("#jobEmail").val().trim().length == 0) {
+		$("#jobEmailTip").html("");
+		$("#jobEmailTip").html("<font color='red'>输入不能为空!</font>");
+		return;
+	} else if (!/^\w{3,}@\w+(\.\w+)+$/.test($("#jobEmail").val().trim())) {
+		$("#jobEmail").val("");
+		$("#jobEmailTip").html("");
+		$("#jobEmailTip").html("<font color='red'>邮箱格式有误!</font>");
+		return;
+	}
+	$("#addJobForm").submit();
+});
+$("#searchJobBtn").click(function() {
+	$("#searchJobForm").submit();
+});
+$("#clearBtn").click(function() {
+	$("#queryJobName").val("");
+	$("#time").find("option[value='4']").attr("selected", true);
+});

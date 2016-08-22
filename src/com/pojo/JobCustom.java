@@ -22,6 +22,8 @@ public class JobCustom extends Job implements Serializable {
 
 	private String companyLocation;
 
+	private String companyDescription;
+
 	private String industryName;
 
 	private Date submitTime;
@@ -48,6 +50,14 @@ public class JobCustom extends Job implements Serializable {
 
 	public void setCompanyLocation(String companyLocation) {
 		this.companyLocation = companyLocation;
+	}
+
+	public String getCompanyDescription() {
+		return companyDescription;
+	}
+
+	public void setCompanyDescription(String companyDescription) {
+		this.companyDescription = companyDescription;
 	}
 
 	public String getIndustryName() {

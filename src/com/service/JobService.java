@@ -103,4 +103,38 @@ public interface JobService {
 	List<JobCustom> findJobsByCommonNameLimitFour(JobCustom jobCustom)
 			throws Exception;
 
+	/**
+	 * 根据企业id准备该企业发布的职位信息
+	 * 
+	 * @param companyId
+	 *            根据企业id准备该企业最新三个发布的职位信息
+	 * @return 封装企业信息的列表
+	 */
+	List<JobCustom> findJobsByCompanyId(Integer companyId) throws Exception;
+
+	/**
+	 * 更新职位信息
+	 * 
+	 * @param job
+	 *            封装职位信息的实体
+	 */
+	void updateJob(Job job) throws Exception;
+
+	/**
+	 * 根据职位id删除相关职位信息
+	 * 
+	 * @param jobId
+	 *            职位id
+	 */
+	void deleteJobByJobId(Integer jobId) throws Exception;
+
+	/**
+	 * 根据条件查询职位信息列表
+	 * 
+	 * @param jobQueryVo
+	 *            封装查询条件的实体
+	 * @return 职位信息列表
+	 */
+	List<JobCustom> findJobsByVo(JobQueryVo jobQueryVo) throws Exception;
+
 }

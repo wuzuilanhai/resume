@@ -208,37 +208,40 @@
 						</div>
 					</div>
 					<div style="margin-top:15;position:relative;width:697px;height:80;">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a id="searchJobBtn" href="javascript:void(0)"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('search','','${pageContext.request.contextPath}/images/companyRegister/manage/search2.png',0)"><img
 							style="position:absolute;right:70;"
 							src="${pageContext.request.contextPath}/images/companyRegister/manage/search.png"
 							alt="" width="100" height="50" id="search"> </a>
 						<p
 							style="position:absolute;top:5;left:30;width:70px;height:20px;font-size: 14px;">职位名称：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="jobname" value="填写职位名称"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写职位名称'){value =''}"
-							onBlur="if (value ==''){value='填写职位名称'}"
-							style="position:absolute;left:120;top:5;width:150px; height:30px;" />
-						<p
-							style="position:absolute;top:45;left:30;width:70px;height:20px;font-size: 14px;">发布日期：</p>
-						<input class="form-control" name="textfield" type="text" id="age"
-							value="填写发布日期下限" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写发布日期下限'){value =''}"
-							onBlur="if (value ==''){value='填写发布日期下限'}"
-							style="position:absolute;left:120;top:45;width:150px; height:30px;" />
-						<input class="form-control" name="textfield" type="text" id="age2"
-							value="填写发布日期上限" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写发布日期上限'){value =''}"
-							onBlur="if (value ==''){value='填写发布日期上限'}"
-							style="position:absolute;left:280;top:45;width:150px; height:30px;" />
+						<form id="searchJobForm"
+							action="${pageContext.request.contextPath}/job/searchJob.action"
+							method="post">
+							<input class="form-control" name="job.jobName" type="text"
+								id="queryJobName" placeHolder="填写职位名称"
+								value="${requestScope.queryJobName }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:120;top:5;width:150px; height:30px;" />
+							<p
+								style="position:absolute;top:45;left:30;width:70px;height:20px;font-size: 14px;">发布日期：</p>
+							<select id="time" type="text" class="form-control" name="time"
+								style="position:absolute;left:120;top:45;width:150px; height:30px;">
+								<option value=4
+									<c:if test="${requestScope.time eq 4 }">selected</c:if>>不限</option>
+								<option value=1
+									<c:if test="${requestScope.time eq 1 }">selected</c:if>>一天内</option>
+								<option value=2
+									<c:if test="${requestScope.time eq 2 }">selected</c:if>>一周内</option>
+								<option value=3
+									<c:if test="${requestScope.time eq 3 }">selected</c:if>>一月内</option>
+							</select>
+						</form>
 						<p id="clear"
 							style="display:block;position:absolute;top:50;right:60;width:100px;height:20px;">
-							<a>清空搜索条件</a>
+							<a href="javascript:void(0)" id="clearBtn">清空搜索条件</a>
 						</p>
 					</div>
 				</div>
@@ -285,115 +288,81 @@
 						</div>
 					</div>
 					<div id="LM1" class="jobdetail" style="DISPLAY:none;">
-						<div class="fill" style="top:10">
-							<p>职位名称：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="name" value="填写职位名称"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写职位名称'){value =''}"
-								onBlur="if (value ==''){value='填写职位名称'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:60">
-							<p>性别要求：</p>
-							<table id="sex"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup1_0"> 男</td>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup1_1"> 女</td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:110">
-							<p>工作地址：</p>
-							<select id="province" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>省份</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="city" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>城市</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:160">
-							<input class="form-control" name="textfield" type="text"
-								id="address" value="填写工作地址"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写工作地址'){value =''}"
-								onBlur="if (value ==''){value='填写工作地址'}" style="" />
-						</div>
-						<div class="fill" style="top:210">
-							<p>行业分类：</p>
-							<select id="profession" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>行业</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>分类</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:260">
-							<p>职位年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salarylow" value="填写最低年薪（万）"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最低年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最低年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
-							<input class="form-control" name="textfield" type="text"
-								id="salaryhigh" value="填写最高年薪（万）"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最高年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最高年薪（万）'}"
-								style="position:absolute;left:210;top:10;float:left;width:90px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:-25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-105;top:14;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-						</div>
-						<div class="fill" style="top:310">
-							<p>投递邮箱：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="e-mail" value="填写简历接收邮箱地址"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写简历接收邮箱地址'){value =''}"
-								onBlur="if (value ==''){value='填写简历接收邮箱地址'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:360">
-							<p>职位描述：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdetail" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">描述职位详情（限制1000字）</textarea>
-						</div>
-						<div class="fill" style="top:480">
-							<p>职位要求：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdemand" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">描述职位详情（限制1000字）</textarea>
-						</div>
-						<div class="fill" style="padding-top:10;padding-left:100;top:600">
-							<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+						<form id="addJobForm"
+							action="${pageContext.request.contextPath}/job/addJob.action"
+							method="post">
+							<div class="fill" style="top:10">
+								<p>职位名称：</p>
+								<input class="form-control" name="jobName" type="text"
+									id="jobName" placeHolder="填写职位名称"
+									onmouseover="this.style.borderColor='#316392'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+								<div id="jobNameTip"
+									style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:60">
+								<p>工作地址：</p>
+								<input class="form-control" name="worksite" type="text"
+									id="worksite" placeHolder="填写工作地址"
+									onmouseover="this.style.borderColor='#316392'"
+									onmouseout="this.style.borderColor=''" style="" />
+								<div id="worksiteTip"
+									style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:110">
+								<p>行业分类：</p>
+								<select id="profession" type="text" class="form-control"
+									name="industryId" style="left:100;width:90px;">
+									<option value=1>互联网·IT</option>
+									<option value=2>金融业</option>
+									<option value=3>快销行业</option>
+									<option value=4>建筑业</option>
+									<option value=5>汽车·制造</option>
+									<option value=6>医疗·化工</option>
+								</select>
+							</div>
+							<div class="fill" style="top:160">
+								<p>职位月薪：</p>
+								<input class="form-control" name="jobSalary" type="text"
+									id="jobSalary" placeHolder="填写月薪（元）"
+									onmouseover="this.style.borderColor='#316392'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
+								<div id="jobSalaryTip"
+									style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:210">
+								<p>投递邮箱：</p>
+								<input class="form-control" name="jobEmail" type="text"
+									id="jobEmail" placeHolder="填写简历接收邮箱地址"
+									onmouseover="this.style.borderColor='#316392'"
+									onmouseout="this.style.borderColor=''"
+									style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+								<div id="jobEmailTip"
+									style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+							</div>
+							<div class="fill" style="top:260">
+								<p>职位描述：</p>
+								<textarea class="form-control" name="jobDescription" type="text"
+									id="jobDescription"
+									onmouseover="this.style.borderColor='#316392'"
+									placeHolder="描述职位详情（限制1000字）"
+									onmouseout="this.style.borderColor=''"
+									style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
+							</div>
+							<div class="fill" style="top:380">
+								<p>职位要求：</p>
+								<textarea class="form-control" name="jobAcquire" type="text"
+									id="jobAcquire" onmouseover="this.style.borderColor='#316392'"
+									onmouseout="this.style.borderColor=''"
+									placeHolder="描述职位要求（限制1000字）"
+									style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;"></textarea>
+							</div>
+						</form>
+						<div class="fill" style="padding-top:10;padding-left:100;top:500">
+							<a id="addJobBtn" href="javascript:void(0)"
+								onMouseOut="MM_swapImgRestore()"
 								onMouseOver="MM_swapImage('save1','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
 								src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
 								alt="" width="60" height="40" id="save1"> </a> <a
@@ -405,498 +374,130 @@
 								alt="" width="60" height="40" id="cancel"> </a>
 						</div>
 					</div>
-					<div id="title2"
-						style="margin-top:10;position:relative;width:450;height:50;">
-						<p2 style="margin:0;position:absolute;top:13;left:30;">JAVA工程师</p2>
-						<div
-							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-							<img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-								width="400" height="1" alt="" />
+					<c:forEach items="${sessionScope.jobCustoms }" var="jobCustom"
+						varStatus="num">
+						<div id="title${num.count+1 }"
+							style="margin-top:10;position:relative;width:450;height:50;">
+							<p2 style="margin:0;position:absolute;top:13;left:30;">${jobCustom.jobName
+							}</p2>
+							<div
+								style="position:absolute;top:50;left:25;width:400;height:1;float:left">
+								<img
+									src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
+									width="400" height="1" alt="" />
+							</div>
+							<div onClick="javascript:ShowFLT(${num.count+1 })"
+								href="javascript:void(null)">
+								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+									onMouseOver="MM_swapImage('fold${num.count+1 }-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
+									<div
+										style="position:absolute;top:10;right:20;width:30;height:30;float:left">
+										<img
+											src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
+											alt="" width="30" height="30" id="fold${num.count+1 }-1">
+									</div> </a>
+							</div>
 						</div>
-						<div onClick="javascript:ShowFLT(2)" href="javascript:void(null)">
-							<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('fold2-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-								<div
-									style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-									<img
-										src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-										alt="" width="30" height="30" id="fold2-1">
-								</div> </a>
+						<div id="LM${num.count+1 }" class="jobdetail"
+							style="DISPLAY:block;">
+							<form id="updateJobForm${num.count+1 }"
+								action="${pageContext.request.contextPath}/job/updateJob.action"
+								method="post">
+								<input type="hidden" value="${jobCustom.jobId }" name="jobId" />
+								<div class="fill" style="top:10">
+									<p>职位名称：</p>
+									<input class="form-control" name="jobName" type="text"
+										id="jobName${num.count+1 }" value="${jobCustom.jobName }"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="jobNameTip${num.count+1 }"
+										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:60">
+									<p>工作地址：</p>
+									<input class="form-control" name="worksite" type="text"
+										id="worksite${num.count+1 }" value="${jobCustom.worksite }"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''" style="" />
+									<div id="worksiteTip${num.count+1 }"
+										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:110">
+									<p>行业分类：</p>
+									<select id="industryId${num.count+1 }" type="text"
+										class="form-control" name="industryId"
+										style="left:100;width:90px;">
+										<option value=1
+											<c:if test="${jobCustom.industryName=='互联网·IT'}">selected</c:if>>互联网·IT</option>
+										<option value=2
+											<c:if test="${jobCustom.industryName=='金融业'}">selected</c:if>>金融业</option>
+										<option value=3
+											<c:if test="${jobCustom.industryName=='快销行业'}">selected</c:if>>快销行业</option>
+										<option value=4
+											<c:if test="${jobCustom.industryName=='建筑业'}">selected</c:if>>建筑业</option>
+										<option value=5
+											<c:if test="${jobCustom.industryName=='汽车·制造'}">selected</c:if>>汽车·制造</option>
+										<option value=6
+											<c:if test="${jobCustom.industryName=='医疗·化工'}">selected</c:if>>医疗·化工</option>
+									</select>
+								</div>
+								<div class="fill" style="top:160">
+									<p>职位月薪：</p>
+									<input class="form-control" name="jobSalary" type="text"
+										id="jobSalary${num.count+1 }" value="${jobCustom.jobSalary}"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
+									<div id="jobSalaryTip${num.count+1 }"
+										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:210">
+									<p>投递邮箱：</p>
+									<input class="form-control" name="jobEmail" type="text"
+										id="jobEmail${num.count+1 }" value="${jobCustom.jobEmail}"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''"
+										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+									<div id="jobEmailTip${num.count+1 }"
+										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+								</div>
+								<div class="fill" style="top:260">
+									<p>职位描述：</p>
+									<textarea class="form-control" name="jobDescription"
+										type="text" id="jobDescription${num.count+1 }"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''"
+										style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
+${jobCustom.jobDescription }</textarea>
+								</div>
+								<div class="fill" style="top:380">
+									<p>职位要求：</p>
+									<textarea class="form-control" name="jobAcquire" type="text"
+										id="jobAcquire${num.count+1 }"
+										onmouseover="this.style.borderColor='#316392'"
+										onmouseout="this.style.borderColor=''"
+										style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
+${jobCustom.jobAcquire }</textarea>
+								</div>
+							</form>
+							<div class="fill" style="padding-top:10;padding-left:100;top:500">
+								<a id="updateJob${num.count+1 }" href="javascript:void(0)"
+									onMouseOut="MM_swapImgRestore()"
+									onMouseOver="MM_swapImage('save${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
+									src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
+									alt="" width="60" height="40" id="save${num.count+1 }"> </a>
+								<a
+									href="${pageContext.request.contextPath}/job/deleteJobByJobId.action?jobId=${jobCustom.jobId }"
+									onMouseOut="MM_swapImgRestore()"
+									onMouseOver="MM_swapImage('delete${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
+									style="margin-left:75;"
+									src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
+									alt="" width="60" height="40" id="delete${num.count+1 }">
+								</a>
+							</div>
 						</div>
-					</div>
-					<div id="LM2" class="jobdetail" style="DISPLAY:block;">
-						<div class="fill" style="top:10">
-							<p>职位名称：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="name2" value="PHP工程师"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写职位名称'){value =''}"
-								onBlur="if (value ==''){value='填写职位名称'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:60">
-							<p>性别要求：</p>
-							<table id="sex2"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup2_0"> 男</td>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup2_1"> 女</td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:110">
-							<p>工作地址：</p>
-							<select id="province2" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>广东省</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="city2" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>广州市</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:160">
-							<input class="form-control" name="textfield" type="text"
-								id="address2" value="天河区揽月路8号东软大楼519"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写工作地址'){value =''}"
-								onBlur="if (value ==''){value='填写工作地址'}" style="" />
-						</div>
-						<div class="fill" style="top:210">
-							<p>行业分类：</p>
-							<select id="profession2" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>互联网/IT</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type2" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>前端开发</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:260">
-							<p>职位年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salarylow2" value="15万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最低年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最低年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
-							<input class="form-control" name="textfield" type="text"
-								id="salaryhigh2" value="20万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最高年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最高年薪（万）'}"
-								style="position:absolute;left:210;top:10;float:left;width:90px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:-25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-105;top:14;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-						</div>
-						<div class="fill" style="top:310">
-							<p>投递邮箱：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="e-mail2" value="neusoft@neusoft.com"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写简历接收邮箱地址'){value =''}"
-								onBlur="if (value ==''){value='填写简历接收邮箱地址'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:360">
-							<p>职位描述：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdetail2" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="top:480">
-							<p>职位要求：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdeman2" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="padding-top:10;padding-left:100;top:600">
-							<a href="#" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('save2','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
-								alt="" width="60" height="40" id="save2"> </a> <a href="#"
-								onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('delete2','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
-								style="margin-left:75;"
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
-								alt="" width="60" height="40" id="delete2"> </a>
-						</div>
-					</div>
-					<div id="title3"
-						style="margin-top:10;position:relative;width:450;height:50;">
-						<p2 style="margin:0;position:absolute;top:13;left:30;">项目经理</p2>
-						<div
-							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-							<img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-								width="400" height="1" alt="" />
-						</div>
-						<div onClick="javascript:ShowFLT(3)" href="javascript:void(null)">
-							<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('fold3-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-								<div
-									style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-									<img
-										src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-										alt="" width="30" height="30" id="fold3-1">
-								</div> </a>
-						</div>
-					</div>
-					<div id="LM3" class="jobdetail" style="DISPLAY:block;">
-						<div class="fill" style="top:10">
-							<p>职位名称：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="name3" value="PHP工程师"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写职位名称'){value =''}"
-								onBlur="if (value ==''){value='填写职位名称'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:60">
-							<p>性别要求：</p>
-							<table id="sex3"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup3_0"> 男</td>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup3_1"> 女</td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:110">
-							<p>工作地址：</p>
-							<select id="province3" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>广东省</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="city3" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>广州市</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:160">
-							<input class="form-control" name="textfield" type="text"
-								id="address3" value="天河区揽月路8号东软大楼519"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写工作地址'){value =''}"
-								onBlur="if (value ==''){value='填写工作地址'}" style="" />
-						</div>
-						<div class="fill" style="top:210">
-							<p>行业分类：</p>
-							<select id="profession3" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>互联网/IT</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type3" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>前端开发</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:260">
-							<p>职位年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salarylow3" value="15万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最低年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最低年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
-							<input class="form-control" name="textfield" type="text"
-								id="salaryhigh3" value="20万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最高年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最高年薪（万）'}"
-								style="position:absolute;left:210;top:10;float:left;width:90px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:-25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-105;top:14;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-						</div>
-						<div class="fill" style="top:310">
-							<p>投递邮箱：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="e-mail3" value="neusoft@neusoft.com"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写简历接收邮箱地址'){value =''}"
-								onBlur="if (value ==''){value='填写简历接收邮箱地址'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:360">
-							<p>企业简介：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdetail3" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="top:480">
-							<p>职位要求：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdemand3" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="padding-top:10;padding-left:100;top:600">
-							<a href="#" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('save3','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
-								alt="" width="60" height="40" id="save3"> </a> <a href="#"
-								onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('delete3','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
-								style="margin-left:75;"
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
-								alt="" width="60" height="40" id="delete3"> </a>
-						</div>
-					</div>
-					<div id="title4"
-						style="margin-top:10;position:relative;width:450;height:50;">
-						<p2 style="margin:0;position:absolute;top:13;left:30;">PHP工程师</p2>
-						<div
-							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-							<img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-								width="400" height="1" alt="" />
-						</div>
-						<div onClick="javascript:ShowFLT(4)" href="javascript:void(null)">
-							<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('fold4-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-								<div
-									style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-									<img
-										src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-										alt="" width="30" height="30" id="fold4-1">
-								</div> </a>
-						</div>
-					</div>
-					<div id="LM4" class="jobdetail" style="DISPLAY:block;">
-						<div class="fill" style="top:10">
-							<p>职位名称：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="name4" value="PHP工程师"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写职位名称'){value =''}"
-								onBlur="if (value ==''){value='填写职位名称'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:60">
-							<p>性别要求：</p>
-							<table id="sex4"
-								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-								<tr>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup4_0"> 男</td>
-									<td><input type="radio" name="RadioGroup1"
-										id="RadioGroup4_1"> 女</td>
-								</tr>
-							</table>
-						</div>
-						<div class="fill" style="top:110">
-							<p>工作地址：</p>
-							<select id="province4" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>广东省</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="city4" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>广州市</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:160">
-							<input class="form-control" name="textfield" type="text"
-								id="address4" value="天河区揽月路8号东软大楼519"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写工作地址'){value =''}"
-								onBlur="if (value ==''){value='填写工作地址'}" style="" />
-						</div>
-						<div class="fill" style="top:210">
-							<p>行业分类：</p>
-							<select id="profession4" type="text" class="form-control"
-								style="left:100;width:90px;">
-								<option>互联网/IT</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select> <select id="type4" type="text" class="form-control"
-								style="left:210;width:90px;">
-								<option>前端开发</option>
-								<option>北京市</option>
-								<option>上海市</option>
-							</select>
-						</div>
-						<div class="fill" style="top:260">
-							<p>职位年薪：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="salarylow4" value="15万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最低年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最低年薪（万）'}"
-								style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
-							<input class="form-control" name="textfield" type="text"
-								id="salaryhigh4" value="20万"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写最高年薪（万）'){value =''}"
-								onBlur="if (value ==''){value='填写最高年薪（万）'}"
-								style="position:absolute;left:210;top:10;float:left;width:90px; height:30px;" />
-							<input type="checkbox"
-								style="position:absolute;right:-25;top:15;float:left;width:14px; height:14px;" />
-							<p
-								style="position:absolute;right:-105;top:14;float:left;width:80px; height:30px;text-align:left;font-size:12;">显示为面议</p>
-						</div>
-						<div class="fill" style="top:310">
-							<p>投递邮箱：</p>
-							<input class="form-control" name="textfield" type="text"
-								id="e-mail4" value="neusoft@neusoft.com"
-								onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='填写简历接收邮箱地址'){value =''}"
-								onBlur="if (value ==''){value='填写简历接收邮箱地址'}"
-								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-						</div>
-						<div class="fill" style="top:360">
-							<p>职位描述：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdetail4" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="top:480">
-							<p>职位要求：</p>
-							<textarea class="form-control" name="textfield" type="text"
-								id="jobdemand4" onmouseover="this.style.borderColor='#316392'"
-								onmouseout="this.style.borderColor=''"
-								onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-								onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">岗位职责：
-1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；
-2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；
-3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；
-4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；
-5、负责设计组的人员管理，稳步提升设计团队的专业能力。
-岗位要求：
-1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-						</div>
-						<div class="fill" style="padding-top:10;padding-left:100;top:600">
-							<a href="#" onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('save4','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
-								alt="" width="60" height="40" id="save4"> </a> <a href="#"
-								onMouseOut="MM_swapImgRestore()"
-								onMouseOver="MM_swapImage('delete4','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
-								style="margin-left:75;"
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
-								alt="" width="60" height="40" id="delete4"> </a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 
@@ -1326,7 +927,7 @@
 							</div> </a>
 					</div>
 				</div>
-				<div id="LM1" class="password" style="DISPLAY:block;">
+				<div id="LM41" class="password" style="DISPLAY:block;">
 					<div class="fill" style="top:10">
 						<p>原密码：</p>
 						<input class="form-control" name="textfield" type="text"
@@ -1370,7 +971,7 @@
 							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
 							width="400" height="1" alt="" />
 					</div>
-					<div onClick="javascript:ShowFLT(2)" href="javascript:void(null)">
+					<div onClick="javascript:ShowFLT(41)" href="javascript:void(null)">
 						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('fold1-2','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
 							<div
@@ -1381,7 +982,7 @@
 							</div> </a>
 					</div>
 				</div>
-				<div id="LM2" class="security" style="DISPLAY:block">
+				<div id="LM42" class="security" style="DISPLAY:block">
 					<div class="fill" style="top:10">
 						<p>密保手机：</p>
 						<input class="form-control" name="textfield" type="text"
@@ -1414,7 +1015,7 @@
 							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
 							width="400" height="1" alt="" />
 					</div>
-					<div onClick="javascript:ShowFLT(3)" href="javascript:void(null)">
+					<div onClick="javascript:ShowFLT(42)" href="javascript:void(null)">
 						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('fold1-3','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
 							<div
@@ -1425,7 +1026,7 @@
 							</div> </a>
 					</div>
 				</div>
-				<div id="LM3" class="icon" style="DISPLAY:block">
+				<div id="LM43" class="icon" style="DISPLAY:block">
 					<div class="fill" style="top:10">
 						<p>修改头像：</p>
 						<input class="form-control" name="icon" type="file" id="icon"
