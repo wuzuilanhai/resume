@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ taglib
+	uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -10,7 +11,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
+<base href="<basePathth%>
+">
 
 <title>My JSP 'companyManage.jsp' starting page</title>
 
@@ -782,102 +784,113 @@ ${jobCustom.jobAcquire }</textarea>
 					</div>
 				</div>
 				<div id="LM1" class="business_info" style="DISPLAY:block;">
-					<div class="fill" style="top:10">
-						<p>公司名称：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_old" value="东软科技有限公司"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写原密码'){value =''}"
-							onBlur="if (value ==''){value='填写原密码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-					<div class="fill" style="top:60">
-						<p>所在地：</p>
-						<select id="province3" type="text" class="form-control"
-							style="left:100;width:90px;">
-							<option>广东省</option>
-							<option>北京市</option>
-							<option>上海市</option>
-						</select> <select id="city3" type="text" class="form-control"
-							style="left:210;width:90px;">
-							<option>广州市</option>
-							<option>北京市</option>
-							<option>上海市</option>
-						</select>
-					</div>
-					<div class="fill" style="top:110">
-						<p>行业分类：</p>
-						<select id="profession3" type="text" class="form-control"
-							style="left:100;width:90px;">
-							<option>互联网/IT</option>
-							<option>北京市</option>
-							<option>上海市</option>
-						</select> <select id="type3" type="text" class="form-control"
-							style="left:210;width:90px;">
-							<option>前端开发</option>
-							<option>北京市</option>
-							<option>上海市</option>
-						</select>
-					</div>
-					<div class="fill" style="top:160">
-						<p>联系人：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_new" value="杨颖"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写原密码'){value =''}"
-							onBlur="if (value ==''){value='填写原密码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-					<div id="section-2"
-						style="position:relative;width:0;height:50;float:left;"></div>
-					<div class="fill" style="top:210">
-						<p>性别：</p>
-						<table id="sex3"
-							style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
-							<tr>
-								<td><input type="radio" name="RadioGroup1"
-									id="RadioGroup3_0"> 男</td>
-								<td><input type="radio" name="RadioGroup1"
-									id="RadioGroup3_1"> 女</td>
-							</tr>
-						</table>
-					</div>
-					<div class="fill" style="top:260">
-						<p>手机号：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_new2" value="13232******"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写联系人手机'){value =''}"
-							onBlur="if (value ==''){value='填写联系人手机'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-					<div class="fill" style="top:310">
-						<p>企业简介：</p>
-						<textarea class="form-control" name="textfield" type="text"
-							id="jobdetail3" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='描述职位详情（限制1000字）'){value =''}"
-							onBlur="if (value ==''){value='描述职位详情（限制1000字）'}"
-							style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；
-2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；
-3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；
-4、充满创意与活力，具有颠覆传统的理念；
-5、能充分管理个人以及团队时间，有良好的统筹意识；
-6、具有良好的提案能力、领导能力和团队管理能力。</textarea>
-					</div>
+					<form id="updateCompanyForm"
+						action="${pageContext.request.contextPath}/company/updateCompany.action"
+						method="post">
+						<input name="companyId" value="${sessionScope.company.companyId }"
+							type="hidden" />
+						<div class="fill" style="top:10">
+							<p>公司名称：</p>
+							<input class="form-control" name=companyName type="text"
+								id="companyName" value="${sessionScope.company.companyName }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="companyNameTip"
+								style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div class="fill" style="top:60">
+							<p>所在地：</p>
+							<select id="province3" type="text" class="form-control"
+								name="province" style="left:100;width:90px;">
+								<option value=广东省
+									<c:if test="${fn:substring(sessionScope.company.companyLocation,0,3)=='广东省'}">selected</c:if>>广东省</option>
+								<option value=河北省
+									<c:if test="${fn:substring(sessionScope.company.companyLocation,0,3)=='河北省'}">selected</c:if>>河北省</option>
+							</select> <select id="city3" type="text" class="form-control" name="city"
+								style="left:210;width:90px;">
+								<option value=北京市
+									<c:if test="${fn:substring(sessionScope.company.companyLocation,3,6)=='北京市'}">selected</c:if>>北京市</option>
+								<option value=上海市
+									<c:if test="${fn:substring(sessionScope.company.companyLocation,3,6)=='上海市'}">selected</c:if>>上海市</option>
+								<option value=广州市
+									<c:if test="${fn:substring(sessionScope.company.companyLocation,3,6)=='广州市'}">selected</c:if>>广州市</option>
+							</select>
+						</div>
+						<div class="fill" style="top:110">
+							<p>行业分类：</p>
+							<select id="industryId" type="text" class="form-control"
+								name="industryId" style="left:100;width:90px;">
+								<option value=1
+									<c:if test="${sessionScope.company.industryId=='1'}">selected</c:if>>互联网·IT</option>
+								<option value=2
+									<c:if test="${sessionScope.company.industryId=='2'}">selected</c:if>>金融业</option>
+								<option value=3
+									<c:if test="${sessionScope.company.industryId=='3'}">selected</c:if>>快销行业</option>
+								<option value=4
+									<c:if test="${sessionScope.company.industryId=='4'}">selected</c:if>>建筑业</option>
+								<option value=5
+									<c:if test="${sessionScope.company.industryId=='5'}">selected</c:if>>汽车·制造</option>
+								<option value=6
+									<c:if test="${sessionScope.company.industryId=='6'}">selected</c:if>>医疗·化工</option>
+							</select>
+						</div>
+						<div class="fill" style="top:160">
+							<p>联系人：</p>
+							<input class="form-control" name="chatterName" type="text"
+								id="chatterName" value="${sessionScope.company.chatterName }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="chatterNameTip"
+								style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div id="section-2"
+							style="position:relative;width:0;height:50;float:left;"></div>
+						<div class="fill" style="top:210">
+							<p>性别：</p>
+							<table id="sex3"
+								style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
+								<tr>
+									<td><input type="radio" name="chatterSex" value="男"
+										<c:if test="${sessionScope.company.chatterSex=='男' }">checked</c:if>
+										id="RadioGroup3_0"> 男</td>
+									<td><input type="radio" name="chatterSex" value="女"
+										<c:if test="${sessionScope.company.chatterSex=='女' }">checked</c:if>
+										id="RadioGroup3_1"> 女</td>
+								</tr>
+							</table>
+						</div>
+						<div class="fill" style="top:260">
+							<p>手机号：</p>
+							<input class="form-control" name="chatterPhone" type="text"
+								id="chatterPhone" value="${sessionScope.company.chatterPhone }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="chatterPhoneTip"
+								style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div class="fill" style="top:310">
+							<p>企业简介：</p>
+							<textarea class="form-control" name="companyDescription"
+								type="text" id="jobdetail3"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">${sessionScope.company.companyDescription }</textarea>
+						</div>
+					</form>
 				</div>
 				<div
 					style="margin-top:10;position:relative;width:450;height:150;float:left">
-					<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+					<a id="updateCompanyBtn" href="javascript:void(0)"
+						onMouseOut="MM_swapImgRestore()"
 						onMouseOver="MM_swapImage('save','','${pageContext.request.contextPath}/images/companyRegister/manage/savebig2.png',0)"><img
 						style="position:absolute;top:9;left:30;float:left;"
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/savebig.png"
-						alt="" width="202" height="82" id="save"> </a> <a href="#"
-						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('cancel','','${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig2.png',0)"><img
+						alt="" width="202" height="82" id="save"> </a> <a
+						href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('cancel1','','${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig2.png',0)"><img
 						style="position:absolute;top:9;right:30;float:left;"
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig.png"
 						alt="" width="202" height="82" id="cancel1"> </a>

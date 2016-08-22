@@ -15,12 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.exception.MyException;
 import com.pojo.Company;
 import com.pojo.Industry;
-import com.pojo.Job;
 import com.pojo.JobCustom;
-import com.pojo.JobQueryVo;
-import com.pojo.Jobhunter;
-import com.pojo.Resume;
-import com.pojo.ResumeJob;
 import com.util.MD5Utils;
 
 /**
@@ -167,4 +162,30 @@ public class CompanyController extends BasicController {
 			throw new MyException("企业用户还未登录！");
 		}
 	}
+
+	/**
+	 * 更新企业信息
+	 * 
+	 * @param company
+	 *            封装企业信息的实体
+	 * @param province
+	 *            省份
+	 * @param city
+	 *            城市
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateCompany")
+	public String updateCompany(Company company, String province, String city,
+			HttpSession session) throws Exception {
+		company.setCompanyLocation(province + city);
+		companyService.updateCompany(company);
+		// 重新查询
+		Company company2 = companyService
+				.findCompanyByCompanyLoginName(((Company) session
+						.getAttribute("company")).getCompanyLoginName());
+		session.setAttribute("company", company2);
+		return "company/companyManage";
+	}
+
 }

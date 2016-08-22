@@ -47,4 +47,12 @@ public interface CompanyService {
 	 * @return
 	 */
 	Company findCompanyLogin(Company company) throws Exception;
+
+	/**
+	 * 更新企业信息
+	 * 
+	 * @param company
+	 *            封装企业信息的实体
+	 */
+	void updateCompany(Company company) throws Exception;
 }

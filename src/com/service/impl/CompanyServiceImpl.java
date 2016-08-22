@@ -34,4 +34,8 @@ public class CompanyServiceImpl extends BasicServiceImpl implements
 		return companyMapper.findCompanyLogin(company);
 	}
 
+	public void updateCompany(Company company) throws Exception {
+		companyMapper.updateCompany(company);
+	}
+
 }

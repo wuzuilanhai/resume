@@ -109,7 +109,7 @@
 				end_time = #{endTime,jdbcType=DATE},
 			</if>
 			<if test="duty != null">
-				duty = #{duty,jdbcType=VARCHAR},
+				duty = #{duty,jdbcType=VARCHAR}
 			</if>
 		</set>
 		where wExperience_id=#{wexperienceId}

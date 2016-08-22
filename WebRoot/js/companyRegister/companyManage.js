@@ -211,3 +211,37 @@ $("#clearBtn").click(function() {
 	$("#queryJobName").val("");
 	$("#time").find("option[value='4']").attr("selected", true);
 });
+$('#companyName').click(function() {
+	$('#companyNameTip').html("");
+});
+$('#chatterName').click(function() {
+	$('#chatterNameTip').html("");
+});
+$('#chatterPhone').click(function() {
+	$('#chatterPhoneTip').html("");
+});
+$("#updateCompanyBtn").click(
+		function() {
+			if ($("#companyName").val().trim().length == 0) {
+				$("#companyNameTip").html("");
+				$("#companyNameTip").html("<font color='red'>输入不能为空!</font>");
+				return;
+			}
+			if ($("#chatterName").val().trim().length == 0) {
+				$("#chatterNameTip").html("");
+				$("#chatterNameTip").html("<font color='red'>输入不能为空!</font>");
+				return;
+			}
+			if ($("#chatterPhone").val().trim().length == 0) {
+				$("#chatterPhoneTip").html("");
+				$("#chatterPhoneTip").html("<font color='red'>输入不能为空!</font>");
+				return;
+			} else if (!/^(\+\d{2,3}\-)?\d{11}$/.test($("#chatterPhone").val()
+					.trim())) {
+				$('#chatterPhone').val("");
+				$('#chatterPhoneTip').html("");
+				$('#chatterPhoneTip').html("<font color='red'>号码格式有误!</font>");
+				return;
+			}
+			$("#updateCompanyForm").submit();
+		});

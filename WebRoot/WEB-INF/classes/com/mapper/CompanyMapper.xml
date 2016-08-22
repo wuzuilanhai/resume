@@ -112,4 +112,47 @@
 		company_login_name=#{companyLoginName} and
 		company_password=#{companyPassword}
 	</select>
+	<update id="updateCompany" parameterType="com.pojo.Company">
+		update company
+		<set>
+			<if test="companyName != null">
+				company_name = #{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyLoginName != null">
+				company_login_name =
+				#{companyLoginName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyPassword != null">
+				company_password =
+				#{companyPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="companyLocation != null">
+				company_location =
+				#{companyLocation,jdbcType=VARCHAR},
+			</if>
+			<if test="industryId != null">
+				industry_id = #{industryId,jdbcType=INTEGER},
+			</if>
+			<if test="chatterName != null">
+				chatter_name = #{chatterName,jdbcType=VARCHAR},
+			</if>
+			<if test="chatterSex != null">
+				chatter_sex = #{chatterSex,jdbcType=VARCHAR},
+			</if>
+			<if test="companyEmail != null">
+				company_email = #{companyEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="chatterPhone != null">
+				chatter_phone = #{chatterPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="phoneNumber != null">
+				phone_number = #{phoneNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="companyDescription != null">
+				company_description =
+				#{companyDescription,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where company_id=#{companyId}
+	</update>
 </mapper>

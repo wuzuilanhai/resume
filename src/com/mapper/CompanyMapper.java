@@ -19,4 +19,6 @@ public interface CompanyMapper {
 			throws Exception;
 
 	Company findCompanyLogin(Company company) throws Exception;
+
+	void updateCompany(Company company) throws Exception;
 }

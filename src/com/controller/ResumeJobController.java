@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.exception.MyException;
 import com.pojo.Job;
 import com.pojo.JobCustom;
 import com.pojo.Jobhunter;
