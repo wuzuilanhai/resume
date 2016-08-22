@@ -2032,7 +2032,7 @@
 								style="position:relative;width:0;height:50;float:left;"></div>
 							<div class="fill" style="top:60">
 								<p>密保邮箱：</p>
-								<input class="form-control" name="textfield" type="text"
+								<input class="form-control" name="jobhunterEmail" type="text"
 									id="email1" value="${sessionScope.jobhunter.jobhunterEmail }"
 									onmouseover="this.style.borderColor='#3d7d52'"
 									onmouseout="this.style.borderColor=''"

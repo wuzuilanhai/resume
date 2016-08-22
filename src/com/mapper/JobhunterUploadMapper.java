@@ -19,4 +19,7 @@ public interface JobhunterUploadMapper {
 
 	void updateJobHunterUpload(JobhunterUpload jobhunterUpload)
 			throws Exception;
+
+	JobhunterUpload findCompanyUploadByCompanyId(Integer companyId)
+			throws Exception;
 }

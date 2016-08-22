@@ -65,6 +65,11 @@
 		select * from jobhunter_upload where
 		jobhunter_id=#{jobhunterId}
 	</select>
+	<select id="findCompanyUploadByCompanyId" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from jobhunter_upload where
+		company_id=#{companyId}
+	</select>
 	<update id="updateJobHunterUpload" parameterType="com.pojo.JobhunterUpload">
 		update jobhunter_upload
 		<set>

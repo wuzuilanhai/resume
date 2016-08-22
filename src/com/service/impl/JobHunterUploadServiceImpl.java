@@ -32,4 +32,9 @@ public class JobHunterUploadServiceImpl extends BasicServiceImpl implements
 		jobhunterUploadMapper.updateJobHunterUpload(jobhunterUpload);
 	}
 
+	public JobhunterUpload findCompanyUploadByCompanyId(Integer companyId)
+			throws Exception {
+		return jobhunterUploadMapper.findCompanyUploadByCompanyId(companyId);
+	}
+
 }

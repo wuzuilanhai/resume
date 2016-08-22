@@ -1,21 +1,29 @@
 package com.controller;
 
+import java.io.File;
 import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.exception.MyException;
 import com.pojo.Company;
 import com.pojo.Industry;
 import com.pojo.JobCustom;
+import com.pojo.Jobhunter;
+import com.pojo.JobhunterUpload;
 import com.util.MD5Utils;
 
 /**
@@ -186,6 +194,89 @@ public class CompanyController extends BasicController {
 						.getAttribute("company")).getCompanyLoginName());
 		session.setAttribute("company", company2);
 		return "company/companyManage";
+	}
+
+	/**
+	 * 修改企业账号信息
+	 * 
+	 * @param company
+	 *            封装企业用户修改后信息的实体
+	 * @param uploadPic
+	 *            封装上传图片信息的实体
+	 * @param session
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@SuppressWarnings("deprecation")
+	@RequestMapping("/updateCompanyAccount")
+	public String updateCompanyAccount(Company newCompany,
+			MultipartFile uploadPic, HttpSession session,
+			HttpServletRequest request) throws Exception {
+		Company company = (Company) session.getAttribute("company");
+		// 修改求职者信息
+		newCompany.setCompanyId(company.getCompanyId());
+		newCompany.setCompanyPassword(MD5Utils.md5(newCompany
+				.getCompanyPassword()));
+		companyService.updateCompany(company);
+		// 更新session中company的值
+		company = companyService.findCompanyByCompanyLoginName(company
+				.getCompanyLoginName());
+		session.setAttribute("company", company);
+
+		// 如果未上传过头像，存储求职者头像信息，否则修改求职者上传头像，并删除原来的头像
+		JobhunterUpload jobhunterUpload = jobHunterUploadService
+				.findCompanyUploadByCompanyId(company.getCompanyId());
+		// 图片原始名称
+		String originalFilename = uploadPic.getOriginalFilename();
+		// 上传图片
+		if (uploadPic != null && originalFilename != null
+				&& originalFilename.length() > 0) {
+			// 获取网站url
+			String path = request.getContextPath();
+			// 存储图片的物理路径
+			String uploadLocation = path + "/uploads/"
+					+ new SimpleDateFormat("yyyy/MM/dd").format(new Date())
+					+ "/";
+			String realPath = request.getRealPath("uploads") + "\\"
+					+ new SimpleDateFormat("yyyy\\MM\\dd").format(new Date())
+					+ "\\";
+			// 创建文件夹
+			File dir = new File(realPath);
+			if (!dir.exists())
+				dir.mkdirs();
+			String uploadName = UUID.randomUUID()
+					+ originalFilename.substring(originalFilename
+							.lastIndexOf("."));
+			String uploadType = uploadPic.getContentType();
+			if (jobhunterUpload == null) {
+				jobhunterUpload = new JobhunterUpload();
+				jobhunterUpload.setCompanyId(company.getCompanyId());
+				jobhunterUpload.setUploadLocation(uploadLocation);
+				jobhunterUpload.setUploadName(uploadName);
+				jobhunterUpload.setUploadType(uploadType);
+				jobhunterUpload.setUploadTime(new Date());
+				jobHunterUploadService.addJobHunterUpload(jobhunterUpload);
+			} else {
+				// 删除原来的头像
+				File oldFile = new File(realPath
+						+ jobhunterUpload.getUploadName());
+				if (oldFile.exists()) {
+					oldFile.delete();
+				}
+				// 将新图片信息存入数据库
+				jobhunterUpload.setUploadLocation(uploadLocation);
+				jobhunterUpload.setUploadName(uploadName);
+				jobhunterUpload.setUploadType(uploadType);
+				jobhunterUpload.setUploadTime(new Date());
+				jobHunterUploadService.updateJobHunterUpload(jobhunterUpload);
+			}
+			// 新图片
+			File file = new File(realPath + uploadName);
+			// 将内存中的数据写入磁盘
+			uploadPic.transferTo(file);
+		}
+		return "redirect:/company/companyManage.action";
 	}
 
 }

@@ -772,7 +772,8 @@ ${jobCustom.jobAcquire }</textarea>
 							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
 							width="400" height="1" alt="" />
 					</div>
-					<div onClick="javascript:ShowFLT(1)" href="javascript:void(null)">
+					<div onClick="javascript:ShowFLT(11111)"
+						href="javascript:void(null)">
 						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('fold1-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
 							<div
@@ -783,7 +784,7 @@ ${jobCustom.jobAcquire }</textarea>
 							</div> </a>
 					</div>
 				</div>
-				<div id="LM1" class="business_info" style="DISPLAY:block;">
+				<div id="LM11111" class="business_info" style="DISPLAY:block;">
 					<form id="updateCompanyForm"
 						action="${pageContext.request.contextPath}/company/updateCompany.action"
 						method="post">
@@ -929,7 +930,8 @@ ${jobCustom.jobAcquire }</textarea>
 							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
 							width="400" height="1" alt="" />
 					</div>
-					<div onClick="javascript:ShowFLT(1)" href="javascript:void(null)">
+					<div onClick="javascript:ShowFLT(111111)"
+						href="javascript:void(null)">
 						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('fold1-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
 							<div
@@ -940,124 +942,134 @@ ${jobCustom.jobAcquire }</textarea>
 							</div> </a>
 					</div>
 				</div>
-				<div id="LM41" class="password" style="DISPLAY:block;">
-					<div class="fill" style="top:10">
-						<p>原密码：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_old" value="******"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写原密码'){value =''}"
-							onBlur="if (value ==''){value='填写原密码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+				<form id="updateCompanyAccountForm" method="post"
+					enctype="multipart/form-data"
+					action="${pageContext.request.contextPath }/company/updateCompanyAccount.action">
+					<div id="LM111111" class="password" style="DISPLAY:block;">
+						<div class="fill" style="top:10">
+							<p>原密码：</p>
+							<input type="hidden"
+								value="${sessionScope.company.companyPassword }"
+								id="passwordValue" /> <input class="form-control"
+								name="companyPasswordOld" type="password" id="password_old"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="companyPasswordOldTip"
+								style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div class="fill" style="top:60">
+							<p>新密码：</p>
+							<input class="form-control" name="companyPassword"
+								type="password" id="password_new"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="password_newTip"
+								style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div id="section-2"
+							style="position:relative;width:0;height:50;float:left;"></div>
+						<div class="fill" style="top:110">
+							<p>新密码2：</p>
+							<input class="form-control" name="companyPasswordNewConfirm"
+								type="password" id="password_new2"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="companyPasswordNewConfirmTip"
+								style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
 					</div>
-					<div class="fill" style="top:60">
-						<p>新密码：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_new" value="******"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写原密码'){value =''}"
-							onBlur="if (value ==''){value='填写原密码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-					<div id="section-2"
-						style="position:relative;width:0;height:50;float:left;"></div>
-					<div class="fill" style="top:110">
-						<p>新密码2：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="password_new2" value="******"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='再次填写原密码'){value =''}"
-							onBlur="if (value ==''){value='再次填写原密码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-				</div>
 
-				<div style="margin-top:10;position:relative;width:450;height:50;">
-					<p
-						style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #316392;">修改密保</p>
-					<div
-						style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-						<img
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-							width="400" height="1" alt="" />
+					<div style="margin-top:10;position:relative;width:450;height:50;">
+						<p
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #316392;">修改密保</p>
+						<div
+							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
+							<img
+								src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
+								width="400" height="1" alt="" />
+						</div>
+						<div onClick="javascript:ShowFLT(222222)"
+							href="javascript:void(null)">
+							<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+								onMouseOver="MM_swapImage('fold1-2','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
+								<div
+									style="position:absolute;top:10;right:20;width:30;height:30;float:left">
+									<img
+										src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
+										alt="" width="30" height="30" id="fold1-2">
+								</div> </a>
+						</div>
 					</div>
-					<div onClick="javascript:ShowFLT(41)" href="javascript:void(null)">
-						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-							onMouseOver="MM_swapImage('fold1-2','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-							<div
-								style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-								<img
-									src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-									alt="" width="30" height="30" id="fold1-2">
-							</div> </a>
+					<div id="LM222222" class="security" style="DISPLAY:block">
+						<div class="fill" style="top:10">
+							<p>密保手机：</p>
+							<input class="form-control" name="chatterPhone" type="text"
+								id="phone1" value="${sessionScope.company.chatterPhone }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="phone1Tip"
+								style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
+						<div id="section-3"
+							style="position:relative;width:0;height:50;float:left;"></div>
+						<div class="fill" style="top:60">
+							<p>密保邮箱：</p>
+							<input class="form-control" name="companyEmail" type="text"
+								id="email1" value="${sessionScope.company.companyEmail }"
+								onmouseover="this.style.borderColor='#316392'"
+								onmouseout="this.style.borderColor=''"
+								style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+							<div id="email1Tip"
+								style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+						</div>
 					</div>
-				</div>
-				<div id="LM42" class="security" style="DISPLAY:block">
-					<div class="fill" style="top:10">
-						<p>密保手机：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="phone" value="*******2451"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写联系电话号码'){value =''}"
-							onBlur="if (value ==''){value='填写联系电话号码'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+					<div style="margin-top:10;position:relative;width:450;height:50;">
+						<p
+							style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #316392;">修改头像</p>
+						<div
+							style="position:absolute;top:50;left:25;width:400;height:1;float:left">
+							<img
+								src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
+								width="400" height="1" alt="" />
+						</div>
+						<div onClick="javascript:ShowFLT(333333)"
+							href="javascript:void(null)">
+							<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+								onMouseOver="MM_swapImage('fold1-3','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
+								<div
+									style="position:absolute;top:10;right:20;width:30;height:30;float:left">
+									<img
+										src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
+										alt="" width="30" height="30" id="fold1-3">
+								</div> </a>
+						</div>
 					</div>
-					<div id="section-3"
-						style="position:relative;width:0;height:50;float:left;"></div>
-					<div class="fill" style="top:60">
-						<p>密保邮箱：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="email" value="a**********@gmail.com"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写邮箱地址'){value =''}"
-							onBlur="if (value ==''){value='填写邮箱地址'}"
-							style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+					<div id="LM333333" class="icon" style="DISPLAY:block">
+						<div class="fill" style="top:10">
+							<p>修改头像：</p>
+							<input class="form-control" name="uploadPic" type="file"
+								id="icon"
+								style="position:absolute;padding-top:4;left:100;top:10;float:left;width:200px; height:30px;" />
+						</div>
 					</div>
-				</div>
-				<div style="margin-top:10;position:relative;width:450;height:50;">
-					<p
-						style="margin:0;position:absolute;top:13;left:30;font-family:微软雅黑;font-size: 18px; color: #316392;">修改头像</p>
-					<div
-						style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-						<img
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-							width="400" height="1" alt="" />
-					</div>
-					<div onClick="javascript:ShowFLT(42)" href="javascript:void(null)">
-						<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-							onMouseOver="MM_swapImage('fold1-3','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-							<div
-								style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-								<img
-									src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-									alt="" width="30" height="30" id="fold1-3">
-							</div> </a>
-					</div>
-				</div>
-				<div id="LM43" class="icon" style="DISPLAY:block">
-					<div class="fill" style="top:10">
-						<p>修改头像：</p>
-						<input class="form-control" name="icon" type="file" id="icon"
-							style="position:absolute;padding-top:4;left:100;top:10;float:left;width:200px; height:30px;" />
-					</div>
-				</div>
+				</form>
 				<div
 					style="margin-top:10;position:relative;width:450;height:150;float:left">
-					<a href="#" onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('save','','${pageContext.request.contextPath}/images/companyRegister/manage/savebig2.png',0)"><img
+					<a id="updateCompanyAccountBtn" href="javascript:void(0)"
+						onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('save111','','${pageContext.request.contextPath}/images/companyRegister/manage/savebig2.png',0)"><img
 						style="position:absolute;top:9;left:30;float:left;"
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/savebig.png"
-						alt="" width="202" height="82" id="save"> </a> <a href="#"
-						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('cancel','','${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig2.png',0)"><img
+						alt="" width="202" height="82" id="save111"> </a> <a
+						href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('cancel222','','${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig2.png',0)"><img
 						style="position:absolute;top:9;right:30;float:left;"
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/cancelbig.png"
-						alt="" width="202" height="82" id="cancel"> </a>
+						alt="" width="202" height="82" id="cancel222"> </a>
 				</div>
 			</div>
 		</div>
@@ -1067,5 +1079,7 @@ ${jobCustom.jobAcquire }</textarea>
 		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/companyRegister/companyManage.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/md5.js"></script>
 </body>
 </html>

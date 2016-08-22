@@ -38,4 +38,14 @@ public interface JobHunterUploadService {
 	void updateJobHunterUpload(JobhunterUpload jobhunterUpload)
 			throws Exception;
 
+	/**
+	 * 根据企业id获取企业上传头像
+	 * 
+	 * @param companyId
+	 *            企业id
+	 * @return 封装上传头像信息的实体
+	 */
+	JobhunterUpload findCompanyUploadByCompanyId(Integer companyId)
+			throws Exception;
+
 }
