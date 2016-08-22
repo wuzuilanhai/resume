@@ -26,10 +26,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/companyRegister/default.css"
 	type="text/css"></link>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/companyRegister/companyManage.js"></script>
 </head>
 
 <body>
@@ -123,70 +119,70 @@
 					style="position:absolute;left:0;top:360;width:232;height:150;float:left;display:none">
 					<a id="showFrameRight11" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('jobmanage','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
+						onMouseOver="MM_swapImage('jobmanage11','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage.png"
-						alt="" width="232" height="50" id="jobmanage"> </a><a
-						id="showFrameRight23" href="javascript:void(0)"
+						alt="" width="232" height="50" id="jobmanage11"> </a><a
+						id="showFrameRight22" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('resumemanage','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
+						onMouseOver="MM_swapImage('resumemanage22','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage3.png"
-						alt="" width="232" height="50" id="resumemanage"> </a><a
+						alt="" width="232" height="50" id="resumemanage22"> </a><a
 						id="showFrameRight33" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('business_info','','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
+						onMouseOver="MM_swapImage('business_info33,'','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/business_info.png"
-						alt="" width="232" height="50" id="business_info"> </a><a
+						alt="" width="232" height="50" id="business_info33"> </a><a
 						id="showFrameRight44" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('setting','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
+						onMouseOver="MM_swapImage('setting44','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/setting.png"
-						alt="" width="232" height="50" id="setting"> </a>
+						alt="" width="232" height="50" id="setting44"> </a>
 				</div>
 				<div id="left3"
 					style="position:absolute;left:0;top:360;width:232;height:150;float:left;display:none">
 					<a id="showFrameRight111" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('jobmanage','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
+						onMouseOver="MM_swapImage('jobmanage111','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage.png"
-						alt="" width="232" height="50" id="jobmanage"> </a><a
+						alt="" width="232" height="50" id="jobmanage111"> </a><a
 						id="showFrameRight222" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('resumemanage','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
+						onMouseOver="MM_swapImage('resumemanage222','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage.png"
-						alt="" width="232" height="50" id="resumemanage"> </a><a
+						alt="" width="232" height="50" id="resumemanage222"> </a><a
 						id="showFrameRight333" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('business_info','','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
+						onMouseOver="MM_swapImage('business_info333','','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/business_info3.png"
-						alt="" width="232" height="50" id="business_info"> </a><a
+						alt="" width="232" height="50" id="business_info333"> </a><a
 						id="showFrameRight444" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('setting','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
+						onMouseOver="MM_swapImage('setting444','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/setting.png"
-						alt="" width="232" height="50" id="setting"> </a>
+						alt="" width="232" height="50" id="setting444"> </a>
 				</div>
 				<div id="left4"
 					style="position:absolute;left:0;top:360;width:232;height:150;float:left;display:none">
 					<a id="showFrameRight1111" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('jobmanage','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
+						onMouseOver="MM_swapImage('jobmanage1111','','${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/jobmanage.png"
-						alt="" width="232" height="50" id="jobmanage"> </a><a
+						alt="" width="232" height="50" id="jobmanage1111"> </a><a
 						id="showFrameRight2222" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('resumemanage','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
+						onMouseOver="MM_swapImage('resumemanage2222','','${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/resumemanage.png"
-						alt="" width="232" height="50" id="resumemanage"> </a><a
+						alt="" width="232" height="50" id="resumemanage2222"> </a><a
 						id="showFrameRight3333" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('business_info','','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
+						onMouseOver="MM_swapImage('business_info3333','','${pageContext.request.contextPath}/images/companyRegister/manage/business_info2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/business_info.png"
-						alt="" width="232" height="50" id="business_info"> </a><a
+						alt="" width="232" height="50" id="business_info3333"> </a><a
 						id="showFrameRight4444" href="javascript:void(0)"
 						onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('setting','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
+						onMouseOver="MM_swapImage('setting4444','','${pageContext.request.contextPath}/images/companyRegister/manage/setting2.png',0)"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/manage/setting3.png"
-						alt="" width="232" height="50" id="setting"> </a>
+						alt="" width="232" height="50" id="setting4444"> </a>
 				</div>
 			</div>
 		</div>
@@ -1453,6 +1449,9 @@
 		</div>
 
 	</div>
-
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/companyRegister/companyManage.js"></script>
 </body>
 </html>
