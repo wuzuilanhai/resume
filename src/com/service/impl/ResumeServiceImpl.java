@@ -1,7 +1,10 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
 import com.service.ResumeService;
@@ -35,6 +38,14 @@ public class ResumeServiceImpl extends BasicServiceImpl implements
 
 	public ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception {
 		return resumeMapper.findResumeByResumeId(resumeId);
+	}
+
+	public Integer findAllResumes() throws Exception {
+		return resumeMapper.findAllResumes();
+	}
+
+	public List<ResumeCustom> findAllResumesByPage(Page page) throws Exception {
+		return resumeMapper.findAllResumesByPage(page);
 	}
 
 }

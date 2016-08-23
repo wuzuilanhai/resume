@@ -1,5 +1,8 @@
 package com.service;
 
+import java.util.List;
+
+import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
 
@@ -54,5 +57,21 @@ public interface ResumeService {
 	 * @return 相关简历的信息
 	 */
 	ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception;
+
+	/**
+	 * 查找所有简历记录
+	 * 
+	 * @return 简历数量
+	 */
+	Integer findAllResumes() throws Exception;
+
+	/**
+	 * 分页查找简历信息列表
+	 * 
+	 * @param page
+	 *            封装分页信息的实体
+	 * @return 简历信息列表
+	 */
+	List<ResumeCustom> findAllResumesByPage(Page page) throws Exception;
 
 }

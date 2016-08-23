@@ -324,7 +324,7 @@
 		select
 		j.*,r.*,jh.jobhunter_real_name,jh.jobhunter_birthday,jh.jobhunter_qualification,jh.jobhunter_address,rj.submitTime,ju.upload_location,ju.upload_name
 		from job j
-		left join resume_job rj on
+		left join resume_job rj on	
 		j.job_id=rj.job_id
 		left
 		join resume

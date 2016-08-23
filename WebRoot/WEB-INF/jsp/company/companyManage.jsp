@@ -59,7 +59,9 @@
 					alt="" width="100" height="50" id="job"> </a>
 			</div>
 			<div class="buttontop" style="left:382">
-				<a href="../个人中心/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/resume/resumeDetail/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>

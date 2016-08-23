@@ -16,6 +16,7 @@ import com.pojo.CareerIntention;
 import com.pojo.EducationExperience;
 import com.pojo.Jobhunter;
 import com.pojo.JobhunterUpload;
+import com.pojo.Page;
 import com.pojo.Position;
 import com.pojo.ProjectExperience;
 import com.pojo.Resume;
@@ -32,6 +33,9 @@ import com.pojo.WorkExperience;
 @Controller
 @RequestMapping("/resume")
 public class ResumeController extends BasicController {
+
+	public Integer pageSize = 4;
+
 	/**
 	 * 添加简历
 	 * 
@@ -253,4 +257,52 @@ public class ResumeController extends BasicController {
 		return "resume/resumeDetail";
 	}
 
+	/**
+	 * 分页查找所有简历
+	 * 
+	 * @param currentPage
+	 *            当前页
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findAllResumes")
+	public String findAllResumes(Integer currentPage, HttpSession session)
+			throws Exception {
+		if (currentPage == null) {
+			currentPage = 1;
+		}
+		Integer recordCount = resumeService.findAllResumes();
+		Page page = new Page(currentPage, pageSize, recordCount, null, session
+				.getServletContext().getContextPath());
+		List<ResumeCustom> pageResumeCustoms = resumeService
+				.findAllResumesByPage(page);
+		StringBuffer buffer = new StringBuffer();
+		if (currentPage == 1) {
+			buffer.append("<a href='javascript:void(0)'>&lt;&lt;</a>&nbsp;&nbsp;");
+		} else {
+			buffer.append("<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findAllResumes.action?currentPage="
+					+ (currentPage - 1) + "'>&lt;&lt;</a>&nbsp;&nbsp;");
+		}
+		for (int i = page.getBeginPageIndex(); i <= page.getEndPageIndex(); i++) {
+			buffer.append("<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findAllResumes.action?currentPage=" + i + "'>"
+					+ i + "</a>");
+		}
+		if (currentPage == page.getPageCount()) {
+			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");
+		} else {
+			buffer.append("&nbsp;&nbsp;<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findAllResumes.action?currentPage="
+					+ (currentPage + 1) + "'>&gt;&gt;</a>");
+		}
+		page.setLinks(buffer.toString());
+		page.setRecordList(pageResumeCustoms);
+		session.setAttribute("page", page);
+		return "resume/searchResume";
+	}
 }

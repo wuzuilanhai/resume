@@ -1,5 +1,8 @@
 package com.mapper;
 
+import java.util.List;
+
+import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
 
@@ -22,4 +25,8 @@ public interface ResumeMapper {
 	ResumeCustom findResumeJob(Integer resumeId) throws Exception;
 
 	ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception;
+
+	Integer findAllResumes() throws Exception;
+
+	List<ResumeCustom> findAllResumesByPage(Page page) throws Exception;
 }
