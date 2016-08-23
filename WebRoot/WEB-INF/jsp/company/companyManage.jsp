@@ -11,8 +11,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<basePathth%>
-">
+<base href="<%=basePath%>">
 
 <title>My JSP 'companyManage.jsp' starting page</title>
 
@@ -75,7 +74,7 @@
 			<div
 				style="position:absolute;left:0;top:21;width:232;height:330;float:left">
 				<img style="position:absolute;left:35;top:50;float:left"
-					src="${pageContext.request.contextPath}/images/companyRegister/manage/brand5.png"
+					src="${sessionScope.companyUpload.uploadLocation}${sessionScope.companyUpload.uploadName}"
 					width="160" height="80" alt="" />
 				<div
 					style="position:absolute;right:0;top:180;width:232;height:150;float:left">

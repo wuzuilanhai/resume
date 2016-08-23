@@ -22,7 +22,6 @@ import com.exception.MyException;
 import com.pojo.Company;
 import com.pojo.Industry;
 import com.pojo.JobCustom;
-import com.pojo.Jobhunter;
 import com.pojo.JobhunterUpload;
 import com.util.MD5Utils;
 
@@ -160,10 +159,14 @@ public class CompanyController extends BasicController {
 		// 判断企业是否已经登录
 		Company company = (Company) session.getAttribute("company");
 		if (company != null) {
+			// 准备职位头像信息
+			JobhunterUpload companyUpload = jobHunterUploadService
+					.findCompanyUploadByCompanyId(company.getCompanyId());
 			// 准备职位数据信息
 			List<JobCustom> jobCustoms = jobService.findJobsByCompanyId(company
 					.getCompanyId());
 			// 准备简历数据信息
+			session.setAttribute("companyUpload", companyUpload);
 			session.setAttribute("jobCustoms", jobCustoms);
 			return "company/companyManage";
 		} else {
@@ -218,13 +221,13 @@ public class CompanyController extends BasicController {
 		newCompany.setCompanyId(company.getCompanyId());
 		newCompany.setCompanyPassword(MD5Utils.md5(newCompany
 				.getCompanyPassword()));
-		companyService.updateCompany(company);
+		companyService.updateCompany(newCompany);
 		// 更新session中company的值
 		company = companyService.findCompanyByCompanyLoginName(company
 				.getCompanyLoginName());
 		session.setAttribute("company", company);
 
-		// 如果未上传过头像，存储求职者头像信息，否则修改求职者上传头像，并删除原来的头像
+		// 如果未上传过头像，存储企业头像信息，否则修改企业上传头像，并删除原来的头像
 		JobhunterUpload jobhunterUpload = jobHunterUploadService
 				.findCompanyUploadByCompanyId(company.getCompanyId());
 		// 图片原始名称
