@@ -16,7 +16,7 @@
 		<result column="job_acquire" jdbcType="VARCHAR" property="jobAcquire" />
 	</resultMap>
 	<resultMap type="com.pojo.Job" id="jobResumeMap" extends="BaseResultMap">
-		<collection property="resumes" ofType="com.pojo.Resume">
+		<collection property="resumeCustoms" ofType="com.pojo.ResumeCustom">
 			<id column="resume_id" property="resumeId" jdbcType="INTEGER" />
 			<result column="jobhunter_id" property="jobhunterId" jdbcType="INTEGER" />
 			<result column="career_intention_id" property="careerIntentionId"
@@ -31,6 +31,20 @@
 			<result column="visit_number" property="visitNumber" jdbcType="INTEGER" />
 			<result column="last_edit_time" property="lastEditTime"
 				jdbcType="DATE" />
+			<result column="last_edit_time" property="lastEditTime"
+				jdbcType="DATE" />
+			<result column="jobhunter_real_name" property="jobhunterRealName"
+				jdbcType="VARCHAR" />
+			<result column="jobhunter_birthday" property="jobhunterBirthday"
+				jdbcType="DATE" />
+			<result column="jobhunter_qualification" property="jobhunterQualification"
+				jdbcType="VARCHAR" />
+			<result column="jobhunter_address" property="jobhunterAddress"
+				jdbcType="VARCHAR" />
+			<result column="submittime" property="submitTime" jdbcType="DATE" />
+			<result column="upload_location" property="uploadLocation"
+				jdbcType="VARCHAR" />
+			<result column="upload_name" property="uploadName" jdbcType="VARCHAR" />
 		</collection>
 	</resultMap>
 	<resultMap type="com.pojo.JobCustom" id="hotJobLimitTenAndNewResultMap"
@@ -305,5 +319,27 @@
 		and
 		job.company_id=company.company_id and
 		job.industry_id=industry.industry_id
+	</select>
+	<select id="findResumeJob" parameterType="int" resultMap="jobResumeMap">
+		select
+		j.*,r.*,jh.jobhunter_real_name,jh.jobhunter_birthday,jh.jobhunter_qualification,jh.jobhunter_address,rj.submitTime,ju.upload_location,ju.upload_name
+		from job j
+		left join resume_job rj on
+		j.job_id=rj.job_id
+		left
+		join resume
+		r on
+		rj.resume_id=r.resume_id left join
+		jobhunter jh on
+		r.jobhunter_id=jh.jobhunter_id
+		left join jobhunter_upload ju
+		on
+		jh.jobhunter_id=ju.jobhunter_id
+		left join
+		industry i on
+		j.industry_id=i.industry_id where
+		j.job_id =
+		#{jobId} order by
+		rj.submitTime desc
 	</select>
 </mapper>

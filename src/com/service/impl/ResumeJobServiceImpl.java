@@ -1,5 +1,7 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.pojo.ResumeJob;
@@ -27,6 +29,14 @@ public class ResumeJobServiceImpl extends BasicServiceImpl implements
 	public ResumeJob findResumeJobByResumeJob(ResumeJob resumeJob)
 			throws Exception {
 		return resumeJobMapper.findResumeJobByResumeJob(resumeJob);
+	}
+
+	public List<ResumeJob> findResumeJobByJobId(Integer jobId) throws Exception {
+		return resumeJobMapper.findResumeJobByJobId(jobId);
+	}
+
+	public void deleteResumeJob(ResumeJob resumeJob) throws Exception {
+		resumeJobMapper.deleteResumeJob(resumeJob);
 	}
 
 }

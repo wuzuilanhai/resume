@@ -43,6 +43,11 @@
 	</select>
 	<select id="findPositionByParentId" parameterType="int"
 		resultMap="BaseResultMap">
-		select * from position,industry where position.industry_id=industry.industry_id
+		select * from position,industry where
+		position.industry_id=industry.industry_id
+	</select>
+	<select id="findPositionNameByPositionId" parameterType="int"
+		resultType="string">
+		select position_name from position where position_id=#{positionId}
 	</select>
 </mapper>

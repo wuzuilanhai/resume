@@ -82,4 +82,8 @@ public class JobServiceImpl extends BasicServiceImpl implements JobService {
 		return jobMapper.findJobsByVo(jobQueryVo);
 	}
 
+	public Job findResumeJob(Integer jobId) throws Exception {
+		return jobMapper.findResumeJob(jobId);
+	}
+
 }

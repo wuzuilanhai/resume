@@ -46,4 +46,13 @@ public interface ResumeService {
 	 */
 	ResumeCustom findResumeJob(Integer resumeId) throws Exception;
 
+	/**
+	 * 根据简历id查找相关简历的信息
+	 * 
+	 * @param resumeId
+	 *            简历id
+	 * @return 相关简历的信息
+	 */
+	ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception;
+
 }

@@ -46,4 +46,6 @@ public interface JobMapper {
 	void deleteJobByJobId(Integer jobId) throws Exception;
 
 	List<JobCustom> findJobsByVo(JobQueryVo jobQueryVo) throws Exception;
+
+	Job findResumeJob(Integer jobId) throws Exception;
 }

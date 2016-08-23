@@ -162,4 +162,8 @@
 		</set>
 		where resume_id=#{resumeId}
 	</update>
+	<select id="findResumeByResumeId" parameterType="int"
+		resultMap="resumeCustomJobMap">
+		select * from resume where resume_id=#{resumeId}
+	</select>
 </mapper>

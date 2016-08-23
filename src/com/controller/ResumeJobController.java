@@ -83,4 +83,26 @@ public class ResumeJobController extends BasicController {
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(map);
 	}
+
+	/**
+	 * 删除简历-职位关系表中的记录
+	 * 
+	 * @param resumeJob
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/deleteResumeJob")
+	public String deleteResumeJob(Integer resumeId, Integer jobId)
+			throws Exception {
+		Resume resume = new Resume();
+		resume.setResumeId(resumeId);
+		Job job = new Job();
+		job.setJobId(jobId);
+		ResumeJob resumeJob = new ResumeJob();
+		resumeJob.setResume(resume);
+		resumeJob.setJob(job);
+		resumeJobService.deleteResumeJob(resumeJob);
+		return "redirect:/company/companyManage.action";
+	}
+
 }

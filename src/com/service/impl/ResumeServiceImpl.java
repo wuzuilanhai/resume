@@ -33,4 +33,8 @@ public class ResumeServiceImpl extends BasicServiceImpl implements
 		return resumeMapper.findResumeJob(resumeId);
 	}
 
+	public ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception {
+		return resumeMapper.findResumeByResumeId(resumeId);
+	}
+
 }

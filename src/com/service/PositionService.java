@@ -49,4 +49,13 @@ public interface PositionService {
 	 */
 	List<Position> findPositionByParentId(Integer parentid) throws Exception;
 
+	/**
+	 * 根据职能id查找职能名称
+	 * 
+	 * @param positionId
+	 *            职能id
+	 * @return 职能名称
+	 */
+	String findPositionNameByPositionId(Integer positionId) throws Exception;
+
 }

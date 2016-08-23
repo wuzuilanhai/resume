@@ -35,4 +35,9 @@ public class IndustryServiceImpl extends BasicServiceImpl implements
 		return industryMapper.findChildrenIndustry(parentid);
 	}
 
+	public String findIndustryNameByIndustryId(Integer industryId)
+			throws Exception {
+		return industryMapper.findIndustryNameByIndustryId(industryId);
+	}
+
 }

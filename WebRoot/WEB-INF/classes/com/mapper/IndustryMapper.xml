@@ -47,4 +47,7 @@
 		where
 		parentId=#{parentid}
 	</select>
+	<select id="findIndustryNameByIndustryId" parameterType="int" resultType="string">
+		select industry_name from industry where industry_id=#{industryId}
+	</select>
 </mapper>

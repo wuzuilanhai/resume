@@ -3,6 +3,7 @@ package com.controller;
 import java.io.File;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.exception.MyException;
 import com.pojo.Company;
 import com.pojo.Industry;
+import com.pojo.Job;
 import com.pojo.JobCustom;
 import com.pojo.JobhunterUpload;
 import com.util.MD5Utils;
@@ -159,6 +161,8 @@ public class CompanyController extends BasicController {
 		// 判断企业是否已经登录
 		Company company = (Company) session.getAttribute("company");
 		if (company != null) {
+			String industryName = industryService
+					.findIndustryNameByIndustryId(company.getIndustryId());
 			// 准备职位头像信息
 			JobhunterUpload companyUpload = jobHunterUploadService
 					.findCompanyUploadByCompanyId(company.getCompanyId());
@@ -166,8 +170,18 @@ public class CompanyController extends BasicController {
 			List<JobCustom> jobCustoms = jobService.findJobsByCompanyId(company
 					.getCompanyId());
 			// 准备简历数据信息
+			List<JobCustom> jobCustoms2 = jobService
+					.findJobsByCompanyId(company.getCompanyId());
+			List<Job> jobs = new ArrayList<Job>();
+			for (JobCustom jobCustom : jobCustoms2) {
+				Job job = jobService.findResumeJob(jobCustom.getJobId());
+				jobs.add(job);
+			}
+
+			session.setAttribute("industryName", industryName);
 			session.setAttribute("companyUpload", companyUpload);
 			session.setAttribute("jobCustoms", jobCustoms);
+			session.setAttribute("jobs", jobs);
 			return "company/companyManage";
 		} else {
 			throw new MyException("企业用户还未登录！");

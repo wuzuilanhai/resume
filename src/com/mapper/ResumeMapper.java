@@ -20,4 +20,6 @@ public interface ResumeMapper {
 	void updateResume(Resume resume) throws Exception;
 
 	ResumeCustom findResumeJob(Integer resumeId) throws Exception;
+
+	ResumeCustom findResumeByResumeId(Integer resumeId) throws Exception;
 }

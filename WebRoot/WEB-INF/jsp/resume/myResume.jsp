@@ -94,7 +94,7 @@
 					style="position:absolute;right:0;top:180;width:232;height:150;float:left">
 					<p
 						style="position:absolute;right:30;top:0;width:232;height:20;text-align:right;">
-						${sessionScope.jobhunter.jobhunterName}<br />
+						${sessionScope.jobhunter.jobhunterRealName}<br />
 						${sessionScope.jobhunter.jobhunterNativePlace}<br />
 						${sessionScope.latestWorkExperience.positionName}<br />
 						${sessionScope.latestWorkExperience.companyName}<br />

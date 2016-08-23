@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ taglib
-	uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -41,9 +42,9 @@
 	<div class="framehead" style="position:fixed;z-index:100;">
 		<div class="frameheadmid" style="position:relative;z-index:101">
 			<div class="buttontop">
-				<img
+				<a href="${pageContext.request.contextPath}/index.jsp"> <img
 					src="${pageContext.request.contextPath}/images/companyRegister/manage/logo.png"
-					width="132" height="50" alt="" />
+					width="132" height="50" alt="" /> </a>
 			</div>
 			<div class="buttontop" style="left:182;">
 				<a href="Untitled-1.html" onMouseOut="MM_swapImgRestore()"
@@ -52,10 +53,16 @@
 					alt="" width="100" height="50" id="mainpage"> </a>
 			</div>
 			<div class="buttontop" style="left:282">
-				<a href="../职位页/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/companyRegister/manage/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/manage/job3.png"
 					alt="" width="100" height="50" id="job"> </a>
+			</div>
+			<div class="buttontop" style="left:382">
+				<a href="../个人中心/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/resume/resumeDetail/resume2.png',1)"><img
+					src="${pageContext.request.contextPath}/images/resume/resumeDetail/resume.png"
+					alt="" width="100" height="50" id="resume"> </a>
 			</div>
 			<div
 				style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
@@ -80,8 +87,9 @@
 					style="position:absolute;right:0;top:180;width:232;height:150;float:left">
 					<p
 						style="position:absolute;right:30;top:0;width:232;height:20;text-align:right;">
-						东软科技有限公司<br /> 互联网·IT<br /> 广州市天河区揽月路8号东...<br /> 广东 - 广州<br />
-						neusoft@neusoft.com<br />
+						${sessionScope.company.companyName }<br />${sessionScope.industryName}<br />
+						${sessionScope.company.companyLocation }<br />${sessionScope.company.phoneNumber
+						}<br /> ${sessionScope.company.companyEmail }<br />
 					</p>
 				</div>
 			</div>
@@ -505,126 +513,6 @@ ${jobCustom.jobAcquire }</textarea>
 			<div class="frameright" id="frameright2"
 				style="position:relative;float:right;display:none">
 				<div class="div_left"
-					style="margin-top:40;position:relative;height:auto;width:697">
-					<div class="fill_title_left">
-						<div style="position:absolute;top:10;width:8;height:30;">
-							<img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/titlehead.png"
-								width="8" height="30" alt="" />
-						</div>
-						<div style="position:absolute;top:10;left:10;width:192;height:30;">
-							<h2 style="margin:0;position:absolute;top:4;left:15;">条件筛选</h2>
-						</div>
-						<div style="position:absolute;top:50;left:0;width:637;height:1;">
-							<img
-								src="${pageContext.request.contextPath}/images/companyRegister/manage/line647.png"
-								width="637" height="1" alt="" />
-						</div>
-					</div>
-					<div
-						style="margin-top:15;position:relative;width:697px;height:320;">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
-							onMouseOver="MM_swapImage('search','','${pageContext.request.contextPath}/images/companyRegister/manage/search2.png',0)"><img
-							style="position:absolute;right:70;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/search.png"
-							alt="" width="100" height="50" id="search"> </a>
-						<p
-							style="position:absolute;top:5;left:30;width:70px;height:20px;font-size: 14px;">应聘职位：</p>
-						<select id="jobselect" type="text" class="form-control"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							style="position:absolute;left:120;top:5;width:150px; height:30px;">
-							<option>不限</option>
-							<option>PHP工程师</option>
-							<option>Java工程师</option>
-						</select>
-						<p
-							style="position:absolute;top:45;left:30;width:70px;height:20px;font-size: 14px;">姓名：</p>
-						<input class="form-control" name="textfield" type="text" id="name"
-							value="填写求职者姓名" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写求职者姓名'){value =''}"
-							onBlur="if (value ==''){value='填写求职者姓名'}"
-							style="position:absolute;left:120;top:45;width:150px; height:30px;" />
-						<p
-							style="position:absolute;top:85;left:30;width:70px;height:20px;font-size: 14px;">目前就职：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="jobname" value="填写目前就职岗位名称"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写目前就职岗位名称'){value =''}"
-							onBlur="if (value ==''){value='填写目前就职岗位名称'}"
-							style="position:absolute;left:120;top:85;width:150px; height:30px;" />
-						<p
-							style="position:absolute;top:125;left:30;width:70px;height:20px;font-size: 14px;">就职公司：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="company" value="填写目前就职公司名称"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写目前就职公司名称'){value =''}"
-							onBlur="if (value ==''){value='填写目前就职公司名称'}"
-							style="position:absolute;left:120;top:125;width:150px; height:30px;" />
-						<p
-							style="position:absolute;top:165;left:30;width:70px;height:20px;font-size: 14px;">性别：</p>
-						<select id="sex" type="text" class="form-control"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							style="position:absolute;left:120;top:165;width:150px; height:30px;">
-							<option>不限</option>
-							<option>男</option>
-							<option>女</option>
-						</select>
-						<p
-							style="position:absolute;top:205;left:30;width:70px;height:20px;font-size: 14px;">学历：</p>
-						<select id="education" type="text" class="form-control"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							style="position:absolute;left:120;top:205;width:150px; height:30px;">
-							<option>不限</option>
-							<option>博士</option>
-							<option>硕士</option>
-							<option>本科</option>
-						</select> <input type="checkbox"
-							style="position:absolute;top:210;left:280;width:14px;height:14px;" />
-						<p
-							style="position:absolute;top:210;left:300;width:70px;height:20px;font-size: 12px;">及以上</p>
-						<p
-							style="position:absolute;top:245;left:30;width:70px;height:20px;font-size: 14px;">年龄：</p>
-						<input class="form-control" name="textfield" type="text" id="age"
-							value="填写年龄下限" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写年龄下限'){value =''}"
-							onBlur="if (value ==''){value='填写年龄下限'}"
-							style="position:absolute;left:120;top:245;width:150px; height:30px;" />
-						<input class="form-control" name="textfield" type="text" id="age2"
-							value="填写年龄上限" onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写年龄上限'){value =''}"
-							onBlur="if (value ==''){value='填写年龄上限'}"
-							style="position:absolute;left:280;top:245;width:150px; height:30px;" />
-						<p
-							style="position:absolute;top:285;left:30;width:70px;height:20px;font-size: 14px;">工作年限：</p>
-						<input class="form-control" name="textfield" type="text"
-							id="workage" value="填写工作年限下限"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写工作年限下限'){value =''}"
-							onBlur="if (value ==''){value='填写工作年限下限'}"
-							style="position:absolute;left:120;top:285;width:150px; height:30px;" />
-						<input class="form-control" name="textfield" type="text"
-							id="workage2" value="填写工作年限上限"
-							onmouseover="this.style.borderColor='#316392'"
-							onmouseout="this.style.borderColor=''"
-							onFocus="if (value =='填写工作年限上限'){value =''}"
-							onBlur="if (value ==''){value='填写工作年限上限'}"
-							style="position:absolute;left:280;top:285;width:150px; height:30px;" />
-						<p id="clear"
-							style="display:block;position:absolute;top:50;right:60;width:100px;height:20px;">
-							<a>清空搜索条件</a>
-						</p>
-					</div>
-				</div>
-				<div class="div_left"
 					style="position:relative;height:auto;width:697">
 					<div class="fill_title_left">
 						<div style="position:absolute;top:10;width:8;height:30;">
@@ -641,101 +529,32 @@ ${jobCustom.jobAcquire }</textarea>
 								width="637" height="1" alt="" />
 						</div>
 					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby2.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby2.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby2.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left">
-						<h1>杨颖 23岁</h1>
-						<h1 class="text_operation">操作</h1>
-						<a href=" "><p class="text_delete">删除</p> </a> <a href=" "><p
-								class="text_viewdetail">查看简历详情</p> </a>
-						<p>
-							应聘职位：项目经理<br /> 所在地：广东·广州<br /> 现职：搜狐娱乐有限公司 - 项目总监<br /> 学历：本科
-							工作年限：3年
-						</p>
-						<img style="position:absolute;right:0;top:20;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/manage/baby.jpg"
-							width="100" height="100" alt="" />
-					</div>
-					<div class="fill_left"
-						style="text-align:center;margin-top:50;margin-bottom:30;">
-						<h1>查看更多简历</h1>
-					</div>
+					<c:forEach items="${sessionScope.jobs }" var="job"
+						varStatus="jobNum">
+						<c:forEach items="${job.resumeCustoms }" var="resumeCustom"
+							varStatus="resumeCustomNum">
+							<div class="fill_left">
+								<h1>${resumeCustom.jobhunterRealName }
+									${resumeCustom.jobhunterBirthday }</h1>
+								<h1 class="text_operation">操作</h1>
+								<a
+									href="${pageContext.request.contextPath}/resumeJob/deleteResumeJob.action?resumeId=${resumeCustom.resumeId }&jobId=${job.jobId}"><p
+										class="text_delete">删除</p> </a> <a
+									href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resumeCustom.resumeId }"><p
+										class="text_viewdetail">查看简历详情</p> </a>
+								<p>
+									应聘职位：${job.jobName }<br /> 所在地：${resumeCustom.jobhunterAddress
+									}<br /> 学历：${resumeCustom.jobhunterQualification }<br />投递时间：
+									<fmt:formatDate value="${resumeCustom.submitTime}"
+										pattern="yyyy/MM/dd" />
+									<br />
+								</p>
+								<img style="position:absolute;right:0;top:20;float:right;"
+									src="${resumeCustom.uploadLocation }${resumeCustom.uploadName }"
+									width="100" height="100" alt="" />
+							</div>
+						</c:forEach>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

@@ -156,4 +156,101 @@ public class ResumeController extends BasicController {
 		}
 	}
 
+	/**
+	 * 根据简历id查看简历详情
+	 * 
+	 * @param resumeId
+	 *            简历id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/showResumeDetail")
+	public String showResumeDetail(Integer resumeId, HttpSession session)
+			throws Exception {
+		// 准备求职者基本资料信息
+		Resume resume = resumeService.findResumeByResumeId(resumeId);
+		Jobhunter jobhunter = jobHunterService.findJobHunterById(resume
+				.getJobhunterId());
+		// 准备职业意向数据信息
+		CareerIntention careerIntention = careerIntentionService
+				.findCareerIntentionById(resume.getCareerIntentionId());
+		List<Position> positions = null;
+		if (careerIntention != null) {
+			positions = positionService
+					.findPositionsByIndustryId(careerIntention.getIndustryId());
+		}
+		// 准备工作经历数据信息
+		List<WorkExperience> workExperiences = new ArrayList<WorkExperience>();
+		String workExperienceIds = resume.getWorkExperienceIds();
+		if (workExperienceIds != null) {
+			for (String str : workExperienceIds.split(",")) {
+				Integer id = Integer.parseInt(str);
+				workExperiences.add(workExperienceService
+						.findWorkExperienceById(id));
+			}
+		}
+		long latest = 0L;
+		long original = (new Date()).getTime();
+		WorkExperience latestWorkExperience = null;
+		for (WorkExperience workExperience : workExperiences) {
+			if (workExperience.getEndTime().getTime() > latest) {
+				latest = workExperience.getEndTime().getTime();
+				latestWorkExperience = workExperience;
+			}
+			if (workExperience.getStartTime().getTime() < original) {
+				original = workExperience.getStartTime().getTime();
+			}
+		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+		// 就职时间
+		String startTime = format.format(latestWorkExperience.getStartTime());
+		String startYear = startTime.split("-")[0];
+		String startMonth = startTime.split("-")[1];
+		// 准备教育经历数据信息
+		List<EducationExperience> educationExperiences = new ArrayList<EducationExperience>();
+		String educationExperienceIds = resume.getEducationExperienceIds();
+		if (educationExperienceIds != null) {
+			for (String str : educationExperienceIds.split(",")) {
+				Integer id = Integer.parseInt(str);
+				educationExperiences.add(educationExperienceService
+						.findEducationExperiencesById(id));
+			}
+		}
+		// 准备项目经验数据信息
+		List<ProjectExperience> projectExperiences = new ArrayList<ProjectExperience>();
+		String projectExperienceIds = resume.getProjectExperienceIds();
+		if (projectExperienceIds != null) {
+			for (String str : projectExperienceIds.split(",")) {
+				Integer id = Integer.parseInt(str);
+				projectExperiences.add(projectExperienceService
+						.findProjectExperiencesById(id));
+			}
+		}
+		// 准备求职者头像信息
+		JobhunterUpload jobhunterUpload = jobHunterUploadService
+				.findJobhunterUploadByJobhunterId(jobhunter.getJobhunterId());
+		// 准备投递记录信息resume_job
+		ResumeCustom resumeCustom = resumeService.findResumeJob(resume
+				.getResumeId());
+		String positionName = positionService
+				.findPositionNameByPositionId(careerIntention.getPositionId());
+
+		session.setAttribute("jobhunter", jobhunter);
+		session.setAttribute("workTime", (latest - original) / 1000 / 60 / 60
+				/ 24);
+		session.setAttribute("startYear", startYear);
+		session.setAttribute("startMonth", startMonth);
+		session.setAttribute("resume", resume);
+		session.setAttribute("positionName", positionName);
+		session.setAttribute("careerIntention", careerIntention);
+		session.setAttribute("positions", positions);
+		session.setAttribute("latestWorkExperience", latestWorkExperience);
+		session.setAttribute("workExperiences", workExperiences);
+		session.setAttribute("educationExperiences", educationExperiences);
+		session.setAttribute("projectExperiences", projectExperiences);
+		session.setAttribute("jobhunterUpload", jobhunterUpload);
+		session.setAttribute("resumeCustom", resumeCustom);
+		return "resume/resumeDetail";
+	}
+
 }

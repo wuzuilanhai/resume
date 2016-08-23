@@ -37,4 +37,9 @@ public class PositionServiceImpl extends BasicServiceImpl implements
 		return positionMapper.findPositionByParentId(parentid);
 	}
 
+	public String findPositionNameByPositionId(Integer positionId)
+			throws Exception {
+		return positionMapper.findPositionNameByPositionId(positionId);
+	}
+
 }

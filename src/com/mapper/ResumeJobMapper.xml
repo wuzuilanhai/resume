@@ -41,4 +41,12 @@
 		and
 		job_id=#{job.jobId}
 	</select>
+	<select id="findResumeJobByJobId" parameterType="int" resultMap="BaseResultMap">
+		select * from resume_job where
+		job_id=#{jobId}
+	</select>
+	<delete id="deleteResumeJob" parameterType="com.pojo.ResumeJob">
+		delete from
+		resume_job where resume_id=#{resume.resumeId} and job_id=#{job.jobId}
+	</delete>
 </mapper>

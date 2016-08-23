@@ -22,4 +22,6 @@ public interface PositionMapper {
 
 	List<Position> findPositionByParentId(Integer parentid) throws Exception;
 
+	String findPositionNameByPositionId(Integer positionId) throws Exception;
+
 }

@@ -46,4 +46,13 @@ public interface IndustryService {
 	 */
 	List<Industry> findChildrenIndustry(Integer parentid) throws Exception;
 
+	/**
+	 * 根据行业id查找行业名称
+	 * 
+	 * @param industryId
+	 *            行业id
+	 * @return 行业名称
+	 */
+	String findIndustryNameByIndustryId(Integer industryId) throws Exception;
+
 }

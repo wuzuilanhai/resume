@@ -20,4 +20,6 @@ public interface IndustryMapper {
 	List<Industry> findParentIndustry() throws Exception;
 
 	List<Industry> findChildrenIndustry(Integer parentid) throws Exception;
+
+	String findIndustryNameByIndustryId(Integer industryId) throws Exception;
 }

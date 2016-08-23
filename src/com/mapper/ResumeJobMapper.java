@@ -1,5 +1,7 @@
 package com.mapper;
 
+import java.util.List;
+
 import com.pojo.ResumeJob;
 
 /**
@@ -17,4 +19,8 @@ public interface ResumeJobMapper {
 	void deleteResumeJobByJobId(Integer jobId) throws Exception;
 
 	ResumeJob findResumeJobByResumeJob(ResumeJob resumeJob) throws Exception;
+
+	List<ResumeJob> findResumeJobByJobId(Integer jobId) throws Exception;
+
+	void deleteResumeJob(ResumeJob resumeJob) throws Exception;
 }

@@ -34,7 +34,7 @@ public class Job implements Serializable {
 
 	private String jobAcquire;
 
-	private List<Resume> resumes;
+	private List<ResumeCustom> resumeCustoms;
 
 	public Integer getJobId() {
 		return jobId;
@@ -133,11 +133,12 @@ public class Job implements Serializable {
 		this.jobAcquire = jobAcquire;
 	}
 
-	public List<Resume> getResumes() {
-		return resumes;
+	public List<ResumeCustom> getResumeCustoms() {
+		return resumeCustoms;
 	}
 
-	public void setResumes(List<Resume> resumes) {
-		this.resumes = resumes;
+	public void setResumeCustoms(List<ResumeCustom> resumeCustoms) {
+		this.resumeCustoms = resumeCustoms;
 	}
+
 }

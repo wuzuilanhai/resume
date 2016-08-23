@@ -137,4 +137,13 @@ public interface JobService {
 	 */
 	List<JobCustom> findJobsByVo(JobQueryVo jobQueryVo) throws Exception;
 
+	/**
+	 * 根据职位id查找职位-简历信息列表
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @return 职位-简历信息列表
+	 */
+	Job findResumeJob(Integer jobId) throws Exception;
+
 }

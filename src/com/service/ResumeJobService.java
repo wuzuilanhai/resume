@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.pojo.ResumeJob;
 
 /**
@@ -34,5 +36,21 @@ public interface ResumeJobService {
 	 * @return
 	 */
 	ResumeJob findResumeJobByResumeJob(ResumeJob resumeJob) throws Exception;
+
+	/**
+	 * 根据职位id查找记录
+	 * 
+	 * @param jobId
+	 *            职位id
+	 * @return
+	 */
+	List<ResumeJob> findResumeJobByJobId(Integer jobId) throws Exception;
+
+	/**
+	 * 删除简历-职位关系表中的记录
+	 * 
+	 * @param resumeJob
+	 */
+	void deleteResumeJob(ResumeJob resumeJob) throws Exception;
 
 }
