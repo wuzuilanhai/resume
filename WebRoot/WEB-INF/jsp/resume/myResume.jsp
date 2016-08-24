@@ -294,7 +294,7 @@
 							</div>
 							<div class="fill" style="top:160">
 								<p>行业分类：</p>
-								<select id="industryId" name="industryId" class="form-control"
+								<select id="industryId1" name="industryId" class="form-control"
 									disabled="disabled"
 									style="left:100;width:90px; color: #989898;">
 									<option value=1
