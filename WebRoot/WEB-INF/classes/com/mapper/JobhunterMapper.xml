@@ -40,7 +40,8 @@
 		<result column="jobhunter_extra_message" property="jobhunterExtraMessage"
 			jdbcType="VARCHAR" />
 	</resultMap>
-	<insert id="addJobHunter" parameterType="com.pojo.Jobhunter">
+	<insert id="addJobHunter" parameterType="com.pojo.Jobhunter"
+		useGeneratedKeys="true" keyProperty="jobhunterId">
 		insert into jobhunter
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="jobhunterId != null">

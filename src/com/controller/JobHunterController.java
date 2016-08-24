@@ -23,6 +23,7 @@ import com.pojo.JobCustom;
 import com.pojo.Jobhunter;
 import com.pojo.JobhunterQueryVo;
 import com.pojo.JobhunterUpload;
+import com.pojo.Resume;
 import com.sun.org.apache.commons.beanutils.BeanUtils;
 import com.util.MD5Utils;
 
@@ -56,6 +57,10 @@ public class JobHunterController extends BasicController {
 		jobhunter.setJobhunterPassword(MD5Utils.md5(jobhunter
 				.getJobhunterPassword()));
 		jobHunterService.addJobHunter(jobhunter);
+		// 为注册用户添加简历
+		Resume resume = new Resume();
+		resume.setJobhunterId(jobhunter.getJobhunterId());
+		resumeService.addResume(resume);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("registerInfo", "success");
 		ObjectMapper mapper = new ObjectMapper();

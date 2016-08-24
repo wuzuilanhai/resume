@@ -82,7 +82,7 @@
 		<div class="frameleft" style="position:fixed;float:left">
 			<div
 				style="position:absolute;left:0;top:21;width:232;height:330;float:left">
-				<img style="position:absolute;left:35;top:50;float:left"
+				<img style="position:absolute;left:45;top:50;float:left"
 					src="${sessionScope.companyUpload.uploadLocation}${sessionScope.companyUpload.uploadName}"
 					width="160" height="80" alt="" />
 				<div
