@@ -66,3 +66,26 @@ function hidesearchdetail() {
 	document.getElementById("clear").style.display = "none";
 	document.getElementById("hide").style.display = "none";
 }
+$('#searchResumeBtn').click(function() {
+	$('#searchResumeForm').submit();
+});
+$('#clearBtn').click(function() {
+	$('#keyWord').val("");
+});
+$('#forwordByPagenum').click(function() {
+	var currentPage = $('#pageNum').val();
+	if (!currentPage) {
+		alert("请输入非空数字！");
+		$('#pageNum').val("");
+		return;
+	} else if (!/^[0-9]*$/.test(currentPage)) {
+		alert("请输入数字！");
+		$('#pageNum').val("");
+		return;
+	}
+	var href = $('#links a:eq(1)').attr("href");
+	var head = href.split('&')[0];
+	var tail = href.substring(head.length);
+	var head1 = head.substring(0, head.length - 1) + currentPage;
+	window.location.href = head1 + tail;
+});

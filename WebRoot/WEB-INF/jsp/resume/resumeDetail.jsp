@@ -34,9 +34,9 @@
 	<div class="framehead" style="position:fixed;z-index:100;">
 		<div class="frameheadmid" style="position:relative;z-index:101">
 			<div class="buttontop">
-				<img
+				<a href="${pageContext.request.contextPath}/index.jsp"><img
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/logo.png"
-					width="132" height="50" alt="" />
+					width="132" height="50" alt="" /> </a>
 			</div>
 			<div class="buttontop" style="left:182;">
 				<a href="Untitled-1.html" onMouseOut="MM_swapImgRestore()"
@@ -45,13 +45,17 @@
 					alt="" width="100" height="50" id="mainpage"> </a>
 			</div>
 			<div class="buttontop" style="left:282">
-				<a href="../职位页/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/company/companyManage.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job','','${pageContext.request.contextPath}/images/resume/resumeDetail/job2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/job.png"
 					alt="" width="100" height="50" id="job"> </a>
 			</div>
 			<div class="buttontop" style="left:382">
-				<a href="../个人中心/Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume','','${pageContext.request.contextPath}/images/resume/resumeDetail/resume2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/resume3.png"
 					alt="" width="100" height="50" id="resume"> </a>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
+import com.pojo.ResumeQueryVo;
 import com.service.ResumeService;
 
 /**
@@ -46,6 +47,16 @@ public class ResumeServiceImpl extends BasicServiceImpl implements
 
 	public List<ResumeCustom> findAllResumesByPage(Page page) throws Exception {
 		return resumeMapper.findAllResumesByPage(page);
+	}
+
+	public Integer findAllResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception {
+		return resumeMapper.findAllResumesByCondition(resumeQueryVo);
+	}
+
+	public List<ResumeCustom> findResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception {
+		return resumeMapper.findResumesByCondition(resumeQueryVo);
 	}
 
 }

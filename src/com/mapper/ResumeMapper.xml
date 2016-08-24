@@ -41,6 +41,20 @@
 	</resultMap>
 	<resultMap type="com.pojo.ResumeCustom" id="resumeCustomJobMap"
 		extends="resumeJobMap">
+		<result column="jobhunter_real_name" property="jobhunterRealName"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_birthday" property="jobhunterBirthday"
+			jdbcType="DATE" />
+		<result column="jobhunter_qualification" property="jobhunterQualification"
+			jdbcType="VARCHAR" />
+		<result column="jobhunter_address" property="jobhunterAddress"
+			jdbcType="VARCHAR" />
+		<result column="jobhunt_entrance_status" property="jobhuntEntranceStatus"
+			jdbcType="VARCHAR" />
+		<result column="submittime" property="submitTime" jdbcType="DATE" />
+		<result column="upload_location" property="uploadLocation"
+			jdbcType="VARCHAR" />
+		<result column="upload_name" property="uploadName" jdbcType="VARCHAR" />
 	</resultMap>
 	<select id="findResumeJob" parameterType="int" resultMap="resumeCustomJobMap">
 		select
@@ -173,7 +187,7 @@
 	<select id="findAllResumesByPage" parameterType="com.pojo.Page"
 		resultMap="resumeCustomJobMap">
 		select
-		resume.*,jobhunter.jobhunter_real_name,jobhunter.jobhunter_birthday,jobhunter.jobhunter_qualification,jobhunter.jobhunter_address,jobhunter_upload.upload_location,jobhunter_upload.upload_name
+		resume.*,jobhunter.jobhunter_real_name,jobhunter.jobhunter_birthday,jobhunter.jobhunter_qualification,jobhunter.jobhunter_address,jobhunter.jobhunt_entrance_status,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
 		resume,jobhunter,jobhunter_upload where
 		resume.jobhunter_id=jobhunter.jobhunter_id
@@ -181,5 +195,28 @@
 		jobhunter.jobhunter_id=jobhunter_upload.jobhunter_id
 		limit
 		#{pageNums},#{pageSize}
+	</select>
+	<select id="findAllResumesByCondition" parameterType="com.pojo.ResumeQueryVo"
+		resultType="int">
+		select
+		count(*) from resume,jobhunter where
+		resume.jobhunter_id=jobhunter.jobhunter_id
+		and
+		(jobhunter.jobhunter_real_name like "%${keyWord}%" or
+		jobhunter.jobhunter_qualification like "%${keyWord}%")
+	</select>
+	<select id="findResumesByCondition" parameterType="com.pojo.ResumeQueryVo"
+		resultMap="resumeCustomJobMap">
+		select
+		resume.*,jobhunter.jobhunter_real_name,jobhunter.jobhunter_birthday,jobhunter.jobhunter_qualification,jobhunter.jobhunter_address,jobhunter.jobhunt_entrance_status,jobhunter_upload.upload_location,jobhunter_upload.upload_name
+		from
+		resume,jobhunter,jobhunter_upload where
+		resume.jobhunter_id=jobhunter.jobhunter_id
+		and
+		jobhunter.jobhunter_id=jobhunter_upload.jobhunter_id
+		and
+		(jobhunter.jobhunter_real_name like "%${keyWord}%" or
+		jobhunter.jobhunter_qualification like "%${keyWord}%") limit
+		#{page.pageNums},#{page.pageSize}
 	</select>
 </mapper>

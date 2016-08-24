@@ -1,11 +1,14 @@
 package com.controller;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,7 @@ import com.pojo.Position;
 import com.pojo.ProjectExperience;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
+import com.pojo.ResumeQueryVo;
 import com.pojo.WorkExperience;
 
 /**
@@ -305,4 +309,73 @@ public class ResumeController extends BasicController {
 		session.setAttribute("page", page);
 		return "resume/searchResume";
 	}
+
+	/**
+	 * 根据提交的表单数据来查找企业
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findResumesByCondition")
+	public String findResumesByCondition(ResumeQueryVo resumeQueryVo,
+			Integer currentPage, HttpSession session, HttpServletRequest request)
+			throws Exception {
+		if (currentPage == null) {
+			currentPage = 1;
+		}
+		// 判断传递的方法为get还是post，解码
+		if ("GET".equalsIgnoreCase(request.getMethod())) {
+			resumeQueryVo.setKeyWord(URLDecoder.decode(
+					resumeQueryVo.getKeyWord(), "utf-8"));
+		}
+		Integer recordCount = resumeService
+				.findAllResumesByCondition(resumeQueryVo);
+		Page page = new Page(currentPage, pageSize, recordCount, null, session
+				.getServletContext().getContextPath());
+		resumeQueryVo.setPage(page);
+		List<ResumeCustom> resumeQueryVoList = resumeService
+				.findResumesByCondition(resumeQueryVo);
+		page.setRecordList(resumeQueryVoList);
+		// get方式传递查询条件，url的拼凑
+		StringBuffer buffer = new StringBuffer();
+		if (currentPage == 1) {
+			buffer.append("<a href='javascript:void(0)'>&lt;&lt;</a>&nbsp;&nbsp;");
+		} else {
+			buffer.append("<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findResumesByCondition.action?currentPage="
+					+ (currentPage - 1)
+					+ "&keyWord="
+					+ URLEncoder.encode(URLEncoder.encode(
+							resumeQueryVo.getKeyWord(), "utf-8"), "utf-8")
+					+ "'>&lt;&lt;</a>&nbsp;&nbsp;");
+		}
+		for (int i = page.getBeginPageIndex(); i <= page.getEndPageIndex(); i++) {
+			buffer.append("<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findResumesByCondition.action?currentPage="
+					+ i
+					+ "&keyWord="
+					+ URLEncoder.encode(URLEncoder.encode(
+							resumeQueryVo.getKeyWord(), "utf-8"), "utf-8")
+					+ "'>" + i + "</a>");
+		}
+		if (currentPage == page.getPageCount()) {
+			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");
+		} else {
+			buffer.append("&nbsp;&nbsp;<a href='"
+					+ session.getServletContext().getContextPath()
+					+ "/resume/findResumesByCondition.action?currentPage="
+					+ (currentPage + 1)
+					+ "&keyWord="
+					+ URLEncoder.encode(URLEncoder.encode(
+							resumeQueryVo.getKeyWord(), "utf-8"), "utf-8")
+					+ "'>&gt;&gt;</a>");
+		}
+		page.setLinks(buffer.toString());
+		request.setAttribute("resumeQueryVo", resumeQueryVo);
+		session.setAttribute("page", page);
+		return "resume/searchResume";
+	}
+
 }

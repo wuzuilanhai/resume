@@ -99,13 +99,17 @@
 			</div>
 			<div class="fill" style="margin-top:10.7;width:920;height:40;">
 				<p style="padding-top:13">关键词：</p>
-				<input class="form-control" name="textfield" type="text"
-					id="username" value="输入职业、公司等关键字：如 设计总监"
-					onmouseover="this.style.borderColor='#316392'"
-					onmouseout="this.style.borderColor=''"
-					onFocus="if (value =='输入职业、公司等关键字：如 设计总监'){value =''}"
-					onBlur="if (value ==''){value='输入职业、公司等关键字：如 设计总监'}"
-					style="top:5;width:500px; height:40px; " /> <a href="#"
+				<form
+					action="${pageContext.request.contextPath}/resume/findResumesByCondition.action"
+					method="post" id="searchResumeForm">
+					<input class="form-control" name="keyWord" type="text" id="keyWord"
+						value="${requestScope.resumeQueryVo.keyWord }"
+						placeHolder="输入姓名、学历等关键字：如本科"
+						onmouseover="this.style.borderColor='#316392'"
+						onmouseout="this.style.borderColor=''"
+						style="top:5;width:500px; height:40px; " />
+				</form>
+				<a id="searchResumeBtn" href="javascript:void(0)"
 					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('send','','${pageContext.request.contextPath}/images/resume/searchResume/search2.png',0)"><img
 					style="position:absolute;right:0;float:right;top:0"
@@ -121,7 +125,7 @@
 				</p>
 				<p id="show"
 					style="cursor:pointer;position:absolute;bottom:-30;right:8;height:20px;float:right">
-					<a onClick="showsearchdetail();"> 更多搜索条件</a>
+					<a href="javascript:void(0)" id="clearBtn"> 清空搜索条件</a>
 				</p>
 			</div>
 			<div id="detail" class="fill"
@@ -239,28 +243,34 @@
 						width="900" height="1" alt="" />
 				</div>
 			</div>
-			<c:forEach items="${sessionScope.page.recordList }" var="job"
+			<c:forEach items="${sessionScope.page.recordList }" var="resume"
 				varStatus="num">
 				<div class="fill" style="padding-top:10;">
-					<a href="#"><img style="position:absolute;right:30;top:28;"
-						src="${pageContext.request.contextPath}/images/resume/searchResume/1.jpg"
-						width="100" height="100" alt="" /> </a>
+					<a
+						href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resume.resumeId}"><img
+						style="position:absolute;right:30;top:28;"
+						src="${resume.uploadLocation }${resume.uploadName }" width="100"
+						height="100" alt="" /> </a>
 					<h1>
-						<a href="#">周杰伦</a> · <a href="#">网络工程</a>
+						<a
+							href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resume.resumeId}">${resume.jobhunterRealName
+							}</a> · ${resume.jobhunterBirthday }
 					</h1>
 					<p style="word-spacing:10px">
-						学历：华南理工大学/本科<br /> 所在地：广东·广州<br /> 工作年限：工作5年 职业意向：网络工程师
-						目前状态：离职，正在找工作
+						学历：${resume.jobhunterQualification }<br />
+						所在地：${resume.jobhunterAddress }<br />
+						目前状态：${resume.jobhuntEntranceStatus }
 					</p>
 				</div>
 			</c:forEach>
 			<div class="fill" style="padding-top:10.7">
-				<p style="text-align:center;">${page.links }</p>
+				<p style="text-align:center;" id="links">${page.links }</p>
 				<p style="margin-top:10;text-align:center;">
-					跳转到<a style="margin-left:100" href="#">GO</a>
+					跳转到<a style="margin-left:100" href="javascript:void(0)"
+						id="forwordByPagenum">GO</a>
 				</p>
 				<input class="form-control" name="textfield" type="text"
-					id="pagenum" onmouseover="this.style.borderColor='#316392'"
+					id="pageNum" onmouseover="this.style.borderColor='#316392'"
 					onmouseout="this.style.borderColor=''"
 					style="position:absolute;top:44;left:424;width:30;width:60;padding-right:0" />
 			</div>

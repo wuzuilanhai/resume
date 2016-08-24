@@ -5,6 +5,7 @@ import java.util.List;
 import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
+import com.pojo.ResumeQueryVo;
 
 /**
  * 
@@ -29,4 +30,10 @@ public interface ResumeMapper {
 	Integer findAllResumes() throws Exception;
 
 	List<ResumeCustom> findAllResumesByPage(Page page) throws Exception;
+
+	Integer findAllResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception;
+
+	List<ResumeCustom> findResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception;
 }

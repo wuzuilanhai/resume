@@ -5,6 +5,7 @@ import java.util.List;
 import com.pojo.Page;
 import com.pojo.Resume;
 import com.pojo.ResumeCustom;
+import com.pojo.ResumeQueryVo;
 
 /**
  * 类描述：简历业务类接口
@@ -73,5 +74,23 @@ public interface ResumeService {
 	 * @return 简历信息列表
 	 */
 	List<ResumeCustom> findAllResumesByPage(Page page) throws Exception;
+
+	/**
+	 * 根据条件查询简历数量
+	 * 
+	 * @param resumeQueryVo
+	 * @return
+	 */
+	Integer findAllResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception;
+
+	/**
+	 * 根据条件查询简历信息列表
+	 * 
+	 * @param resumeQueryVo
+	 * @return
+	 */
+	List<ResumeCustom> findResumesByCondition(ResumeQueryVo resumeQueryVo)
+			throws Exception;
 
 }

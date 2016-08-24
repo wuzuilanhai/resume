@@ -25,6 +25,8 @@ public class ResumeCustom extends Resume implements Serializable {
 
 	private String jobhunterAddress;
 
+	private String jobhuntEntranceStatus;
+
 	private Date submitTime;
 
 	private String uploadLocation;
@@ -61,6 +63,14 @@ public class ResumeCustom extends Resume implements Serializable {
 
 	public void setJobhunterAddress(String jobhunterAddress) {
 		this.jobhunterAddress = jobhunterAddress;
+	}
+
+	public String getJobhuntEntranceStatus() {
+		return jobhuntEntranceStatus;
+	}
+
+	public void setJobhuntEntranceStatus(String jobhuntEntranceStatus) {
+		this.jobhuntEntranceStatus = jobhuntEntranceStatus;
 	}
 
 	public Date getSubmitTime() {
