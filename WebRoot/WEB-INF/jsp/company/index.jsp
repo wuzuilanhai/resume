@@ -74,7 +74,9 @@
 					href="../求职者注册/Untitled-1.html">注册</a>
 			</div>
 			<div style="position:absolute;right:10;top:10;">
-				<a href="../企业首页/Untitled-3.html" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('person','','${pageContext.request.contextPath}/images/companyRegister/index/person2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/index/person.jpg"
 					alt="" width="80" height="30" id="person"> </a>
@@ -87,10 +89,12 @@
 				<ul class="banList" style="position: absolute;margin:0px">
 					<li class="active" style="position: absolute; left: 0; top: 0;"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/index/banner1.png"
-						alt="" /></li>
+						alt="" />
+					</li>
 					<li style="position: absolute; left: 0; top: 0;"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/index/banner2.png"
-						alt="" /></li>
+						alt="" />
+					</li>
 				</ul>
 				<div class="fomW"
 					style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">

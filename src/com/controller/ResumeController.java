@@ -79,13 +79,17 @@ public class ResumeController extends BasicController {
 			Resume resume = resumeService.findResumeByJobhunterId(jobhunter
 					.getJobhunterId());
 			// 准备职业意向数据信息
-			CareerIntention careerIntention = careerIntentionService
-					.findCareerIntentionById(resume.getCareerIntentionId());
-			List<Position> positions = null;
-			if (careerIntention != null) {
-				positions = positionService
-						.findPositionsByIndustryId(careerIntention
-								.getIndustryId());
+			if (resume.getCareerIntentionId() != null) {
+				CareerIntention careerIntention = careerIntentionService
+						.findCareerIntentionById(resume.getCareerIntentionId());
+				List<Position> positions = null;
+				if (careerIntention != null) {
+					positions = positionService
+							.findPositionsByIndustryId(careerIntention
+									.getIndustryId());
+				}
+				session.setAttribute("careerIntention", careerIntention);
+				session.setAttribute("positions", positions);
 			}
 			// 准备工作经历数据信息
 			List<WorkExperience> workExperiences = new ArrayList<WorkExperience>();
@@ -111,10 +115,14 @@ public class ResumeController extends BasicController {
 			}
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
 			// 就职时间
-			String startTime = format.format(latestWorkExperience
-					.getStartTime());
-			String startYear = startTime.split("-")[0];
-			String startMonth = startTime.split("-")[1];
+			String startTime = null;
+			String startYear = null;
+			String startMonth = null;
+			if (latestWorkExperience != null) {
+				startTime = format.format(latestWorkExperience.getStartTime());
+				startYear = startTime.split("-")[0];
+				startMonth = startTime.split("-")[1];
+			}
 			// 准备教育经历数据信息
 			List<EducationExperience> educationExperiences = new ArrayList<EducationExperience>();
 			String educationExperienceIds = resume.getEducationExperienceIds();
@@ -150,8 +158,6 @@ public class ResumeController extends BasicController {
 			session.setAttribute("startYear", startYear);
 			session.setAttribute("startMonth", startMonth);
 			session.setAttribute("resume", resume);
-			session.setAttribute("careerIntention", careerIntention);
-			session.setAttribute("positions", positions);
 			session.setAttribute("latestWorkExperience", latestWorkExperience);
 			session.setAttribute("workExperiences", workExperiences);
 			session.setAttribute("educationExperiences", educationExperiences);
@@ -211,9 +217,14 @@ public class ResumeController extends BasicController {
 		}
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
 		// 就职时间
-		String startTime = format.format(latestWorkExperience.getStartTime());
-		String startYear = startTime.split("-")[0];
-		String startMonth = startTime.split("-")[1];
+		String startTime = null;
+		String startYear = null;
+		String startMonth = null;
+		if (latestWorkExperience != null) {
+			startTime = format.format(latestWorkExperience.getStartTime());
+			startYear = startTime.split("-")[0];
+			startMonth = startTime.split("-")[1];
+		}
 		// 准备教育经历数据信息
 		List<EducationExperience> educationExperiences = new ArrayList<EducationExperience>();
 		String educationExperienceIds = resume.getEducationExperienceIds();

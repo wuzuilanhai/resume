@@ -75,7 +75,7 @@
 			</div>
 			<div
 				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
-				<a href="../企业首页/Untitled-3.html" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/company/index.action" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/resume/business2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/resume/business.png"
 					alt="" width="80" height="30" id="business" /> </a>

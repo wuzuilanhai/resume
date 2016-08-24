@@ -44,6 +44,7 @@ public class JobController extends BasicController {
 	public String addJob(Job job, HttpSession session) throws Exception {
 		Company company = (Company) session.getAttribute("company");
 		job.setJobSubtime(new Date());
+		job.setIsHot(1);
 		// 设置发布的职位状态，0：已失效，1：有效
 		job.setJobStatus(1);
 		job.setCompanyId(company.getCompanyId());

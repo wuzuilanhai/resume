@@ -43,6 +43,10 @@ public class WorkExperienceController extends BasicController {
 		// 更新resume
 		Resume resume = (Resume) session.getAttribute("resume");
 		String ids = resume.getWorkExperienceIds();
+		if (ids == null) {
+			resume.setWorkExperienceIds(workExperienceQueryVo
+					.getWorkExperience().getWexperienceId() + "");
+		}
 		if (ids != null && ids.length() > 0) {
 			resume.setWorkExperienceIds(ids
 					+ ","
