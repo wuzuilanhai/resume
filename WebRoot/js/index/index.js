@@ -115,6 +115,8 @@ $('#findJobHunterBtn').click(function() {
 		if (jQuery.isEmptyObject(data)) {
 			alert("用户名与密码不相符!");
 			$("#form1 input:eq(1)").val("");
+		} else {
+			window.location = getRootPath() + "/jobHunter/indexUI.action";
 		}
 	});
 });
@@ -133,6 +135,8 @@ $('#findCompanyBtn').click(function() {
 		if (jQuery.isEmptyObject(data)) {
 			alert("企业用户名与密码不相符!");
 			$("#form2 input:eq(1)").val("");
+		} else {
+			window.location = getRootPath() + "/company/companyManage.action";
 		}
 	});
 });

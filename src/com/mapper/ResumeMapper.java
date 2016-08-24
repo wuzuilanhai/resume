@@ -36,4 +36,9 @@ public interface ResumeMapper {
 
 	List<ResumeCustom> findResumesByCondition(ResumeQueryVo resumeQueryVo)
 			throws Exception;
+
+	List<ResumeCustom> findResumeByVisitNumberLimit10() throws Exception;
+
+	List<ResumeCustom> findResumeByVisitNumberAndIndustryId(int industryId)
+			throws Exception;
 }

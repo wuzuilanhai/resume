@@ -219,4 +219,30 @@
 		jobhunter.jobhunter_qualification like "%${keyWord}%") limit
 		#{page.pageNums},#{page.pageSize}
 	</select>
+	<select id="findResumeByVisitNumberLimit10" resultMap="resumeCustomJobMap">
+		select
+		resume.*,jobhunter.jobhunter_real_name,jobhunter.jobhunter_birthday,jobhunter.jobhunter_qualification,jobhunter.jobhunter_address,jobhunter.jobhunt_entrance_status,jobhunter_upload.upload_location,jobhunter_upload.upload_name
+		from
+		resume,jobhunter,jobhunter_upload where
+		resume.jobhunter_id=jobhunter.jobhunter_id
+		and
+		jobhunter.jobhunter_id=jobhunter_upload.jobhunter_id
+		order by
+		resume.visit_number desc limit 10
+	</select>
+	<select id="findResumeByVisitNumberAndIndustryId" parameterType="int"
+		resultMap="resumeCustomJobMap">
+		select
+		resume.*,jobhunter.jobhunter_real_name,jobhunter.jobhunter_birthday,jobhunter.jobhunter_qualification,jobhunter.jobhunter_address,jobhunter.jobhunt_entrance_status,jobhunter_upload.upload_location,jobhunter_upload.upload_name
+		from
+		resume,jobhunter,jobhunter_upload,career_intention where
+		resume.jobhunter_id=jobhunter.jobhunter_id
+		and
+		jobhunter.jobhunter_id=jobhunter_upload.jobhunter_id
+		and
+		resume.career_intention_id=career_intention.cIntention_id
+		and
+		career_intention.industry_id=#{industryId}
+		limit 4
+	</select>
 </mapper>

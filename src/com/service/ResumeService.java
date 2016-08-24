@@ -93,4 +93,20 @@ public interface ResumeService {
 	List<ResumeCustom> findResumesByCondition(ResumeQueryVo resumeQueryVo)
 			throws Exception;
 
+	/**
+	 * 准备10个热门简历数据信息
+	 * 
+	 * @return
+	 */
+	List<ResumeCustom> findResumeByVisitNumberLimit10() throws Exception;
+
+	/**
+	 * 读取每个行业的4个简历数据信息
+	 * 
+	 * @param industryId
+	 * @return
+	 */
+	List<ResumeCustom> findResumeByVisitNumberAndIndustryId(int industryId)
+			throws Exception;
+
 }

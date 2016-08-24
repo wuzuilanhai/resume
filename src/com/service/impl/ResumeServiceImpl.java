@@ -59,4 +59,13 @@ public class ResumeServiceImpl extends BasicServiceImpl implements
 		return resumeMapper.findResumesByCondition(resumeQueryVo);
 	}
 
+	public List<ResumeCustom> findResumeByVisitNumberLimit10() throws Exception {
+		return resumeMapper.findResumeByVisitNumberLimit10();
+	}
+
+	public List<ResumeCustom> findResumeByVisitNumberAndIndustryId(
+			int industryId) throws Exception {
+		return resumeMapper.findResumeByVisitNumberAndIndustryId(industryId);
+	}
+
 }

@@ -25,6 +25,7 @@ import com.pojo.Industry;
 import com.pojo.Job;
 import com.pojo.JobCustom;
 import com.pojo.JobhunterUpload;
+import com.pojo.ResumeCustom;
 import com.util.MD5Utils;
 
 /**
@@ -37,6 +38,54 @@ import com.util.MD5Utils;
 @Controller
 @RequestMapping("/company")
 public class CompanyController extends BasicController {
+
+	/**
+	 * 跳转到企业主页
+	 * 
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/index")
+	public String index(HttpSession session) throws Exception {
+		// 准备10个热门简历数据信息
+		List<ResumeCustom> resumeCustoms = resumeService
+				.findResumeByVisitNumberLimit10();
+		List<ResumeCustom> resumeCustoms1 = new ArrayList<ResumeCustom>();
+		List<ResumeCustom> resumeCustoms2 = new ArrayList<ResumeCustom>();
+		int i = 1;
+		for (ResumeCustom resumeCustom : resumeCustoms) {
+			if (i <= 4) {
+				resumeCustoms1.add(resumeCustom);
+			} else {
+				resumeCustoms2.add(resumeCustom);
+			}
+			i++;
+		}
+		// 读取每个行业的4个简历数据信息
+		List<ResumeCustom> resumeCustoms3 = resumeService
+				.findResumeByVisitNumberAndIndustryId(1);
+		List<ResumeCustom> resumeCustoms4 = resumeService
+				.findResumeByVisitNumberAndIndustryId(2);
+		List<ResumeCustom> resumeCustoms5 = resumeService
+				.findResumeByVisitNumberAndIndustryId(3);
+		List<ResumeCustom> resumeCustoms6 = resumeService
+				.findResumeByVisitNumberAndIndustryId(4);
+		List<ResumeCustom> resumeCustoms7 = resumeService
+				.findResumeByVisitNumberAndIndustryId(5);
+		List<ResumeCustom> resumeCustoms8 = resumeService
+				.findResumeByVisitNumberAndIndustryId(6);
+		session.setAttribute("resumeCustoms1", resumeCustoms1);
+		session.setAttribute("resumeCustoms2", resumeCustoms2);
+		session.setAttribute("resumeCustoms3", resumeCustoms3);
+		session.setAttribute("resumeCustoms4", resumeCustoms4);
+		session.setAttribute("resumeCustoms5", resumeCustoms5);
+		session.setAttribute("resumeCustoms6", resumeCustoms6);
+		session.setAttribute("resumeCustoms7", resumeCustoms7);
+		session.setAttribute("resumeCustoms8", resumeCustoms8);
+		return "company/index";
+	}
+
 	/**
 	 * 添加企业公司
 	 * 

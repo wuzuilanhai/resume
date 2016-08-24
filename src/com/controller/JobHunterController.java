@@ -59,6 +59,7 @@ public class JobHunterController extends BasicController {
 		jobHunterService.addJobHunter(jobhunter);
 		// 为注册用户添加简历
 		Resume resume = new Resume();
+		resume.setVisitNumber(0);
 		resume.setJobhunterId(jobhunter.getJobhunterId());
 		resumeService.addResume(resume);
 		Map<String, String> map = new HashMap<String, String>();

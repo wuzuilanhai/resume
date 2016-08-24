@@ -39,7 +39,8 @@
 					width="132" height="50" alt="" /> </a>
 			</div>
 			<div class="buttontop" style="left:182;">
-				<a href="Untitled-1.html" onMouseOut="MM_swapImgRestore()"
+				<a href="${pageContext.request.contextPath}/company/index.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('mainpage','','${pageContext.request.contextPath}/images/resume/resumeDetail/mainpage2.png',0)"><img
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/mainpage.png"
 					alt="" width="100" height="50" id="mainpage"> </a>
