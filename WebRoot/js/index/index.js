@@ -65,10 +65,14 @@ $("div[id^='div_login']")
 		.click(
 				function(event) {
 					$("div[id^='framemid_']").hide();
+					$("div[id^='framehead']").hide();
+					$("div[id^='framebottom']").hide();
 					var str = $(this).attr("id").substring(10);
 					var showDivId = "#framemid_" + str;
 					$(showDivId).show();
 					if (str == "business") {
+						$("#framehead2").show();
+						$("#framebottom2").show();
 						$('#jobhunterRegister').attr("href",
 								getRootPath() + "/company/registerUI.action");
 						$('#changeImgDiv a').remove();
@@ -80,6 +84,8 @@ $("div[id^='div_login']")
 												+ getRootPath()
 												+ '/images/index/dhh/person.jpg" alt="" width="80" height="30" id="business"> </a>');
 					} else {
+						$("#framehead1").show();
+						$("#framebottom1").show();
 						$('#jobhunterRegister').attr("href",
 								getRootPath() + "/jobHunter/registerUI.action");
 						$('#changeImgDiv a').remove();
@@ -100,6 +106,7 @@ $("#form2 input").focus(function() {
 	var tipId = "#" + $(this).attr("name") + "Tip";
 	$(tipId).html("");
 });
+isOk=0;
 $('#findJobHunterBtn').click(function() {
 	if (($("#form1 input:eq(0)").val().trim()).length == 0) {
 		$('#jobhunterNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -107,6 +114,10 @@ $('#findJobHunterBtn').click(function() {
 	}
 	if (($("#form1 input:eq(1)").val().trim()).length == 0) {
 		$('#jobhunterPasswordTip').html("<font color='red'>密码不能为空!</font>");
+		return;
+	}
+	if(isOk==0){
+		alert("请先拖动滑块验证！");
 		return;
 	}
 	var action = $('#form1').attr('action');
@@ -120,6 +131,7 @@ $('#findJobHunterBtn').click(function() {
 		}
 	});
 });
+isOk2=0;
 $('#findCompanyBtn').click(function() {
 	if (($("#form2 input:eq(0)").val().trim()).length == 0) {
 		$('#companyLoginNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -127,6 +139,10 @@ $('#findCompanyBtn').click(function() {
 	}
 	if (($("#form2 input:eq(1)").val().trim()).length == 0) {
 		$('#companyPasswordTip').html("<font color='red'>密码不能为空!</font>");
+		return;
+	}
+	if(isOk2==0){
+		alert("请先拖动滑块验证！");
 		return;
 	}
 	var action = $('#form2').attr('action');

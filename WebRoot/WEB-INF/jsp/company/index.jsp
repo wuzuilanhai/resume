@@ -70,8 +70,8 @@
 			</div>
 			<div
 				style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="../求职者登录/Untitled-1.html">登录</a>/<a
-					href="../求职者注册/Untitled-1.html">注册</a>
+				<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
+					href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
 			</div>
 			<div style="position:absolute;right:10;top:10;">
 				<a
@@ -89,12 +89,10 @@
 				<ul class="banList" style="position: absolute;margin:0px">
 					<li class="active" style="position: absolute; left: 0; top: 0;"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/index/banner1.png"
-						alt="" />
-					</li>
+						alt="" /></li>
 					<li style="position: absolute; left: 0; top: 0;"><img
 						src="${pageContext.request.contextPath}/images/companyRegister/index/banner2.png"
-						alt="" />
-					</li>
+						alt="" /></li>
 				</ul>
 				<div class="fomW"
 					style="position:absolute;bottom:20px;width:950px;height:20px;z-index:11">
@@ -122,9 +120,12 @@
 				style="position:absolute;float:right;right:15;width:450;word-spacing:10px">
 				<p>
 					<p2>热门搜索：</p2>
-					<br /> <a href="#">Java</a>&nbsp;<a href="#">产品经理</a>&nbsp;<a
-						href="#">室内设计师</a>&nbsp;<a href="#">保险</a>&nbsp;<a href="#">PHP</a>&nbsp;<a
-						href="#">UI设计师</a>&nbsp;<a href="#">腾讯</a>&nbsp;<a href="#">网易</a>
+					<br /> <a href="javascript:void(0)">Java</a>&nbsp;<a
+						href="javascript:void(0)">产品经理</a>&nbsp;<a
+						href="javascript:void(0)">室内设计师</a>&nbsp;<a
+						href="javascript:void(0)">保险</a>&nbsp;<a href="javascript:void(0)">PHP</a>&nbsp;<a
+						href="javascript:void(0)">UI设计师</a>&nbsp;<a
+						href="javascript:void(0)">腾讯</a>&nbsp;<a href="javascript:void(0)">网易</a>
 				</p>
 			</div>
 		</div>

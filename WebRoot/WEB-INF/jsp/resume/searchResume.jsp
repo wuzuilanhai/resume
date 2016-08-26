@@ -214,13 +214,18 @@
 			</div>
 			<div class="fill" style="width:750;padding-top:10;">
 				<p>
-					热门搜索： <a style="margin-left:30" href="#">Java</a>&nbsp;&nbsp;<a
-						href="#">产品经理</a>&nbsp;&nbsp;<a href="#">室内设计师</a>&nbsp;&nbsp;<a
-						href="#">保险</a>&nbsp;&nbsp;<a href="#">PHP</a>&nbsp;&nbsp;<a
-						href="#">UI设计师</a> <a href="#">腾讯</a>&nbsp;&nbsp;<a href="#">网易</a>&nbsp;&nbsp;<a
-						href="#">阿里巴巴</a>&nbsp;&nbsp;<a href="#">淘宝</a>&nbsp;&nbsp;<a
-						href="#">京东</a>&nbsp;&nbsp;<a href="#">宜信</a>&nbsp;&nbsp;<a
-						href="#">海尔</a>
+					热门搜索： <a style="margin-left:30" href="javascript:void(0)">Java</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">产品经理</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">室内设计师</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">保险</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">PHP</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">UI设计师</a> <a href="javascript:void(0)">腾讯</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">网易</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">阿里巴巴</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">淘宝</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">京东</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">宜信</a>&nbsp;&nbsp;<a
+						href="javascript:void(0)">海尔</a>
 				</p>
 			</div>
 		</div>

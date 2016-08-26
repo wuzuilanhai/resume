@@ -269,7 +269,7 @@ public class JobController extends BasicController {
 		}
 		page.setLinks(buffer.toString());
 		session.setAttribute("page", page);
-		session.setAttribute("jobQueryVo", jobQueryVo);
+		request.setAttribute("jobQueryVo", jobQueryVo);
 		List<Industry> industries = industryService.findParentIndustry();
 		List<Industry> childrenIndustries = industryService
 				.findChildrenIndustry(iId);
