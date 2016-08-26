@@ -68,19 +68,19 @@
 					src="${pageContext.request.contextPath}/images/resume/resume3.png"
 					alt="" width="100" height="50" id="resume" /> </a>
 			</div>
-			<div
-				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
-					href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
-			</div>
-			<div
-				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
-				<a href="${pageContext.request.contextPath}/company/index.action"
-					onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/resume/business2.png',1)"><img
-					src="${pageContext.request.contextPath}/images/resume/business.png"
-					alt="" width="80" height="30" id="business" /> </a>
-			</div>
+			<c:if test="${sessionScope.jobhunter!=null}">
+				<div
+					style="position: absolute; float: left; width: 200; height: 16; right:73; top: 17px;">
+					<a
+						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
+						href="javascript:void(0)" id="logoutBtn">注销</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="javascript:void(0)"><img
+						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<div class="framemain" style="position:relative;z-index:99;">
@@ -460,20 +460,17 @@
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label>
-										</td>
+												已婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label>
-										</td>
+												未婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label>
-										</td>
+												保密</label></td>
 									</tr>
 								</table>
 							</div>

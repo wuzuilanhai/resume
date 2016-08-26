@@ -172,9 +172,30 @@ public class CompanyController extends BasicController {
 		company.setCompanyPassword(MD5Utils.md5(company.getCompanyPassword()));
 		Company company2 = companyService.findCompanyLogin(company);
 		if (company2 != null) {
+			JobhunterUpload jobhunterUploadForCompany = jobHunterUploadService
+					.findCompanyUploadByCompanyId(company2.getCompanyId());
 			session.setAttribute("company", company2);
+			session.setAttribute("jobhunterUploadForCompany",
+					jobhunterUploadForCompany);
 		}
 		return company2;
+	}
+	
+	/**
+	 * 企业注销
+	 * 
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/logout")
+	public @ResponseBody
+	String logout(HttpSession session) throws Exception {
+		session.removeAttribute("company");
+		Map<String, String> msg = new HashMap<String, String>();
+		msg.put("info", "success");
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(msg);
 	}
 
 	/**

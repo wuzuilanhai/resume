@@ -338,3 +338,17 @@ $('#updateCompanyAccountBtn')
 					}
 					$('#updateCompanyAccountForm').submit();
 				});
+$('#logoutBtnForCompany').click(function() {
+	$.ajax({
+		type : 'post',
+		url : getRootPath() + "/company/logout.action",
+		data : {},
+		dataType : "json",
+		success : function(data) {
+			window.location = getRootPath() + "/index.jsp";
+		},
+		error : function() {
+			alert("异常");
+		}
+	});
+});

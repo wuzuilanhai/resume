@@ -106,7 +106,7 @@ $("#form2 input").focus(function() {
 	var tipId = "#" + $(this).attr("name") + "Tip";
 	$(tipId).html("");
 });
-isOk=0;
+isOk = 0;
 $('#findJobHunterBtn').click(function() {
 	if (($("#form1 input:eq(0)").val().trim()).length == 0) {
 		$('#jobhunterNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -116,7 +116,7 @@ $('#findJobHunterBtn').click(function() {
 		$('#jobhunterPasswordTip').html("<font color='red'>密码不能为空!</font>");
 		return;
 	}
-	if(isOk==0){
+	if (isOk == 0) {
 		alert("请先拖动滑块验证！");
 		return;
 	}
@@ -131,7 +131,7 @@ $('#findJobHunterBtn').click(function() {
 		}
 	});
 });
-isOk2=0;
+isOk2 = 0;
 $('#findCompanyBtn').click(function() {
 	if (($("#form2 input:eq(0)").val().trim()).length == 0) {
 		$('#companyLoginNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -141,7 +141,7 @@ $('#findCompanyBtn').click(function() {
 		$('#companyPasswordTip').html("<font color='red'>密码不能为空!</font>");
 		return;
 	}
-	if(isOk2==0){
+	if (isOk2 == 0) {
 		alert("请先拖动滑块验证！");
 		return;
 	}
@@ -153,6 +153,34 @@ $('#findCompanyBtn').click(function() {
 			$("#form2 input:eq(1)").val("");
 		} else {
 			window.location = getRootPath() + "/company/companyManage.action";
+		}
+	});
+});
+$('#logoutBtn').click(function() {
+	$.ajax({
+		type : 'post',
+		url : getRootPath() + "/jobHunter/logout.action",
+		data : {},
+		dataType : "json",
+		success : function(data) {
+			window.location = getRootPath() + "/index.jsp";
+		},
+		error : function() {
+			alert("异常");
+		}
+	});
+});
+$('#logoutBtnForCompany').click(function() {
+	$.ajax({
+		type : 'post',
+		url : getRootPath() + "/company/logout.action",
+		data : {},
+		dataType : "json",
+		success : function(data) {
+			window.location = getRootPath() + "/index.jsp";
+		},
+		error : function() {
+			alert("异常");
 		}
 	});
 });

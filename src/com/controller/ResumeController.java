@@ -254,7 +254,7 @@ public class ResumeController extends BasicController {
 		String positionName = positionService
 				.findPositionNameByPositionId(careerIntention.getPositionId());
 
-		session.setAttribute("jobhunter", jobhunter);
+		session.setAttribute("jobhunter1", jobhunter);
 		session.setAttribute("workTime", (latest - original) / 1000 / 60 / 60
 				/ 24);
 		session.setAttribute("startYear", startYear);

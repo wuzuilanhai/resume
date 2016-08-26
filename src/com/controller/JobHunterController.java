@@ -84,9 +84,30 @@ public class JobHunterController extends BasicController {
 				.getJobhunterPassword()));
 		Jobhunter jobhunter2 = jobHunterService.findJobHunterLogin(jobhunter);
 		if (jobhunter2 != null) {
+			JobhunterUpload jobhunterUpload = jobHunterUploadService
+					.findJobhunterUploadByJobhunterId(jobhunter2
+							.getJobhunterId());
 			session.setAttribute("jobhunter", jobhunter2);
+			session.setAttribute("jobhunterUpload", jobhunterUpload);
 		}
 		return jobhunter2;
+	}
+
+	/**
+	 * 求职者注销
+	 * 
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/logout")
+	public @ResponseBody
+	String logout(HttpSession session) throws Exception {
+		session.removeAttribute("jobhunter");
+		Map<String, String> msg = new HashMap<String, String>();
+		msg.put("info", "success");
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(msg);
 	}
 
 	/**

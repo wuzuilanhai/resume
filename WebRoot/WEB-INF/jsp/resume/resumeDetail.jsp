@@ -61,16 +61,33 @@
 					src="${pageContext.request.contextPath}/images/resume/resumeDetail/resume3.png"
 					alt="" width="100" height="50" id="resume"> </a>
 			</div>
-			<div
-				style="position: absolute; float: left; width: 200; height: 16; right:60; top: 17px;text-align:right">
-				<a href="#"> 企业管理</a>&nbsp;&nbsp;&nbsp;<a href="#">退出</a>
-			</div>
-			<div class="mask2"
-				style="position:absolute;right:10;top:5;width:40;height:40;float:left">
-				<img style="margin-top:10;"
-					src="${pageContext.request.contextPath}/images/resume/resumeDetail/brand5.png"
-					alt="" width="40" height="20">
-			</div>
+			<c:if test="${sessionScope.company==null}">
+				<div
+					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
+						href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="${pageContext.request.contextPath}/company/index.action"
+						onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/dhh/business2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/dhh/business.png"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
+			<c:if test="${sessionScope.company!=null}">
+				<div
+					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					<a
+						href="${pageContext.request.contextPath}/company/companyManage.action">${sessionScope.company.companyName}</a>,<a
+						href="javascript:void(0)" id="logoutBtnForCompany">注销</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="javascript:void(0)"><img
+						src="${sessionScope.jobhunterUploadForCompany.uploadLocation}${sessionScope.jobhunterUploadForCompany.uploadName}"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<div class="framemain" style="position:relative;z-index:99;">
@@ -98,8 +115,8 @@
 					width="150" height="150" alt="" />
 			</div>
 			<div class="fill" style="float:left;padding-top:10.7">
-				<h2>${sessionScope.jobhunter.jobhunterRealName}</h2>
-				<p>所在地：${sessionScope.jobhunter.jobhunterAddress}</p>
+				<h2>${sessionScope.jobhunter1.jobhunterRealName}</h2>
+				<p>所在地：${sessionScope.jobhunter1.jobhunterAddress}</p>
 				<p>最近就职于：${sessionScope.latestWorkExperience.companyName}</p>
 				<p>就职职位：${sessionScope.latestWorkExperience.positionName}</p>
 				<p>工作时长：${sessionScope.workTime }日</p>
@@ -130,19 +147,19 @@
 				</div>
 			</div>
 			<div class="fill" style="padding-top:10.7;float:left">
-				<p>性别：${sessionScope.jobhunter.jobhunterSex}</p>
+				<p>性别：${sessionScope.jobhunter1.jobhunterSex}</p>
 				<p>
 					生日：
-					<fmt:formatDate value="${sessionScope.jobhunter.jobhunterBirthday}"
+					<fmt:formatDate value="${sessionScope.jobhunter1.jobhunterBirthday}"
 						pattern="yyyy-MM-dd" />
 				</p>
-				<p>手机：${sessionScope.jobhunter.jobhunterPhone}</p>
-				<p>邮箱：${sessionScope.jobhunter.jobhunterEmail}</p>
+				<p>手机：${sessionScope.jobhunter1.jobhunterPhone}</p>
+				<p>邮箱：${sessionScope.jobhunter1.jobhunterEmail}</p>
 			</div>
 			<div class="fill" style="padding-top:10.7;float:left; ">
-				<p>籍贯：${sessionScope.jobhunter.jobhunterNativePlace}</p>
-				<p>婚姻状况：${sessionScope.jobhunter.jobhunterMaritalStatus}</p>
-				<p>目前状态：${sessionScope.jobhunter.jobhuntEntranceStatus}</p>
+				<p>籍贯：${sessionScope.jobhunter1.jobhunterNativePlace}</p>
+				<p>婚姻状况：${sessionScope.jobhunter1.jobhunterMaritalStatus}</p>
+				<p>目前状态：${sessionScope.jobhunter1.jobhuntEntranceStatus}</p>
 			</div>
 
 		</div>
@@ -337,7 +354,7 @@
 			</div>
 			<div class="fill"
 				style="width:860;max-width:860;padding-top:10.7;float:left">
-				<p>${sessionScope.jobhunter.jobhunterSelfAppraisal }</p>
+				<p>${sessionScope.jobhunter1.jobhunterSelfAppraisal }</p>
 			</div>
 		</div>
 		<div class="div_1" style="float:left;">
@@ -360,7 +377,7 @@
 			</div>
 			<div class="fill"
 				style="width:860;max-width:860;padding-top:10.7;float:left">
-				<p>${sessionScope.jobhunter.jobhunterExtraMessage }</p>
+				<p>${sessionScope.jobhunter1.jobhunterExtraMessage }</p>
 			</div>
 		</div>
 	</div>

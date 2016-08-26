@@ -309,3 +309,17 @@ $("div[id^='previous_btn']").click(function() {
 	$("div[id^='div']").hide();
 	$(divId).show();
 });
+$('#logoutBtn').click(function() {
+	$.ajax({
+		type : 'post',
+		url : getRootPath() + "/jobHunter/logout.action",
+		data : {},
+		dataType : "json",
+		success : function(data) {
+			window.location = getRootPath() + "/index.jsp";
+		},
+		error : function() {
+			alert("异常");
+		}
+	});
+});

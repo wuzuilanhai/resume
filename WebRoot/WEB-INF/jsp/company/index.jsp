@@ -68,19 +68,33 @@
 					src="${pageContext.request.contextPath}/images/companyRegister/index/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>
 			</div>
-			<div
-				style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
-					href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
-			</div>
-			<div style="position:absolute;right:10;top:10;">
-				<a
-					href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
-					onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('person','','${pageContext.request.contextPath}/images/companyRegister/index/person2.png',1)"><img
-					src="${pageContext.request.contextPath}/images/companyRegister/index/person.jpg"
-					alt="" width="80" height="30" id="person"> </a>
-			</div>
+			<c:if test="${sessionScope.company==null}">
+				<div
+					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
+						href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="${pageContext.request.contextPath}/company/index.action"
+						onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/dhh/business2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/dhh/business.png"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
+			<c:if test="${sessionScope.company!=null}">
+				<div
+					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					<a
+						href="${pageContext.request.contextPath}/company/companyManage.action">${sessionScope.company.companyName}</a>,<a
+						href="javascript:void(0)" id="logoutBtnForCompany">注销</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="javascript:void(0)"><img
+						src="${sessionScope.jobhunterUploadForCompany.uploadLocation}${sessionScope.jobhunterUploadForCompany.uploadName}"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<div class="framemain" style="position:relative;z-index:99;">

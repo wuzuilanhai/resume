@@ -63,24 +63,33 @@
 					src="${pageContext.request.contextPath}/images/job/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>
 			</div>
-			<!--<div style="position:absolute;float:left;width:150;height:20;right:180;top:16">
-                <select>
-                  <option value="全国">全国（切换城市）</option>
-                  <option value="广东省">广东省</option>
-				</select>
-                </div>-->
-			<div
-				style="position: absolute; float: left; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="../求职者登录/Untitled-1.html">登录</a>/<a
-					href="../求职者注册/Untitled-1.html">注册</a>
-			</div>
-			<div
-				style="position:absolute;float:left;width:80;height:30;right:10;top:10px;">
-				<a href="../企业首页/Untitled-3.html" onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/job/business2.png',1)"><img
-					src="${pageContext.request.contextPath}/images/job/business.png"
-					alt="" width="80" height="30" id="business"> </a>
-			</div>
+			<c:if test="${sessionScope.jobhunter==null}">
+				<div
+					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
+					<a href="javascript:void(0)">登录</a>/<a
+						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="${pageContext.request.contextPath}/company/index.action"
+						onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/dhh/business2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/dhh/business.png"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
+			<c:if test="${sessionScope.jobhunter!=null}">
+				<div
+					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					<a
+						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
+						href="javascript:void(0)" id="logoutBtn">注销</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="javascript:void(0)"><img
+						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
 		</div>
 	</div>
 

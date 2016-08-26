@@ -69,18 +69,33 @@
 					src="${pageContext.request.contextPath}/images/job/resume.png"
 					alt="" width="100" height="50" id="resume"> </a>
 			</div>
-			<div
-				style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-				<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
-					href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
-			</div>
-			<div style="position:absolute;right:10;top:10;">
-				<a href="${pageContext.request.contextPath}/company/index.action"
-					onMouseOut="MM_swapImgRestore()"
-					onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/job/business2.png',1)"><img
-					src="${pageContext.request.contextPath}/images/job/business.png"
-					alt="" width="80" height="30" id="business"> </a>
-			</div>
+			<c:if test="${sessionScope.jobhunter==null}">
+				<div
+					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
+					<a href="javascript:void(0)">登录</a>/<a
+						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="${pageContext.request.contextPath}/company/index.action"
+						onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/dhh/business2.png',1)"><img
+						src="${pageContext.request.contextPath}/images/index/dhh/business.png"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
+			<c:if test="${sessionScope.jobhunter!=null}">
+				<div
+					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					<a
+						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
+						href="javascript:void(0)" id="logoutBtn">注销</a>
+				</div>
+				<div style="position:absolute;right:10;top:10;">
+					<a href="javascript:void(0)"><img
+						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
+						alt="" width="80" height="30" id="business"> </a>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<form id="searchForm"
