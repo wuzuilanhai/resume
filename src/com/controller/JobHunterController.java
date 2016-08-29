@@ -1,7 +1,10 @@
 package com.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URLDecoder;
+import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,9 +47,11 @@ public class JobHunterController extends BasicController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/addJobHunter")
+	@SuppressWarnings("deprecation")
 	public @ResponseBody
 	String addJobHunter(Jobhunter jobhunter, String year, String month,
-			String province, String city) throws Exception {
+			String province, String city, HttpServletRequest request)
+			throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
 		jobhunter.setJobhunterBirthday(format.parse(year + "-" + month));
 		jobhunter.setJobhunterNativePlace(province + city);
@@ -62,6 +67,44 @@ public class JobHunterController extends BasicController {
 		resume.setVisitNumber(0);
 		resume.setJobhunterId(jobhunter.getJobhunterId());
 		resumeService.addResume(resume);
+		// 为求职者添加默认头像
+		File file = new File(request.getRealPath("uploads") + "/default.jpg");
+		// 图片原始名称
+		String originalFilename = "default.jpg";
+		// 上传图片
+		// 获取网站url
+		String path = request.getContextPath();
+		// 存储图片的物理路径
+		String uploadLocation = path + "/uploads/"
+				+ new SimpleDateFormat("yyyy/MM/dd").format(new Date()) + "/";
+		String realPath = request.getRealPath("uploads") + "\\"
+				+ new SimpleDateFormat("yyyy\\MM\\dd").format(new Date())
+				+ "\\";
+		// 创建文件夹
+		File dir = new File(realPath);
+		if (!dir.exists())
+			dir.mkdirs();
+		String uploadName = UUID.randomUUID()
+				+ originalFilename.substring(originalFilename.lastIndexOf("."));
+		String uploadType = "image/jpeg";
+		JobhunterUpload jobhunterUpload = new JobhunterUpload();
+		jobhunterUpload.setJobhunterId(jobhunter.getJobhunterId());
+		jobhunterUpload.setUploadLocation(uploadLocation);
+		jobhunterUpload.setUploadName(uploadName);
+		jobhunterUpload.setUploadType(uploadType);
+		jobhunterUpload.setUploadTime(new Date());
+		jobHunterUploadService.addJobHunterUpload(jobhunterUpload);
+		// 新图片
+		File newFile = new File(realPath + uploadName);
+		// 将内存中的数据写入磁盘
+		FileInputStream reader = new FileInputStream(file);
+		FileOutputStream writer = new FileOutputStream(newFile);
+		FileChannel in = reader.getChannel();
+		FileChannel out = writer.getChannel();
+		in.transferTo(0, in.size(), out);
+		writer.close();
+		reader.close();
+
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("registerInfo", "success");
 		ObjectMapper mapper = new ObjectMapper();

@@ -251,8 +251,11 @@ public class ResumeController extends BasicController {
 		// 准备投递记录信息resume_job
 		ResumeCustom resumeCustom = resumeService.findResumeJob(resume
 				.getResumeId());
-		String positionName = positionService
-				.findPositionNameByPositionId(careerIntention.getPositionId());
+		String positionName = null;
+		if (careerIntention != null) {
+			positionService.findPositionNameByPositionId(careerIntention
+					.getPositionId());
+		}
 
 		session.setAttribute("jobhunter1", jobhunter);
 		session.setAttribute("workTime", (latest - original) / 1000 / 60 / 60

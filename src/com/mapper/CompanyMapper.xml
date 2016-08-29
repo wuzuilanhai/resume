@@ -17,7 +17,8 @@
 		<result column="company_description" jdbcType="VARCHAR"
 			property="companyDescription" />
 	</resultMap>
-	<insert id="addCompany" parameterType="com.pojo.Company">
+	<insert id="addCompany" parameterType="com.pojo.Company"
+		useGeneratedKeys="true" keyProperty="companyId">
 		insert into company
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="companyId != null">
