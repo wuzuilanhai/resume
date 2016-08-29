@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 body {
@@ -72,7 +72,13 @@ p2 {
 	margin-left: 21;
 	margin-top: 50px;
 	width: 697px;
-	height: 100%;
+	height: auto;
+}
+.framebottom_right {
+	margin-left: 21;
+	margin-top: 50px;
+	width: 697px;
+	height: 150px;
 }
 .framebottom {
 	position: relative;

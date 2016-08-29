@@ -66,7 +66,7 @@
 			<c:if test="${sessionScope.jobhunter==null}">
 				<div
 					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-					<a href="javascript:void(0)">登录</a>/<a
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
 						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
@@ -79,15 +79,16 @@
 			</c:if>
 			<c:if test="${sessionScope.jobhunter!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
+				<div class="mask2"
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
 					<a href="javascript:void(0)"><img
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="40" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -183,7 +184,7 @@
 							地址：广东省广州市天河区科韵路科创大厦8楼
 						</p>
 						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/job/brand2.jpg"
+							src="${fourCommonJob.uploadLocation }${fourCommonJob.uploadName }"
 							width="160" height="80" alt="" />
 					</div>
 				</c:forEach>
@@ -218,7 +219,7 @@
 				</div>
 				<div class="fill_right" style="height:80">
 					<img style="position: absolute;  left: 57;top: 20;"
-						src="${pageContext.request.contextPath}/images/job/brand1.png"
+						src="${sessionScope.jobCustom.uploadLocation }${sessionScope.jobCustom.uploadName }"
 						width="100" height="50" alt="" />
 				</div>
 				<div class="fill_right" style="padding-top:10.7">

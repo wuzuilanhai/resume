@@ -70,15 +70,16 @@
 			</div>
 			<c:if test="${sessionScope.jobhunter!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:73; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
+				<div class="mask2"
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
 					<a href="javascript:void(0)"><img
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="40" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -460,17 +461,20 @@
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label></td>
+												已婚</label>
+										</td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label></td>
+												未婚</label>
+										</td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label></td>
+												保密</label>
+										</td>
 									</tr>
 								</table>
 							</div>
@@ -1884,27 +1888,38 @@
 								width="647" height="1" alt="" />
 						</div>
 					</div>
-					<c:forEach items="${sessionScope.resumeCustom.jobCustoms }"
-						var="jobCustom">
-						<div class="fill_left" id="resumeJobDiv${jobCustom.jobId}">
-							<h1>${jobCustom.companyName } · ${jobCustom.jobName}</h1>
-							<h1 class="text_operation">操作</h1>
-							<a id="deleteResumeJobByJobIdBtn${jobCustom.jobId}"
-								href="javascript:void(0) "><p class="text_delete">删除</p> </a> <a
-								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom.jobId}"><p
-									class="text_viewdetail">查看职位详情</p> </a>
-							<p>
-								月薪：${jobCustom.jobSalary}元<br />
-								所在地：${jobCustom.companyLocation}<br />
-								行业：${jobCustom.industryName}<br /> 投递时间：
-								<fmt:formatDate value="${jobCustom.submitTime }"
-									pattern="yyyy/MM/dd" />
-							</p>
-							<img style="position:absolute;right:0;top:31;float:right;"
-								src="${pageContext.request.contextPath}/images/resume/brand2.jpg"
-								width="160" height="80" alt="" />
+					<c:if test="${not empty sessionScope.resumeCustom.jobCustoms}">
+						<c:forEach items="${sessionScope.resumeCustom.jobCustoms }"
+							var="jobCustom">
+							<div class="fill_left" id="resumeJobDiv${jobCustom.jobId}">
+								<h1>${jobCustom.companyName } · ${jobCustom.jobName}</h1>
+								<h1 class="text_operation">操作</h1>
+								<a id="deleteResumeJobByJobIdBtn${jobCustom.jobId}"
+									href="javascript:void(0) "><p class="text_delete">删除</p> </a> <a
+									href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom.jobId}"><p
+										class="text_viewdetail">查看职位详情</p> </a>
+								<p>
+									月薪：${jobCustom.jobSalary}元<br />
+									所在地：${jobCustom.companyLocation}<br />
+									行业：${jobCustom.industryName}<br /> 投递时间：
+									<fmt:formatDate value="${jobCustom.submitTime }"
+										pattern="yyyy/MM/dd" />
+								</p>
+								<img style="position:absolute;right:0;top:31;float:right;"
+									src="${pageContext.request.contextPath}/images/resume/brand2.jpg"
+									width="160" height="80" alt="" />
+							</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty  sessionScope.resumeCustom.jobCustoms}">
+						<div class="fill_left"
+							style="text-align:center;margin-top:30%;margin-bottom:30%;">
+							<img
+								style="position:absolute;top:0;left:200;width:238;height:31;float:left"
+								src="${pageContext.request.contextPath}/images/resume/norecord.png"
+								alt="" />
 						</div>
-					</c:forEach>
+					</c:if>
 					<!-- <div class="fill_left"
 						style="margin-top:20;width:100%;text-align:center;">
 						<p>
@@ -2089,6 +2104,23 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="framebottom_right" style="position:relative;float:right">
+			<div class="div_left"
+				style="margin-top:40;position:relative;height:auto;width:697">
+				<div class="fill_left"
+					style="margin-left:;text-align:center;margin-top:0;margin-bottom:30;">
+					<img
+						src="${pageContext.request.contextPath}/images/resume/line647.png"
+						width="637" height="1" alt="" />
+					<div style="padding-top:20;">
+						<p style="font-size:10">Copyright©2016 zero.com All Rights
+							Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<script type="text/javascript"

@@ -28,6 +28,10 @@ public class JobCustom extends Job implements Serializable {
 
 	private Date submitTime;
 
+	private String uploadLocation;
+
+	private String uploadName;
+
 	public Date getSubmitTime() {
 		return submitTime;
 	}
@@ -66,6 +70,22 @@ public class JobCustom extends Job implements Serializable {
 
 	public void setIndustryName(String industryName) {
 		this.industryName = industryName;
+	}
+
+	public String getUploadLocation() {
+		return uploadLocation;
+	}
+
+	public void setUploadLocation(String uploadLocation) {
+		this.uploadLocation = uploadLocation;
+	}
+
+	public String getUploadName() {
+		return uploadName;
+	}
+
+	public void setUploadName(String uploadName) {
+		this.uploadName = uploadName;
 	}
 
 }

@@ -53,7 +53,7 @@ p {
 	margin-left: auto;
 	margin-right: auto;
 	width: 950px;
-	height: 900;
+	height: auto;
 }
 .frameleft {
 	margin-top: 50px;
@@ -65,7 +65,13 @@ p {
 	margin-left: 21;
 	margin-top: 50px;
 	width: 697px;
-	height: 100%;
+	height: auto;
+}
+.framebottom_right {
+	margin-left: 21;
+	margin-top: 50px;
+	width: 697px;
+	height: 150px;
 }
 .framebottom {
 	position: relative;

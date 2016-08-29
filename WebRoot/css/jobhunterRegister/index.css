@@ -285,3 +285,8 @@ height:20px
 	background: #3d7d52;
 	cursor: pointer;
 }
+
+.mask2 img {
+	/*头像蒙版样式*/
+	-webkit-mask-image: url('../../images/jobhunterRegister/index/mask2.png');
+}

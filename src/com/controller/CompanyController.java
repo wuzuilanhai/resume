@@ -291,7 +291,7 @@ public class CompanyController extends BasicController {
 			}
 
 			session.setAttribute("industryName", industryName);
-			session.setAttribute("companyUpload", companyUpload);
+			session.setAttribute("jobhunterUploadForCompany", companyUpload);
 			session.setAttribute("jobCustoms", jobCustoms);
 			session.setAttribute("jobs", jobs);
 			return "company/companyManage";

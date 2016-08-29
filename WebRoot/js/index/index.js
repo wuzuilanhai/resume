@@ -156,7 +156,7 @@ $('#findCompanyBtn').click(function() {
 		}
 	});
 });
-$('#logoutBtn').click(function() {
+$("a[id^='logoutBtn']").click(function() {
 	$.ajax({
 		type : 'post',
 		url : getRootPath() + "/jobHunter/logout.action",
@@ -170,7 +170,7 @@ $('#logoutBtn').click(function() {
 		}
 	});
 });
-$('#logoutBtnForCompany').click(function() {
+$("a[id^='logoutBtnForCompany']").click(function() {
 	$.ajax({
 		type : 'post',
 		url : getRootPath() + "/company/logout.action",

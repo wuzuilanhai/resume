@@ -69,7 +69,7 @@
 			<c:if test="${sessionScope.jobhunter==null}">
 				<div
 					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-					<a href="javascript:void(0)">登录</a>/<a
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
 						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
@@ -82,15 +82,16 @@
 			</c:if>
 			<c:if test="${sessionScope.jobhunter!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
+				<div class="mask2"
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
 					<a href="javascript:void(0)"><img
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="40" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -217,13 +218,15 @@
 							width="615" height="1" alt="" />
 					</div>
 				</div>
-				<div class="fill_left"
-					style="padding-top:10;padding-left:200;width:405;">
-					<c:forEach items="${sessionScope.jobCustoms1 }" var="jobCustom"
-						varStatus="num">
-						<a href="#"><img style="position:absolute;left:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand1.png"
-							alt="" /> </a>
+
+				<c:forEach items="${sessionScope.jobCustoms1 }" var="jobCustom"
+					varStatus="num">
+					<div class="fill_left"
+						style="padding-top:10;padding-left:200;width:405;">
+						<a href="javascript:void(0)"><img
+							style="position:absolute;left:10;top:30;width:160;height:80;"
+							src="${jobCustom.uploadLocation }${jobCustom.uploadName }" alt="" />
+						</a>
 						<h1>
 							<a style="color:#3d7d52"
 								href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom.jobId}">${jobCustom.companyName}</a>
@@ -235,8 +238,9 @@
 							所在地：${jobCustom.companyLocation}<br />
 							行业：${jobCustom.industryName}
 						</p>
-					</c:forEach>
-				</div>
+					</div>
+				</c:forEach>
+
 
 			</div>
 		</div>
@@ -271,7 +275,8 @@
 							href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom2.jobId}">${jobCustom2.jobName}</a>
 						</p2>
 						<p>
-							<a href="#">${jobCustom2.companyLocation}</a> - <a href="#">${jobCustom2.industryName}</a>
+							<a href="javascript:void(0)">${jobCustom2.companyLocation}</a> -
+							<a href="javascript:void(0)">${jobCustom2.industryName}</a>
 						</p>
 					</div>
 
@@ -313,8 +318,9 @@
 				<c:forEach items="${sessionScope.jobCustoms3 }" var="jobCustom3"
 					varStatus="num3">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom3.uploadLocation }${jobCustom3.uploadName }"
 							alt="" /> </a>
 						<h1>
 							<a style="color:#3d7d52"
@@ -323,8 +329,9 @@
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom3.jobId}">${jobCustom3.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom3.jobSalary}元<br /> 行业：<a href="#">${jobCustom3.industryName}</a>
-							<br />地址：${jobCustom3.companyLocation} ${jobCustom3.worksite}
+							月薪：${jobCustom3.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom3.industryName}</a> <br />地址：${jobCustom3.companyLocation}
+							${jobCustom3.worksite}
 						</p>
 					</div>
 
@@ -360,17 +367,19 @@
 				<c:forEach items="${sessionScope.jobCustoms4 }" var="jobCustom4"
 					varStatus="num4">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom4.uploadLocation }${jobCustom4.uploadName }"
 							alt="" /> </a>
 						<h1>
-							<a style="color:#3d7d52" href="#"
+							<a style="color:#3d7d52"
 								href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${jobCustom4.jobId}">${jobCustom4.companyName}</a>
-							· <a style="color:#3d7d52" href="#"
+							· <a style="color:#3d7d52"
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom4.jobId}">${jobCustom4.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom4.jobSalary}元<br /> 行业：<a href="#">${jobCustom4.industryName}</a><br />
+							月薪：${jobCustom4.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom4.industryName}</a><br />
 							地址：${jobCustom4.companyLocation} ${jobCustom4.worksite}
 						</p>
 					</div>
@@ -408,8 +417,9 @@
 				<c:forEach items="${sessionScope.jobCustoms5 }" var="jobCustom5"
 					varStatus="num5">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom5.uploadLocation }${jobCustom5.uploadName }"
 							alt="" /> </a>
 						<h1>
 							<a style="color:#3d7d52"
@@ -418,7 +428,8 @@
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom5.jobId}">${jobCustom5.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom5.jobSalary}元<br /> 行业：<a href="#">${jobCustom5.industryName}</a><br />
+							月薪：${jobCustom5.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom5.industryName}</a><br />
 							地址：${jobCustom5.companyLocation} ${jobCustom5.worksite}
 						</p>
 					</div>
@@ -456,8 +467,9 @@
 				<c:forEach items="${sessionScope.jobCustoms6 }" var="jobCustom6"
 					varStatus="num6">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand6.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom6.uploadLocation }${jobCustom6.uploadName }"
 							alt="" /> </a>
 						<h1>
 							<a style="color:#3d7d52"
@@ -466,7 +478,8 @@
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom6.jobId}">${jobCustom6.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom6.jobSalary}元<br /> 行业：<a href="#">${jobCustom6.industryName}</a><br />
+							月薪：${jobCustom6.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom6.industryName}</a><br />
 							地址：${jobCustom6.companyLocation} ${jobCustom6.worksite}
 						</p>
 					</div>
@@ -504,8 +517,9 @@
 				<c:forEach items="${sessionScope.jobCustoms7 }" var="jobCustom7"
 					varStatus="num7">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom7.uploadLocation }${jobCustom7.uploadName }"
 							alt="" /> </a>
 						<h1>
 							<a style="color:#3d7d52"
@@ -514,7 +528,8 @@
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom7.jobId}">${jobCustom7.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom7.jobSalary}元<br /> 行业：<a href="#">${jobCustom7.industryName}</a><br />
+							月薪：${jobCustom7.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom7.industryName}</a><br />
 							地址：${jobCustom7.companyLocation} ${jobCustom7.worksite}
 						</p>
 					</div>
@@ -552,8 +567,9 @@
 				<c:forEach items="${sessionScope.jobCustoms8 }" var="jobCustom8"
 					varStatus="num8">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:0;top:30;"
-							src="${pageContext.request.contextPath}/images/jobhunterRegister/index/brand5.png"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:0;top:30;width:160;height:80;"
+							src="${jobCustom8.uploadLocation }${jobCustom8.uploadName }"
 							alt="" /> </a>
 						<h1>
 							<a style="color:#3d7d52"
@@ -562,7 +578,8 @@
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${jobCustom8.jobId}">${jobCustom8.jobName}</a>
 						</h1>
 						<p>
-							月薪：${jobCustom8.jobSalary}元<br /> 行业：<a href="#">${jobCustom8.industryName}</a><br />
+							月薪：${jobCustom8.jobSalary}元<br /> 行业：<a
+								href="javascript:void(0)">${jobCustom8.industryName}</a><br />
 							地址：${jobCustom8.companyLocation} ${jobCustom8.worksite}
 						</p>
 					</div>
@@ -581,23 +598,33 @@
 			<p
 				style="margin: 0; position: absolute; top: 0; left: 0;  font-size: 14px; font-family:微软雅黑;color: #3d7d52; font-weight: ">常用链接：</p>
 			<p style="margin: 0; position: absolute; top: 0; left: 100;  ">
-				<a href="#">北京</a>&nbsp;<a href="#">上海</a>&nbsp;<a href="#">广州</a>&nbsp;<a
-					href="#">深圳</a>&nbsp;<a href="#">南京</a>&nbsp;<a href="#">杭州</a>&nbsp;<a
-					href="#">天津</a>&nbsp;<a href="#">青岛</a>&nbsp;<a href="#">成都</a>&nbsp;<a
-					href="#">重庆</a>&nbsp;<a href="#">武汉</a>&nbsp;<a href="#">厦门</a>&nbsp;<a
-					href="#">郑州</a>&nbsp;<a style="color:#3d7d42" href="#">查看更多</a>
+				<a href="javascript:void(0)">北京</a>&nbsp;<a
+					href="javascript:void(0)">上海</a>&nbsp;<a href="javascript:void(0)">广州</a>&nbsp;<a
+					href="javascript:void(0)">深圳</a>&nbsp;<a href="javascript:void(0)">南京</a>&nbsp;<a
+					href="javascript:void(0)">杭州</a>&nbsp;<a href="javascript:void(0)">天津</a>&nbsp;<a
+					href="javascript:void(0)">青岛</a>&nbsp;<a href="javascript:void(0)">成都</a>&nbsp;<a
+					href="javascript:void(0)">重庆</a>&nbsp;<a href="javascript:void(0)">武汉</a>&nbsp;<a
+					href="javascript:void(0)">厦门</a>&nbsp;<a href="javascript:void(0)">郑州</a>&nbsp;<a
+					style="color:javascript:void(0)3d7d42" href="javascript:void(0)">查看更多</a>
 			</p>
 			<p
-				style="margin: 0; position: absolute; top:40; left: 0;  font-size: 14px; font-family:微软雅黑;color: #3d7d52; font-weight:">热门职位：</p>
+				style="margin: 0; position: absolute; top:40; left: 0;  font-size: 14px; font-family:微软雅黑;color: javascript:void(0)3d7d52; font-weight:">热门职位：</p>
 			<p
 				style="text-align:left;margin: 0; position: absolute; top: 40; left: 100; ">
-				<a href="#">翻译</a>&nbsp;<a href="#">保险</a>&nbsp;<a href="#">销售</a>&nbsp;<a
-					href="#">金融</a>&nbsp;<a href="#">银行</a>&nbsp;<a href="#">数据分析</a>&nbsp;<a
-					href="#">结构工程师</a>&nbsp;<a href="#">UI设计师</a>&nbsp;<a href="#">产品</a>&nbsp;<a
-					href="#">人力资源</a>&nbsp;<a href="#">律师</a>&nbsp;<a href="#">营养师</a>&nbsp;<a
-					href="#">活动策划</a>&nbsp;<a href="#">网络工程师</a>&nbsp;<a href="#">物业管理</a>&nbsp;<a
-					href="#">包装设计</a>&nbsp;<a href="#">运营</a>&nbsp;<a href="#">技术总监</a>&nbsp;<a
-					style="color:#3d7d42" href="#">查看更多</a>
+				<a href="javascript:void(0)">翻译</a>&nbsp;<a
+					href="javascript:void(0)">保险</a>&nbsp;<a href="javascript:void(0)">销售</a>&nbsp;<a
+					href="javascript:void(0)">金融</a>&nbsp;<a href="javascript:void(0)">银行</a>&nbsp;<a
+					href="javascript:void(0)">数据分析</a>&nbsp;<a
+					href="javascript:void(0)">结构工程师</a>&nbsp;<a
+					href="javascript:void(0)">UI设计师</a>&nbsp;<a
+					href="javascript:void(0)">产品</a>&nbsp;<a href="javascript:void(0)">人力资源</a>&nbsp;<a
+					href="javascript:void(0)">律师</a>&nbsp;<a href="javascript:void(0)">营养师</a>&nbsp;<a
+					href="javascript:void(0)">活动策划</a>&nbsp;<a
+					href="javascript:void(0)">网络工程师</a>&nbsp;<a
+					href="javascript:void(0)">物业管理</a>&nbsp;<a
+					href="javascript:void(0)">包装设计</a>&nbsp;<a
+					href="javascript:void(0)">运营</a>&nbsp;<a href="javascript:void(0)">技术总监</a>&nbsp;<a
+					style="color:javascript:void(0)3d7d42" href="javascript:void(0)">查看更多</a>
 			</p>
 		</div>
 		<div>

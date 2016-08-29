@@ -175,3 +175,8 @@ display:none;
 	text-align: center;
 	padding-top: 10px;
 }
+
+.mask2 img {
+	/*头像蒙版样式*/
+	-webkit-mask-image: url('../../images/job/mask2.png');
+}

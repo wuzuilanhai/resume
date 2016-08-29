@@ -83,15 +83,16 @@
 			</c:if>
 			<c:if test="${sessionScope.company!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:73; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/company/companyManage.action">${sessionScope.company.companyName}</a>,<a
 						href="javascript:void(0)" id="logoutBtnForCompany">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
-					<a href="javascript:void(0)"><img
+				<div
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
+					<a href="javascript:void(0)"><img style="margin-top:10;"
 						src="${sessionScope.jobhunterUploadForCompany.uploadLocation}${sessionScope.jobhunterUploadForCompany.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="20" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -100,8 +101,8 @@
 		<div class="frameleft" style="position:fixed;float:left">
 			<div
 				style="position:absolute;left:0;top:21;width:232;height:330;float:left">
-				<img style="position:absolute;left:45;top:50;float:left"
-					src="${sessionScope.companyUpload.uploadLocation}${sessionScope.companyUpload.uploadName}"
+				<img style="position:absolute;left:36;top:50;float:left"
+					src="${sessionScope.jobhunterUploadForCompany.uploadLocation}${sessionScope.jobhunterUploadForCompany.uploadName}"
 					width="160" height="80" alt="" />
 				<div
 					style="position:absolute;right:0;top:180;width:232;height:150;float:left">
@@ -912,7 +913,24 @@ ${jobCustom.jobAcquire }</textarea>
 			</div>
 		</div>
 
+		<div class="framebottom_right" style="position:relative;float:right">
+			<div class="div_left"
+				style="margin-top:40;position:relative;height:auto;width:697">
+				<div class="fill_left"
+					style="margin-left:;text-align:center;margin-top:0;margin-bottom:30;">
+					<img
+						src="${pageContext.request.contextPath}/images/companyRegister/manage/line647.png"
+						width="637" height="1" alt="" />
+					<div style="padding-top:20;">
+						<p style="font-size:10">Copyright©2016 zero.com All Rights
+							Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
+
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript"

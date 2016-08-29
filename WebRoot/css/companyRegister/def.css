@@ -223,3 +223,8 @@ select {
 select::-ms-expand {
 display:none;
 }
+
+.mask2 img {
+	/*头像蒙版样式*/
+	-webkit-mask-image: url('../../images/companyRegister/detail/mask2.png');
+}

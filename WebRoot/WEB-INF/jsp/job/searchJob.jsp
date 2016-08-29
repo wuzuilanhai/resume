@@ -72,7 +72,7 @@
 			<c:if test="${sessionScope.jobhunter==null}">
 				<div
 					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-					<a href="javascript:void(0)">登录</a>/<a
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
 						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
@@ -85,15 +85,15 @@
 			</c:if>
 			<c:if test="${sessionScope.jobhunter!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
-					<a href="javascript:void(0)"><img
+				<div class="mask2" style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
+					<a href="javascript:void(0)"><img 
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="40" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -269,7 +269,7 @@
 						<div
 							style="position:absolute;top:10;right:0;width:160px;height:80px;float:right;">
 							<a href="#"><img style="width:160;height:80;"
-								src="${pageContext.request.contextPath}/images/job/brand5.png"
+								src="${job.uploadLocation }${job.uploadName }"
 								alt="" /> </a>
 						</div>
 						<p2> <a

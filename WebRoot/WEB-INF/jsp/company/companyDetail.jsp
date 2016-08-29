@@ -63,7 +63,7 @@
 			<c:if test="${sessionScope.jobhunter==null}">
 				<div
 					style="position: absolute; width: 54; height: 16; left: 790px; top: 17px;">
-					<a href="javascript:void(0)">登录</a>/<a
+					<a href="${pageContext.request.contextPath}/index.jsp">登录</a>/<a
 						href="${pageContext.request.contextPath}/jobHunter/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
@@ -76,15 +76,16 @@
 			</c:if>
 			<c:if test="${sessionScope.jobhunter!=null}">
 				<div
-					style="position: absolute; float: left; width: 200; height: 16; right:10; top: 17px;">
+					style="position: absolute; float: left; width: 200; height: 16; right:63; top: 17px;text-align:right;">
 					<a
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div style="position:absolute;right:10;top:10;">
+				<div class="mask2"
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
 					<a href="javascript:void(0)"><img
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
-						alt="" width="80" height="30" id="business"> </a>
+						alt="" width="40" height="40" id="business"> </a>
 				</div>
 			</c:if>
 		</div>
@@ -112,7 +113,7 @@
 				<div class="fill_mid"
 					style="width:200;height:100;padding-top:10.7;float:left">
 					<img style="position: absolute;  left: 0;top:20;"
-						src="${pageContext.request.contextPath}/images/companyRegister/detail/brand1.png"
+						src="${jobCustom.uploadLocation }${jobCustom.uploadName }"
 						width="200" height="100" alt="" />
 				</div>
 				<div
@@ -144,13 +145,7 @@
 				</div>
 				<div class="fill_left" style="padding-top:10.7">
 					<h1>企业简介：</h1>
-					<p>
-						广州金越软件技术有限公司（简称金越软件）致力于公安执法、政法综治、纪检监察等行业信息共享服务产品研发和政务互联互通项目实施，在广东、陕西和江西等地有丰富的实践经验。近年来，金越软件携手阿里云、华为和浪潮等云计算和大数据厂商服务行业客户和地方政府，对大数据资源规划和电子政务云服务有深刻理解，是中国领先的信息汇聚整合和大数据应用服务的创新企业。
-						金越软件已在北京、南昌、西安、珠海和汕头等地设立分公司，广州总部设有产品研发中心、南昌分公司设有警务云创新开发中心，大力开拓并开展区域项目和技术服务。<br />
-						●企业文化： 公司愿景：智慧生活。带给每一个人时尚便利、低碳生活。 企业精神：创新、拼搏、团结
-						企业文化：让每一位员工快乐工作，幸福生活！ <br /> ●人才理念： 尊重人，爱护人，人尽其才！ <br />
-						诚邀您的加盟！！
-					</p>
+					<p>${sessionScope.jobCustom.companyDescription }</p>
 				</div>
 
 			</div>
@@ -187,7 +182,7 @@
 							地址：${threeLatestJob.worksite}
 						</p>
 						<img style="position:absolute;right:0;top:31;float:right;"
-							src="${pageContext.request.contextPath}/images/companyRegister/detail/brand2.jpg"
+							src="${threeLatestJob.uploadLocation }${threeLatestJob.uploadName }"
 							width="160" height="80" alt="" />
 					</div>
 				</c:forEach>

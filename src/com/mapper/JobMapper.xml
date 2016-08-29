@@ -56,6 +56,9 @@
 			jdbcType="VARCHAR" />
 		<result column="industry_name" property="industryName"
 			jdbcType="VARCHAR" />
+		<result column="upload_location" property="uploadLocation"
+			jdbcType="VARCHAR" />
+		<result column="upload_name" property="uploadName" jdbcType="VARCHAR" />
 	</resultMap>
 	<insert id="addJob" parameterType="com.pojo.Job">
 		insert into job
@@ -138,23 +141,31 @@
 	</insert>
 	<select id="findHotJobLimitTenAndNew" resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where
+		job,company,industry,jobhunter_upload where
 		job.company_id=company.company_id and
-		job.is_hot=1 and job.industry_id=industry.industry_id order by
-		job.job_subtime desc limit 10
+		job.is_hot=1 and
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id order by
+		job.job_subtime
+		desc limit 10
 	</select>
 	<select id="findHotJobLimitFourAndNewByIndustryId"
 		parameterType="int" resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.industry_id=#{industryId} and
+		job,company,industry,jobhunter_upload where
+		job.industry_id=#{industryId} and
 		job.company_id=company.company_id and
 		job.is_hot=1 and
-		job.industry_id=industry.industry_id order by
-		job.job_subtime desc
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id order by
+		job.job_subtime
+		desc
 		limit 4
 	</select>
 	<select id="findAllJobs" resultType="int">
@@ -163,14 +174,17 @@
 	<select id="findAllJobsByPage" parameterType="com.pojo.Page"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.industry_id=industry.industry_id
+		job,company,industry,jobhunter_upload where
+		job.industry_id=industry.industry_id
 		and
 		job.company_id=company.company_id and
 		job.is_hot=1 and
-		job.industry_id=industry.industry_id
-		limit #{pageNums},#{pageSize}
+		job.industry_id=industry.industry_id and
+		job.company_id=jobhunter_upload.company_id
+		limit
+		#{pageNums},#{pageSize}
 	</select>
 	<sql id="query_job_where">
 		<if test="job.jobName!=null">
@@ -204,15 +218,17 @@
 	<select id="findJobsByCondition" parameterType="com.pojo.JobQueryVo"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry
+		job,company,industry,jobhunter_upload
 		<where>
 			<include refid="query_job_where"></include>
 		</where>
 		and job.industry_id=industry.industry_id
 		and
 		job.company_id=company.company_id
+		and
+		job.company_id=jobhunter_upload.company_id
 		<if test="page!=null">
 			limit #{page.pageNums},#{page.pageSize}
 		</if>
@@ -220,44 +236,58 @@
 	<select id="findJobDetailByJobId" parameterType="int"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job_id=#{jobId} and
+		job,company,industry,jobhunter_upload where job_id=#{jobId} and
 		job.industry_id=industry.industry_id
 		and
 		job.company_id=company.company_id
+		and
+		job.company_id=jobhunter_upload.company_id
 	</select>
 	<select id="findThreeJobByCompanyId" parameterType="int"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.company_id=#{companyId} and
+		job,company,industry,jobhunter_upload where
+		job.company_id=#{companyId} and
 		job.company_id=company.company_id and
-		job.industry_id=industry.industry_id order by
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id
+		order by
 		job.job_subtime desc
 		limit 3
 	</select>
 	<select id="findJobsByCompanyId" parameterType="int"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.company_id=#{companyId} and
+		job,company,industry,jobhunter_upload where
+		job.company_id=#{companyId} and
 		job.company_id=company.company_id and
-		job.industry_id=industry.industry_id order by
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id
+		order by
 		job.job_subtime desc
 	</select>
 	<select id="findJobsByCommonNameLimitFour" parameterType="com.pojo.JobCustom"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.job_name like "%${jobName}%" and
+		job,company,industry,jobhunter_upload where job.job_name like
+		"%${jobName}%" and
 		job.job_id!=#{jobId}
 		and
 		job.company_id=company.company_id and
-		job.industry_id=industry.industry_id order by
+		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id
+		order by
 		job.job_subtime desc
 		limit 4
 	</select>
@@ -307,9 +337,10 @@
 	<select id="findJobsByVo" parameterType="com.pojo.JobQueryVo"
 		resultMap="hotJobLimitTenAndNewResultMap">
 		select
-		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name
+		job.*,company.company_name,company.company_location,company.company_description,industry.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from
-		job,company,industry where job.company_id=#{job.companyId}
+		job,company,industry,jobhunter_upload where
+		job.company_id=#{job.companyId}
 		<if test="job.jobName!=null">
 			and job_name like "%${job.jobName}%"
 		</if>
@@ -319,12 +350,14 @@
 		and
 		job.company_id=company.company_id and
 		job.industry_id=industry.industry_id
+		and
+		job.company_id=jobhunter_upload.company_id
 	</select>
 	<select id="findResumeJob" parameterType="int" resultMap="jobResumeMap">
 		select
 		j.*,r.*,jh.jobhunter_real_name,jh.jobhunter_birthday,jh.jobhunter_qualification,jh.jobhunter_address,rj.submitTime,ju.upload_location,ju.upload_name
 		from job j
-		left join resume_job rj on	
+		left join resume_job rj on
 		j.job_id=rj.job_id
 		left
 		join resume

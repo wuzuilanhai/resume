@@ -115,11 +115,11 @@ p3 {
 }
 .mask img {
 	/*头像蒙版样式*/
-	-webkit-mask-image: url('../images/mask.png');
+	-webkit-mask-image: url('../../images/job/mask.png');
 }
 .mask2 img {
 	/*头像蒙版样式*/
-	-webkit-mask-image: url('../images/mask2.png');
+	-webkit-mask-image: url('../../images/job/mask2.png');
 }
 .form-control {
 	/*位置样式*/
