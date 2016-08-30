@@ -215,8 +215,6 @@
 
 					</div>
 					<div class="fill_title_left" style="margin-left:-93.5;">
-						<div id="section-1"
-							style="position:relative;width:0;height:50;float:left;"></div>
 						<div style="position:absolute;top:10;width:8;height:30;">
 							<img
 								src="${pageContext.request.contextPath}/images/resume/titlehead.png"
@@ -461,20 +459,17 @@
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label>
-										</td>
+												已婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label>
-										</td>
+												未婚</label></td>
 										<td><label> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label>
-										</td>
+												保密</label></td>
 									</tr>
 								</table>
 							</div>
@@ -1936,8 +1931,6 @@
 				<div class="div_left"
 					style="margin-left:93.5;margin-top:40;position:relative;height:auto;width:697">
 					<div class="fill_title_left" style="margin-left:-93.5;">
-						<div id="section-1"
-							style="position:relative;width:0;height:50;float:left;"></div>
 						<div style="position:absolute;top:10;width:8;height:30;">
 							<img
 								src="${pageContext.request.contextPath}/images/resume/titlehead.png"
@@ -1999,7 +1992,7 @@
 								<div id="password_newTip"
 									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 							</div>
-							<div id="section-2"
+							<div id="section1231"
 								style="position:relative;width:0;height:50;float:left;"></div>
 							<div class="fill" style="top:110">
 								<p>确认密码：</p>
@@ -2044,8 +2037,6 @@
 								<div id="phone1Tip"
 									style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 							</div>
-							<div id="section-3"
-								style="position:relative;width:0;height:50;float:left;"></div>
 							<div class="fill" style="top:60">
 								<p>密保邮箱：</p>
 								<input class="form-control" name="jobhunterEmail" type="text"
