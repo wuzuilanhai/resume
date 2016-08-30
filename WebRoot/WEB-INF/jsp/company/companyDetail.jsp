@@ -174,7 +174,11 @@
 				<c:forEach items="${sessionScope.threeLatestJobs }"
 					var="threeLatestJob" varStatus="num">
 					<div class="fill_left">
-						<h1>${threeLatestJob.companyName} · ${threeLatestJob.jobName}</h1>
+						<h1>
+							<a
+								href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${threeLatestJob.jobId}">${threeLatestJob.companyName}</a>
+							· <a href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${threeLatestJob.jobId}">${threeLatestJob.jobName}</a>
+						</h1>
 						<p>
 							月薪：${threeLatestJob.jobSalary}元<br />
 							所在地：${threeLatestJob.companyLocation}<br />
@@ -255,7 +259,7 @@
 						onFocus="if (value =='输入搜索关键字'){value =''}"
 						onBlur="if (value ==''){value='输入搜索关键字'}"
 						style="position:absolute;left:0;top:10;float:left;width:204px; height:30px;" />
-					<a href="#" onMouseOut="MM_swapImgRestore()"
+					<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 						onMouseOver="MM_swapImage('search','','${pageContext.request.contextPath}/images/companyRegister/detail/search2.png',0)"><img
 						style="position:absolute;bottom:0;right:0;"
 						src="${pageContext.request.contextPath}/images/companyRegister/detail/search.png"

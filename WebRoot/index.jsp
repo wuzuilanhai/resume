@@ -224,7 +224,7 @@
 			</div>
 			<div id="div_login_business"
 				style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:25px;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business_login','','${pageContext.request.contextPath}/images/index/business_login2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/business_login.png"
 					alt="" width="150" height="50" id="business_login"> </a>
@@ -387,7 +387,7 @@
 
 					<div id="findCompanyBtn"
 						style="position: absolute; float: left; width: 200px; height: 30px; top:210px; left: 50px;">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('login','','${pageContext.request.contextPath}/images/index/dhh/login2.png',1)"><img
 							src="${pageContext.request.contextPath}/images/index/dhh/login.png"
 							alt="" width="200" height="30" id="login"> </a>

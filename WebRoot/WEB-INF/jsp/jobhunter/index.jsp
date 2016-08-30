@@ -284,7 +284,7 @@
 
 
 				<div class="fill_right">
-					<a href=" ">
+					<a href="${pageContext.request.contextPath}/job/findAllJobs.action ">
 						<p style="color:3d7d52;text-align:right">查看更多</p> </a>
 				</div>
 			</div>
