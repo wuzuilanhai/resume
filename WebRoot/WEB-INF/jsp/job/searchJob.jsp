@@ -90,8 +90,9 @@
 						href="${pageContext.request.contextPath}/resume/showResume.action">${sessionScope.jobhunter.jobhunterName}</a>,<a
 						href="javascript:void(0)" id="logoutBtn">注销</a>
 				</div>
-				<div class="mask2" style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
-					<a href="javascript:void(0)"><img 
+				<div class="mask2"
+					style="padding-top:5;padding-bottom:5;position:absolute;right:10;width:40;height:40;float:left">
+					<a href="javascript:void(0)"><img
 						src="${sessionScope.jobhunterUpload.uploadLocation}${sessionScope.jobhunterUpload.uploadName}"
 						alt="" width="40" height="40" id="business"> </a>
 				</div>
@@ -262,48 +263,60 @@
 					</div>
 				</div>
 
-				<c:forEach items="${sessionScope.page.recordList }" var="job"
-					varStatus="num">
+				<c:if test="${not empty sessionScope.page.recordList }">
+					<c:forEach items="${sessionScope.page.recordList }" var="job"
+						varStatus="num">
+
+						<div class="fill" style="padding-top:10.7">
+							<div
+								style="position:absolute;top:10;right:0;width:160px;height:80px;float:right;">
+								<a href="#"><img style="width:160;height:80;"
+									src="${job.uploadLocation }${job.uploadName }" alt="" /> </a>
+							</div>
+							<p2> <a
+								href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${job.jobId}">${job.companyName
+								}</a> · <a
+								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${job.jobId}">${job.jobName
+								}</a></p2>
+							<p>
+								年薪：${job.jobSalary
+								}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${job.companyLocation } -<a
+									href="#">${job.industryName }</a>
+							</p>
+							<p>地址：${job.worksite }</p>
+						</div>
+					</c:forEach>
 
 					<div class="fill" style="padding-top:10.7">
-						<div
-							style="position:absolute;top:10;right:0;width:160px;height:80px;float:right;">
-							<a href="#"><img style="width:160;height:80;"
-								src="${job.uploadLocation }${job.uploadName }"
-								alt="" /> </a>
-						</div>
-						<p2> <a
-							href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${job.jobId}">${job.companyName
-							}</a> · <a
-							href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${job.jobId}">${job.jobName
-							}</a></p2>
-						<p>
-							年薪：${job.jobSalary
-							}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${job.companyLocation } -<a
-								href="#">${job.industryName }</a>
+						<p class="link_a" id="links" style="text-align:center;">
+							${page.links }</p>
+						<p style="margin-top:10;text-align:center;">
+							跳转到<a style="margin-left:100" href="javascript:void(0)"
+								id="forwordByPagenum">GO</a>
 						</p>
-						<p>地址：${job.worksite }</p>
-					</div>
-				</c:forEach>
-
-
-				<div class="fill" style="padding-top:10.7">
-					<p class="link_a" id="links" style="text-align:center;">
-						${page.links }</p>
-					<p style="margin-top:10;text-align:center;">
-						跳转到<a style="margin-left:100" href="javascript:void(0)"
-							id="forwordByPagenum">GO</a>
-					</p>
-					<input class="form-control" name="pageNum" type="text" id="pageNum"
-						placeHolder="页数" onmouseover="this.style.borderColor='#3d7d52'"
-						onmouseout="this.style.borderColor=''"
-						style="position:absolute;top:44;left:424;width:30;width:60;padding-right:0" />
-					<!-- <p class="link_a"
+						<input class="form-control" name="pageNum" type="text"
+							id="pageNum" placeHolder="页数"
+							onmouseover="this.style.borderColor='#3d7d52'"
+							onmouseout="this.style.borderColor=''"
+							style="position:absolute;top:44;left:424;width:30;width:60;padding-right:0" />
+				</c:if>
+				<!-- <p class="link_a"
 						style="position:absolute;right:80;top:-3;width:30;float:left;">
 						<a href="javascript:void(0)" id="forwordByPagenum">GO</a>
 					</p> -->
-				</div>
+
+				<c:if test="${empty sessionScope.page.recordList }">
+					<div class="fill"
+						style="padding-top:10.7;margin-top:10%;margin-bottom:10%;">
+						<img
+							style="position:absolute;top:0;left:356;width:178;height:31;float:left"
+							src="${pageContext.request.contextPath}/images/job/noresult.png"
+							alt="" />
+					</div>
+				</c:if>
+
 			</div>
+		</div>
 		</div>
 	</form>
 
