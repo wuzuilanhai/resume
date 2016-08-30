@@ -24,7 +24,8 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/welcome/jquery.fullPage.css"
-	type="text/css"></link><link rel="stylesheet"
+	type="text/css"></link>
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/welcome/animate.min.css"
 	type="text/css"></link>
 <link rel="stylesheet"
@@ -202,8 +203,8 @@
 					</div>
 					<div id="frame6_4"
 						style="opacity:0;position:absolute;width:140;bottom:30%;left:405;">
-						<a href="${pageContext.request.contextPath}/index.jsp"
-							onclick="showselect();" onMouseOut="MM_swapImgRestore()"
+						<a href="javascript:void(0)" onclick="showselect();"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enterr','','${pageContext.request.contextPath}/images/welcome/enter2.png',0)"><img
 							src="${pageContext.request.contextPath}/images/welcome/enter.png"
 							alt="" width="140" height="60" id="enterr"> </a>
@@ -219,21 +220,26 @@
 					style="position:relative;display:none;margin:0 auto;width:1200;height:100%">
 					<div id="frame7_1"
 						style="display:none;float:left;position:absolute;top:35%;left:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('imjobhunter','','${pageContext.request.contextPath}/images/welcome/imjobhunter2.png',0)"><img
 							src="${pageContext.request.contextPath}/images/welcome/imjobhunter.png"
 							alt="" width="300" height="250" id="imjobhunter"> </a>
 					</div>
 					<div id="frame7_2"
 						style="display:none;float:left;position:absolute;top:35%;left:450">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a href="${pageContext.request.contextPath}/company/index.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('imbusiness','','${pageContext.request.contextPath}/images/welcome/imbusiness2.png',0)"><img
 							src="${pageContext.request.contextPath}/images/welcome/imbusiness.png"
 							alt="" width="300" height="250" id="imbusiness"> </a>
 					</div>
 					<div id="frame7_3"
 						style="display:none;float:left;position:absolute;top:35%;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('imtraveler','','${pageContext.request.contextPath}/images/welcome/imtraveler2.png',0)"><img
 							src="${pageContext.request.contextPath}/images/welcome/imtraveler.png"
 							alt="" width="300" height="250" id="imtraveler"> </a>
