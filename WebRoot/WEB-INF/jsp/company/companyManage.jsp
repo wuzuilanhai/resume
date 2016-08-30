@@ -404,130 +404,142 @@
 								alt="" width="60" height="40" id="cancel"> </a>
 						</div>
 					</div>
-					<c:forEach items="${sessionScope.jobCustoms }" var="jobCustom"
-						varStatus="num">
-						<div id="title${num.count+1 }"
-							style="margin-top:10;position:relative;width:450;height:50;">
-							<p2 style="margin:0;position:absolute;top:13;left:30;">${jobCustom.jobName
-							}</p2>
-							<div
-								style="position:absolute;top:50;left:25;width:400;height:1;float:left">
-								<img
-									src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
-									width="400" height="1" alt="" />
+					<c:if test="${not empty sessionScope.jobCustoms}">
+						<c:forEach items="${sessionScope.jobCustoms }" var="jobCustom"
+							varStatus="num">
+							<div id="title${num.count+1 }"
+								style="margin-top:10;position:relative;width:450;height:50;">
+								<p2 style="margin:0;position:absolute;top:13;left:30;">${jobCustom.jobName
+								}</p2>
+								<div
+									style="position:absolute;top:50;left:25;width:400;height:1;float:left">
+									<img
+										src="${pageContext.request.contextPath}/images/companyRegister/manage/line400.png"
+										width="400" height="1" alt="" />
+								</div>
+								<div onClick="javascript:ShowFLT(${num.count+1 })"
+									href="javascript:void(null)">
+									<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
+										onMouseOver="MM_swapImage('fold${num.count+1 }-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
+										<div
+											style="position:absolute;top:10;right:20;width:30;height:30;float:left">
+											<img
+												src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
+												alt="" width="30" height="30" id="fold${num.count+1 }-1">
+										</div> </a>
+								</div>
 							</div>
-							<div onClick="javascript:ShowFLT(${num.count+1 })"
-								href="javascript:void(null)">
-								<a href="javascript:;" onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('fold${num.count+1 }-1','','${pageContext.request.contextPath}/images/companyRegister/manage/fold2-hover.png',0)">
-									<div
-										style="position:absolute;top:10;right:20;width:30;height:30;float:left">
-										<img
-											src="${pageContext.request.contextPath}/images/companyRegister/manage/fold2.png"
-											alt="" width="30" height="30" id="fold${num.count+1 }-1">
-									</div> </a>
-							</div>
-						</div>
-						<div id="LM${num.count+1 }" class="jobdetail"
-							style="DISPLAY:block;">
-							<form id="updateJobForm${num.count+1 }"
-								action="${pageContext.request.contextPath}/job/updateJob.action"
-								method="post">
-								<input type="hidden" value="${jobCustom.jobId }" name="jobId" />
-								<div class="fill" style="top:10">
-									<p>职位名称：</p>
-									<input class="form-control" name="jobName" type="text"
-										id="jobName${num.count+1 }" value="${jobCustom.jobName }"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-									<div id="jobNameTip${num.count+1 }"
-										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
-								</div>
-								<div class="fill" style="top:60">
-									<p>工作地址：</p>
-									<input class="form-control" name="worksite" type="text"
-										id="worksite${num.count+1 }" value="${jobCustom.worksite }"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''" style="" />
-									<div id="worksiteTip${num.count+1 }"
-										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
-								</div>
-								<div class="fill" style="top:110">
-									<p>行业分类：</p>
-									<select id="industryId${num.count+1 }" type="text"
-										class="form-control" name="industryId"
-										style="left:100;width:90px;">
-										<option value=1
-											<c:if test="${jobCustom.industryName=='互联网·IT'}">selected</c:if>>互联网·IT</option>
-										<option value=2
-											<c:if test="${jobCustom.industryName=='金融业'}">selected</c:if>>金融业</option>
-										<option value=3
-											<c:if test="${jobCustom.industryName=='快销行业'}">selected</c:if>>快销行业</option>
-										<option value=4
-											<c:if test="${jobCustom.industryName=='建筑业'}">selected</c:if>>建筑业</option>
-										<option value=5
-											<c:if test="${jobCustom.industryName=='汽车·制造'}">selected</c:if>>汽车·制造</option>
-										<option value=6
-											<c:if test="${jobCustom.industryName=='医疗·化工'}">selected</c:if>>医疗·化工</option>
-									</select>
-								</div>
-								<div class="fill" style="top:160">
-									<p>职位月薪：</p>
-									<input class="form-control" name="jobSalary" type="text"
-										id="jobSalary${num.count+1 }" value="${jobCustom.jobSalary}"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
-									<div id="jobSalaryTip${num.count+1 }"
-										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
-								</div>
-								<div class="fill" style="top:210">
-									<p>投递邮箱：</p>
-									<input class="form-control" name="jobEmail" type="text"
-										id="jobEmail${num.count+1 }" value="${jobCustom.jobEmail}"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''"
-										style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
-									<div id="jobEmailTip${num.count+1 }"
-										style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
-								</div>
-								<div class="fill" style="top:260">
-									<p>职位描述：</p>
-									<textarea class="form-control" name="jobDescription"
-										type="text" id="jobDescription${num.count+1 }"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''"
-										style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
+							<div id="LM${num.count+1 }" class="jobdetail"
+								style="DISPLAY:block;">
+								<form id="updateJobForm${num.count+1 }"
+									action="${pageContext.request.contextPath}/job/updateJob.action"
+									method="post">
+									<input type="hidden" value="${jobCustom.jobId }" name="jobId" />
+									<div class="fill" style="top:10">
+										<p>职位名称：</p>
+										<input class="form-control" name="jobName" type="text"
+											id="jobName${num.count+1 }" value="${jobCustom.jobName }"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div id="jobNameTip${num.count+1 }"
+											style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:60">
+										<p>工作地址：</p>
+										<input class="form-control" name="worksite" type="text"
+											id="worksite${num.count+1 }" value="${jobCustom.worksite }"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''" style="" />
+										<div id="worksiteTip${num.count+1 }"
+											style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:110">
+										<p>行业分类：</p>
+										<select id="industryId${num.count+1 }" type="text"
+											class="form-control" name="industryId"
+											style="left:100;width:90px;">
+											<option value=1
+												<c:if test="${jobCustom.industryName=='互联网·IT'}">selected</c:if>>互联网·IT</option>
+											<option value=2
+												<c:if test="${jobCustom.industryName=='金融业'}">selected</c:if>>金融业</option>
+											<option value=3
+												<c:if test="${jobCustom.industryName=='快销行业'}">selected</c:if>>快销行业</option>
+											<option value=4
+												<c:if test="${jobCustom.industryName=='建筑业'}">selected</c:if>>建筑业</option>
+											<option value=5
+												<c:if test="${jobCustom.industryName=='汽车·制造'}">selected</c:if>>汽车·制造</option>
+											<option value=6
+												<c:if test="${jobCustom.industryName=='医疗·化工'}">selected</c:if>>医疗·化工</option>
+										</select>
+									</div>
+									<div class="fill" style="top:160">
+										<p>职位月薪：</p>
+										<input class="form-control" name="jobSalary" type="text"
+											id="jobSalary${num.count+1 }" value="${jobCustom.jobSalary}"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:90px; height:30px;" />
+										<div id="jobSalaryTip${num.count+1 }"
+											style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:210">
+										<p>投递邮箱：</p>
+										<input class="form-control" name="jobEmail" type="text"
+											id="jobEmail${num.count+1 }" value="${jobCustom.jobEmail}"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''"
+											style="position:absolute;left:100;top:10;float:left;width:200px; height:30px;" />
+										<div id="jobEmailTip${num.count+1 }"
+											style="position:absolute;left:320;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
+									</div>
+									<div class="fill" style="top:260">
+										<p>职位描述：</p>
+										<textarea class="form-control" name="jobDescription"
+											type="text" id="jobDescription${num.count+1 }"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
 ${jobCustom.jobDescription }</textarea>
-								</div>
-								<div class="fill" style="top:380">
-									<p>职位要求：</p>
-									<textarea class="form-control" name="jobAcquire" type="text"
-										id="jobAcquire${num.count+1 }"
-										onmouseover="this.style.borderColor='#316392'"
-										onmouseout="this.style.borderColor=''"
-										style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
+									</div>
+									<div class="fill" style="top:380">
+										<p>职位要求：</p>
+										<textarea class="form-control" name="jobAcquire" type="text"
+											id="jobAcquire${num.count+1 }"
+											onmouseover="this.style.borderColor='#316392'"
+											onmouseout="this.style.borderColor=''"
+											style="text-align:left;position: absolute; left: 100; top: 10; width: 230px; height: 100px; resize: none; padding-top: 7px;">
 ${jobCustom.jobAcquire }</textarea>
+									</div>
+								</form>
+								<div class="fill"
+									style="padding-top:10;padding-left:100;top:500">
+									<a id="updateJob${num.count+1 }" href="javascript:void(0)"
+										onMouseOut="MM_swapImgRestore()"
+										onMouseOver="MM_swapImage('save${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
+										src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
+										alt="" width="60" height="40" id="save${num.count+1 }">
+									</a> <a
+										href="${pageContext.request.contextPath}/job/deleteJobByJobId.action?jobId=${jobCustom.jobId }"
+										onMouseOut="MM_swapImgRestore()"
+										onMouseOver="MM_swapImage('delete${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
+										style="margin-left:75;"
+										src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
+										alt="" width="60" height="40" id="delete${num.count+1 }">
+									</a>
 								</div>
-							</form>
-							<div class="fill" style="padding-top:10;padding-left:100;top:500">
-								<a id="updateJob${num.count+1 }" href="javascript:void(0)"
-									onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('save${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/save2.png',0)"><img
-									src="${pageContext.request.contextPath}/images/companyRegister/manage/save.png"
-									alt="" width="60" height="40" id="save${num.count+1 }"> </a>
-								<a
-									href="${pageContext.request.contextPath}/job/deleteJobByJobId.action?jobId=${jobCustom.jobId }"
-									onMouseOut="MM_swapImgRestore()"
-									onMouseOver="MM_swapImage('delete${num.count+1 }','','${pageContext.request.contextPath}/images/companyRegister/manage/delete2.png',0)"><img
-									style="margin-left:75;"
-									src="${pageContext.request.contextPath}/images/companyRegister/manage/delete.png"
-									alt="" width="60" height="40" id="delete${num.count+1 }">
-								</a>
 							</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty  sessionScope.jobCustoms}">
+						<div class="fill_left"
+							style="text-align:center;margin-top:30%;margin-bottom:30%;">
+							<img
+								style="position:absolute;top:0;left:140;width:178;height:31;float:left"
+								src="${pageContext.request.contextPath}/images/companyRegister/manage/nojob.png"
+								alt="" />
 						</div>
-					</c:forEach>
+					</c:if>
 				</div>
 			</div>
 
@@ -550,32 +562,47 @@ ${jobCustom.jobAcquire }</textarea>
 								width="637" height="1" alt="" />
 						</div>
 					</div>
-					<c:forEach items="${sessionScope.jobs }" var="job"
-						varStatus="jobNum">
-						<c:forEach items="${job.resumeCustoms }" var="resumeCustom"
-							varStatus="resumeCustomNum">
-							<div class="fill_left">
-								<h1>${resumeCustom.jobhunterRealName }
-									${resumeCustom.jobhunterBirthday }</h1>
-								<h1 class="text_operation">操作</h1>
-								<a
-									href="${pageContext.request.contextPath}/resumeJob/deleteResumeJob.action?resumeId=${resumeCustom.resumeId }&jobId=${job.jobId}"><p
-										class="text_delete">删除</p> </a> <a
-									href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resumeCustom.resumeId }"><p
-										class="text_viewdetail">查看简历详情</p> </a>
-								<p>
-									应聘职位：${job.jobName }<br /> 所在地：${resumeCustom.jobhunterAddress
-									}<br /> 学历：${resumeCustom.jobhunterQualification }<br />投递时间：
-									<fmt:formatDate value="${resumeCustom.submitTime}"
-										pattern="yyyy/MM/dd" />
-									<br />
-								</p>
-								<img style="position:absolute;right:0;top:20;float:right;"
-									src="${resumeCustom.uploadLocation }${resumeCustom.uploadName }"
-									width="100" height="100" alt="" />
-							</div>
+					<c:if test="${not empty sessionScope.jobs}">
+						<c:forEach items="${sessionScope.jobs }" var="job"
+							varStatus="jobNum">
+							<c:forEach items="${job.resumeCustoms }" var="resumeCustom"
+								varStatus="resumeCustomNum">
+								<c:if test="${not empty resumeCustom }">
+									<c:set var="flag" value="1"></c:set>
+								</c:if>
+								<div class="fill_left">
+									<h1>${resumeCustom.jobhunterRealName }
+										${resumeCustom.jobhunterBirthday }</h1>
+									<h1 class="text_operation">操作</h1>
+									<a
+										href="${pageContext.request.contextPath}/resumeJob/deleteResumeJob.action?resumeId=${resumeCustom.resumeId }&jobId=${job.jobId}"><p
+											class="text_delete">删除</p> </a> <a
+										href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resumeCustom.resumeId }"><p
+											class="text_viewdetail">查看简历详情</p> </a>
+									<p>
+										应聘职位：${job.jobName }<br />
+										所在地：${resumeCustom.jobhunterAddress }<br />
+										学历：${resumeCustom.jobhunterQualification }<br />投递时间：
+										<fmt:formatDate value="${resumeCustom.submitTime}"
+											pattern="yyyy/MM/dd" />
+										<br />
+									</p>
+									<img style="position:absolute;right:0;top:20;float:right;"
+										src="${resumeCustom.uploadLocation }${resumeCustom.uploadName }"
+										width="100" height="100" alt="" />
+								</div>
+							</c:forEach>
 						</c:forEach>
-					</c:forEach>
+					</c:if>
+					<c:if test="${flag!=1}">
+						<div class="fill_left"
+							style="text-align:center;margin-top:30%;margin-bottom:30%;">
+							<img
+								style="position:absolute;top:0;left:230;width:178;height:31;float:left"
+								src="${pageContext.request.contextPath}/images/companyRegister/manage/noresume.png"
+								alt="" />
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -928,7 +955,7 @@ ${jobCustom.jobAcquire }</textarea>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 
 	<script type="text/javascript"
