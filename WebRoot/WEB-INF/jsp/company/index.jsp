@@ -75,7 +75,8 @@
 						href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
-					<a href="${pageContext.request.contextPath}/jobHunter/indexUI.action.action"
+					<a
+						href="${pageContext.request.contextPath}/jobHunter/indexUI.action.action"
 						onMouseOut="MM_swapImgRestore()"
 						onMouseOver="MM_swapImage('person','','${pageContext.request.contextPath}/images/index/dhh/person2.png',1)"><img
 						src="${pageContext.request.contextPath}/images/index/dhh/person.png"
@@ -277,7 +278,9 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">互联网·IT</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter1','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
@@ -322,12 +325,14 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">金融业</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter2','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
 							alt="" width="20" height="20" id="enter2"> </a>
-						<p style="margin-left:30">搜索更金融业人才</p>
+						<p style="margin-left:30">搜索更多金融业人才</p>
 					</div>
 					<div style="position:absolute;top:50;left:0;width:900;height:1;">
 						<img
@@ -367,12 +372,14 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">消费品</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter3','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
 							alt="" width="20" height="20" id="enter3"> </a>
-						<p style="margin-left:30">搜索更消费品业人才</p>
+						<p style="margin-left:30">搜索更多消费品业人才</p>
 					</div>
 					<div style="position:absolute;top:50;left:0;width:900;height:1;">
 						<img
@@ -412,7 +419,9 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">建筑业</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter4','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
@@ -457,7 +466,9 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">汽车·制造</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter5','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
@@ -473,7 +484,8 @@
 				<c:forEach items="${sessionScope.resumeCustoms7 }" var="resume"
 					varStatus="num7">
 					<div class="fill_mid" style="padding-top:10;">
-						<a href="#"><img style="position:absolute;right:30;top:18;"
+						<a href="javascript:void(0)"><img
+							style="position:absolute;right:30;top:18;"
 							src="${resume.uploadLocation }${resume.uploadName }" width="100"
 							height="100" alt="" /> </a>
 						<h1>
@@ -502,7 +514,9 @@
 						<h2 style="margin:0;position:absolute;top:4;left:15;">医疗·化工</h2>
 					</div>
 					<div style="position:absolute;top:10;width:180;height:30;right:0">
-						<a href="#" onMouseOut="MM_swapImgRestore()"
+						<a
+							href="${pageContext.request.contextPath}/resume/findAllResumes.action"
+							onMouseOut="MM_swapImgRestore()"
 							onMouseOver="MM_swapImage('enter6','','${pageContext.request.contextPath}/images/companyRegister/index/enter2.png',1)"><img
 							style="position:absolute;top:3"
 							src="${pageContext.request.contextPath}/images/companyRegister/index/enter.png"
