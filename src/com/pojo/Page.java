@@ -92,7 +92,7 @@ public class Page implements Serializable {
 		for (int i = beginPageIndex; i <= endPageIndex; i++) {
 			buffer.append("<a href='" + url
 					+ "/job/findAllJobs.action?currentPage=" + i + "'>" + i
-					+ "</a>");
+					+ "</a>&nbsp;");
 		}
 		if (currentPage == pageCount) {
 			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");

@@ -308,7 +308,7 @@ public class ResumeController extends BasicController {
 			buffer.append("<a href='"
 					+ session.getServletContext().getContextPath()
 					+ "/resume/findAllResumes.action?currentPage=" + i + "'>"
-					+ i + "</a>");
+					+ i + "</a>&nbsp;");
 		}
 		if (currentPage == page.getPageCount()) {
 			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");

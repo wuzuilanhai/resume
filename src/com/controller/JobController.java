@@ -99,76 +99,84 @@ public class JobController extends BasicController {
 			jobQueryVo
 					.setCity(URLDecoder.decode(jobQueryVo.getCity(), "utf-8"));
 		}
-		switch (jobQueryVo.getTime()) {
-		case 1:
-			// 计算一天前的日期
-			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 1
-					* 24 * 60 * 60 * 1000));
-			break;
-		case 2:
-			// 计算一周前的日期
-			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 7
-					* 24 * 60 * 60 * 1000));
-			break;
-		case 3:
-			// 计算一月前的日期
-			jobQueryVo.setQueryTime(new Date(new Date().getTime() - (long) 30
-					* 24 * 60 * 60 * 1000));
-			break;
-		case 4:
-			jobQueryVo.setQueryTime(null);
-			break;
-		default:
-			break;
+		if (jobQueryVo.getTime() != null) {
+			switch (jobQueryVo.getTime()) {
+			case 1:
+				// 计算一天前的日期
+				jobQueryVo.setQueryTime(new Date(new Date().getTime()
+						- (long) 1 * 24 * 60 * 60 * 1000));
+				break;
+			case 2:
+				// 计算一周前的日期
+				jobQueryVo.setQueryTime(new Date(new Date().getTime()
+						- (long) 7 * 24 * 60 * 60 * 1000));
+				break;
+			case 3:
+				// 计算一月前的日期
+				jobQueryVo.setQueryTime(new Date(new Date().getTime()
+						- (long) 30 * 24 * 60 * 60 * 1000));
+				break;
+			case 4:
+				jobQueryVo.setQueryTime(null);
+				break;
+			default:
+				break;
+			}
 		}
-		switch (jobQueryVo.getSalary()) {
-		case 1:
-			// 工资在2000以下
-			jobQueryVo.setMinSalary(0d);
-			jobQueryVo.setMaxSalary(2000d);
-			break;
-		case 2:
-			// 工资在2000-4000
-			jobQueryVo.setMinSalary(2000d);
-			jobQueryVo.setMaxSalary(4000d);
-			break;
-		case 3:
-			// 工资在4000-6000
-			jobQueryVo.setMinSalary(2000d);
-			jobQueryVo.setMaxSalary(4000d);
-			break;
-		case 4:
-			// 工资在6000-8000
-			jobQueryVo.setMinSalary(6000d);
-			jobQueryVo.setMaxSalary(8000d);
-			break;
-		case 5:
-			// 工资在8000-10000
-			jobQueryVo.setMinSalary(8000d);
-			jobQueryVo.setMaxSalary(10000d);
-			break;
-		case 6:
-			// 工资在10000以上
-			jobQueryVo.setMinSalary(10000d);
-			break;
-		default:
-			break;
+		if (jobQueryVo.getSalary() != null) {
+			switch (jobQueryVo.getSalary()) {
+			case 1:
+				// 工资在2000以下
+				jobQueryVo.setMinSalary(0d);
+				jobQueryVo.setMaxSalary(2000d);
+				break;
+			case 2:
+				// 工资在2000-4000
+				jobQueryVo.setMinSalary(2000d);
+				jobQueryVo.setMaxSalary(4000d);
+				break;
+			case 3:
+				// 工资在4000-6000
+				jobQueryVo.setMinSalary(2000d);
+				jobQueryVo.setMaxSalary(4000d);
+				break;
+			case 4:
+				// 工资在6000-8000
+				jobQueryVo.setMinSalary(6000d);
+				jobQueryVo.setMaxSalary(8000d);
+				break;
+			case 5:
+				// 工资在8000-10000
+				jobQueryVo.setMinSalary(8000d);
+				jobQueryVo.setMaxSalary(10000d);
+				break;
+			case 6:
+				// 工资在10000以上
+				jobQueryVo.setMinSalary(10000d);
+				break;
+			default:
+				break;
+			}
 		}
 		if (jobQueryVo.getJob().getIndustryId() == 0) {
 			jobQueryVo.getJob().setIndustryId(null);
 		}
-		if (jobQueryVo.getTypeId() == 0) {
-			jobQueryVo.setTypeId(null);
-		}
-		if (jobQueryVo.getProvince().equals("省份")) {
-			jobQueryVo.setProvince(null);
-		}
-		if (jobQueryVo.getCity().equals("城市")) {
-			jobQueryVo.setCity(null);
-		}
 		if (jobQueryVo.getTypeId() != null) {
-			jobQueryVo.getJob().setIndustryId(jobQueryVo.getTypeId());
+			if (jobQueryVo.getTypeId() == 0) {
+				jobQueryVo.setTypeId(null);
+			}
 		}
+		if (jobQueryVo.getProvince() != null) {
+			if (jobQueryVo.getProvince().equals("省份")) {
+				jobQueryVo.setProvince(null);
+			}
+		}
+		if (jobQueryVo.getCity() != null) {
+			if (jobQueryVo.getCity().equals("城市")) {
+				jobQueryVo.setCity(null);
+			}
+		}
+		jobQueryVo.getJob().setIndustryId(jobQueryVo.getTypeId());
 		if (jobQueryVo.getProvince() == null && jobQueryVo.getCity() == null) {
 			jobQueryVo.setLocation(null);
 		} else {
@@ -242,7 +250,8 @@ public class JobController extends BasicController {
 					+ URLEncoder.encode(
 							URLEncoder.encode(jobQueryVo.getCity(), "utf-8"),
 							"utf-8") + "&time=" + jobQueryVo.getTime()
-					+ "&salary=" + jobQueryVo.getSalary() + "'>" + i + "</a>");
+					+ "&salary=" + jobQueryVo.getSalary() + "'>" + i
+					+ "</a>&nbsp;");
 		}
 		if (currentPage == page.getPageCount()) {
 			buffer.append("&nbsp;&nbsp;<a href='javascript:void(0)'>&gt;&gt;</a>");

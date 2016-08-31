@@ -122,3 +122,6 @@ $('#logoutBtn').click(function() {
 		}
 	});
 });
+$('#searchButton').click(function() {
+	$('#searchForm').submit();
+});

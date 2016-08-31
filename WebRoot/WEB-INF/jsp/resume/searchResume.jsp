@@ -74,7 +74,8 @@
 						href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
 				</div>
 				<div style="position:absolute;right:10;top:10;">
-					<a href="${pageContext.request.contextPath}/jobHunter/indexUI.action.action"
+					<a
+						href="${pageContext.request.contextPath}/jobHunter/indexUI.action.action"
 						onMouseOut="MM_swapImgRestore()"
 						onMouseOver="MM_swapImage('person','','${pageContext.request.contextPath}/images/index/dhh/person2.png',1)"><img
 						src="${pageContext.request.contextPath}/images/index/dhh/person.png"
@@ -275,7 +276,7 @@
 						style="position:absolute;right:30;top:28;"
 						src="${resume.uploadLocation }${resume.uploadName }" width="100"
 						height="100" alt="" /> </a>
-					<h1 >
+					<h1>
 						<a style="color:#316392"
 							href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resume.resumeId}">${resume.jobhunterRealName
 							}</a> · ${resume.jobhunterBirthday }
@@ -306,23 +307,33 @@
 			<p
 				style="margin: 0; position: absolute; top: 0; left: 0;  font-size: 14px; font-family:微软雅黑;color: #316392; font-weight: ">常用链接：</p>
 			<p style="margin: 0; position: absolute; top: 0; left: 100;  ">
-				<a href="#">北京</a>&nbsp;<a href="#">上海</a>&nbsp;<a href="#">广州</a>&nbsp;<a
-					href="#">深圳</a>&nbsp;<a href="#">南京</a>&nbsp;<a href="#">杭州</a>&nbsp;<a
-					href="#">天津</a>&nbsp;<a href="#">青岛</a>&nbsp;<a href="#">成都</a>&nbsp;<a
-					href="#">重庆</a>&nbsp;<a href="#">武汉</a>&nbsp;<a href="#">厦门</a>&nbsp;<a
-					href="#">郑州</a>&nbsp;<a style="color:#316392" href="#">查看更多</a>
+				<a href="javascript:void(0)">北京</a>&nbsp;<a
+					href="javascript:void(0)">上海</a>&nbsp;<a href="javascript:void(0)">广州</a>&nbsp;<a
+					href="javascript:void(0)">深圳</a>&nbsp;<a href="javascript:void(0)">南京</a>&nbsp;<a
+					href="javascript:void(0)">杭州</a>&nbsp;<a href="javascript:void(0)">天津</a>&nbsp;<a
+					href="javascript:void(0)">青岛</a>&nbsp;<a href="javascript:void(0)">成都</a>&nbsp;<a
+					href="javascript:void(0)">重庆</a>&nbsp;<a href="javascript:void(0)">武汉</a>&nbsp;<a
+					href="javascript:void(0)">厦门</a>&nbsp;<a href="javascript:void(0)">郑州</a>&nbsp;<a
+					style="color:javascript:void(0)316392" href="javascript:void(0)">查看更多</a>
 			</p>
 			<p
 				style="margin: 0; position: absolute; top:40; left: 0;  font-size: 14px; font-family:微软雅黑;color: #316392; font-weight:">热门职位：</p>
 			<p
 				style="text-align:left;margin: 0; position: absolute; top: 40; left: 100; ">
-				<a href="#">翻译</a>&nbsp;<a href="#">保险</a>&nbsp;<a href="#">销售</a>&nbsp;<a
-					href="#">金融</a>&nbsp;<a href="#">银行</a>&nbsp;<a href="#">数据分析</a>&nbsp;<a
-					href="#">结构工程师</a>&nbsp;<a href="#">UI设计师</a>&nbsp;<a href="#">产品</a>&nbsp;<a
-					href="#">人力资源</a>&nbsp;<a href="#">律师</a>&nbsp;<a href="#">营养师</a>&nbsp;<a
-					href="#">活动策划</a>&nbsp;<a href="#">网络工程师</a>&nbsp;<a href="#">物业管理</a>&nbsp;<a
-					href="#">包装设计</a>&nbsp;<a href="#">运营</a>&nbsp;<a href="#">技术总监</a>&nbsp;<a
-					style="color:#316392" href="#">查看更多</a>
+				<a href="javascript:void(0)">翻译</a>&nbsp;<a
+					href="javascript:void(0)">保险</a>&nbsp;<a href="javascript:void(0)">销售</a>&nbsp;<a
+					href="javascript:void(0)">金融</a>&nbsp;<a href="javascript:void(0)">银行</a>&nbsp;<a
+					href="javascript:void(0)">数据分析</a>&nbsp;<a
+					href="javascript:void(0)">结构工程师</a>&nbsp;<a
+					href="javascript:void(0)">UI设计师</a>&nbsp;<a
+					href="javascript:void(0)">产品</a>&nbsp;<a href="javascript:void(0)">人力资源</a>&nbsp;<a
+					href="javascript:void(0)">律师</a>&nbsp;<a href="javascript:void(0)">营养师</a>&nbsp;<a
+					href="javascript:void(0)">活动策划</a>&nbsp;<a
+					href="javascript:void(0)">网络工程师</a>&nbsp;<a
+					href="javascript:void(0)">物业管理</a>&nbsp;<a
+					href="javascript:void(0)">包装设计</a>&nbsp;<a
+					href="javascript:void(0)">运营</a>&nbsp;<a href="javascript:void(0)">技术总监</a>&nbsp;<a
+					style="color:javascript:void(0)316392" href="javascript:void(0)">查看更多</a>
 			</p>
 		</div>
 		<div>
@@ -347,8 +358,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职来网简介</a><br /> <a href="b">产品服务</a><br /> <a
-						href="c">创新优势</a><br /> <a href="c">联系我们</a><br />
+					<a href="javascript:void(0)">职来网简介</a><br /> <a
+						href="javascript:void(0)">产品服务</a><br /> <a
+						href="javascript:void(0)">创新优势</a><br /> <a
+						href="javascript:void(0)">联系我们</a><br />
 				</p>
 			</div>
 		</div>
@@ -358,8 +371,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职位大全</a><br /> <a href="b">招聘职位</a><br /> <a href="c">企业名录</a><br />
-					<a href="d">城市列表</a><br />
+					<a href="javascript:void(0)">职位大全</a><br /> <a
+						href="javascript:void(0)">招聘职位</a><br /> <a
+						href="javascript:void(0)">企业名录</a><br /> <a
+						href="javascript:void(0)">城市列表</a><br />
 				</p>
 			</div>
 		</div>
@@ -369,8 +384,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">网站地图</a><br /> <a href="b">企业入口</a><br /> <a href="c">求职者入口</a><br />
-					<a href="c">宣传页</a><br />
+					<a href="javascript:void(0)">网站地图</a><br /> <a
+						href="javascript:void(0)">企业入口</a><br /> <a
+						href="javascript:void(0)">求职者入口</a><br /> <a
+						href="javascript:void(0)">宣传页</a><br />
 				</p>
 			</div>
 		</div>
@@ -380,8 +397,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">使用帮助</a><br /> <a href="b">常见问题</a><br /> <a href="e">意见反馈</a><br />
-					<a href="c">版权/免责声明</a><br />
+					<a href="javascript:void(0)">使用帮助</a><br /> <a
+						href="javascript:void(0)">常见问题</a><br /> <a
+						href="javascript:void(0)">意见反馈</a><br /> <a
+						href="javascript:void(0)">版权/免责声明</a><br />
 				</p>
 			</div>
 		</div>

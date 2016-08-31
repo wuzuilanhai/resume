@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: resume_system
 Target Host: localhost
 Target Database: resume_system
-Date: 2016/8/24 16:00:12
+Date: 2016/8/31 16:32:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -247,8 +247,8 @@ CREATE TABLE `resume_job` (
   `submitTime` date default NULL,
   KEY `resume_id` (`resume_id`),
   KEY `job_id` (`job_id`),
-  CONSTRAINT `resume_job_ibfk_1` FOREIGN KEY (`resume_id`) REFERENCES `resume` (`resume_id`),
-  CONSTRAINT `resume_job_ibfk_2` FOREIGN KEY (`job_id`) REFERENCES `job` (`job_id`)
+  CONSTRAINT `resume_job_ibfk_3` FOREIGN KEY (`resume_id`) REFERENCES `resume` (`resume_id`),
+  CONSTRAINT `resume_job_ibfk_4` FOREIGN KEY (`job_id`) REFERENCES `job` (`job_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -276,20 +276,28 @@ INSERT INTO `admin` VALUES ('admin', 'admin');
 INSERT INTO `career_intention` VALUES ('1', '1', '2', '广东省广州市', '8888', '8888', '1', '1');
 INSERT INTO `career_intention` VALUES ('2', '4', '2', '12313123', '1231312', '123123', '1', '1');
 INSERT INTO `company` VALUES ('1', '科易光电', '雾醉澜海', 'fe546daf817a2454b46ba978f0088b8a', '河北省广州市', '1', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('2', '中信证券', '中信证券', 'b59c67bf196a4758191e42f76670ceba', '河北省上海市', '1', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('3', '美的集团', '美的集团', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '3', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('4', '康泽药业', '康泽药业', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '2', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('5', '农商银行', '农商银行', 'e10adc3949ba59abbe56e057f20f883e', '广东省北京市', '2', '张海彪', '男', 'willberchang@qq.com', '18814092579', '13232411200', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('6', '百度集团', '百度集团', 'b59c67bf196a4758191e42f76670ceba', '广东省北京市', '4', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('7', 'GO桌面', 'GO桌面', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '5', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('8', '建辉建材', '建辉建材', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '5', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('9', '美的集团（分）', '美的集团（分）', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '6', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `company` VALUES ('10', '长城汽车', '长城汽车', '81dc9bdb52d04dc20036dbd8313ed055', '广东省广州市', '6', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('2', '中信证券', '中信证券', 'fe546daf817a2454b46ba978f0088b8a', '河北省上海市', '1', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('3', '美的集团', '美的集团', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '3', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('4', '康泽药业', '康泽药业', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '2', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('5', '农商银行', '农商银行', 'fe546daf817a2454b46ba978f0088b8a', '广东省北京市', '2', '张海彪', '男', 'willberchang@qq.com', '18814092579', '13232411200', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('6', '百度集团', '百度集团', 'fe546daf817a2454b46ba978f0088b8a', '广东省北京市', '4', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('7', 'GO桌面', 'GO桌面', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '5', '张海彪', '男', '1473209216@qq.com', '18814092579', '18814092579', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('8', '建辉建材', '建辉建材', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '5', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('9', '美的集团（分）', '美的集团（分）', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '6', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('10', '长城汽车', '长城汽车', 'fe546daf817a2454b46ba978f0088b8a', '广东省广州市', '6', '张海彪', '男', '1111111111@qq.com', '18814092579', '11111111111', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；\r\n2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；\r\n3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；\r\n4、充满创意与活力，具有颠覆传统的理念；\r\n5、能充分管理个人以及团队时间，有良好的统筹意识；\r\n6、具有良好的提案能力、领导能力和团队管理能力。');
+INSERT INTO `company` VALUES ('11', '12323', '', 'd41d8cd98f00b204e9800998ecf8427e', 'null广东省', '10', '佛挡杀佛是', '男', '', '11111111111', '', null);
+INSERT INTO `company` VALUES ('12', '12323', '', 'd41d8cd98f00b204e9800998ecf8427e', 'null广东省', null, '佛挡杀佛是', '男', '', '11111111111', '', null);
+INSERT INTO `company` VALUES ('13', '1123', '放水电费是第', 'e10adc3949ba59abbe56e057f20f883e', 'null广东省', '10', '1111', '男', '1473209214@qq.com', '11111111111', '11111111111', null);
+INSERT INTO `company` VALUES ('14', '傻彪有限公司', 'will52', '52ac5783a8e5ae6844cfba8f09d8891f', '河北省上海市', '1', '张伟波', '女', 'willberchang@qq.com', '13232411200', '13232411200', '');
+INSERT INTO `company` VALUES ('15', '傻彪有限公司', 'will', 'e10adc3949ba59abbe56e057f20f883e', '广东省北京市', '10', '张海彪', '女', 'willberchang@qq.com', '18814092579', '13232411200', null);
+INSERT INTO `company` VALUES ('16', '1111', '1111', 'b59c67bf196a4758191e42f76670ceba', '广东省北京市', '10', '1111', '男', '1473209214@qq.com', '11111111111', '11111111111', null);
+INSERT INTO `company` VALUES ('17', '范德萨发', 'will11', 'e10adc3949ba59abbe56e057f20f883e', '广东省北京市', '10', '爽肤水', '男', 'will@qq.com', '11111111111', '11111111111', null);
 INSERT INTO `education_experience` VALUES ('1', '华农', '软件工程', '2014-09-01', '2016-02-01', '博士', '1');
-INSERT INTO `education_experience` VALUES ('2', '湛实', '理综', '2013-08-01', '2016-01-01', '高中', '1');
+INSERT INTO `education_experience` VALUES ('2', '湛实', '理综', '2011-01-01', '2015-01-01', '高中', '1');
 INSERT INTO `education_experience` VALUES ('3', '中山大学', '软件工程', '2015-01-01', '2016-01-01', '博士', '1');
 INSERT INTO `education_experience` VALUES ('6', '汕头金山中学', '理科煞笔', '2010-09-01', '2013-09-01', '高中', '1');
 INSERT INTO `education_experience` VALUES ('8', '123123', '123123', '2016-01-01', '2016-01-01', '博士', '1');
+INSERT INTO `education_experience` VALUES ('10', '12312321', '123123', '2015-02-01', '2015-03-01', '高中以下', null);
 INSERT INTO `industry` VALUES ('1', '互联网·IT', null);
 INSERT INTO `industry` VALUES ('2', '金融业', null);
 INSERT INTO `industry` VALUES ('3', '快销行业', null);
@@ -308,9 +316,9 @@ INSERT INTO `job` VALUES ('7', 'UI设计师', '广东省广州市海珠区江南
 INSERT INTO `job` VALUES ('8', '销售经理', '广东省广州市海珠区江南大道新云大厦23楼', '2016-08-03', '4', '5000', '1', '1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；<br />2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；<br />3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；<br />4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；<br /> 5、负责设计组的人员管理，稳步提升设计团队的专业能力。<br />', '1473209216@qq.com', '8', '1', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；<br />2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；<br />3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；<br />4、充满创意与活力，具有颠覆传统的理念；<br />5、能充分管理个人以及团队时间，有良好的统筹意识；<br />6、具有良好的提案能力、领导能力和团队管理能力。');
 INSERT INTO `job` VALUES ('9', '广告部经理', '广东省广州市海珠区江南大道新云大厦23楼', '2016-08-02', '5', '5000', '1', '1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；<br />2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；<br />3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；<br />4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；<br /> 5、负责设计组的人员管理，稳步提升设计团队的专业能力。<br />', '1473209216@qq.com', '9', '1', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；<br />2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；<br />3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；<br />4、充满创意与活力，具有颠覆传统的理念；<br />5、能充分管理个人以及团队时间，有良好的统筹意识；<br />6、具有良好的提案能力、领导能力和团队管理能力。');
 INSERT INTO `job` VALUES ('10', '研究项目经理', '广东省广州市海珠区江南大道新云大厦23楼', '2016-08-01', '6', '8000', '1', '1、负责公司软件产品、项目的流程设计、视觉设计、体验设计的把控；<br />2、负责设计团队的设计品质和工作效率，保质保量完成公司设计任务；<br />3、完善公司UI设计体系，根据不同的产品项目提出整体设计思路，并制定相应的设计规范和标准；<br />4、参与重点产品的具体设计工作及产品创作过程，提供专业意见；<br /> 5、负责设计组的人员管理，稳步提升设计团队的专业能力。<br />', '1473209216@qq.com', '10', '1', '1、专业院校美术、艺术设计、网页设计等相关专业本科以上学历，三年以上UI工作经验；<br />2、有良好的美术功底、优秀的视觉设计能力，及较强的细节处理能力；<br />3、熟练掌握相关设计软件（如PS、CDR、AI、FW等）；<br />4、充满创意与活力，具有颠覆传统的理念；<br />5、能充分管理个人以及团队时间，有良好的统筹意识；<br />6、具有良好的提案能力、领导能力和团队管理能力。');
-INSERT INTO `job` VALUES ('11', '洗头妹', '你好靓洗剪吹', '2016-08-24', '6', '5000', '1', '专业洗头30年', '1111111111@qq.com', '1', '1', '长得漂亮');
 INSERT INTO `job` VALUES ('12', '张伟桐', '12313', '2016-08-24', '4', '123', '1', '123123123', '1111111111@qq.com', '1', '1', '1321231231');
 INSERT INTO `job` VALUES ('13', '张伟桐23123', '241231', '2016-08-24', '5', '3123', '1', '123123', '1111111111@qq.com', '1', '1', '12312');
+INSERT INTO `job` VALUES ('14', '分手的距离', '福建省刻录机发牢骚科技大楼', '2016-08-26', '3', '12312', '1', '无', 'willberchang@qq.com', '14', '1', '无');
 INSERT INTO `job_acquire` VALUES ('1', '普通话', '软件工程', '本科生', '1', '18', '30', '男', '1');
 INSERT INTO `jobhunter` VALUES ('2', '雾醉澜海', '张伟桐', 'fe546daf817a2454b46ba978f0088b8a', '男', '1994-03-01', '未婚', '18814092579', '1473209216@qq.com', '广东省广州市', '在职，暂无跳槽打算', '11111', '234242', '本科', '广东省广州市华南农业大学', '2016-07-28', null, '0', '88888');
 INSERT INTO `jobhunter` VALUES ('3', '雾醉澜海1', '张海彪', 'fe546daf817a2454b46ba978f0088b8a', '男', '1990-01-01', '未婚', '11111111111', '1111111111@qq.com', '河北省广州市', '在职，看看新机会', '大大大', '1231231', '高中以下', '广东省广州市xxxxxxx', '2016-08-04', null, '0', '123123123');
@@ -323,9 +331,30 @@ INSERT INTO `jobhunter` VALUES ('9', '雾醉澜海7', '张傻彪', '316928e0d260
 INSERT INTO `jobhunter` VALUES ('10', '雾醉澜海8', '张伟波', 'b59c67bf196a4758191e42f76670ceba', '女', '1991-02-01', '已婚', '18814092579', '1473209216@qq.com', '广东省上海市', '离职，正在找工作', '1231312', '1231231', '高中', '广东省广州市xxxxxxx', '2016-08-05', null, '0', '2313123');
 INSERT INTO `jobhunter` VALUES ('11', '123', '张海彪', 'b59c67bf196a4758191e42f76670ceba', '女', '1994-03-01', '未婚', '11111111111', '1111111111@qq.com', '广东省北京市', '离职，正在找工作', '12312312', '12312313', '博士', '1231321', '2016-08-12', null, '1', null);
 INSERT INTO `jobhunter` VALUES ('12', '云天河', '云天河', 'e10adc3949ba59abbe56e057f20f883e', '男', '1993-04-01', '不显示', '18814092579', '21312313414@dd.com', '广东省广州市', '在职，看看新机会', '我很帅', '华南农业大学', '高中', '华山十五大', '2016-08-24', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('13', '21312', '的飞洒发送', 'e10adc3949ba59abbe56e057f20f883e', '男', '1991-01-01', '已婚', '11111111111', '421421412@qq.com', '广东省上海市', '在职，看看新机会,离职，正在找工作', '似懂非懂是', '123131', '高中', '爽肤水的第三方的谁', '2016-08-25', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('14', '', '算法', 'd41d8cd98f00b204e9800998ecf8427e', '男', '1990-01-01', '未婚', '', '', '河北省北京市', '在职，看看新机会', '', '方式', '高中以下', '', '2016-08-25', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('15', '是佛挡', '傻彪', 'e10adc3949ba59abbe56e057f20f883e', '女', '1991-02-01', '已婚', '12345612345', 'willberchang@qq.com', '广东省北京市', '在职，看看新机会', '', '1231231', '高中', '上单', '2016-08-26', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('16', 'will52', '张伟波', 'e10adc3949ba59abbe56e057f20f883e', '男', '1995-02-01', '未婚', '13232411200', 'willberchang@qq.com', '广东省广州市', '离职，正在找工作', '', '华南农业大学', '本科', '', '2016-08-26', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('18', '1111', '1211', 'b59c67bf196a4758191e42f76670ceba', '男', '1990-02-01', '未婚', '11111111111', '111@qq.com', '广东省北京市', '在职，看看新机会', '1231', '1232131', '高中以下', '1213123', '2016-08-29', null, '1', null);
+INSERT INTO `jobhunter` VALUES ('19', '李逍遥', '张海彪', 'e10adc3949ba59abbe56e057f20f883e', '女', '1995-08-01', '未婚', '18814092579', '213129841@qq.com', '广东省北京市', '在职，看看新机会', 'DASASD', '华南农业大学', '高中', 'DASDS AD', '2016-08-29', null, '1', null);
 INSERT INTO `jobhunter_upload` VALUES ('3', '2', null, '/resume/uploads/2016/08/18/', 'f68188cb-0206-494a-a2e1-7036961cabea.jpg', '2016-08-18', 'image/jpeg');
-INSERT INTO `jobhunter_upload` VALUES ('4', null, '1', '/resume/uploads/2016/08/23/', '25f95378-71cf-4688-8278-fdf7450b87e9.png', '2016-08-23', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('4', null, '1', '/resume/uploads/2016/08/31/', '7a21876d-81ec-4f91-80db-d050d4080c52.jpg', '2016-08-31', 'image/jpeg');
 INSERT INTO `jobhunter_upload` VALUES ('5', '3', null, '/resume/uploads/2016/08/24/', 'd3aa1f6f-5ad4-4c23-97ed-8b4136c65e1f.png', '2016-08-24', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('6', '16', null, '/resume/uploads/2016/08/29/', '649aa2fe-5317-4c1c-a4a4-d5c99df3975b.jpeg', '2016-08-29', 'image/jpeg');
+INSERT INTO `jobhunter_upload` VALUES ('8', '18', null, '/resume/uploads/2016/08/29/', '0c986c68-ab1d-4a18-a53c-0c4a05a5f8ca.jpg', '2016-08-29', 'image/jpeg');
+INSERT INTO `jobhunter_upload` VALUES ('9', null, '15', '/resume/uploads/2016/08/29/', 'ac33e4cf-b169-4afc-b611-05540786f837.jpeg', '2016-08-29', 'image/jpeg');
+INSERT INTO `jobhunter_upload` VALUES ('10', null, '16', '/resume/uploads/2016/08/29/', '9f94b632-9aa6-483b-829d-9e72f09c1d84.jpg', '2016-08-29', 'image/jpeg');
+INSERT INTO `jobhunter_upload` VALUES ('11', '19', null, '/resume/uploads/2016/08/29/', '336905db-9a82-4515-a512-a86d5f2ef58c.jpg', '2016-08-29', 'image/jpeg');
+INSERT INTO `jobhunter_upload` VALUES ('12', null, '17', '/resume/uploads/2016/08/29/', 'a30ab838-ea5e-4901-ac71-56108495d819.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('13', null, '2', '/resume/uploads/2016/08/29/', '246cf573-1817-423a-959a-6019e4d722f8.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('14', null, '3', '/resume/uploads/2016/08/29/', 'a7b9eec9-4e69-4731-9071-119f74504ed9.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('15', null, '4', '/resume/uploads/2016/08/29/', 'd40c5c56-1794-4e28-aec2-b6c05197e1ca.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('16', null, '5', '/resume/uploads/2016/08/29/', '7b10f1c9-3fa0-4621-aca2-2e84f0e903a7.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('17', null, '6', '/resume/uploads/2016/08/29/', 'aeb90c38-d103-4daf-9046-5bc6492a117d.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('18', null, '7', '/resume/uploads/2016/08/29/', '91d2ace4-e962-4a95-8750-a8a5b91b4766.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('19', null, '8', '/resume/uploads/2016/08/29/', '882f0df4-d3de-400f-b1ee-e80e0dd29d26.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('20', null, '9', '/resume/uploads/2016/08/29/', '44e3ae54-d3a0-446a-9b18-8f0818696bbf.png', '2016-08-29', 'image/png');
+INSERT INTO `jobhunter_upload` VALUES ('21', null, '10', '/resume/uploads/2016/08/29/', '2fc644a4-e778-4156-aa6f-87b25bc780cb.png', '2016-08-29', 'image/png');
 INSERT INTO `mail` VALUES ('1', '管理员', '感谢注册本网站！', '欢迎', '张海彪', '2016-07-29');
 INSERT INTO `notice` VALUES ('1', 'zhangsan', 'zhang', 'san', '2016-07-27');
 INSERT INTO `notice` VALUES ('2', '张', '12', '123', '2016-07-27');
@@ -341,24 +370,18 @@ INSERT INTO `notice` VALUES ('11', '22啊2', '3是', '的2', '2016-07-27');
 INSERT INTO `notice` VALUES ('12', '张', '海', '彪', '2016-07-28');
 INSERT INTO `position` VALUES ('1', 'php工程师', '1');
 INSERT INTO `position` VALUES ('2', 'java工程师', '1');
-INSERT INTO `project_experience` VALUES ('1', '微简历', '东软1', '实习生', '2016-06-01', '2016-07-01', '搭建一个类似猎聘网的个人小网站', '本人主要负责项目的前端页面实现和交互设计', '据统计，网站投入使用后，经过一段时间的宣传，在网络同行的网站点击率占比百分之20%,在广告销售方面取得非常高的利润。');
+INSERT INTO `project_experience` VALUES ('1', '微简历', '东软', '实习生', '2016-10-01', '2016-07-01', '搭建一个类似猎聘网的个人小网站', '本人主要负责项目的前端页面实现和交互设计', '据统计，网站投入使用后，经过一段时间的宣传，在网络同行的网站点击率占比百分之20%,在广告销售方面取得非常高的利润。');
 INSERT INTO `project_experience` VALUES ('6', '的撒打算的', '12313123', null, '2014-01-01', '2016-01-01', '123123', '12312312', '1212312312');
 INSERT INTO `project_experience` VALUES ('7', '123123123', '12312312', null, '2016-01-01', '2016-01-01', '1241213', '123123123', '123123');
-INSERT INTO `resume` VALUES ('1', '2', '1', '2,3,5,7', '1,2,3,6', '1,6', '0', '0', '2016-07-28');
+INSERT INTO `resume` VALUES ('1', '2', '1', '2,3,5,7', '1,2,3,6,10', '1,6', '0', '0', '2016-07-28');
 INSERT INTO `resume` VALUES ('2', '3', '2', '11', '8', '7', '0', '0', null);
-INSERT INTO `resume_job` VALUES ('1', '2', '2016-08-01');
-INSERT INTO `resume_job` VALUES ('1', '4', '2016-08-08');
-INSERT INTO `resume_job` VALUES ('1', '5', '2016-08-07');
-INSERT INTO `resume_job` VALUES ('1', '6', '2016-07-31');
-INSERT INTO `resume_job` VALUES ('1', '7', '2016-07-19');
-INSERT INTO `resume_job` VALUES ('1', '8', '2016-06-22');
-INSERT INTO `resume_job` VALUES ('1', '9', '2016-06-21');
-INSERT INTO `resume_job` VALUES ('1', '10', '2016-08-18');
-INSERT INTO `resume_job` VALUES ('1', '3', '2016-08-19');
-INSERT INTO `resume_job` VALUES ('1', '1', '2016-08-23');
-INSERT INTO `resume_job` VALUES ('2', '2', '2016-08-24');
-INSERT INTO `resume_job` VALUES ('2', '3', '2016-08-24');
-INSERT INTO `resume_job` VALUES ('2', '11', '2016-08-24');
+INSERT INTO `resume` VALUES ('3', '13', null, null, null, null, null, '0', null);
+INSERT INTO `resume` VALUES ('4', '14', null, null, null, null, null, '0', null);
+INSERT INTO `resume` VALUES ('5', '15', null, null, null, null, null, '0', null);
+INSERT INTO `resume` VALUES ('6', '16', null, null, null, null, null, '0', null);
+INSERT INTO `resume` VALUES ('8', '18', null, null, null, null, null, '0', null);
+INSERT INTO `resume` VALUES ('9', '19', null, null, null, null, null, '0', null);
+INSERT INTO `resume_job` VALUES ('1', '1', '2016-08-31');
 INSERT INTO `work_experience` VALUES ('2', '微软', '1', 'java工程师', '广东珠海', '88', '2016-06-01', '2016-07-22', '234242');
 INSERT INTO `work_experience` VALUES ('3', '腾讯', '1', 'java工程师', '广东省深圳市xxxxx', '88', '2010-06-01', '2016-06-01', '哈哈哈哈');
 INSERT INTO `work_experience` VALUES ('5', '阿里', '1', 'php工程师', '浙江杭州', '1223', '2013-01-01', '2016-01-01', '123');

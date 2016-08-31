@@ -120,18 +120,21 @@
 			</div>
 		</div>
 		<div class="framemid" style="height:50;">
-			<input class="form-control" name="textfield" type="text" id="search"
-				value="输入职位、公司等关键字：如 设计总监"
-				onmouseover="this.style.borderColor='#316392'"
-				onmouseout="this.style.borderColor=''"
-				onFocus="if (value =='输入职位、公司等关键字：如 设计总监'){value =''}"
-				onBlur="if (value ==''){value='输入职位、公司等关键字：如 设计总监'}"
-				style="position:absolute;left:15;top:0;float:left;width:350px; height:50px;" />
-			<a href="#" onMouseOut="MM_swapImgRestore()"
+			<form
+				action="${pageContext.request.contextPath}/resume/findResumesByCondition.action"
+				method="post" id="searchResumeForm">
+				<input class="form-control" name="keyWord" type="text" id="search"
+					placeHolder="输入职位、公司等关键字：如 设计总监"
+					onmouseover="this.style.borderColor='#316392'"
+					onmouseout="this.style.borderColor=''"
+					style="position:absolute;left:15;top:0;float:left;width:350px; height:50px;" />
+			</form>
+			<a id="searchResumeBtn" href="javascript:void(0)"
+				onMouseOut="MM_swapImgRestore()"
 				onMouseOver="MM_swapImage('search1','','${pageContext.request.contextPath}/images/companyRegister/index/search2.png',1)"><img
 				style="position:absolute;top:0;left:375;width:100px;height:50px;float:left;"
 				src="${pageContext.request.contextPath}/images/companyRegister/index/search.png"
-				alt="" width="100" height="50" id="search1"> </a>
+				alt="" width="100" height="50"> </a>
 			<div
 				style="position:absolute;float:right;right:15;width:450;word-spacing:10px">
 				<p>
@@ -597,8 +600,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职来网简介</a><br /> <a href="b">产品服务</a><br /> <a
-						href="c">创新优势</a><br /> <a href="c">联系我们</a><br />
+					<a href="javascript:void(0)">职来网简介</a><br /> <a
+						href="javascript:void(0)">产品服务</a><br /> <a
+						href="javascript:void(0)">创新优势</a><br /> <a
+						href="javascript:void(0)">联系我们</a><br />
 				</p>
 			</div>
 		</div>
@@ -608,8 +613,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职位大全</a><br /> <a href="b">招聘职位</a><br /> <a href="c">企业名录</a><br />
-					<a href="d">城市列表</a><br />
+					<a href="javascript:void(0)">职位大全</a><br /> <a
+						href="javascript:void(0)">招聘职位</a><br /> <a
+						href="javascript:void(0)">企业名录</a><br /> <a
+						href="javascript:void(0)">城市列表</a><br />
 				</p>
 			</div>
 		</div>
@@ -619,8 +626,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">网站地图</a><br /> <a href="b">企业入口</a><br /> <a href="c">求职者入口</a><br />
-					<a href="c">宣传页</a><br />
+					<a href="javascript:void(0)">网站地图</a><br /> <a
+						href="javascript:void(0)">企业入口</a><br /> <a
+						href="javascript:void(0)">求职者入口</a><br /> <a
+						href="javascript:void(0)">宣传页</a><br />
 				</p>
 			</div>
 		</div>
@@ -630,8 +639,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">使用帮助</a><br /> <a href="b">常见问题</a><br /> <a href="e">意见反馈</a><br />
-					<a href="c">版权/免责声明</a><br />
+					<a href="javascript:void(0)">使用帮助</a><br /> <a
+						href="javascript:void(0)">常见问题</a><br /> <a
+						href="javascript:void(0)">意见反馈</a><br /> <a
+						href="javascript:void(0)">版权/免责声明</a><br />
 				</p>
 			</div>
 		</div>

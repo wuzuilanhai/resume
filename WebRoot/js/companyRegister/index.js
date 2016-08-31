@@ -82,3 +82,6 @@ $('#logoutBtnForCompany').click(function() {
 		}
 	});
 });
+$('#searchResumeBtn').click(function() {
+	$('#searchResumeForm').submit();
+});

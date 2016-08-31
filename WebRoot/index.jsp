@@ -340,14 +340,14 @@
 
 			<div id="div_login_hunter"
 				style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:175px;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('hunter_login2','','${pageContext.request.contextPath}/images/index/dhh/hunter_login2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/dhh/hunter_login.png"
 					alt="" width="150" height="50" id="hunter_login2"> </a>
 			</div>
 			<div id="div_login_business"
 				style="z-index:10;position:absolute;float:left;width:150px;height:50px;top:25px;right:25px;">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('business_login','','${pageContext.request.contextPath}/images/index/dhh/business_login2.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/dhh/business_login.png"
 					alt="" width="150" height="50" id="business_login"> </a>
