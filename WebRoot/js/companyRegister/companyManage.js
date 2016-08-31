@@ -336,6 +336,15 @@ $('#updateCompanyAccountBtn')
 								.html("<font color='red'>邮箱格式有误!</font>");
 						return;
 					}
+					var filepath = $("#icon").val();
+					var extStart = filepath.lastIndexOf(".");
+					var ext = filepath.substring(extStart, filepath.length)
+							.toUpperCase();
+					if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF"
+							&& ext != ".JPG" && ext != ".JPEG") {
+						alert("图片限于bmp,png,gif,jpeg,jpg格式");
+						return false;
+					}
 					$('#updateCompanyAccountForm').submit();
 				});
 $('#logoutBtnForCompany').click(function() {
