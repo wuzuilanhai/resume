@@ -253,6 +253,10 @@ $('#companyName1').click(function() {
 	$('#companyNameTip1').html("");
 });
 $('#addWorkExperienceBtn').click(function() {
+	var startYear = "#addWorkExperienceForm select:eq(1)";
+	var startMonth = "#addWorkExperienceForm select:eq(2)";
+	var endYear = "#addWorkExperienceForm select:eq(3)";
+	var endMonth = "#addWorkExperienceForm select:eq(4)";
 	if ($('#companyName').val().trim().length == 0) {
 		$('#companyNameTip').html("");
 		$('#companyNameTip').html("<font color='red'>输入不能为空!</font>");
@@ -268,6 +272,17 @@ $('#addWorkExperienceBtn').click(function() {
 		$('#positionNameTip').html("<font color='red'>输入不能为空!</font>");
 		return;
 	}
+	if (parseInt($(startYear).val()) > parseInt($(endYear).val())) {
+		$(id4).html("");
+		$(id4).html("<font color='red'>开始年份应不大于结束年份!</font>");
+		return;
+	} else if (parseInt($(startYear).val()) == parseInt($(endYear).val())) {
+		if (parseInt($(startMonth).val()) > parseInt($(endMonth).val())) {
+			$(id4).html("");
+			$(id4).html("<font color='red'>开始月份应不大于结束月份!</font>");
+			return;
+		}
+	}
 	if ($('#subordinateNumber').val().trim().length == 0) {
 		$('#subordinateNumberTip').html("");
 		$('#subordinateNumberTip').html("<font color='red'>输入不能为空!</font>");
@@ -280,32 +295,80 @@ $('#addWorkExperienceBtn').click(function() {
 	}
 	$('#addWorkExperienceForm').submit();
 });
-$('#addEducationExperienceBtn').click(function() {
-	if ($('#schoolName').val().trim().length == 0) {
-		$('#schoolNameTip').html("");
-		$('#schoolNameTip').html("<font color='red'>输入不能为空!</font>");
-		return;
-	}
-	if ($('#majorName').val().trim().length == 0) {
-		$('#majorNameTip').html("");
-		$('#majorNameTip').html("<font color='red'>输入不能为空!</font>");
-		return;
-	}
-	$('#addEducationExperienceForm').submit();
-});
-$('#addProjectExperienceBtn').click(function() {
-	if ($('#projectName').val().trim().length == 0) {
-		$('#projectNameTip').html("");
-		$('#projectNameTip').html("<font color='red'>输入不能为空!</font>");
-		return;
-	}
-	if ($('#companyName1').val().trim().length == 0) {
-		$('#companyNameTip1').html("");
-		$('#companyNameTip1').html("<font color='red'>输入不能为空!</font>");
-		return;
-	}
-	$('#addProjectExperienceForm').submit();
-});
+$('#addEducationExperienceBtn')
+		.click(
+				function() {
+					var startYear = "#addEducationExperienceForm select:eq(0)";
+					var startMonth = "#addEducationExperienceForm select:eq(1)";
+					var endYear = "#addEducationExperienceForm select:eq(2)";
+					var endMonth = "#addEducationExperienceForm select:eq(3)";
+					if ($('#schoolName').val().trim().length == 0) {
+						$('#schoolNameTip').html("");
+						$('#schoolNameTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if ($('#majorName').val().trim().length == 0) {
+						$('#majorNameTip').html("");
+						$('#majorNameTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if (parseInt($(startYear).val()) > parseInt($(endYear)
+							.val())) {
+						$("#judgeTimeTipeeeee").html("");
+						$("#judgeTimeTipeeeee").html(
+								"<font color='red'>开始年份应不大于结束年份!</font>");
+						return;
+					} else if (parseInt($(startYear).val()) == parseInt($(
+							endYear).val())) {
+						if (parseInt($(startMonth).val()) > parseInt($(endMonth)
+								.val())) {
+							$("#judgeTimeTipeeeee").html("");
+							$("#judgeTimeTipeeeee").html(
+									"<font color='red'>开始月份应不大于结束月份!</font>");
+							return;
+						}
+					}
+					$('#addEducationExperienceForm').submit();
+				});
+$('#addProjectExperienceBtn')
+		.click(
+				function() {
+					var startYear = "#addProjectExperienceForm select:eq(0)";
+					var startMonth = "#addProjectExperienceForm select:eq(1)";
+					var endYear = "#addProjectExperienceForm select:eq(2)";
+					var endMonth = "#addProjectExperienceForm select:eq(3)";
+					if ($('#projectName').val().trim().length == 0) {
+						$('#projectNameTip').html("");
+						$('#projectNameTip').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if ($('#companyName1').val().trim().length == 0) {
+						$('#companyNameTip1').html("");
+						$('#companyNameTip1').html(
+								"<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if (parseInt($(startYear).val()) > parseInt($(endYear)
+							.val())) {
+						$("#judgeTimeTipppppp").html("");
+						$("#judgeTimeTipppppp").html(
+								"<font color='red'>开始年份应不大于结束年份!</font>");
+						return;
+					} else if (parseInt($(startYear).val()) == parseInt($(
+							endYear).val())) {
+						if (parseInt($(startMonth).val()) > parseInt($(endMonth)
+								.val())) {
+							$("#judgeTimeTipppppp").html("");
+							$("#judgeTimeTipppppp").html(
+									"<font color='red'>开始月份应不大于结束月份!</font>");
+							return;
+						}
+					}
+					$('#addProjectExperienceForm').submit();
+				});
 $("input[id^='workExperienceCompanyName']").click(function() {
 	var id = $(this).attr('id').substring(25);
 	var newId = "#workExperienceCompanyNameTip" + id;
@@ -321,37 +384,71 @@ $("input[id^='workExperiencePositionName']").click(function() {
 	var newId = "#workExperiencePositionNameTip" + id;
 	$(newId).html("");
 });
-$("a[id^='updateWorkExperience']").click(
-		function() {
-			var id = $(this).attr("id").substring(20);
-			var formId = "#workExperience" + id;
-			var id1 = "#workExperienceCompanyName" + id;
-			var id11 = "#workExperienceCompanyNameTip" + id;
-			var id2 = "#workExperienceWorksite" + id;
-			var id22 = "#workExperienceWorksiteTip" + id;
-			var id3 = "#workExperiencePositionName" + id;
-			var id33 = "#workExperiencePositionNameTip" + id;
-			if ($(id1).val().trim().length == 0) {
-				$(id11).html("");
-				$(id11).html("<font color='red'>输入不能为空!</font>");
-				return;
-			}
-			if ($(id2).val().trim().length == 0) {
-				$(id22).html("");
-				$(id22).html("<font color='red'>输入不能为空!</font>");
-				return;
-			}
-			if ($(id3).val().trim().length == 0) {
-				$(id33).html("");
-				$(id33).html("<font color='red'>输入不能为空!</font>");
-				return;
-			}
-			$(formId).attr(
-					"action",
-					getRootPath()
-							+ "/workExperience/updateWorkExperience.action");
-			$(formId).submit();
-		});
+$("a[id^='updateWorkExperience']")
+		.click(
+				function() {
+					var id = $(this).attr("id").substring(20);
+					var formId = "#workExperience" + id;
+					var id1 = "#workExperienceCompanyName" + id;
+					var id11 = "#workExperienceCompanyNameTip" + id;
+					var id2 = "#workExperienceWorksite" + id;
+					var id22 = "#workExperienceWorksiteTip" + id;
+					var id3 = "#workExperiencePositionName" + id;
+					var id33 = "#workExperiencePositionNameTip" + id;
+					var id4 = "#judgeTimeTip" + id;
+					var startYear = formId + " select:eq(1)";
+					var startMonth = formId + " select:eq(2)";
+					var endYear = formId + " select:eq(3)";
+					var endMonth = formId + " select:eq(4)";
+					if ($(id1).val().trim().length == 0) {
+						$(id11).html("");
+						$(id11).html("<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if ($(id2).val().trim().length == 0) {
+						$(id22).html("");
+						$(id22).html("<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if ($(id3).val().trim().length == 0) {
+						$(id33).html("");
+						$(id33).html("<font color='red'>输入不能为空!</font>");
+						return;
+					}
+					if (parseInt($(startYear).val()) > parseInt($(endYear)
+							.val())) {
+						$(id4).html("");
+						$(id4).html("<font color='red'>开始年份应不大于结束年份!</font>");
+						return;
+					} else if (parseInt($(startYear).val()) == parseInt($(
+							endYear).val())) {
+						if (parseInt($(startMonth).val()) > parseInt($(endMonth)
+								.val())) {
+							$(id4).html("");
+							$(id4).html(
+									"<font color='red'>开始月份应不大于结束月份!</font>");
+							return;
+						}
+					}
+					$(formId)
+							.attr(
+									"action",
+									getRootPath()
+											+ "/workExperience/updateWorkExperience.action");
+					$(formId).submit();
+				});
+$("select[id^='startYear']").click(function() {
+	$("div[id^='judgeTimeTip']").html("");
+});
+$("select[id^='endYear']").click(function() {
+	$("div[id^='judgeTimeTip']").html("");
+});
+$("select[id^='startMonth']").click(function() {
+	$("div[id^='judgeTimeTip']").html("");
+});
+$("select[id^='endMonth']").click(function() {
+	$("div[id^='judgeTimeTip']").html("");
+});
 $("input[id^='educationExperienceSchoolName']").click(function() {
 	var id = $(this).attr('id').substring(29);
 	var newId = "#educationExperienceSchoolNameTip" + id;
@@ -369,6 +466,11 @@ $("a[id^='updateEducationExperience']").click(function() {
 	var id11 = "#educationExperienceSchoolNameTip" + id;
 	var id2 = "#educationExperienceMajorName" + id;
 	var id22 = "#educationExperienceMajorNameTip" + id;
+	var startYear = formId + " select:eq(0)";
+	var startMonth = formId + " select:eq(1)";
+	var endYear = formId + " select:eq(2)";
+	var endMonth = formId + " select:eq(3)";
+	var id4 = "#judgeTimeTip" + $(startYear).attr("id").substring(9);
 	if ($(id1).val().trim().length == 0) {
 		$(id11).html("");
 		$(id11).html("<font color='red'>输入不能为空!</font>");
@@ -378,6 +480,17 @@ $("a[id^='updateEducationExperience']").click(function() {
 		$(id22).html("");
 		$(id22).html("<font color='red'>输入不能为空!</font>");
 		return;
+	}
+	if (parseInt($(startYear).val()) > parseInt($(endYear).val())) {
+		$(id4).html("");
+		$(id4).html("<font color='red'>开始年份应不大于结束年份!</font>");
+		return;
+	} else if (parseInt($(startYear).val()) == parseInt($(endYear).val())) {
+		if (parseInt($(startMonth).val()) > parseInt($(endMonth).val())) {
+			$(id4).html("");
+			$(id4).html("<font color='red'>开始月份应不大于结束月份!</font>");
+			return;
+		}
 	}
 	$(formId).submit();
 });
@@ -398,6 +511,11 @@ $("a[id^='updateProjectExperience']").click(function() {
 	var id11 = "#projectExperienceProjectNameTip" + id;
 	var id2 = "#projectExperienceCompanyName" + id;
 	var id22 = "#projectExperienceCompanyNameTip" + id;
+	var startYear = formId + " select:eq(0)";
+	var startMonth = formId + " select:eq(1)";
+	var endYear = formId + " select:eq(2)";
+	var endMonth = formId + " select:eq(3)";
+	var id4 = "#judgeTimeTip" + $(startYear).attr("id").substring(9);
 	if ($(id1).val().trim().length == 0) {
 		$(id11).html("");
 		$(id11).html("<font color='red'>输入不能为空!</font>");
@@ -407,6 +525,17 @@ $("a[id^='updateProjectExperience']").click(function() {
 		$(id22).html("");
 		$(id22).html("<font color='red'>输入不能为空!</font>");
 		return;
+	}
+	if (parseInt($(startYear).val()) > parseInt($(endYear).val())) {
+		$(id4).html("");
+		$(id4).html("<font color='red'>开始年份应不大于结束年份!</font>");
+		return;
+	} else if (parseInt($(startYear).val()) == parseInt($(endYear).val())) {
+		if (parseInt($(startMonth).val()) > parseInt($(endMonth).val())) {
+			$(id4).html("");
+			$(id4).html("<font color='red'>开始月份应不大于结束月份!</font>");
+			return;
+		}
 	}
 	$(formId).submit();
 });

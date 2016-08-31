@@ -837,6 +837,8 @@
 												<option value=12
 													<c:if test="${startMonth1=='12' }">selected</c:if>>12月</option>
 											</select>
+											<div id="judgeTimeTip${workExperience.wexperienceId}"
+												style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 										</div>
 										<div class="fill" style="top:260">
 											<p>
@@ -981,7 +983,7 @@
 								<div class="fill" style="top:210">
 									<p>任职时间：</p>
 									<select name="startYear" type="text" class="form-control"
-										style="left:100;width:90px;">
+										id="startYearxxxxxxxxxxx" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
 										<option value=2014>2014年</option>
@@ -990,7 +992,7 @@
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
 									</select> <select name="startMonth" type="text" class="form-control"
-										style="left:210;width:90px;">
+										id="startMonthxxxxxxxxxxx" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
 										<option value=3>3月</option>
@@ -1004,11 +1006,13 @@
 										<option value=11>11月</option>
 										<option value=12>12月</option>
 									</select>
+									<div id="judgeTimeTip"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 								</div>
 								<div class="fill" style="top:260">
 									<p>离职时间：</p>
 									<select name="endYear" type="text" class="form-control"
-										style="left:100;width:90px;">
+										id="endYearxxxxxxxxxx" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
 										<option value=2014>2014年</option>
@@ -1016,9 +1020,8 @@
 										<option value=2012>2012年</option>
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
-									</select> <select name="endMonth" type="
-									text"
-										class="form-control" style="left:210;width:90px;">
+									</select> <select name="endMonth" type="text" class="form-control"
+										id="endMonthxxxxxxxxxxx" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
 										<option value=3>3月</option>
@@ -1204,6 +1207,8 @@
 												<option value=12
 													<c:if test="${startMonth2=='12' }">selected</c:if>>12月</option>
 											</select>
+											<div id="judgeTimeTip${num_count+num1.count+8 }"
+												style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 										</div>
 										<div class="fill" style="top:160">
 											<p>
@@ -1330,7 +1335,7 @@
 								</div>
 								<div class="fill" style="top:110">
 									<p>就读时间：</p>
-									<select id="startYear" type="text" name="startYear"
+									<select id="startYeareeeee" type="text" name="startYear"
 										class="form-control" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
@@ -1339,7 +1344,7 @@
 										<option value=2012>2012年</option>
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
-									</select> <select id="startMonth" type="text" name="startMonth"
+									</select> <select id="startMontheeeee" type="text" name="startMonth"
 										class="form-control" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
@@ -1354,10 +1359,12 @@
 										<option value=11>11月</option>
 										<option value=12>12月</option>
 									</select>
+									<div id="judgeTimeTipeeeee"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 								</div>
 								<div class="fill" style="top:160">
 									<p>离校时间：</p>
-									<select id="endYear" type="text" name="endYear"
+									<select id="endYeareeeee" type="text" name="endYear"
 										class="form-control" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
@@ -1366,9 +1373,8 @@
 										<option value=2012>2012年</option>
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
-									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
-										name="endMonth" class="form-control"
-										style="left:210;width:90px;">
+									</select> <select id="endMontheeeee" type="text" name="endMonth"
+										class="form-control" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
 										<option value=3>3月</option>
@@ -1547,7 +1553,9 @@
 													<c:if test="${startMonth3=='11' }">selected</c:if>>11月</option>
 												<option value=12
 													<c:if test="${startMonth3=='12' }">selected</c:if>>12月</option>
-											</select> </select>
+											</select>
+											<div id="judgeTimeTip${num_count+num1.count+8 }"
+												style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 										</div>
 										<div class="fill" style="top:160">
 											<p>
@@ -1678,9 +1686,8 @@
 								</div>
 								<div class="fill" style="top:110">
 									<p>开始时间：</p>
-									<select id="startYear${num_count+num1.count+8 }" type="text"
-										name="startYear" class="form-control"
-										style="left:100;width:90px;">
+									<select id="startYearppppp" type="text" name="startYear"
+										class="form-control" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
 										<option value=2014>2014年</option>
@@ -1688,9 +1695,8 @@
 										<option value=2012>2012年</option>
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
-									</select> <select id="startMonth${num_count+num1.count+8 }" type="text"
-										name="startMonth" class="form-control"
-										style="left:210;width:90px;">
+									</select> <select id="startMonthppppp" type="text" name="startMonth"
+										class="form-control" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
 										<option value=3>3月</option>
@@ -1704,12 +1710,13 @@
 										<option value=11>11月</option>
 										<option value=12>12月</option>
 									</select>
+									<div id="judgeTimeTipppppp"
+										style="position:absolute;left:330;top:15;float:left;width:240px; height:30px; font-family:微软雅黑;font-size: 14px; color: #989898;"></div>
 								</div>
 								<div class="fill" style="top:160">
 									<p>结束时间：</p>
-									<select id="endYear${num_count+num1.count+8 }" type="text"
-										name="endYear" class="form-control"
-										style="left:100;width:90px;">
+									<select id="endYearppppp" type="text" name="endYear"
+										class="form-control" style="left:100;width:90px;">
 										<option value=2016>2016年</option>
 										<option value=2015>2015年</option>
 										<option value=2014>2014年</option>
@@ -1717,9 +1724,8 @@
 										<option value=2012>2012年</option>
 										<option value=2011>2011年</option>
 										<option value=2010>2010年</option>
-									</select> <select id="endMonth${num_count+num1.count+8 }" type="text"
-										name="endMonth" class="form-control"
-										style="left:210;width:90px;">
+									</select> <select id="endMonthppppp" type="text" name="endMonth"
+										class="form-control" style="left:210;width:90px;">
 										<option value=1>1月</option>
 										<option value=2>2月</option>
 										<option value=3>3月</option>
