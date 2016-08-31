@@ -121,21 +121,23 @@
 					width="132" height="50" alt="" /> </a>
 			</div>
 			<div class="buttontop" style="left:182;">
-				<a
-					href="${pageContext.request.contextPath}/jobHunter/indexUI.action"
+				<a href="${pageContext.request.contextPath}/company/index.action"
 					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('mainpage2','','${pageContext.request.contextPath}/images/index/dhh/mainpage2_b.png',0)"><img
 					src="${pageContext.request.contextPath}/images/index/dhh/mainpage_b.png"
 					alt="" width="100" height="50" id="mainpage2"> </a>
 			</div>
 			<div class="buttontop" style="left:282">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a
+					href="${pageContext.request.contextPath}/company/companyManage.action"
+					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('job2','','${pageContext.request.contextPath}/images/index/dhh/job2_b.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/dhh/job_b.png"
 					alt="" width="100" height="50" id="job2"> </a>
 			</div>
 			<div class="buttontop" style="left:382">
-				<a href="${pageContext.request.contextPath}"
+				<a
+					href="${pageContext.request.contextPath}/resume/findAllResumes.action"
 					onMouseOut="MM_swapImgRestore()"
 					onMouseOver="MM_swapImage('resume2','','${pageContext.request.contextPath}/images/index/dhh/resume2_b.png',1)"><img
 					src="${pageContext.request.contextPath}/images/index/dhh/resume_b.png"

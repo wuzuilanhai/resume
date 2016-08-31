@@ -236,8 +236,9 @@
 				</div>
 				<div class="fill_right">
 					<h1>企业简介：</h1>
-					<p>广州奥凯信息咨询有限公司成立于2000年8月，专注于信息情报解决方案，提供知识产权高端服务。是全国首批知识产权服务品牌机构、全国首批知识产权分析评议示范创建机构。总部设在广州，在北京、上海、苏州、惠州等地设有独立子公....</p>
-					<a href=" ">
+					<p>${sessionScope.jobCustom.companyDescription }</p>
+					<a
+						href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${sessionScope.jobCustom.jobId}">
 						<p style="color:#3d7d52;text-align:right">查看详情</p> </a>
 				</div>
 			</div>

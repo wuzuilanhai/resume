@@ -265,7 +265,7 @@
 						src="${pageContext.request.contextPath}/images/companyRegister/detail/search.png"
 						alt="" width="60" height="40" id="search2"> </a>
 				</div>
-				<a href=" ">
+				<a href="${pageContext.request.contextPath}/job/findAllJobs.action">
 					<p
 						style="position:absolute;color:3d7d52;text-align:left;left:30;top:115">高级搜索</p>
 				</a>
