@@ -37,6 +37,9 @@
 			<result column="industry_name" property="industryName"
 				jdbcType="VARCHAR" />
 			<result column="submittime" property="submitTime" jdbcType="DATE" />
+			<result column="upload_location" property="uploadLocation"
+				jdbcType="VARCHAR" />
+			<result column="upload_name" property="uploadName" jdbcType="VARCHAR" />
 		</collection>
 	</resultMap>
 	<resultMap type="com.pojo.ResumeCustom" id="resumeCustomJobMap"
@@ -58,7 +61,7 @@
 	</resultMap>
 	<select id="findResumeJob" parameterType="int" resultMap="resumeCustomJobMap">
 		select
-		r.*,rj.submitTime,j.*,c.company_name,c.company_location,i.industry_name
+		r.*,rj.submitTime,j.*,c.company_name,c.company_location,i.industry_name,jobhunter_upload.upload_location,jobhunter_upload.upload_name
 		from resume r
 		left join resume_job rj on
 		r.resume_id=rj.resume_id
@@ -67,6 +70,8 @@
 		rj.job_id=j.job_id left join
 		company c on
 		j.company_id=c.company_id
+		left join jobhunter_upload on
+		c.company_id=jobhunter_upload.company_id
 		left join
 		industry i on
 		j.industry_id=i.industry_id where

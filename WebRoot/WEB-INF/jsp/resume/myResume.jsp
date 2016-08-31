@@ -106,7 +106,8 @@
 			</div>
 			<div
 				style="position:absolute;right:46;top:41;width:140;height:140;float:left">
-				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()" id="showFrameRight3333"
+				<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+					id="showFrameRight3333"
 					onMouseOver="MM_swapImage('revise','','${pageContext.request.contextPath}/images/resume/1.png',0)"><img
 					src="${pageContext.request.contextPath}/images/resume/2.png" alt=""
 					width="140" height="140" id="revise"> </a>
@@ -455,21 +456,21 @@
 								<table id="marriage"
 									style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
 									<tr>
-										<td> <input type="radio"
-												name="jobhunter.jobhunterMaritalStatus" value="已婚"
-												id="RadioGroup1_0"
-												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</td>
-										<td> <input type="radio"
-												name="jobhunter.jobhunterMaritalStatus" value="未婚"
-												id="RadioGroup1_1"
-												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</td>
-										<td> <input type="radio"
-												name="jobhunter.jobhunterMaritalStatus" value="不显示"
-												id="RadioGroup1_2"
-												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</td>
+										<td><input type="radio"
+											name="jobhunter.jobhunterMaritalStatus" value="已婚"
+											id="RadioGroup1_0"
+											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
+											已婚</td>
+										<td><input type="radio"
+											name="jobhunter.jobhunterMaritalStatus" value="未婚"
+											id="RadioGroup1_1"
+											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
+											未婚</td>
+										<td><input type="radio"
+											name="jobhunter.jobhunterMaritalStatus" value="不显示"
+											id="RadioGroup1_2"
+											<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
+											保密</td>
 									</tr>
 								</table>
 							</div>
@@ -1901,7 +1902,7 @@
 										pattern="yyyy/MM/dd" />
 								</p>
 								<img style="position:absolute;right:0;top:31;float:right;"
-									src="${pageContext.request.contextPath}/images/resume/brand2.jpg"
+									src="${jobCustom.uploadLocation }${jobCustom.uploadName }"
 									width="160" height="80" alt="" />
 							</div>
 						</c:forEach>
