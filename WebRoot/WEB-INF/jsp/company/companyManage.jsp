@@ -116,7 +116,8 @@
 			</div>
 			<div
 				style="position:absolute;right:46;top:41;width:140;height:140;float:left">
-				<a href="#" onMouseOut="MM_swapImgRestore()"
+				<a href="javasrcipt:void(0)" onMouseOut="MM_swapImgRestore()"
+					id="showFrameRight4444"
 					onMouseOver="MM_swapImage('revise','','${pageContext.request.contextPath}/images/companyRegister/manage/1.png',0)"><img
 					src="${pageContext.request.contextPath}/images/companyRegister/manage/2.png"
 					alt="" width="140" height="140" id="revise"> </a>
