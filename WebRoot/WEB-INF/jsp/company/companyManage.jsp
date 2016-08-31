@@ -31,9 +31,9 @@
 </head>
 
 <body>
-	<div id="scroll">
+	<div style="z-index:101" id="scroll">
 		<div id="toTop" class="scrollItem">
-			<a href="#" onMouseOut="MM_swapImgRestore()"
+			<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
 				onMouseOver="MM_swapImage('top','','${pageContext.request.contextPath}/images/companyRegister/manage/top2.png',1)"><img
 				src="${pageContext.request.contextPath}/images/companyRegister/manage/top.png"
 				alt="" width="30" height="30" id="top"> </a> 回到顶部
