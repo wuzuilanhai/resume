@@ -8,9 +8,10 @@
 }
 
 body,td,th {
-	font-size: 12px;
+	line-height: 180%; font-size : 12px;
 	color: #6b6b6b;
 	font-family: "微软雅黑";
+	font-size: 12px;
 }
 
 a:link {
@@ -37,18 +38,21 @@ a {
 }
 
 p {
+	line-height: 180%;
 	font-family: "微软雅黑";
 	font-size: 14px;
 	color: #6b6b6b;
 }
 
 p2 {
+	line-height: 180%;
 	font-family: "微软雅黑";
 	font-size: 12px;
 	color: #6b6b6b;
 }
 
 p3 {
+	line-height: 180%;
 	font-family: "微软雅黑";
 	font-size: 14px;
 	color: #fff;
