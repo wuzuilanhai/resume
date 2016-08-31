@@ -260,10 +260,10 @@
 						onBlur="if (value ==''){value='输入搜索关键字'}"
 						style="position:absolute;left:0;top:10;float:left;width:204px; height:30px;" />
 					<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('search','','${pageContext.request.contextPath}/images/companyRegister/detail/search2.png',0)"><img
+						onMouseOver="MM_swapImage('search3','','${pageContext.request.contextPath}/images/companyRegister/detail/search2.png',0)"><img
 						style="position:absolute;bottom:0;right:0;"
 						src="${pageContext.request.contextPath}/images/companyRegister/detail/search.png"
-						alt="" width="60" height="40" id="search2"> </a>
+						alt="" width="60" height="40" id="search3"> </a>
 				</div>
 				<a href="${pageContext.request.contextPath}/job/findAllJobs.action">
 					<p

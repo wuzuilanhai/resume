@@ -455,21 +455,21 @@
 								<table id="marriage"
 									style="position:absolute;left:100;top:12;float:left;width:200;font-size:12;">
 									<tr>
-										<td><label> <input type="radio"
+										<td> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="已婚"
 												id="RadioGroup1_0"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='已婚' }">checked</c:if>>
-												已婚</label></td>
-										<td><label> <input type="radio"
+												已婚</td>
+										<td> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="未婚"
 												id="RadioGroup1_1"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='未婚' }">checked</c:if>>
-												未婚</label></td>
-										<td><label> <input type="radio"
+												未婚</td>
+										<td> <input type="radio"
 												name="jobhunter.jobhunterMaritalStatus" value="不显示"
 												id="RadioGroup1_2"
 												<c:if test="${sessionScope.jobhunter.jobhunterMaritalStatus=='不显示' }">checked</c:if>>
-												保密</label></td>
+												保密</td>
 									</tr>
 								</table>
 							</div>

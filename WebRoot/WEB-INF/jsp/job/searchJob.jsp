@@ -270,7 +270,9 @@
 						<div class="fill" style="padding-top:10.7">
 							<div
 								style="position:absolute;top:10;right:0;width:160px;height:80px;float:right;">
-								<a href="#"><img style="width:160;height:80;"
+								<a
+									href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${job.jobId}"><img
+									style="width:160;height:80;"
 									src="${job.uploadLocation }${job.uploadName }" alt="" /> </a>
 							</div>
 							<p2> <a

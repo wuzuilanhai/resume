@@ -272,7 +272,7 @@
 					</div>
 				</c:forEach>
 				<div class="fill_right">
-					<a href=" ">
+					<a href="${pageContext.request.contextPath}/job/findAllJobs.action">
 						<p style="color:3d7d52;text-align:right">查看更多</p> </a>
 				</div>
 			</div>
@@ -302,13 +302,13 @@
 						onFocus="if (value =='输入搜索关键字'){value =''}"
 						onBlur="if (value ==''){value='输入搜索关键字'}"
 						style="position:absolute;left:0;top:10;float:left;width:204px; height:30px;" />
-					<a href="#" onMouseOut="MM_swapImgRestore()"
-						onMouseOver="MM_swapImage('search','','${pageContext.request.contextPath}/images/job/search2.png',0)"><img
+					<a href="javascript:void(0)" onMouseOut="MM_swapImgRestore()"
+						onMouseOver="MM_swapImage('search2','','${pageContext.request.contextPath}/images/job/search444.png',0)"><img
 						style="position:absolute;bottom:0;right:0;"
-						src="${pageContext.request.contextPath}/images/job/search.png"
+						src="${pageContext.request.contextPath}/images/job/search333.png"
 						alt="" width="60" height="40" id="search2"> </a>
 				</div>
-				<a href=" ">
+				<a href="${pageContext.request.contextPath}/job/findAllJobs.action">
 					<p
 						style="position:absolute;color:3d7d52;text-align:left;left:30;top:115">高级搜索</p>
 				</a>
