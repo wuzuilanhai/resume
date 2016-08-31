@@ -275,9 +275,9 @@
 									style="width:160;height:80;"
 									src="${job.uploadLocation }${job.uploadName }" alt="" /> </a>
 							</div>
-							<p2> <a
+							<p2> <a style="color:#3d7d52"
 								href="${pageContext.request.contextPath}/company/showCompanyDetailByJobId.action?jobId=${job.jobId}">${job.companyName
-								}</a> · <a
+								}</a> · <a style="color:#3d7d52"
 								href="${pageContext.request.contextPath}/job/showJobDetailByJobId.action?jobId=${job.jobId}">${job.jobName
 								}</a></p2>
 							<p>

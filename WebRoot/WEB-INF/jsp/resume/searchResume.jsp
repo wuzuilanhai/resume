@@ -275,8 +275,8 @@
 						style="position:absolute;right:30;top:28;"
 						src="${resume.uploadLocation }${resume.uploadName }" width="100"
 						height="100" alt="" /> </a>
-					<h1>
-						<a
+					<h1 >
+						<a style="color:#316392"
 							href="${pageContext.request.contextPath}/resume/showResumeDetail.action?resumeId=${resume.resumeId}">${resume.jobhunterRealName
 							}</a> · ${resume.jobhunterBirthday }
 					</h1>
