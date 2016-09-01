@@ -151,11 +151,12 @@
 							href="${pageContext.request.contextPath}/company/registerUI.action">注册</a>
 					</div>
 					<div style="position:absolute;right:10;top:10;">
-						<a href="${pageContext.request.contextPath}/company/index.action"
+						<a
+							href="${pageContext.request.contextPath}/jobHunter/indexUI.action.action"
 							onMouseOut="MM_swapImgRestore()"
-							onMouseOver="MM_swapImage('business','','${pageContext.request.contextPath}/images/index/dhh/business2.png',1)"><img
-							src="${pageContext.request.contextPath}/images/index/dhh/business.png"
-							alt="" width="80" height="30" id="business"> </a>
+							onMouseOver="MM_swapImage('person','','${pageContext.request.contextPath}/images/index/dhh/person2.png',1)"><img
+							src="${pageContext.request.contextPath}/images/index/dhh/person.png"
+							alt="" width="80" height="30" id="person"> </a>
 					</div>
 				</c:if>
 				<c:if test="${sessionScope.company!=null}">
@@ -444,8 +445,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职来网简介</a><br /> <a href="b">产品服务</a><br /> <a
-						href="c">创新优势</a><br /> <a href="c">联系我们</a><br />
+					<a href="javascript:void(0)">职来网简介</a><br /> <a
+						href="javascript:void(0)">产品服务</a><br /> <a
+						href="javascript:void(0)">创新优势</a><br /> <a
+						href="javascript:void(0)">联系我们</a><br />
 				</p>
 			</div>
 		</div>
@@ -455,8 +458,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职位大全</a><br /> <a href="b">招聘职位</a><br /> <a href="c">企业名录</a><br />
-					<a href="d">城市列表</a><br />
+					<a href="javascript:void(0)">职位大全</a><br /> <a
+						href="javascript:void(0)">招聘职位</a><br /> <a
+						href="javascript:void(0)">企业名录</a><br /> <a
+						href="javascript:void(0)">城市列表</a><br />
 				</p>
 			</div>
 		</div>
@@ -466,8 +471,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">网站地图</a><br /> <a href="b">企业入口</a><br /> <a href="c">求职者入口</a><br />
-					<a href="c">宣传页</a><br />
+					<a href="javascript:void(0)">网站地图</a><br /> <a
+						href="javascript:void(0)">企业入口</a><br /> <a
+						href="javascript:void(0)">求职者入口</a><br /> <a
+						href="javascript:void(0)">宣传页</a><br />
 				</p>
 			</div>
 		</div>
@@ -477,8 +484,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">使用帮助</a><br /> <a href="b">常见问题</a><br /> <a href="e">意见反馈</a><br />
-					<a href="c">版权/免责声明</a><br />
+					<a href="javascript:void(0)">使用帮助</a><br /> <a
+						href="javascript:void(0)">常见问题</a><br /> <a
+						href="javascript:void(0)">意见反馈</a><br /> <a
+						href="javascript:void(0)">版权/免责声明</a><br />
 				</p>
 			</div>
 		</div>
@@ -500,8 +509,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职来网简介</a><br /> <a href="b">产品服务</a><br /> <a
-						href="c">创新优势</a><br /> <a href="c">联系我们</a><br />
+					<a href="javascript:void(0)">职来网简介</a><br /> <a
+						href="javascript:void(0)">产品服务</a><br /> <a
+						href="javascript:void(0)">创新优势</a><br /> <a
+						href="javascript:void(0)">联系我们</a><br />
 				</p>
 			</div>
 		</div>
@@ -511,8 +522,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">职位大全</a><br /> <a href="b">招聘职位</a><br /> <a href="c">企业名录</a><br />
-					<a href="d">城市列表</a><br />
+					<a href="javascript:void(0)">职位大全</a><br /> <a
+						href="javascript:void(0)">招聘职位</a><br /> <a
+						href="javascript:void(0)">企业名录</a><br /> <a
+						href="javascript:void(0)">城市列表</a><br />
 				</p>
 			</div>
 		</div>
@@ -522,8 +535,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">网站地图</a><br /> <a href="b">企业入口</a><br /> <a href="c">求职者入口</a><br />
-					<a href="c">宣传页</a><br />
+					<a href="javascript:void(0)">网站地图</a><br /> <a
+						href="javascript:void(0)">企业入口</a><br /> <a
+						href="javascript:void(0)">求职者入口</a><br /> <a
+						href="javascript:void(0)">宣传页</a><br />
 				</p>
 			</div>
 		</div>
@@ -533,8 +548,10 @@
 			</div>
 			<div style="position:absolute;top:75;left:65;text-align:left;">
 				<p style="font-size:12">
-					<a href="a">使用帮助</a><br /> <a href="b">常见问题</a><br /> <a href="e">意见反馈</a><br />
-					<a href="c">版权/免责声明</a><br />
+					<a href="javascript:void(0)">使用帮助</a><br /> <a
+						href="javascript:void(0)">常见问题</a><br /> <a
+						href="javascript:void(0)">意见反馈</a><br /> <a
+						href="javascript:void(0)">版权/免责声明</a><br />
 				</p>
 			</div>
 		</div>
