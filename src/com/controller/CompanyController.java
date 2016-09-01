@@ -345,8 +345,13 @@ public class CompanyController extends BasicController {
 		Company company = (Company) session.getAttribute("company");
 		// 修改求职者信息
 		newCompany.setCompanyId(company.getCompanyId());
-		newCompany.setCompanyPassword(MD5Utils.md5(newCompany
-				.getCompanyPassword()));
+		if (newCompany.getCompanyPassword() != null
+				&& !"".equals(newCompany.getCompanyPassword())) {
+			newCompany.setCompanyPassword(MD5Utils.md5(newCompany
+					.getCompanyPassword()));
+		} else if ("".equals(newCompany.getCompanyPassword())) {
+			newCompany.setCompanyPassword(null);
+		}
 		companyService.updateCompany(newCompany);
 		// 更新session中company的值
 		company = companyService.findCompanyByCompanyLoginName(company

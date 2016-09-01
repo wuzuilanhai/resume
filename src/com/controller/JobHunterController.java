@@ -325,8 +325,13 @@ public class JobHunterController extends BasicController {
 		Jobhunter jobhunter = (Jobhunter) session.getAttribute("jobhunter");
 		// 修改求职者信息
 		newJobhunter.setJobhunterId(jobhunter.getJobhunterId());
-		newJobhunter.setJobhunterPassword(MD5Utils.md5(newJobhunter
-				.getJobhunterPassword()));
+		if (newJobhunter.getJobhunterPassword() != null
+				&& !"".equals(newJobhunter.getJobhunterPassword())) {
+			newJobhunter.setJobhunterPassword(MD5Utils.md5(newJobhunter
+					.getJobhunterPassword()));
+		} else if ("".equals(newJobhunter.getJobhunterPassword())) {
+			newJobhunter.setJobhunterPassword(null);
+		}
 		jobHunterService.updateJobHunterByDetails(newJobhunter);
 		// 更新session中jobhunter的值
 		jobhunter = jobHunterService.findJobHunterById(jobhunter
@@ -387,5 +392,4 @@ public class JobHunterController extends BasicController {
 		}
 		return "redirect:/resume/showResume.action";
 	}
-
 }

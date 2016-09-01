@@ -572,52 +572,49 @@ $('#email1').click(function() {
 $('#updateAccountMsgBtn')
 		.click(
 				function() {
-					if (($("#password_old").val().trim()).length == 0) {
-						$('#jobhunterPasswordOldTip').html("");
-						$('#jobhunterPasswordOldTip').html(
-								"<font color='red'>输入不能为空!</font>");
-						return;
-					} else if (hex_md5($("#password_old").val()) != $(
-							'#passwordValue').val()) {
-						$("#password_old").val("");
-						$('#jobhunterPasswordOldTip').html("");
-						$('#jobhunterPasswordOldTip').html(
-								"<font color='red'>原密码不正确!</font>");
-						return;
-					}
-					if (($("#password_new").val().trim()).length == 0) {
-						$('#password_newTip').html("");
-						$('#password_newTip').html(
-								"<font color='red'>输入不能为空!</font>");
-						return;
-					} else if (($("#password_new").val().trim()).length < 4) {
-						$('#password_new').val("");
-						$('#password_newTip').html("");
-						$('#password_newTip').html(
-								"<font color='red'>长度应大于3位!</font>");
-						return;
-					} else if (!/^[a-z,A-Z,0-9]+$/.test($("#password_new")
-							.val().trim())) {
-						$('#password_new').val("");
-						$('#password_newTip').html("");
-						$('#password_newTip').html(
-								"<font color='red'>请输字母或数字!</font>");
-						return;
-					}
-					if (($("#password_new2").val().trim()).length == 0) {
-						$('#jobhunterPasswordNewConfirmTip').html("");
-						$('#jobhunterPasswordNewConfirmTip').html(
-								"<font color='red'>输入不能为空!</font>");
-						return;
-					} else if ($("#password_new").val().trim() != $(
-							"#password_new2").val().trim()) {
-						$('#password_new').val("");
-						$('#password_new2').val("");
-						$('#password_newTip').html("");
-						$('#jobhunterPasswordNewConfirmTip').html("");
-						$('#jobhunterPasswordNewConfirmTip').html(
-								"<font color='red'>两次输入不同!</font>");
-						return;
+					if (($("#password_old").val().trim()).length > 0) {
+						if (hex_md5($("#password_old").val()) != $(
+								'#passwordValue').val()) {
+							$("#password_old").val("");
+							$('#jobhunterPasswordOldTip').html("");
+							$('#jobhunterPasswordOldTip').html(
+									"<font color='red'>原密码不正确!</font>");
+							return;
+						}
+						if (($("#password_new").val().trim()).length == 0) {
+							$('#password_newTip').html("");
+							$('#password_newTip').html(
+									"<font color='red'>输入不能为空!</font>");
+							return;
+						} else if (($("#password_new").val().trim()).length < 4) {
+							$('#password_new').val("");
+							$('#password_newTip').html("");
+							$('#password_newTip').html(
+									"<font color='red'>长度应大于3位!</font>");
+							return;
+						} else if (!/^[a-z,A-Z,0-9]+$/.test($("#password_new")
+								.val().trim())) {
+							$('#password_new').val("");
+							$('#password_newTip').html("");
+							$('#password_newTip').html(
+									"<font color='red'>请输字母或数字!</font>");
+							return;
+						}
+						if (($("#password_new2").val().trim()).length == 0) {
+							$('#jobhunterPasswordNewConfirmTip').html("");
+							$('#jobhunterPasswordNewConfirmTip').html(
+									"<font color='red'>输入不能为空!</font>");
+							return;
+						} else if ($("#password_new").val().trim() != $(
+								"#password_new2").val().trim()) {
+							$('#password_new').val("");
+							$('#password_new2').val("");
+							$('#password_newTip').html("");
+							$('#jobhunterPasswordNewConfirmTip').html("");
+							$('#jobhunterPasswordNewConfirmTip').html(
+									"<font color='red'>两次输入不同!</font>");
+							return;
+						}
 					}
 					if (($("#phone1").val().trim()).length == 0) {
 						$('#phone1Tip').html("");
