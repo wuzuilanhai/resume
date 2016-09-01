@@ -334,13 +334,15 @@ $('#updateCompanyAccountBtn')
 						return;
 					}
 					var filepath = $("#icon").val();
-					var extStart = filepath.lastIndexOf(".");
-					var ext = filepath.substring(extStart, filepath.length)
-							.toUpperCase();
-					if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF"
-							&& ext != ".JPG" && ext != ".JPEG") {
-						alert("图片限于bmp,png,gif,jpeg,jpg格式");
-						return false;
+					if (filepath.length > 0) {
+						var extStart = filepath.lastIndexOf(".");
+						var ext = filepath.substring(extStart, filepath.length)
+								.toUpperCase();
+						if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF"
+								&& ext != ".JPG" && ext != ".JPEG") {
+							alert("图片限于bmp,png,gif,jpeg,jpg格式");
+							return false;
+						}
 					}
 					$('#updateCompanyAccountForm').submit();
 				});

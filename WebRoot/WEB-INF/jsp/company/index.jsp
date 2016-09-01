@@ -559,23 +559,33 @@
 			<p
 				style="margin: 0; position: absolute; top: 0; left: 0;  font-size: 14px; font-family:微软雅黑;color: #316392; font-weight: ">常用链接：</p>
 			<p style="margin: 0; position: absolute; top: 0; left: 100;  ">
-				<a href="#">北京</a>&nbsp;<a href="#">上海</a>&nbsp;<a href="#">广州</a>&nbsp;<a
-					href="#">深圳</a>&nbsp;<a href="#">南京</a>&nbsp;<a href="#">杭州</a>&nbsp;<a
-					href="#">天津</a>&nbsp;<a href="#">青岛</a>&nbsp;<a href="#">成都</a>&nbsp;<a
-					href="#">重庆</a>&nbsp;<a href="#">武汉</a>&nbsp;<a href="#">厦门</a>&nbsp;<a
-					href="#">郑州</a>&nbsp;<a style="color:#316392" href="#">查看更多</a>
+				<a href="javascript:void(0)">北京</a>&nbsp;<a
+					href="javascript:void(0)">上海</a>&nbsp;<a href="javascript:void(0)">广州</a>&nbsp;<a
+					href="javascript:void(0)">深圳</a>&nbsp;<a href="javascript:void(0)">南京</a>&nbsp;<a
+					href="javascript:void(0)">杭州</a>&nbsp;<a href="javascript:void(0)">天津</a>&nbsp;<a
+					href="javascript:void(0)">青岛</a>&nbsp;<a href="javascript:void(0)">成都</a>&nbsp;<a
+					href="javascript:void(0)">重庆</a>&nbsp;<a href="javascript:void(0)">武汉</a>&nbsp;<a
+					href="javascript:void(0)">厦门</a>&nbsp;<a href="javascript:void(0)">郑州</a>&nbsp;<a
+					style="color:#316392" href="javascript:void(0)">查看更多</a>
 			</p>
 			<p
-				style="margin: 0; position: absolute; top:40; left: 0;  font-size: 14px; font-family:微软雅黑;color: #316392; font-weight:">热门职位：</p>
+				style="margin: 0; position: absolute; top:40; left: 0;  font-size: 14px; font-family:微软雅黑;color: javascript:void(0)316392; font-weight:">热门职位：</p>
 			<p
 				style="text-align:left;margin: 0; position: absolute; top: 40; left: 100; ">
-				<a href="#">翻译</a>&nbsp;<a href="#">保险</a>&nbsp;<a href="#">销售</a>&nbsp;<a
-					href="#">金融</a>&nbsp;<a href="#">银行</a>&nbsp;<a href="#">数据分析</a>&nbsp;<a
-					href="#">结构工程师</a>&nbsp;<a href="#">UI设计师</a>&nbsp;<a href="#">产品</a>&nbsp;<a
-					href="#">人力资源</a>&nbsp;<a href="#">律师</a>&nbsp;<a href="#">营养师</a>&nbsp;<a
-					href="#">活动策划</a>&nbsp;<a href="#">网络工程师</a>&nbsp;<a href="#">物业管理</a>&nbsp;<a
-					href="#">包装设计</a>&nbsp;<a href="#">运营</a>&nbsp;<a href="#">技术总监</a>&nbsp;<a
-					style="color:#316392" href="#">查看更多</a>
+				<a href="javascript:void(0)">翻译</a>&nbsp;<a
+					href="javascript:void(0)">保险</a>&nbsp;<a href="javascript:void(0)">销售</a>&nbsp;<a
+					href="javascript:void(0)">金融</a>&nbsp;<a href="javascript:void(0)">银行</a>&nbsp;<a
+					href="javascript:void(0)">数据分析</a>&nbsp;<a
+					href="javascript:void(0)">结构工程师</a>&nbsp;<a
+					href="javascript:void(0)">UI设计师</a>&nbsp;<a
+					href="javascript:void(0)">产品</a>&nbsp;<a href="javascript:void(0)">人力资源</a>&nbsp;<a
+					href="javascript:void(0)">律师</a>&nbsp;<a href="javascript:void(0)">营养师</a>&nbsp;<a
+					href="javascript:void(0)">活动策划</a>&nbsp;<a
+					href="javascript:void(0)">网络工程师</a>&nbsp;<a
+					href="javascript:void(0)">物业管理</a>&nbsp;<a
+					href="javascript:void(0)">包装设计</a>&nbsp;<a
+					href="javascript:void(0)">运营</a>&nbsp;<a href="javascript:void(0)">技术总监</a>&nbsp;<a
+					style="color:#316392" href="javascript:void(0)">查看更多</a>
 			</p>
 		</div>
 		<div>
