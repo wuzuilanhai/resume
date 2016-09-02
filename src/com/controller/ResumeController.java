@@ -253,8 +253,9 @@ public class ResumeController extends BasicController {
 				.getResumeId());
 		String positionName = null;
 		if (careerIntention != null) {
-			positionService.findPositionNameByPositionId(careerIntention
-					.getPositionId());
+			positionName = positionService
+					.findPositionNameByPositionId(careerIntention
+							.getPositionId());
 		}
 
 		session.setAttribute("jobhunter1", jobhunter);
